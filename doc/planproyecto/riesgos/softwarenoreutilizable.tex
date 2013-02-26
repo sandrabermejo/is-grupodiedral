@@ -1,8 +1,8 @@
-% Hoja de descripción de riesgo: ejemplo
+% Hoja de descripción de riesgo: Software no reutilizable
 
-\hojariesgo{Riesgo de ejemplo}{
+\hojariesgo{Software no reutilizable}{
 	% Identificador del riesgo
-	id=A1,
+	id=T5,
 	% Persona o departamento que ha identificado el riesgo
 	identificador=Departamento de desarrollo de software.,
 	% Fecha de identificación del riesgo
@@ -11,12 +11,15 @@
 	descripcion={No es posible la reutilización del software en etapas posteriores, lo que supone la generación de
 	nuevo software y unas pérdidas del antiguo (pérdidas de costes, rendimiento y tiempo por ese software que no se
 	va a poder reutilizar y que queda inservible).},
-	% Consecuencia (C->coste, S->calendario, R->rendimiento, Q->calidad)
-	consecuencia={C, S, R},
-	% Impacto (C->crítico, S->serio, M->moderado, N->menor)
-	impacto=N,
+	T5 & \nameref{Riesgos:T5} & L	& C/S/R	& P	& MEN	& MEDIO	\\ \hline % Software no reutilizable
+	% Influencia (C->coste, S->calendario, R->rendimiento, Q->calidad)
+	influye={C, S, R},
+	% Consecuencia (C->crítico, S->serio, M->moderado, N->menor)
+	consecuencia=M,
+	% Impacto 
+	impacto=MEDIO,
 	% Probabilidad (A->alta, M->media, B->baja, %)
-	probabilidad=M,
+	probabilidad=P,
 	% Periodo de previsión (C->corto plazo, L->largo plazo)
 	periodo=L,
 	% Estrategia de prevención
