@@ -1,0 +1,36 @@
+% Caso de uso: Configurar sistema general.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Configurar sistema general.,
+	% Objetivo
+	objetivo={Permitir la configuración general del sistema.},
+	% Entradas
+	entradas={Cambios que se quieran realizar en la configuración del sistema.},
+	% Precondiciones
+	precondiciones={Que un personal administrativo autorizado acceda a la configuración del sistema para realizar los cambios que desee dentro de las opciones posibles.},
+	% Salidas
+	salidas={Cambiar la configuración.},
+	% Postcondiciones en caso de éxito
+	postexito={La configuración que ha elegido el personal administrativo habrá sido restablecida por lo que haya indicado}.
+	% Postcondiciones en caso de error
+	posterror={No se ha realizado ningún cambio en el sistema y la configuración sigue igual que estaba.},
+	% Actores
+	actores=El personal administrativo cuyo rol implique cambiar la configuración del sistema de la empresa.,
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & El usuario registrado accede a la configuración del sistema.\\
+		2 & Introduce las modificaciones que desea realizar en el sistema.\\
+		3 & Se modifican los datos de la configuración indicados previamente. Si error S-1.\\
+		3 & Se confirma que los datos han sido modificados con éxito.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Los datos indicados no se pueden eliminar. Si quiere modificar esos datos asegúrese de que son datos modificables. Si lo son, ha ocurrido un fallo en el sistema que debe de comunicar al personal técnico para su revisión.\\
+	\end{tablasecuencias}
+}
+
+

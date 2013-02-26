@@ -1,0 +1,32 @@
+% Caso de uso: ver incidencias del sistema.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Ver incidencias del sistema,
+	% Objetivo
+	objetivo={Permite a los supervisores informáticos del sistema inspeccionar el correcto funcionamiento del \software y responder a comportamientos erróneos del mismo que hayan sido detectados, a partir de los registros que este genera.},
+	% Entradas
+	entradas={El nombre de registro que se quiere consultar.},
+	% Precondiciones
+	precondiciones={El operador de la aplicación está debidamente registrado y posee credenciales que le habilitan para realizar esta operación.},
+	% Salidas
+	salidas={Archivos de registro del sistema solicitados.},
+	% Postcondiciones en caso de éxito
+	postexito={},
+	% Postcondiciones en caso de error
+	posterror={El sistema central no habrá sufrido cambios.},
+	% Actores
+	actores={Personal de \textit{Servicios Informáticos} y supervisores del sistema con autorización para ello.},
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Los archivos de registro del servidor central y los errores reportados por las aplicaciones cliente componen una serie de archivos de texto en el servidor central. Esos archivos podrán ser consultados dando acceso a su ubicación en el sistema de archivos del servidor central.
+		% De momento, ¿para qué complicarlo?
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Las secuencias alternativas son las que determine el método de acceso al servidor.
+	\end{tablasecuencias}
+}

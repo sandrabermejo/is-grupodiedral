@@ -1,0 +1,163 @@
+%
+%	Documento de plan de proyecto
+%
+
+\documentclass[11pt, a4paper, twoside]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage{anysize}
+\usepackage[none]{hyphenat}
+\usepackage{multicol}
+%\usepackage{graphicx}
+\usepackage[colorlinks, linkcolor=red]{hyperref}
+\usepackage{isdiedral}
+\usepackage[italian]{isodate}
+
+% Configuraciones
+\marginsize{2.5cm}{2cm}{2cm}{2cm}
+
+% Usa como familia tipográfica por defecto "Sans"
+\renewcommand{\familydefault}{\sfdefault}
+
+% Establece la profundidad hasta la cual se numeran los elementos de sección
+\setcounter{secnumdepth}{4}
+
+% Para las clases "book" o semejantes desactiva la impresión del número de capítulo
+\renewcommand*\thesection{\arabic{section}}
+
+% Cambia el nombre del TOC a "Índice" (pues en "report" se le denomina por defecto "Índice general")
+\addto{\captionsspanish}{\renewcommand*{\contentsname}{Índice}}
+
+% Configuración de los encabezados
+\encabezadodiedral{Especificación de requisitos software}
+\pagestyle{fancy}
+\renewcommand*{\thepage}{\sffamily \roman{page}}
+
+% Modelo copiado de los apuntes del tema 5 pág 69 (a lo Pressman)
+
+\title{Plan de proyecto\\\textsl{Airline Common Environment}}
+\author{Grupo Diedral}
+
+% Metadatos del pdf
+\hypersetup{
+pdfinfo={
+	Author={Grupo Diedral},
+	Title={Plan de proyecto},
+	Subject={Airline Common Environment},
+	Keywords={Plan de proyecto;Airline Common Environment;Ingeniería del Software}
+}
+}
+
+\begin{document}
+	% Portada
+	\portadaace{Plan de proyecto}
+	
+	\tableofcontents
+	\newpage
+
+	\begin{scriptsize}
+	\begin{tablacambios}
+	\end{tablacambios}
+	\end{scriptsize}
+	\newpage
+
+	\section{Introducción}
+	\iniciarnumeraciondiedral
+		\subsection{Propósito del plan}
+		\subsection{Ámbito del proyecto y objetivos}
+			\subsubsection{Declaración del ámbito}
+			El ámbito del proyecto es la gestión tanto interna como externa de una compañía aérea. La aplicación para la gestión interna permitirá a los empleados de la compañía organizar y programar de manera más rápida y eficiente varias de sus tareas laborales, así como consultar diversos datos relativos a su trabajo en la empresa, como horarios, nómina, etc. En cuanto a la gestión externa, los clientes de la compañía podrán realizar a través de la página web todo lo relacionado con la compra de los billetes de avión: acceder a la información relativa a los vuelos ofertados, efectuar el pago de los billetes y beneficiarse de diversas ofertas.
+
+			\subsubsection{Funciones principales}
+			Las funciones principales de la aplicación interna son la consulta de horarios y nóminas para todos los empleados de la compañía, así como otras funciones específicas según el empleo que realicen dentro de la empresa como consultar, añadir o editar distintos datos de empleados, inventario o información de la empresa, y otras funciones concretas relativas al empleo como puede ser realizar un mantenimiento o registrar un nuevo empleado. \\
+
+			La aplicación externa permitirá al cliente la compra de billetes de vuelo, pudiendo realizar el pago por diversos métodos. Además, permitirá la consulta de los vuelos ofertados así como ver información de las diversas ofertas y presentar sugerencias.
+
+			\subsubsection{Aspectos de rendimiento}
+			\subsubsection{Restricciones y técnicas de gestión}
+		\subsection{Modelo de proceso}
+	\section{Estimaciones del proyecto}
+		\subsection{Datos históricos}
+	A lo largo del documento de planificación temporal nos hemos apoyado en el plan de proyecto de algunos trabajos de la Universidad Complutense como por ejemplo IronHand, Estubox, sobre todo para la identificación de riesgos, tal y como sugiere la Gestión de Riesgos Boehm. Además, también nos hemos ayudado de \cite{PSMAN} y sobre todo de los Top 10 Risk.
+		\subsection{Técnicas de estimación}
+		
+		\subsection{Estimaciones de esfuerzo, coste y duración}
+	\section{Estrategia de gestión del riesgo}
+		\subsection{Análisis del riesgo}
+			\begin{tablariesgos}
+				% ID & Denominación & Duración & Ámbito & Probabilidad & Consecuencia & Impacto
+				P1 & \nameref{Riesgos:P1} & C/L	& A 	& C 	& I 	& G 	\\ \hline
+				P5 & \nameref{Riesgos:P5} & L 	& S 	& M	& S	& ?	\\ \hline
+				P7 & \nameref{Riesgos:P7} & L	& R/C/S	& M	& S	& ?	\\ \hline
+				P8 & \nameref{Riesgos:P8} & L	& R/C/S	& M	& S	& ?	\\ \hline
+				P9 & \nameref{Riesgos:P9} & L	& R/C/S	& M	& S	& ?	\\ \hline
+				T1 & \nameref{Riesgos:T1} &	&	&	&	&	\\ \hline
+				T2 & \nameref{Riesgos:T2} &	&	&	&	&	\\ \hline
+				T3 & \nameref{Riesgos:T3} &	&	&	&	&	\\ \hline
+				X1 & \nameref{Riesgos:X1} &	&	&	&	&	% Fin			
+			\end{tablariesgos}
+		\subsection{Estudio de los riesgos}
+			\input{riesgos/cambiorequisitos}
+			\input{riesgos/defcomponentes}
+			\input{riesgos/desconocimientotecnologias}
+			\input{riesgos/erroresdocumentacion}
+			\input{riesgos/ambiguedadespecificacion}
+			\input{riesgos/erroresdiseno}
+			\input{riesgos/faltasoportemovil}
+			\input{riesgos/faltacomunicacion}
+			\input{riesgos/inactividadprolongada}			
+			\input{riesgos/obsolescenciatecnologica}
+			\input{riesgos/incumplimientofecha}
+			\input{riesgos/perdidaequipo}
+			\input{riesgos/planificacionpocorealista}
+			\input{riesgos/qtdesfasado}
+			\input{riesgos/repositorioinoperativo}
+			\input{riesgos/softwarenoreutilizable}
+
+		\subsection{Plan de gestión de riesgo}
+	\section{Planificación temporal}		
+		\subsection{Estructura de descomposición del trabajo/planificación temporal}
+		\subsection{Gráfico Gantt}
+		\subsection{Red de tareas}
+		\subsection{Tabla de uso de recursos}
+	\section{Recursos del proyecto}
+		\subsection{Personal}
+		\subsection{Hardware y software}
+			\ldots
+
+		\subsection{Lista de recursos}
+			\input{lista_recursos}
+
+	\section{Organización del personal}
+		\subsection{Estructura de equipo}	% Si procede
+		El escaso número de miembros del que consta el equipo de trabajo ha dificultado el establecimiento de una estructura compleja del mismo, sin embargo, sí se han realizado unas pequeñas divisiones para facilitar y organizar de manera más clara el trabajo. En este sentido, Rubén ha sido el coordinador del equipo, debido a sus mayores conocimientos en las herramientas que podían utilizarse. Siguiendo sus pautas, el resto del equipo ha realizado un trabajo similar, repartiendo las distintas partes del proyecto entre todos los miembros del mismo y realizando múltiples rotaciones para garantizar la homogeneidad y el trabajo de todos los miembros en todos los aspectos del proyecto.
+		\subsection{Informes de gestión}
+	\section{Mecanismo de seguimiento y control}
+		\subsection{Garantía de calidad y control}
+		\subsection{Gestión y control de cambios}
+			Se consideran los siguientes elementos de control\ldots. El sistema de numeración empleado\ldots.
+		
+		\begin{itemize}
+			\item[\bfseries 1.0] $\{$SRS 1.2, Prototipo 1.0, Casos de Uso 1.3, Diagramas de los Casos de Uso 1.3$\}$
+			\item[\bfseries 1.1] $\{$SRS 1.3, Prototipo 1.0, Casos de Uso 1.4, Diagramas de los Casos de Uso 1.3$\}$
+			\item[\bfseries 2.0] $\{$SRS 1.4or, Prototipo 1.0, Casos de Uso 1.5, Diagramas de los Casos de Uso 1.3,
+		Plan de Proyecto 1.0$\}$
+		\end{itemize}
+
+		\begin{center}NOTA PARA BORRAR: NÓTESE QUE HE PUESTO LAS VERSIONES DE LOS DOCUMENTOS AL AZAR,
+		LUEGO BUSCAMOS DONDE SACAR VERSIONES VIEJAS (IDLE BUSCANDO, BÚSQUENLE BÚSQUENLE).\end{center}
+		
+	\newpage
+	\section{Apéndices}
+		\appendix
+		\section{Actividad del repositorio}
+			\input{anexo_repo.tex}
+		
+		\newpage
+		\normalsize
+		\nocite{PSMAN}
+		\bibliography{planproyecto}
+		\bibliographystyle{apalike}
+\end{document}

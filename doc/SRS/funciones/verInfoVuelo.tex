@@ -1,0 +1,24 @@
+\srsfuncion{Ver información de vuelo}
+	
+	Esta función permite a los clientes que han comprado billetes obtener información sobre su reserva. Muestra una lista de todos los vuelos pendientes contratados con la compañía, permitiendo imprimir un informe sobre cada uno de ellos o sobre la totalidad. No muestra información sobre vuelos pasados ni permite filtrar los resultados obtenidos.
+
+	\begin{enumerate}
+		\item \textit{Prioridad}: media.
+		\item \textit{Entradas}\\
+			Esta función no acepta ningún parámetro.
+
+		\item \textit{Precondiciones}: el usuario ha iniciado sesión correctamente en la interfaz externa.
+		
+		\item \textit{Flujo de operaciones}
+			\begin{enumerate}
+				\item Se muestra una sucesión de cuadros describiendo cada uno de los vuelos contratados. Si no hay ningún vuelo contratado mostrar ese mensaje.
+				\item El usuario puede seleccionar --en cada vuelo o en general-- la opción imprimir que formateará la información adecuadamente para ser impresa o generará un documento \gls{PDF} para ser descargado.
+			\end{enumerate}
+		\item \textit{Respuesta a situaciones no previstas}
+			\begin{enumerate}
+				\item Si no se puede conectar con la base de datos u obtener la información: informar del error al usuario.
+				\item Si no se puede generar la vista de impresión o el documento \gls{PDF}: informar al usuario e indicarle que puede volver a intentarlo en otro momento.
+			\end{enumerate}
+		\item \textit{Relación con otras funciones}\\
+			Esta función requiere indirectamente de las funciones \verb|Comprar billete| y \verb|Acceder|.
+	\end{enumerate}

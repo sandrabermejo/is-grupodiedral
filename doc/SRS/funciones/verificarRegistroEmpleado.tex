@@ -1,0 +1,20 @@
+\srsfuncion{Verificar el registro de un empleado}
+	Esta función debe permitir verificar la cuenta de un empleado registrado en la base de datos del sistema de la compañía aérea, para que dicha cuenta pase a estar activa y plenamente operativa.
+
+\begin{enumerate}
+	\item \textit{Prioridad}: alta.
+	\item \textit{Entradas}
+	\begin{enumerate}
+		\item Los datos del empleado cuya cuenta ha sido creada previamente.
+		\item La verificación por parte del usuario de la aplicación para registrar al nuevo empleado contratado por la empresa.
+	\end{enumerate}
+	\item \textit{Flujo de operaciones}
+	\begin{enumerate}
+		\item Se muestra por pantalla la información del usuario así como su cuenta y se habilita un botón \verb|Activar cuenta| para que ésta pase a estar totalmente operativa.
+	\end{enumerate}
+	\item \textit{Respuesta a situaciones no previstas}
+	\begin{enumerate}
+		\item Si no se puede acceder a la base de datos para almacenar la información: se muestra un mensaje de error por pantalla informando de que la cuenta no ha podido activarse. Se vuelve a la página principal del sistema.
+	\end{enumerate}
+
+\end{enumerate}

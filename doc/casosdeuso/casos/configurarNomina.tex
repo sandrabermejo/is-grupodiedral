@@ -1,0 +1,34 @@
+% Caso de uso: Configurar nómina
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Configurar nómina,
+	% Objetivo
+	objetivo=Confeccionar y almacenar las nóminas mensuales de todos empleados.,
+	% Entradas
+	entradas={Incidencias relativas a la nómina de un empleado correspondientes a un mes (horas extras, comisiones, sustituciones\ldots)},
+	% Precondiciones
+	precondiciones=Haber accedido al sistema como un personal de Recursos Humanos y acceder a la opción \textit{Configurar nónima}.,
+	% Salidas
+	salidas=Confirmación de la operación,
+	% Postcondiciones en caso de éxito
+	postexito=La nómina queda archivada en la base de datos.,
+	% Postcondiciones en caso de error
+	posterror=La base de datos no se modifica,
+	% Actores
+	actores=Personal de administración y la base de datos.
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Seleccionar el empleado correspondiente y obtener los datos de la base de datos. Si error S-1. \\
+		2 & Se introducen los conceptos e incidencias correspondientes. Si error S-2. \\
+		3 & Petición de confirmación de la corrección de los datos introducidos.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Si no se puede conectar con la base de datos, mostrar un mensaje de error y volver a la página principal del sistema. \\
+		S-2 & Mostrar un mensaje de error y volver a la página principal del sistema.
+	\end{tablasecuencias}
+}

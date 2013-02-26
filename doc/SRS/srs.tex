@@ -1,0 +1,500 @@
+%
+%	Documento de especificación de requisitos software (SRS).
+%
+
+\documentclass[11pt, a4paper, twoside]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage{anysize}
+\usepackage{fancyhdr}
+\usepackage{titletoc}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{graphicx}
+\usepackage[colorlinks, linkcolor=red]{hyperref}
+\usepackage{glossaries}
+\usepackage{glossaries-babel}
+\usepackage{isdiedral}
+\usepackage{todonotes}
+
+%%% Configuraciones %%%
+\marginsize{2.5cm}{2cm}{2cm}{2cm}
+
+% Usa como familia tipográfica por defecto "Sans"
+\renewcommand{\familydefault}{\sfdefault}
+
+% Establece la profundidad hasta la cual se numeran los elementos de sección
+\setcounter{secnumdepth}{4}
+
+% Establece la profundidad de niveles de sección que aparece en el TOC
+%\setcounter{tocdepth}{4}
+
+% Para las clases "book" o semejantes desactiva la impresión del número de capítulo
+\renewcommand*\thesection{\arabic{section}}
+
+% Cambia el nombre del TOC a "Índice" (pues en "report" se le denomina por defecto "Índice general")
+\addto{\captionsspanish}{\renewcommand*{\contentsname}{Índice}}
+
+% Fija que la entrada del glosario se comporte como una subsección
+\setglossarysection{subsection}
+
+% Configuración de los encabezados
+\encabezadodiedral{Especificación de requisitos software}
+\pagestyle{fancy}
+
+\renewcommand*{\thepage}{\sffamily \roman{page}}
+
+
+% Modelo copiado de los apuntes del tema 3 (páginas 69 a 98)
+
+\title{Especificación de requisitos software\\\textsl{Airline Common Environment}}
+\author{Grupo Diedral}
+
+% Metadatos del pdf
+\hypersetup{
+pdfinfo={
+	Author={Grupo Diedral},
+	Title={Especificación de requisitos software},
+	Subject={Airline Common Environment},
+	Keywords={SRS;Airline Common Environment;Ingeniería del Software}
+}
+}
+
+% Inclusión del glosario (gracias a David Peñas)
+\input{srsGlosario}
+\makeglossaries
+
+\begin{document}
+	% Portada
+	\portadaace{Especificación de requisitos software}
+
+	\tableofcontents
+	\newpage
+	\thispagestyle{plain}
+
+	% Tabla de cambios
+	\begin{scriptsize}
+	\begin{tablacambios}
+		1 & 15 de Noviembre de 2012 & \begin{tabular}{l}Cristina Alonso\\Natalia Angulo\\Sandra Bermejo\\Juan Andrés Claramunt\\Rubén Rafael Rubio \\\textit{(Todo el grupo)}\end{tabular} & Realización completa de la Introducción al proyecto.\\ \hline
+		2 & 19 de Noviembre de 2012 & Todo el grupo & Realización de los primeros diagramas de los casos de uso y preparar la charla sobre el proyecto del 22 de noviembre de 2012.\\ \hline
+		3 & 27 de Noviembre de 2012 & Rubén Rafael Rubio & Preparación y distribución de la plantilla de \LaTeX{} para los Casos de Uso.\\ \hline
+		4 & 28 de Noviembre de 2012 & Todo el grupo & Sorteo de los Casos de Uso y reparto del trabajo.\\ \hline
+		5 & 6 de Diciembre de 2012 & Rubén Rafael Rubio & Preparación y distribución de la plantilla de \LaTeX{} para los SRS.\\ \hline
+		6 & 11 de Diciembre de 2012 & Todo el grupo & Puesta en común de los Casos de Uso y reparto de estos para realizar una revisión desde un punto de vista diferente al que los ha hecho. Discusión sobre el entorno y lenguaje en el que vamos a realizar el prototipo (aplicación).\\ \hline
+		7 & 12 de Diciembre de 2012 & Todo el grupo & Revisión desde casa de los Casos de Uso y posterior modificación de algunos para mejorarlos. Obtención de nuevos Casos de Uso mientras se hacía esta revisión y realización de ellos.\\ \hline
+		8 & 13 de Diciembre de 2012 & Todo el grupo & Puesta en común de ideas y explicaciones de los SRS. Planificación de los SRS y de las pantallas para el prototipo (aplicación). Reparto del trabajo.\\ \hline
+		9 & 14 de Diciembre de 2012 & Todo el grupo & Realización en casa de las pantallas para el prototipo y del documento de los SRS.\\ \hline
+		10 & 15 de Diciembre de 2012 & Todo el grupo & (Reunión durante todo el día). Puesta en común de las pantallas para el prototipo y organización del mismo para que Rubén Rafael Rubio las juntase todas en el prototipo (aplicación). Revisión general de los SRS y reparto de trabajo para una segunda revisión individual de estos. Diagramas con el nuevo programa recomendado por el profesor ARGO UML realizados por Cristina Alonso. Discusión sobre el prototipo (página Web) y reparto de dibujos de las diversas páginas correspondientes con los Casos de Uso.\\ \hline
+		11 & 16 de Diciembre de 2012 & Todo el grupo & Realización individual de todo el trabajo repartido el día 15 de diciembre de 2012. \\ \hline
+		12 & 17 de Diciembre de 2012 & Todo el grupo & Revisión de todo el grupo al prototipo (aplicación) para ver cómo ha quedado y proposición de nuevas ideas y sugerencias para la futura aplicación. Puesta en común de lo nuevo de los SRS. Nueva revisión de los SRS realizada por Juan Andrés Claramunt y Sandra Bermejo. Vista común de los dibujos de las pantallas para el prototipo Web. Diseño de dicho prototipo (página Web) realizado por Natalia Angulo. \\ \hline
+		13 & 18 de Diciembre de 2012 & Todo el grupo & Realización de la presentación en Beamer (\LaTeX) y organización y pequeña simulación de dicha presentación. Realización individual de las tareas pendientes.\\ \hline
+		14 & 19 de Diciembre de 2012 & Todo el grupo & Revisión de todo el grupo al prototipo (página Web) para ver cómo ha quedado y proposición de nuevas ideas y sugerencias para la futura página Web. Última revisión general antes de la exposición y preparación individual de ésta.\\ \hline
+		15 & 20 de Diciembre de 2012 & Todo el grupo & Presentación de los Casos de Uso, los SRS y los prototipos (aplicación y página Web).
+	\end{tablacambios}
+	\end{scriptsize}
+	\newpage
+	\iniciarnumeraciondiedral
+		
+	\section{Introducción}
+		\subsection{Propósito}
+			El objetivo de este documento es especificar la naturaleza y detalles de realización de software, con el fin de organizar el proceso de desarrollo y servir como referencia a los clientes.
+
+		\subsection{Alcance}
+			El ámbito de \textit{Airline Common Environment} \glsunset{ACE} (\gls{ACE}) comprende la gestión interna y externa de una compañía aérea dedicada al transporte de viajeros. El sistema de gestión interna estará destinado a facilitar y optimizar la actividad laboral del empleado, así como permitir a la compañía el control de recursos tanto materiales, financieros como humanos. Sin embargo, no corresponde a este proyecto sustituir al empleado en procesos como pueden ser la la planificación de rutas de vuelo, horarios o revisiones. \\
+
+			Por otro lado, el sistema de gestión externa abre un canal de comunicación fluido entre la empresa y el viajero, manteniendo actualizada la información referente a vuelos, billetes, ofertas y dando la posibilidad de realizar descuentos personalizados en sus compras.\\
+
+			El uso de esta aplicación proporcionará a los clientes una mayor eficiencia y organización a la par que una interfaz cómoda y completa para desarrollar su actividad como empresa. 
+			
+		\subsection{Definiciones acrónimos y abreviaturas}
+			Véase~\nameref{srs:glosario}.
+		\subsection{Referencias}
+			Véase sección Referencias al final del texto. Los estándares de IEEE se pueden obtener de \url{http://standards.ieee.org/findstds/standard/}.
+		\subsection{Resumen}
+			La especificación de requisitos trata, por tanto, de describir completamente el comportamiento de la aplicación que se va a desarrollar. Este documento incluye la especificación de los casos de uso, mostrando así todas las interacciones que se puedan llevar a cabo entre el cliente y el software. \\
+
+			Además, este documento contiene la descripción general del producto y requisitos específicos como: funcionalidades que pueda realizar la aplicación en un futuro, requisitos de rendimiento y de la base de datos y restricciones de diseño o implementación.
+			
+	\section{Descripción general}
+		\subsection{Perspectiva del producto}
+			ACE permitirá la gestión completa, tanto de la parte interna como de la parte externa, de una compañía aérea, sin que sea necesario, en un principio, integrarla dentro de otro sistema. \\
+			
+			La interfaz interna de ACE facilitará al personal de la compañía aérea acceder a sus datos laborales actualizados, ya que éstos estarán informatizados y podrán ser consultados a través de la aplicación, así como a ciertos datos de la compañía de interés general. Además, a través de su cuenta personal y en función del cargo que ejerza dentro de la compañía, la aplicación permitirá al usuario realizar unas u otras tareas para mejorar la programación laboral, optimizando así el tiempo y el esfuerzo del trabajador. \\
+			
+			En cuanto a la parte externa, el sitio web de la compañía permitirá al usuario la compra de billetes, ofreciéndole la información de todos los vuelos disponibles según sus criterios de búsqueda, así como mostrándole las últimas ofertas y permitiendo el pago a través de la web.
+			
+		\subsection{Funciones del producto}
+			Las principales funciones del producto están destinadas a gestionar de forma centralizada todo lo relativo a las actividades normales de una compañía aérea. Básicamente éstas se pueden clasificar en dos grandes grupos, que serían los siguientes. \\
+			
+			\begin{itemize}
+				\item Funciones relacionadas con el funcionamiento interno de la compañía:
+					\begin{itemize}
+						\item \textit{Financieras}: información de ventas, gastos, valoración de inventario.
+						\item \textit{Administrativas}: confección y consultas de nóminas de empleados, pedidos a proveedores.
+						\item \textit{Mantenimiento}: programación de revisiones de vehículos, inventariado de herramientas y repuestos.
+						\item \textit{Planificación}: creación y consultas de planes y rutas de vuelos, cuadrar horarios de personal.			
+					\end{itemize}
+				\item Funciones relativas a la interacción con el cliente final:
+					\begin{itemize}
+						\item \textit{Venta}: Venta de billetes.
+						\item \textit{Oferta}: Ofertas, promociones y descuentos personalizados.
+					\end{itemize}
+			\end{itemize}
+			
+		\subsection{Características del usuario}
+			El perfil del usuario de esta aplicación no es homogéneo. Una primera clasificación surge por la mayor o menor relación con la compañía.\\
+			En cuanto a los usuarios ajenos a la empresa se cuenta con:
+	
+			\begin{itemize}
+				\item \textit{Cliente}: no hay restricción alguna en el tipo de cliente que puede acceder a la aplicación externa, aunque sí a la hora de realizar el pago, pues este cliente debería de tener como mínimo la mayoría de edad. Se puede suponer cierto conocimiento sobre realización de operaciones en \gls{Internet}, pero no se puede asumir dominio sobre la materia. El perfil educacional del cliente, en general, no incluye conocimiento sobre el marco legal y organizativo del transporte aéreo, así como tampoco se puede asumir un nivel educativo mínimo. Si bien, el nivel socio-cultural y económico de los usuarios del transporte aéreo, especialmente aquellos que hacen uso frecuente del mismo, es estadísticamente medio o alto.
+			\end{itemize}
+
+			El personal de la empresa es previsiblemente un usuario seleccionado por la empresa por disponer de suficiente conocimiento o experiencia en la materia de su ocupación. Adicionalmente, este usuario puede haber recibido formación por parte de la compañía sobre su función o la de otros componentes de la organización. Como consecuencia el perfil de los usuarios internos está más controlado y definido:
+			\begin{itemize}
+				\item \textit{Personal administrativo}: es en general un usuario versátil, es decir, puede cambiar de ocupación con cierta facilidad. El nivel educativo usualmente será \gls{CNED_3}.
+				\item \textit{Personal de a bordo}: la formación y requisitos del personal de a bordo no sólo está definida por la compañía, sino que está regulada por organismos internacionales y nacionales de los países donde la compañía ofrece sus servicios. Los pilotos \glsunset{PTLA} (\gls{PTLA}) están sometidos a una serie de requisitos como edad mínima de 21 años, haber conseguido una licencia mediante examen oficial regulado y disponer de un mínimo de experiencia de vuelo. El nivel educativo será \gls{CNED_3}.
+				\item \textit{Personal de mantenimiento}: la formación del personal de mantenimiento en tierra suele ser \gls{CNED_3}. En las exigencias de acceso de algunos empleados se habrá solicitado \gls{CNED_5}.
+				\item \textit{Directivos}: el perfil de los directivos presume cierta formación y experiencia en la gestión empresarial y conocimiento de la actividad de la empresa. El nivel educativo usual es \gls{CNED_3} o \gls{CNED_5}.
+			\end{itemize}
+
+			Con generalidad, la \textit{alfabetización informática} de los usuarios será suficiente para hacer uso eficiente de la aplicación.
+
+		\subsection{Restricciones}
+			% Descripción general de cualquier ¿otro? elemento que pueda limtar las opciones de los desarrolladores. En la primera versión incluimos -erróneamente- estas opciones.
+
+			La aplicación de la interfaz interna debe poder estar disponible para al menos los siguientes plataformas: \gls{Linux} (32 y 64 bits); \gls{Microsoft Windows} \textit{XP},  \textit{Vista} y \textit{7} (32 y 64 bits). Se considerará la disponibilidad para \textit{Apple Mac OS X 10.X} y \textit{Solaris}. Será necesario que el diseño de la aplicación cumpla unos mínimos de reutilización y facilidad de adaptación, por lo cual deberá ser codificado de acuerdo a los estándares reconocidos y los componentes no estándar o con riesgo de obsolescencia a corto plazo habrán de estar debidamente aislados del resto. El programa a su vez debe proporcionar los mecanismos necesarios para la realización de auditorías y controles de su funcionamiento, así como de su uso, a la par que garantizar el secreto de los datos manipulados, protegiendo el sistema frente a intentos de acceso externo o espionaje industrial y respetando las regulaciones que protegen los datos de carácter personal.\\
+
+			El sistema \software central debe asegurar la posibilidad de realizar operaciones en paralelo hasta un máximo establecido. La fiabilidad de los componentes críticos debe ser verificable y deben incluir mecanismos de autodiagnóstico.\\
+
+			Para lograr lo pretendido en el \software de \textit{Gestión Interna} se considera utilizar \gls{C++} (C++98) con la biblioteca de interfaces gráficas \gls{Qt} que ofrece soporte para las plataformas requeridas\footnote{Información sobre soporte de Qt en \url{http://doc.qt.digia.com/qt/supported-platforms.html}}. El estándar C++11 puede no resultar conveniente debido a que no es soportado por todos los compiladores en la actualidad. La opción de utilizar \textit{Java} también es compatible con las restricciones de plataforma anteriormente especificadas. La interfaz de \textit{Gestión Externa} puede ser programada en \gls{HTML5}, que si bien está en fase experimental, es soportado en gran medida por los principales navegadores, disponibles en todas las plataformas requeridas.
+
+		\subsection{Supuestos y dependencias}
+			Los requisitos presuponen diversos factores que pueden cambiar en cualquier momento y, por tanto, afectar a dichos requisitos. Por ejemplo, si cambian ciertos detalles técnicos del sistema operativo, será necesario revisar y modificar los requisitos de nuestro proyecto. El sistema también depende del formato de la base de datos donde se almacena la información. \\
+			
+% Este texto no es muy conveniente: "el cliente puede pedir en cualquier momento [...] cualquier modificación"
+			Además, {\color{red} el cliente puede pedir en cualquier momento una modificación de algún aspecto de la aplicación o una nueva funcionalidad de ésta}. Para ello, el proyecto tiene que estar preparado para aceptar cualquier modificación con relativa facilidad, dependiendo de la magnitud y complejidad de la misma. Si llegase a producirse esta petición por parte del cliente, también se deberán modificar todos los documentos actualizando la información y los nuevos cambios producidos.
+
+		\subsection{Requisitos futuros}
+			Futuras versiones de la aplicación ACE podrán integrar mejoras para la gestión interna de la compañía tales como modificar el puesto dentro de la empresa de un empleado y, en consecuencia, el nivel de permisos del usuario, o crear estadísticas basadas en los datos de entrada y salida del inventario que permitan prever las necesidades de comprar material y optimizar los recursos. \\
+		
+			Para la gestión externa, ACE podrá incorporar más opciones para la búsqueda de billetes tales como optimizar la ruta según el menor número de escalas, menor duración total del viaje o menor número de kilómetros recorridos. También integrará opciones para añadir o eliminar aeropuertos, orígenes y destinos de vuelo. Además, permitirá al usuario nuevas formas de pago como la transferencia bancaria, \gls{PayPal} o el \gls{QuickPay} de \gls{WesternUnion}.
+
+	\section{Requisitos específicos}
+		\subsection{Interfaces externas}
+			\todo[inline]{muy genérico; recordad que los requisitos se tienen que poder verificar y validar. Cuidado con el término accesibilidad, que en este contexto tiene un significado muy concreto que no es el que le estáis dando vosotros.}
+			Las interfaces del usuario, tanto para la gestión interna como para la externa, serán fáciles de entender y fáciles de manejar, de acuerdo a los usuarios de las mismas. En la gestión interna, cada usuario podrá acceder a una parte de la interfaz específica para él según su trabajo en la compañía. Esta interfaz admitirá diversos datos introducidos por el usuario, los cuales deberán ser válidos según los estándares establecidos por la empresa y que dependerán en gran medida del país donde se vaya a utilizar este software. Por defecto, en esta primera versión se utilizará el euro como unidad monetaria, se admitirá un máximo de 2 dígitos decimales para las entradas numéricas y se admitirán carácteres alfabéticos latinos, con posibles carácteres especiales añadidos, para las entradas de texto. Para la interfaz externa, se aplicarán estos mismos criterios y se comprobará que los datos introducidos por el cliente para efectuar la compra se ajustan a ellos. La accesibilidad del usuario a esta interfaz sí será total en sus primeros pasos hasta que llegue el momento de efectuar el pago, para lo cual el cliente deberá identificarse.
+
+		\subsubsection{Formato de entrada y salida}
+			\subsubsubsection{Fecha}
+
+				A efectos de visualización y entrada la fecha ha de ajustarse, según configuración, a los patrones \verb|DD/MM/AAAA| o \verb|AAAA/MM/DD|\footnote{De acuerdo al estándar ISO 8601.}. En el caso de la visualización se puede incluir como prefijo el día de la semana. Siendo los campos enteros positivos, se ha de cumplir:
+				\begin{itemize}
+					\item $0 \leq \verb|MM| \leq 12$
+					\item $\verb|MM| \in \{1, 3, 5, 7, 8, 10, 12\} \Rightarrow 0 \leq \verb|DD| \leq 31$
+					\item $\verb|MM| \in \{4, 6, 9, 11\} \Rightarrow 0 \leq \verb|DD| \leq 30$ 
+					\item $\verb|MM| = 2 \wedge ((4 | \verb|AAAA| \wedge 100 \not| \verb|AAAA|) \vee (100 | \verb|AAAA| \wedge 400 | \verb|AAAA|)) \Rightarrow 0 \leq \verb|DD| \leq 29$ (año bisiesto)
+					\item $\verb|MM| = 2$ y en caso contrario $\Rightarrow 0 \leq \verb|DD| \leq 28$
+				\end{itemize}
+			La aplicación también puede producir expresiones de fecha \textit{redactadas} en el idioma configurado tales como \verb|DD de MM de AAAA| pudiendo ser \verb|MM| el nombre del mes en lenguaje natural.\\
+
+			A efectos de representación interna la fecha seguirá la directrices del estándar ISO 8601, se denotará mediante el formato de texto \verb|AAAAMMDD| en las condiciones anteriores. También se podrá utilizar un formato interno de fecha orientado a objetos~\footnote{Por ejemplo el tipo {\texttt Date} de las bibliotecas \textit{Boost}.}.
+
+				% Código de identificación personal
+				\subsubsubsection{Código de identificación personal}
+					En lo concerniente a este programa se considerará como código identificador personal el \nameref{srs:nif}, referido en esta sección. El \software deberá reconocer los NIF correspondientes a personas físicas. Estas secuencias no necesariamente habrán de corresponder a un identificador oficial (si bien cuando sea posible sería recomendable). Además de los formatos que define la especificación de NIF, se define el siguiente formato \verb|L0000000A| (letra \verb|L| + 7 números + letra de control) para uso interno, validado según las mismas reglas. \label{srs:idpersonal}
+
+				% NIF
+				\subsubsubsection{\gls{NIF}} \label{srs:nif}
+					Secuencia de identificación para las personas físicas y jurídicas en España. Está regulado por el Real Decreto 1065/2007. Las diferentes formatos son los siguientes:
+
+				\begin{itemize}
+					\item \verb|00000000A| (8 números + dígito de control) para españoles con \gls{DNI}. El dígito de control es un carácter alfabético.
+					\item \verb|A0000000A| (letra inicial + 7 números + dígito de control) para personas físicas salvo las del apartado anterior. La letra inicial indica diferentes clasificaciones de personas físicas. Las letras disponibles son \verb|K| (españoles menores de 14 años sin DNI); \verb|L|; \verb|M| y; \verb|X| , \verb|Y| y \verb|Z| (extranjeros identificados residentes en España, denominado \gls{NIE}).
+					\item \verb|X00000000A| (\verb|X| + 8 números + dígito de control) con el mismo significado que el correspondiente de 7 dígitos, mantenido por razones históricas. 
+					\item \verb:A0000000(A|0): (letra inicial + 7 números + dígito de control) para personas jurídicas. La letra inicial es una de las siguientes $\{ \verb|A|, \verb|B|, \verb|C|, \verb|D|, \verb|E|, \verb|F|, \verb|G|, \verb|H|, \verb|J|, \verb|P|, \verb|Q|, \verb|R|, \verb|S|, \verb|U|, \verb|V|, \verb|N|, \verb|W| \}$ que determina la naturaleza jurídica de la persona. El dígito de control puede ser letra o número dependiendo de la letra inicial.\\
+				 \end{itemize}
+				
+					Existen reglas de correspondencia para determinar el dígito de control:
+				\begin{itemize}
+					\item {\itshape DNI y NIE}: sea $n$ el número que aparece en NIF.
+
+						\begin{equation*}
+							\text{Siendo } s := \sum_{i=1}^8 \left( \frac{n}{10^{i-1}} \mod 10 \right) \text{ la suma de las cifras}
+						\end{equation*}
+
+						\begin{equation*}
+							\text{Se define } m := 
+							\begin{cases}
+								s & \text{si es DNI o NIE-{\texttt X}}\\
+								s + 1 & \text{si es NIE-{\texttt Y}}\\
+								s + 2 & \text{si es NIE-{\texttt Z}}\\
+							\end{cases}
+						\end{equation*}
+
+						Entonces el dígito de control es la letra que corresponde al número obtenido $m \mod 23$ en la siguiente tabla\footnote{La definición oficial no es la misma pero es equivalente.}: 
+
+						{\small
+						\begin{equation*}
+							\setcounter{MaxMatrixCols}{12}
+							\begin{pmatrix}
+								0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11\\
+								T & R & W & A & G & M & Y & F & P & D & X  & B  \\
+								\\
+								12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 &\\
+								N  & J  & Z  & S  & Q  & V  & H  & L  & C  & K  & E &\\ 
+							\end{pmatrix}
+						\end{equation*}
+						}
+
+					\item {\itshape Otros NIF}: sea $n$ el número del NIF (correspondiente a los 7 primeros caracteres numéricos). Se procede de la siguiente forma:	
+						% Fuente Wikipedia.
+						\begin{enumerate}
+							\item Se suman las dígitos de las posiciones pares (se considera que la posición de las unidades es impar\footnote{Téngase en cuenta que así, las posiciones pares son las que están multiplicadas por una potencia de 10 impar.}).
+								\begin{equation*}
+									a_1 := \sum_{i=0}^3 \left( \frac{n}{10^{2i + 1}} \mod 10 \right)
+								\end{equation*}
+							\item Para cada uno de los dígitos de la posiciones impares, se multiplica el dígito por dos y se suman las cifras obtenidas. Se acumulan todas las sumas anteriores.
+								\begin{equation*}
+									a_2 := \sum_{i=0}^3 \left( \left( 2 \left( \frac{n}{10^{2i}} \mod 10\right) \right) \mod 10 + \frac{ 2 \left( n / 10^{2i} \mod 10 \right)}{10} \right)
+								\end{equation*}
+
+							\item Se suman los resultados de los epígrafes anteriores.
+								\begin{equation*}
+									a_3 := a_1 + a_2
+								\end{equation*}
+							\item Se resta a 10 el dígito de las unidades del número obtenido en el apartado anterior si es mayor que 0.
+								\begin{equation*}
+									a_4 := (10 - a_3 \mod 10) \mod 10
+								\end{equation*}
+						\end{enumerate}
+
+	
+					El resultado del último apartado es el dígito de control si éste ha de ser un número. En caso contrario es una de las siguientes letras según la siguiente correspondencia:
+						{\small
+						\begin{equation*}
+							\setcounter{MaxMatrixCols}{10}
+							\begin{pmatrix}
+								1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 0 \\
+								A & B & C & D & E & F & G & H & I & J
+							\end{pmatrix}
+						\end{equation*}
+						}
+				\end{itemize}
+
+				% Dirección
+				\subsubsubsection{Dirección postal}				
+					En lo referente a este proyecto de \software una dirección postal constará de los siguientes campos:
+					\begin{itemize}
+						\item \textbf{Tipo de vía}: será una opción entre un rango de opciones disponibles (configurables). Para un correcto funcionamiento deberían considerarse los siguientes tipos admitidos por Correos: \textit{alameda}, \textit{autopista}, \textit{autovía}, \textit{avenida}, \textit{bulevar}, \textit{camino}, \textit{carretera}, \textit{glorieta}, \textit{paseo}, \textit{plaza}, \textit{pasaje}, \textit{ronda}, \textit{sector}, \textit{travesía}, \textit{otros}, \textit{vía} (numerados por ese orden a partir de 1).
+						\item \textbf{Nombre de la vía} o simplemente dirección. En principio limitada a 30 caracteres alfanuméricos.
+						\item \textbf{Número}: número dentro de la vía (opcional).
+						\item \textbf{Portal}: portal de la dirección. 2 caracteres alfanuméricos (opcional).
+						\item \textbf{Bloque}: bloque de la dirección. 2 caracteres alfanuméricos (opcional).
+						\item \textbf{Escalera}: escalera de la dirección. 2 caracteres alfanuméricos (opcional).
+						\item \textbf{Piso}: piso de la dirección. 2 caracteres alfanuméricos (opcional).
+						\item \textbf{Puerta}: piso de la dirección. 2 caracteres alfanuméricos (opcional).
+						\item \textbf{Localidad}: en principio limitada a 30 caracteres alfanuméricos.
+						\item \textbf{Provincia/Estado}: en principio limitado a 30 caracteres alfanuméricos.
+						\item \textbf{Código postal}: 5 caracteres.
+						\item \textbf{ZIP}: código postal del país correspondiente\footnote{Referencia en \url{www.upu.int/en/resources/postcodes/} - Universal Postal Union.} (no necesariamente Estados Unidos). Hasta un máximo de 10 caracteres.
+						\item \textbf{Región}: hasta un máximo de 50 caracteres (opcional).
+						\item \textbf{País}: código ISO 3166\footnote{Información y tabla de decodificación en \url{www.iso.org/iso/country_codes.htm}} del país (2 caracteres alfabéticos).
+						\item \textbf{Apartado postal}: 10 caracteres.
+					\end{itemize}
+
+				A efectos de impresión el formato será el siguiente {\texttt {} $\langle$ tipo de vía $\rangle$ $\langle$ nombre de la vía $\rangle$ $\langle$ número | s/n $\rangle$ [``Portal ''  portal] [``Bloque ''  bloque] [``Escalera ''  escalera] [piso ``º''] [puerta] [``Apartado~'' apartado postal] [localidad ] [provincia ] $\langle$ código postal / ZIP $\rangle$ [región] $\langle$ país $\rangle$}, denotando los corchetes parámetros opcionales.\\
+	
+				Un ejemplo sería {\itshape Avenida Pennsylvania 1600 Washington D.C. 20500 United States of America}.
+		
+		% Inicia un índice parcial para las funciones
+		\startcontents[tocfunciones]
+
+		\subsection{Funciones}
+			\subsubsection{Gestión interna}
+				% FUNCIÓN: ACCEDER
+				\input{funciones/acceder}
+
+				% FUNCIÓN: CONSULTAR PLAN DE VUELO
+				\input{funciones/consultarPlanVuelo}
+
+				% FUNCIÓN: OBTENER INFORMACIÓN ECONÓMICA
+				\input{funciones/obtenerInfoEconomica}
+			
+				% FUNCIÓN: ESTABLECER ORGANIZACIÓN LABORAL
+				\input{funciones/establecerOrganizacionLaboral}
+
+				% FUNCIÓN: CONSULTAR FICHA DE CLIENTES
+				\input{funciones/consultarFichaClientes}
+
+				% FUNCIÓN: CONFIGURAR SISTEMA
+				\input{funciones/configurarSistema}
+
+				% FUNCIÓN: DAR DE BAJA CLIENTE
+				\input{funciones/darDeBajaCliente}
+
+				% FUNCIÓN: EDITAR INFORMACIÓN ECONÓMICA
+				\input{funciones/editarInfoEconomica}
+
+				% FUNCIÓN: MODIFICAR ITEMS INVENTARIO
+				\input{funciones/modificarInventario}
+
+				% FUNCIÓN: PROGRAMAR HORARIOS
+				\input{funciones/programarHorarios}
+
+				% FUNCIÓN: PROGRAMAR REVISIÓN
+				\input{funciones/programarRevision}
+				
+				% FUNCIÓN: REALIZAR MANTENIMIENTO
+				\input{funciones/realizarMantenimiento}
+
+				% FUNCIÓN: REGISTRAR EMPLEADO
+				\input{funciones/registrarEmpleado}
+
+				% FUNCIÓN: REGISTRAR ENTRADA MATERIAL
+				\input{funciones/registrarEntradaMaterial}
+
+				% FUNCIÓN: VERIFICAR REGISTRO EMPLEADO
+				\input{funciones/verificarRegistroEmpleado}
+				
+				% FUNCIÓN: EDITAR EMPLEADO
+				\input{funciones/editarEmpleado}
+
+				% FUNCIÓN: CONSULTAR NÓMINA
+				\input{funciones/consultarNomina}
+
+				% FUNCIÓN: CONSULTAR HORARIOS
+				\input{funciones/consultarHorarios}
+				
+				% FUNCIÓN: PROGRAMAR UNA OFERTA
+				\input{funciones/programarOferta}
+
+				% FUNCIÓN: CONSULTAR INVENTARIO
+				\input{funciones/consultarInventario}
+
+				% FUNCIÓN: CONSULTAR FICHA DE EMPLEADOS
+				\input{funciones/consultarFichaEmpleado}
+			
+				% FUNCIÓN:  DAR DE BAJA EMPLEADO
+				\input{funciones/darDeBajaEmpleado}
+			
+				% FUNCIÓN: CONFIGURAR NÓMINA
+				\input{funciones/configurarNomina}
+
+				% FUNCIÓN: INTRODUCIR PLAN DE VUELO
+				\input{funciones/introducirPlandeVuelo}
+				
+				% FUNCIÓN: FACTURAR
+				\input{funciones/facturar}
+			
+				% FUNCIÓN: EFECTUAR EMBARQUE
+				\input{funciones/efectuarEmbarque}
+
+				% FUNCIÓN: EFECTUAR EMBARQUE
+				\input{funciones/verIncidenciasSistema}
+
+			\subsubsection{Gestión externa}
+
+				% FUNCIÓN: REGISTRARSE
+				\input{funciones/registrarse}
+
+				% FUNCIÓN: EDITAR CLIENTE
+				\input{funciones/editarCliente}
+
+				% FUNCIÓN: VER INFORMACIÓN DE VUELO
+				\input{funciones/verInfoVuelo}
+
+				% FUNCIÓN: MOSTRAR OFERTAS
+				\input{funciones/mostrarOfertas}
+				
+				% FUNCIÓN: ACCEDER A UNA OFERTA
+				\input{funciones/accederaUnaOferta}
+
+				% FUNCIÓN: INICIAR PAGO BILLETES
+				\input{funciones/iniciarPagoBilletesDeVuelo}
+
+				% FUNCIÓN: PAGO TARJETA
+				\input{funciones/realizarPagoConTarjeta}
+
+				% FUNCIÓN: PRESENTAR RECLAMACIÓN
+				\input{funciones/presentarReclamacion}
+						
+				% FUNCIÓN: COMPRAR BILLETE
+				\input{funciones/comprarBillete}
+
+				% FUNCIÓN: CONSULTAR VUELO
+				\input{funciones/consultarVuelos}
+
+		% Termina el índice parcial para funciones
+		\stopcontents[tocfunciones]
+
+		\subsection{Requisitos de rendimiento}
+			% Los números son completamente inventados.
+			El sistema interno deberá reconocer y soportar hasta 4.000 terminales, si bien en determinadas circunstancias agrupaciones de terminales podrían comportarse como uno sólo, gestionándose \textit{in situ} esa eventualidad. El sistema deberá soportar hasta 1.000 usuarios conectados simultáneamente a aquellos servicios del \software de gestión interna que requieran una conexión latente (\textit{KeepAlive}) con el servidor central, ampliándose ese límite a 2.000 al considerar las conexiones de corta duración. Además, el 90\% de las transacciones deberán realizarse en menos de un minuto. La interfaz de gestión interna o servidor web admitirá hasta 6.000 conexiones simultáneas para el contenido estático, si bien el número de conexiones para contenido dinámico estará sometido a los límites marcados por el sistema de gestión interna.\\
+
+			% Los requisitos provienen de los requisitos de Windows Xp.
+			Los requisitos de rendimiento de los equipos sobre los que se ejecute la aplicación de \textit{Gestión Interna} demandan los siguientes requisitos de \hardware{}:
+				\begin{itemize}
+					\item Procesador \textit{Pentium} o equivalente a un mínimo de 233 MHz.
+					\item 128 Mb de memoria RAM con velocidad de transferencia de más de 250 MHz.
+					\item 10 GB disponibles en el disco duro a una tasa de transferencia superior a 10 MBit/s.
+					\item Adaptador de vídeo igual o superior a \textit{Nvidea GeForce 256} o equivalente.
+				\end{itemize}
+
+			Bastará con una intensidad media de conexión a Internet para la \textit{Gestión Externa} de la compañía.\\
+
+			La base de datos es un elemento crítico en el rendimiento del sistema. Se prevén realizar miles de interacciones al día, por lo que debe ofrecer alta disponibilidad.
+
+		\subsection{Requisitos lógicos de la base de datos}
+			Los requisitos lógicos para las funciones que trabajan con la base de datos son:
+			\begin{itemize}
+				\item \textbf{Tipos de información usada por diversas funciones: }
+				Existen funciones que recibirán cadenas de texto, unas que las usarán para mostrar los datos por pantalla para que el usuario de la aplicación pueda observar la información, y otras que las recibirán para cubrir las necesidades ya que la acción que realiza requiere de dichos datos. En el primer tipo de funciones, existen varias que podrán recibir además imágenes como complemento para mostrar la información. \\ 
+				
+				Además, especificando en el ámbito de programación, algunas funciones como \nameref{fun:modinventario}, \nameref{fun:EntrMat} y \nameref{fun:ConsulInv} (entre otras), tendrán que manejar objetos de una ``clase Item'' para poder trabajar con ellos en la base de datos y almacenarlos ahí en \gls{arrays}. 
+				\item \textbf{Frecuencia de uso: } Habrá funciones que la frecuencia con la que accedan a la base de datos sea muy baja debido a que se accederá a dichas funciones en escasas ocasiones y en momentos específicos, como pueden ser~\nameref{fun:configSystem}, Organizar puestos de trabajo, Modificar empleados, etc. 
+				\item \textbf{Capacidades de acceso: } Si comparamos una función que tenga que buscar un cliente específico entre todos los que están en la base de datos, y una función que tenga que mostrar la información económica de la empresa, podemos observar la gran diferencia de capacidades que tienen que tener unas funciones y otras, pues el coste de lo primero es mucho más grande que el coste de lo segundo. Esto se debe a que por lo dicho anteriormente en el ámbito de la programación, no tiene el mismo coste buscar en un array un objeto de la clase Item en concreto a cargar unas cadenas de texto que te pasa la base de datos. Por ello una información tendrá que ser más accesible y fácil de encontrar para unas funciones, y así facilitarle el trabajo por ejemplo al que tenga que realizar la tarea de buscar un cliente/empleado específico. 
+				% Eso de lo arrays de la clase Item: demasiado informal y TPístico
+				\item \textbf{Entidades de datos y sus relaciones: } Existen datos que deben estar ``incluidos'' en otros datos, esto es por ejemplo, los datos personales de un empleado/cliente deben de estar incluidos en los datos del conjunto de empleados/clientes. Es por eso que en algunos casos para buscar algo específico debes buscar primero en lo general (a no ser que por algún motivo los datos que busques estén copiados temporalmente en otra sección de la base de datos). 
+			\end{itemize}
+
+		\subsection{Restricciones de diseño}
+			El diseño de este producto está condicionado por la naturaleza y los usos del cliente, de lo que se derivan algunas limitaciones. La existencia previa de un parque de equipos informáticos distribuidos en las instalaciones de la compañía que el cliente quiere conservar imponen la necesidad de acomodar el \software a las posibilidades que ofrecen dichas máquinas. Este en particular, no plantea grandes problemas, ya que la aplicación cliente para la gestión interna --que será instalada en esos equipos-- no exige atributos que no estén presentes en la mayoría de las máquinas; si bien la obsolescencia de algunos equipos puede dejar sin efecto los requisitos de rendimiento indicados en el texto. Por otro lado, el amplio uso de ordenadores compartidos en ciertos sectores de la compañía ha impuesto limitar el almacenamiento local de información. Así mismo, la expansión internacional del cliente y las diferentes legislaciones sobre tratamiento de datos de carácter personal restringen posibles características del producto.
+			\subsubsection{Cumplimiento de estándares}
+				Este producto ha sido diseñado de acuerdo a ciertos estándares sobre materias diversas.\\
+				
+				En el terreno económico y financiero, toda operación realizada por la aplicación es conforme a las \gls{NIC} \cite{NIC2006} y especialmente al \textit{Plan General de Contabilidad} de España \cite{PGC2007}.\\
+
+				En el ámbito de la actividad del cliente, se han seguido recomendaciones y estándares relevantes de la \gls{IATA}.
+				
+		\subsection{Atributos del sistema software}
+			El diseño del sistema se ha basado en características como:
+			\begin{itemize}
+				\item \textit{Seguridad}: implementando sistemas para evitar fraude, sistemas seguros y de encriptado para cobro, procesos de identificación de empleados basados en niveles de acceso y secciones.
+				\item \textit{Estabilidad}: es fundamental la protección del sistema frente a errores, manteniendo en todo momento copias de seguridad de las bases de datos y registrando accesos y modificaciones.
+				\item \textit{\gls{Usabilidad}}: pone al alcance del usuario una interfaz gráfica sencilla e intuitiva pero a la vez completa.
+				\item \textit{Escalabilidad}: se desarrolla el sistema facilitando el mantenimiento del mismo así como la posibilidad de ampliaciones y nuevas funcionalidades futuras.
+			\end{itemize}
+	
+	% Apéndice: Glosario
+	\newpage
+	\appendix
+	\section{Apéndice: Glosario} \label{srs:glosario}
+	\printglossary 
+
+	% Subíndice de funciones
+	\newpage
+	\printcontents[tocfunciones]{}{2}{\section{Lista de funciones}\setcounter{tocdepth}{4}}
+
+	\newpage
+	\listoffigures
+
+	\newpage
+	\nocite{IEEE:1074}
+	\nocite{IEEE:830}
+	\bibliography{srs}
+	\bibliographystyle{plain}
+	
+	\listoftodos
+\end{document}

@@ -1,0 +1,39 @@
+% Caso de uso: editar cliente.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Editar cliente,
+	% Objetivo
+	objetivo={Editar la información de un cliente, bien él mismo o desde la gestión interna de la aplicación.},
+	% Entradas
+	entradas=Los datos que se quieren modificar.,
+	% Precondiciones
+	precondiciones={El cliente en acto ha iniciado sesión correctamente en la interfaz web o, desde la gestión interna, haberse registrado como un usuario válido perteneciente al Personal de atención al cliente. Elegir la opción \textit{Editar Cliente}.},
+	% Salidas
+	salidas={La información de perfil actualizada resaltando los campos que han sido modificados.},
+	% Postcondiciones en caso de éxito
+	postexito=Los cambios efectuados se guardan en la base de datos.,
+	% Postcondiciones en caso de error
+	posterror=No se realizan cambios en el sistema.,
+	% Actores
+	actores={Los clientes en acto o el Personal de atención al cliente y la base de datos},
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Muestra los campos de datos personales de usuario. Si error S-1.\\
+		2 & Seleccionar campos a modificar.\\
+		3 & Introducir datos nuevos.\\
+		4 & Comprueba corrección en los datos introducidos. Si error S-2.\\
+		5 & Almacenar los cambios en la base de datos. Si error S-3.\\
+		6 & Muestra confirmación y a continuación vuelve al paso 1.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Si no se puede conectar con la base de datos se muestra mensaje  de tipo \textit{información no disponible temporalmente} y se vuelve al paso 1 de la secuencia normal.\\
+		S-2 & Alguno de los datos introducidos no es válido. Volver al paso 3 de la secuencia normal de uso indicando los campos erróneos.\\
+		S-3 & No se han podido almacenar los cambios en la base de datos. Se cancela la operación, se informa al usuario y se vuelve a la página principal del sistema.
+	\end{tablasecuencias}
+}
+

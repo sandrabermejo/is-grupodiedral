@@ -1,0 +1,132 @@
+%% Casos de uso %%
+
+\documentclass[11pt, a4paper, twoside]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+\usepackage[none]{hyphenat}
+\usepackage{fancyhdr}
+\usepackage{isdiedral}
+\usepackage{anysize}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage[colorlinks, linkcolor=black]{hyperref}
+
+
+% Configuraciones
+\marginsize{2cm}{2cm}{2cm}{2cm}
+
+% Usa como familia tipográfica por defecto "Sans"
+\renewcommand{\familydefault}{\sfdefault}
+
+% Para las clases "book" o semejantes desactiva la impresión del número de capítulo
+\renewcommand*\thesection{\arabic{section}}
+
+% Cambia el nombre del TOC a "Índice" (pues en "report" se le denomina por defecto "Índice general")
+\addto{\captionsspanish}{\renewcommand*{\contentsname}{Índice}}
+
+% Establece la profundidad de niveles de sección que aparece en el TOC
+\setcounter{tocdepth}{3}
+
+% Configura los encabezados y pies de paǵina
+\encabezadodiedral{Casos de uso}
+\pagestyle{fancy}
+\renewcommand*{\thepage}{\sffamily \roman{page}}
+
+\title{Casos de uso\\\textsl{Airline Common Environment}}
+\author{Grupo Diedral}
+
+% Metadatos del pdf
+\hypersetup{
+pdfinfo={
+	Author={Grupo Diedral},
+	Title={Casos de uso},
+	Subject={Airline Common Environment},
+	Keywords={Casos de uso;Airline Common Environment;Ingeniería del Software}
+}
+}
+
+\begin{document}
+	% Página de título
+	\portadaace{Casos de uso}
+	
+	% Índice
+	\tableofcontents
+	\listoffigures
+	\newpage
+
+	% Historial de cambios
+%	\begin{tablacambios}
+%		1 & 13 de diciembre de 2013 & \begin{tabular}{l}Cristina Alonso\\Natalia Angulo\\Sandra Bermejo\\Juan Andrés Claramunt\\Rubén Rafael Rubio\end{tabular} & Continuación
+%	\end{tablacambios}
+%	\newpage
+
+	% Cada caso de uso se puede escribir en un archivo aparte e importar
+	% usando  "include"  que  utiliza  necesariamente  una  página (para
+	% evitarlo se puede usar "input" en su lugar).
+	\section{Casos de uso}
+	
+	% Gestión interna
+	\subsection{Gestión interna} \vspace{.5cm}
+	\iniciarnumeraciondiedral
+
+	\begin{sidewaysfigure}	% LaTex lo coloca donde le parece (como debe hacer)
+		\hspace*{-2cm}\includegraphics[scale=.9]{diagramas/gestioninterna1.pdf}
+		\caption{Diagrama de gestión interna (administrativo)}
+	\end{sidewaysfigure}
+
+	\begin{sidewaysfigure}
+		\hspace*{0cm}\includegraphics[scale=.9]{diagramas/gestioninterna2.pdf}
+		\caption{Diagrama de gestión interna (mecánico y personal de a bordo)}
+	\end{sidewaysfigure}
+
+	\input{casos/accederGI}
+	\include{casos/registrarEmpleado}
+	\include{casos/verificarRegistroEmpleado}
+	\include{casos/consultarFichaEmpleado}
+	\include{casos/editarEmpleado}
+	\include{casos/darDeBajaEmpleado}
+	\include{casos/configurarSistemaGeneral}
+	\include{casos/establecerOrganizacionLaboral}
+	\include{casos/AccederHorarios}
+	\include{casos/programarHorarios}
+	\include{casos/consultarPlanVuelo}
+	\include{casos/introducirPlanDeVuelo}
+	\include{casos/editarInformacionEconomica}
+	\include{casos/obtenerInfoEconomica}
+	\include{casos/consultarInventario}
+	\include{casos/consultarnomina}
+	\include{casos/configurarNomina}
+	\include{casos/consultarFichaCliente}
+	\include{casos/modificarInventario}
+	\include{casos/realizarMantenimiento}
+	\include{casos/programarRevision}
+	\include{casos/registrarEntradaMaterial}
+	\include{casos/darDeBajaCliente}
+	\include{casos/programarOferta}
+	\include{casos/efectuarEmbarque}
+	\include{casos/verIncidenciasSistema}
+
+	% Gestión externa
+	\subsection{Gestión externa} \vspace{.5cm}
+
+	\begin{sidewaysfigure}
+		\includegraphics[scale=.93]{diagramas/gestionexterna.pdf}
+		\caption{Diagrama de gestión externa}
+	\end{sidewaysfigure}
+
+	\input{casos/accederGE}
+	\include{casos/registrarse}
+	\include{casos/editarCliente}
+	\include{casos/consultarVuelos}
+	\include{casos/mostrarofertas}
+	\include{casos/accederaUnaOferta}
+	\include{casos/presentarReclamaciones}
+	\include{casos/comprarBillete}
+	\include{casos/iniciarPagoBilletesDeVuelo}
+	\include{casos/realizarPagoconTarjeta}
+	\include{casos/verInfoVuelo}
+	
+\end{document}

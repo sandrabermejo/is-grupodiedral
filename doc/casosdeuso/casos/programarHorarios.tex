@@ -1,0 +1,38 @@
+% Caso de uso: programar horarios.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Programar horarios.,
+	% Objetivo
+	objetivo=Añadir a la base de datos del sistema los horarios de los empleados.,
+	% Entradas
+	entradas=Los nuevos horarios y el personal al que afectan.,
+	% Precondiciones
+	precondiciones={Haber accedido al sistema con un usuario válido perteneciente al Personal de planificación de operaciones y elegir la opción \textit{Programar horarios}.},
+	% Salidas
+	salidas={Los horarios de los empleados quedan registrados o modificados, si procede.},
+	% Postcondiciones en caso de éxito
+	postexito=Los horarios de los empleados han sido actualizados en la base de datos.,
+	% Postcondiciones en caso de error
+	posterror=El sistema no ha sufrido ningún cambio.,
+	% Actores
+	actores=El Personal de planificación de operaciones y la base de datos.,
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Extraer de la base de datos el listado de personal de la compañía cuyo horario pueda ser modificado. Si error S-1. \\
+		2 & Seleccionar el empleado cuyo horario vaya a ser modificado. \\
+		3 & Seleccionar un nuevo horario para el empleado y una fecha a partir de la cual será vigente. Si error S-2. \\
+		4 & Almacenar los cambios en la base de datos. Si error S-3. \\
+		5 & Mostrar un mensaje de confirmación de la operación.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & No se ha podido extraer la información de la base de datos. Mostrar un mensaje de error por pantalla y volver a la página principal del sistema.\\
+		S-2 & El horario o la fecha introducidos no son válido por algún motivo. Vuelve al paso 3 de la secuencia normal de uso indicando que el horario no es válido. \\
+		S-3 & No se ha podido conectar con la base de datos. Se cancela la operación, se muestra el error por pantalla y vuelve a la página principal del sistema.
+	\end{tablasecuencias}
+}
+

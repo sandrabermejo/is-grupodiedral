@@ -1,0 +1,33 @@
+% Hoja de descripción de riesgo: ejemplo
+
+\hojariesgo{Falta de comunicación con el cliente}{
+	% Identificador del riesgo
+	id=P8,
+	% Persona o departamento que ha identificado el riesgo
+	identificador=Departamento de relaciones.????,
+	% Fecha de identificación del riesgo
+	fecha=19 de febrero de 2013,
+	% Descripción
+	descripcion={No hay una gran comunicación entre el cliente y los desarrolladores, lo que conlleva a posibles
+	ambiguedades en el desarrollo del proyecto y sobre todo, a que no se traten con exactitud los requisitos que
+	el cliente desea obtener. Además, la pérdida de esta vía de comunicación trae consigo peligrosas consecuencias
+	que pondrán completamente en riesgo a todo el trabajo que los desarrolladores hayan realizado sobre el proyecto.},
+	% Consecuencia (C->coste, S->calendario, R->rendimiento, Q->calidad)
+	consecuencia={C, Q, S, R},
+	% Impacto (C->crítico, S->serio, M->moderado, N->menor)
+	impacto=C,
+	% Probabilidad (A->alta, M->media, B->baja, %)
+	probabilidad=M,
+	% Periodo de previsión (C->corto plazo, L->largo plazo)
+	periodo=L,
+	% Estrategia de prevención
+	estrategia={Se deberá establecer una vía de comunicación cliente-desarrollador sólida y estable en la que se reflejen
+	todos los requisitos software esperados por ambas partes.},
+	% Plan de contigenicia ante el acontecimiento
+	contingencia={Si este riesgo afectase al proyecto en algún momento, se deberá actuar lo más rápido posible antes de
+	seguir con cualquier desarrollo de éste y ponerse en contacto con el cliente por todos los medios posibles. Si por algún
+	motivo no pudiese darse dicho contacto, los desarrolladores deberán trabajar con precacución intentando no "`innovar"'
+	demasiado hasta que puedan hablar con el cliente y mitigar la inestable situación.},
+	% Grupo de riesgos al que pertenece
+	grupo=De negocio
+}

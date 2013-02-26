@@ -1,0 +1,26 @@
+% Hoja de descripción de riesgo: Repositorio inoperativo
+
+\hojariesgo{Riesgo de ejemplo}{
+	% Identificador del riesgo
+	id=A2,
+	% Persona o departamento que ha identificado el riesgo
+	identificador=Departamento de Control de versiones,
+	% Fecha de identificación del riesgo
+	fecha=19 de febrero de 2013,
+	% Descripción
+	descripcion={El repositorio en el que depositamos las distintas versiones del proyecto puede quedar inoperativo de forma temporal o indefinidamente y también se pueden producir conflictos de archivos. Si esto ocurre, conllevaría un retraso en la planificación estimada y una disminución del rendimiento del equipo de desarrollo, que se vería obligado a buscar otros recursos que puedan sustituir a dicho repositorio.},
+	% Consecuencia (C->coste, S->calendario, R->rendimiento, Q->calidad)
+	consecuencia={S, R},
+	% Impacto (C->crítico, S->serio, M->moderado, N->menor)
+	impacto=S,
+	% Probabilidad (A->alta, M->media, B->baja, %)
+	probabilidad=M,
+	% Periodo de previsión (C->corto plazo, L->largo plazo)
+	periodo=L,
+	% Estrategia de prevención
+	estrategia={Para evitar la pérdida de las últimas versiones, cada integrante del equipo de desarrollo guardará sus últimas modificaciones. También se realizarán descargas de todo el material depositado en el repositorio cada vez que haya modificaciones importantes. Otra alternativa puede ser utilizar dos repositorios distintos, uno utilizado de forma frecuente y otro en el que depositar una copia de seguridad cada un periodo de tiempo fijado.},
+	% Plan de contingencia ante el acontecimiento
+	contingencia={En caso de que el repositorio quede inoperativo, se acudirá a la última versión descargada y se pondrán en común las últimas versiones de los integrantes del grupo. De esta forma se recuperaría la versión más actual y, a partir de ahí, se trabajaría a partir de otra plataforma de control de versiones.},
+	% Grupo de riesgos al que pertenece
+	grupo=Técnicos
+}

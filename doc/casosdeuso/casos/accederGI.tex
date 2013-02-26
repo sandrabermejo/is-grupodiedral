@@ -1,0 +1,35 @@
+% Caso de uso: Acceder Gestión Interna
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Acceder,
+	% Objetivo
+	objetivo=Abrir la aplicación de gestión interna de la compañía.,
+	% Entradas
+	entradas=Nombre del usuario y contraseña.,
+	% Precondiciones
+	precondiciones=Que el usuario esté registrado como empleado de la compañía.,
+	% Salidas
+	salidas=Las diversas opciones de gestión interna de la aplicación.,
+	% Postcondiciones en caso de éxito
+	postexito={El usuario tiene acceso a las diversas opciones de la gestión interna de la compañía, dependiendo de su función dentro de la empresa.},
+	% Postcondiciones en caso de error
+	posterror=El usuario no ha podido acceder a la aplicación de gestión interna.,
+	% Actores
+	actores=El usuario y la base de datos.,
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & El usuario introduce su nombre y contraseña y elige la opción \textit{Acceder}.\\
+		2 & Se verifican los datos introducidos y se cargan todos los datos accesibles al usuario que ha accedido. Si error S-2. 
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Si el usuario o la contraseña no son válidos, el sistema vuelve a la secuencia normal de uso e indica los campos erróneos. Se le da la opción de volver a introducir los datos de nuevo.\\
+	\end{tablasecuencias}
+}
+
+
+

@@ -1,0 +1,33 @@
+% Caso de uso: establecer organización laboral.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Establecer organización laboral,
+	% Objetivo
+	objetivo={Establece las configuraciones generales sobre la organización laboral de la compañía, como secciones y puestos de trabajo, detallando la información relacionada (salario base\dots) y fijando los privilegios de acceso dentro de la aplicación.},
+	% Entradas
+	entradas={Las valores correspondientes a esas configuraciones, como por ejemplo: nombre, descripción, salario base, privilegios\dots},
+	% Precondiciones
+	precondiciones={El operador de la aplicación está debidamente registrado y posee credenciales que le habilitan para realizar esta operación.},
+	% Salidas
+	salidas={Valor final de los parámetros configurados.},
+	% Postcondiciones en caso de éxito
+	postexito=Todas las utilidades de la aplicación que requieran de estas configuraciones podrán disfrutar de ellas.,
+	% Postcondiciones en caso de error
+	posterror={El sistema central no habrá sufrido cambios.},
+	% Actores
+	actores={Personal de administración, \textit{Recursos Humanos} y \textit{Servicios Informáticos}.},
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Se muestran sendas listas de categorías obtenidas del servidor central, permitiendo su edición general con precaución.\\
+		2 & Se podrán editar los detalles de cada configuración.\\
+		3 & Las información editada se sincronizará en el servidor central.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Si no se puede acceder al servidor central o no se puede obtener la información requerida, informar al usuario.
+	\end{tablasecuencias}
+}

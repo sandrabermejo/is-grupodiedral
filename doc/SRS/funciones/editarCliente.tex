@@ -1,0 +1,24 @@
+\srsfuncion{Editar cliente} \label{fun:editarcliente}
+	Esta función debe mostrar al usuario su perfil y permitirle la modificación del mismo.
+
+\begin{enumerate}
+	\item \textit{Entradas}
+	\begin{enumerate}
+		\item Las opciones que admiten modificación son: Contraseña, domicilio, dirección de correo electrónico, tarjeta de crédito asociada.
+		\item La contraseña estará formada por entre 8 y 16 caracteres alfanúmericos.
+		\item El código postal del domicilio ha de estar formado por 5 cifras.
+		\item Se comprobará la correción del correo electrónico mediante un e-mail de verificación.
+		\item Se verificará algoritmicamente los 20 digitos de numeración de la tarjeta de crédito, así como la validez de la misma junto con la fecha de caducidad y el código \gls{CVV2}.
+	\end{enumerate}
+	\item \textit{Flujo de operaciones}
+	\begin{enumerate}
+		\item Se muestra un formulario con los campos modificables actuales del usuario.
+		\item El usuario modifica al menos uno de los diferentes campos. La válided de los campos modificados se comprueba al pulsar el botón Guardar Cambios.
+		\item Si se encuentra algún dato erroneo se informa de ello. Si se verificán los datos modificados se confirma la operación, actualizando la \gls{base_de_datos}.
+		\item Se muestra el perfil de usuario resultado de la modificación.
+	\end{enumerate}
+	\item \textit{Respuesta a situaciones no previstas}
+	\begin{enumerate}
+		\item Si no se puede acceder o modificar a la base de datos: informa de la no disponibilidad temporal al usuario.
+	\end{enumerate}
+\end{enumerate}

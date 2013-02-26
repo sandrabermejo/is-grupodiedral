@@ -1,0 +1,25 @@
+
+\srsfuncion{Registrar entrada material}
+	Esta función debe permitir registrar un nuevo material en el inventario de la empresa.
+
+\begin{enumerate}
+	\item \textit{Entradas}
+	\begin{enumerate}
+		\item Al añadirlo, los items del inventario deberán seguir quedando ordenados por defecto por orden alfabético, ordenando posteriormente el sistema si se desea por otros campos como fecha de entrada en almacén, cantidad de items, destino de uso (oficina, mecánica, edificios, aeronáutico\ldots) y valor de adquisición.
+		\item El número de registro del item debe de ser un número mayor o igual que cero (numeración de los items).
+	\end{enumerate}
+	\item \textit{Flujo de operaciones}
+	\begin{enumerate}
+		\item Se muestra por pantalla el formulario a rellenar con los datos específicos del item que se van a introducir en la base de datos para poder identificarlo posteriormente y poder mostrar la información sobre él.
+		\item Habrá un botón \verb|Añadir|, que registrará la entrada de material en el sistema.
+		\item Si el item existe se incrementará la cantidad de items en el inventario.
+		\item Si el item no existe, cuando se añada se modificará la lista añadiéndolo en el lugar correcto.
+	\end{enumerate}
+	\item \textit{Respuesta a situaciones no previstas}
+	\begin{enumerate}
+		\item Si se ha introducido algún campo incorrecto en el formulario a rellenar de los datos específicos del item, marcar los campos erróneos y mostrar un mensaje por pantalla indicando cuáles de estos campos son erróneos (por escrito) y una nota con una breve descripción diciendo el por qué.
+		\item Si no se ha podido ordenar en orden alfabético: mostrar la información desordenada e indicar que no se ha podido ordenar.
+	\end{enumerate}
+
+\end{enumerate}
+\label{fun:EntrMat}

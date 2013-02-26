@@ -1,0 +1,20 @@
+\srsfuncion{Obtener información económica}
+	Esta función debe mostrar la información económica de la empresa de forma personalizada para cada perfil de usuario. Entre los datos que puede mostrar se incluyen resúmenes actualizados del inventario e infraestructura de la empresa, de los recursos humanos, de los gastos e ingresos, de la cotización en bolsa e inversiones financieras, además de las cuentas anuales actuales y la de años anteriores. Esta visualización puede incluir enlaces a documentos externos para los que haría falta una aplicación aparte. Se considera la opción de incluir gráficos en la pantalla mostrada.
+
+	\begin{enumerate}
+		\item \textit{Prioridad}: media.
+		\item \textit{Entradas}\\
+			Esta función no recibe parámetros de entrada.
+			\item \textit{Flujo de operaciones}
+				\begin{enumerate}
+					\item Se cargará de la base de datos la información económica de la empresa que puede visualizar el usuario que ha accedido en estos momentos al sistema.
+					\item Se mostrará esta información económica de la empresa cargada de la base de datos.
+			\end{enumerate}
+		\item \textit{Respuesta a situaciones no previstas}
+			\begin{enumerate}
+				\item Si no se puede obtener la información económica de la base de datos: se informa al usuario del error y se aborta la carga de la pantalla.
+				\item Si no se pueden generar las visualizaciones: intentar omitirlas en la medida de lo posible y si no fuese posible aborta la carga de la pantalla.
+			\end{enumerate}
+		\item \textit{Relación con otras funciones}\\
+			Esta función puede dar acceso a otras como \verb|Consultar inventario| y depende indirectamente de \nameref{fun:editareconomica}.
+	\end{enumerate}

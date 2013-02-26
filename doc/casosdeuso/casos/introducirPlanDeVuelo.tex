@@ -1,0 +1,33 @@
+% Caso de uso: Introducir plan de vuelo
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Introducir plan de vuelo.,
+	% Objetivo
+	objetivo=Añadir un nuevo vuelo a la lista de vuelos de la compañía aérea.,
+	% Entradas
+	entradas={La información detallada del vuelo: número de vuelo, fecha, hora de salida y de llegada, terminal de salida y de llegada, modelo del avión, precio total según preferencias\ldots},
+	% Precondiciones
+	precondiciones=Haber accedido al sistema con un usuario válido pertenenciente al Personal de planificación de operaciones y elegir la opción \textit{Introducir plan de vuelo} de la aplicación.,
+	% Salidas
+	salidas=Confirmación del registro del nuevo vuelo.,
+	% Postcondiciones en caso de éxito
+	postexito=El nuevo vuelo queda registrado en la lista de vuelos de la compañía aérea.,
+	% Postcondiciones en caso de error
+	posterror=La lista de vuelos de la compañía no ha sido alterada.,
+	% Actores
+	actores=El Personal de planificación de operaciones y la base de datos.
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & El usuario introduce la información detallada del vuelo. Si error S-1. \\
+		2 & Se vuelcan los datos del nuevo vuelo a la lista de vuelo de la compañía. Si error S-2.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & No se ha podido introducir la información del nuevo vuelo. Se mostrará un mensaje de error y será notificado al personal técnico para solucionarlo con la mayor brevedad posible.\\
+		S-2 & Se ha producido un error al registrar el nuevo vuelo. Se muestra un mensaje informando acerca del error.
+	\end{tablasecuencias}
+}

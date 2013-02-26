@@ -1,0 +1,34 @@
+% Caso de uso: registrar entrada de material.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Registrar entrada de material,
+	% Objetivo
+	objetivo={Registrar una entrada de material en el inventario, declarando en que sección y ubicación física se encuentra.},
+	% Entradas
+	entradas={Nombre del producto o identificador si es un material previamente registrado, descripción, sección que lo recibe (si procede) y ubicación final.},
+	% Precondiciones
+	precondiciones={El operador de la aplicación está debidamente registrado y tiene credenciales que le habilitan para realizar dicha operación. Existen configuraciones sobre ubicaciones, productos y secciones que previamente han sido introducidas.},
+	% Salidas
+	salidas=Adhesivo de inventario con la clave de identificación del material en el sistema (si procede).,
+	% Postcondiciones en caso de éxito
+	postexito=El material introducido aparecerá en el inventario.,
+	% Postcondiciones en caso de error
+	posterror=El sistema central no ha sufrido cambio alguno.,
+	% Actores
+	actores=El personal de la compañía cuyo rol implique registro de entrada de material dentro de su ámbito y la base de datos.,
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & En el formulario de registro de inventario, introduce los datos necesarios del ingreso. Si error S-1.\\
+		2 & Se registran los cambios en el sistema correspondiente. Si error S-2.\\
+		3 & Obtiene una adhesivo impreso para identificar el objeto catalogado (si procede).
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Se reitera la opción de insertar los datos o abandonar.\\
+		S-2 & Da la opción de escoger entre abortar la operación o reintentar.
+	\end{tablasecuencias}
+}

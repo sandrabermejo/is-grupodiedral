@@ -1,0 +1,36 @@
+% Caso de uso: Consultar inventario
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Consultar inventario,
+	% Objetivo
+	objetivo=Muestra el inventario de la empresa. Este material es tanto para reparaciones como de otros tipos que necesite la empresa.,
+	% Entradas
+	entradas=,
+	% Precondiciones
+	precondiciones={El operador de la aplicación está debidamente registrado y posee credenciales que le habilitan para realizar esta operación. El servidor que hospeda la base de datos de inventario está operativo.},
+	% Salidas
+	salidas=El registro de material en el inventario de la empresa.,
+	% Postcondiciones en caso de éxito
+	postexito=El empleado quedará informado sobre el material del que dispone la empresa en el inventario.,
+	% Postcondiciones en caso de error
+	posterror=El empleado no habrá podido recibir la información del inventario de la empresa y desconocerá el material disponible.,
+	% Actores
+	actores=El empleado con permisos para acceder a la información requerida y la base de datos.
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Extraer de la base de datos el inventario. Si error S-1. \\
+		2 & Realizar una lista con la información organizada por el criterio configurado. Si error S-2. \\
+		3 & Mostrar por pantalla estos datos permitiendo ser filtrados.\\
+		4 & Al seleccionar un elemento, mostrar información detallada del mismo. Si error S-1.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & No se pudo conectar con la base de datos o no se pudo obtener la información. Informar al usuario y abandonar la carga.\\
+		S-2 & Si no se encuentra configuración sobre criterios de ordenación, ordenar por orden lexicográfico o numérico del primer campo si lo hubiera.
+	\end{tablasecuencias}
+}
+

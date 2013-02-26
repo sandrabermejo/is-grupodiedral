@@ -1,0 +1,35 @@
+\srsfuncion{Programar oferta}
+	Esta función debe permitir crear una oferta de un item a promocionar que posteriormente se mostrará a los clientes y podrán disponer de ella.
+	
+\begin{enumerate}
+	\item \textit{Entradas}
+	\begin{enumerate}
+		\item Se programarán las ofertas que la empresa crea convenientes.
+		\item Todas las palabras del lenguaje en el que se programe la oferta deberán estar en la \gls{RAE} para posteriormente poder traducirlas de un idioma a otro.
+		\item El título y resumen de la oferta deberán tener un máximo de caracteres de 60 y 200 respectivamente.
+	\end{enumerate}
+	\item \textit{Flujo de operaciones}
+	\begin{enumerate}
+		\item El empleado con el rol de programar las ofertas introducirá los siguientes datos de la oferta:
+		
+			\begin{enumerate}
+				\item Título
+				\item Resumen
+				\item Descripción detallada
+				
+					\begin{itemize}
+						\item Artículo/s promocionado/s
+						\item Precio anterior de cada artículo
+						\item Precio de cada artículo con esta oferta
+						\item Fecha límite de caducidad de la oferta
+					\end{itemize}
+				
+			\end{enumerate}
+		\item El programador validará pulsando el botón \verb|Validar| la oferta para introducirla en la base de datos del programa.
+	\end{enumerate}
+	\item \textit{Respuesta a situaciones no previstas}
+	\begin{enumerate}
+		\item En caso de no haber completado algún campo del formulario, marcar los campos erróneos e indicar una breve descripción indicando que no se han completado el formulario entero.
+		\item Si al intentar validar la oferta esta no puede ser incluida en la base de datos, mostrar un mensaje indicando el error por no poder ser añadida a la base de datos del sistema. El programador podrá volver a pulsar el botón \verb|Validar| para intentar volver a ivalidar la oferta.
+	\end{enumerate}
+\end{enumerate}

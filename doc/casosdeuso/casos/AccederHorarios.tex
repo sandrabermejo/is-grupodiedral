@@ -1,0 +1,35 @@
+% Caso de uso: Acceder horarios
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Acceder Horarios,
+	% Objetivo
+	objetivo=Mostrar los horarios de trabajo del empleado.,
+	% Entradas
+	entradas=Fecha o rango de fechas.,
+	% Precondiciones
+	precondiciones=Haber accedido al sistema con un usuario válido y acceder a la opción \textit{Consultar horarios},
+	% Salidas
+	salidas=Muestra por pantalla los horarios del empleado.,
+	% Postcondiciones en caso de éxito
+	postexito=El empleado puede acceder a los horarios en la fecha seleccionada.,
+	% Postcondiciones en caso de error
+	posterror={Una pantalla de notificación de error, en la medida de lo posible.},
+	% Actores
+	actores={Empleados de la compañía, base de datos.},
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Selecciona fecha o rango de fechas de las que consultar horario. Si error S-1. \\
+		2 & Extrae de la base de datos los horarios del empleado. Si error S-1. \\
+		2 & Muestra por pantalla horario pedido. 
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Si el rango de fechas no es válido o no hay datos registrados correspondientes se vuelve al paso 1 notificando del error. \\
+		S-2 & Si no se puede conectar con la base de datos se muestra mensaje  de tipo \textit{información no disponible temporalmente} y se vuelve al paso 1 de la secuencia normal.
+	\end{tablasecuencias}
+}
+

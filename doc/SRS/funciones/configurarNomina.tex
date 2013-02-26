@@ -1,0 +1,23 @@
+\srsfuncion{Configurar nómina}
+	Función que debe permitir confeccionar y almacenar las nóminas mensuales de cada empleado de la compañía según las incidencias que se hayan producido en el último mes.
+						
+	\begin{enumerate}
+		\item \textit{Prioridad}: alta.
+		\item \textit{Entradas}
+			\begin{enumerate}
+				\item El usuario debe introducir en el campo de incidencias los motivos por los cuales este mes se produce una modificación en la nómina como, por ejemplo, aumentos o disminuciones del salario a causa de horas extras, comisiones, sustituciones, huelgas\ldots
+				\item El sueldo del mes deberá ser mayor o igual al salario mínimo establecido por ley.
+			\end{enumerate}
+		\item \textit{Flujo de operaciones}
+			\begin{enumerate}
+				\item Una vez que el usuario ha pulsado la pestaña de \verb|Configurar nómina|, tiene que seleccionar el empleado cuya nómina ha de ser modificada. 
+				\item A continuación, el usuario rellena de forma obliglatoria el campo de incidencias y confirmará que quiere aplicar los cambios en la nómina del cliente seleccionado.
+				\item Por último, se registra la nómina en la base de datos.
+			\end{enumerate}
+		\item \textit{Respuesta a situaciones no previstas}
+			\begin{enumerate}
+				\item Si no se puede establecer conexión con la base de datos: se muestra un mensaje de error y se da la opción de reintentar o abortar el proceso.
+				\item Si no se puede registrar la nómina: anular la operación y volver a la página principal del sistema.
+			\end{enumerate}					
+	\end{enumerate}
+								

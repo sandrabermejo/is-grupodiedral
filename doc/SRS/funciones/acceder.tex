@@ -1,0 +1,23 @@
+\srsfuncion{Acceder}
+	\todo[inline]{No es bueno que aparezcan referencias demasiado tecnológicas. El objetivo del prototipo no es detallar hasta este punto los requisitos, aunque en otra parte pueda servir para hacer un diseño detallado de la interfaz (pero, insisto, no en los requisitos).}
+	Función que debe permitir hacer \textit{\gls{Login}} al usuario (en este caso empleado de la compañía aérea) para poder acceder al sistema y observar los datos que su puesto de trabajo le permite ver.
+		
+	\begin{enumerate}
+		\item \textit{Prioridad}: alta.
+		\item \textit{Entradas}
+		\begin{enumerate}
+			\item El id de usuario (correo de un empleado asociado a la empresa) deberá introducirse para poder acceder, además de la contraseña personal de cada usuario.
+			\item En el campo contraseña serán inválidos los caracteres que no sean ni alfanuméricos ni otros como `.', `,', `?', `¿', `!', y `¡'.
+		\end{enumerate}
+		\item \textit{Flujo de operaciones}
+		\begin{enumerate}
+			\item Se muestran por pantalla dos campos a rellenar: uno para introducir el id del usuario y otro para escribir la contraseña.
+			\item Para que el usuario pueda acceder al sistema, además de rellenar los datos deberá pulsar el botón \verb|Aceptar| situado justo abajo de los dos campos nombrados anteriormente.
+		\end{enumerate}
+		\item \textit{Respuesta a situaciones no previstas}
+		\begin{enumerate}
+			\item La contraseña o el usuario han sido inválidos. Se mostrará en rojo los campos que tienen error junto con un mensaje que indicará que se ha introducido mal el usuario o la contraseña. Se le da la opción de volver a introducir los datos.
+		\end{enumerate}
+	
+\end{enumerate}
+								

@@ -1,0 +1,34 @@
+% Caso de uso: Mostrar ofertas.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Mostrar ofertas.,
+	% Objetivo
+	objetivo=Mostrar las ofertas actuales a los clientes con el fin de incentivar su compra.,
+	% Entradas
+	entradas=El cliente podrá elegir una oferta entre las que se muestran.,
+	% Precondiciones
+	precondiciones=Haber accedido a la página web de la compañía.,
+	% Salidas
+	salidas=Las ofertas actuales.,
+	% Postcondiciones en caso de éxito
+	postexito=Muestra las ofertas actuales de la compañía.,
+	% Postcondiciones en caso de error
+	posterror=No se modifica la página web.,
+	% Actores
+	actores=Cualquier usuario que acceda a la página web y la base de datos.
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Acceder a la base de datos. Si error S-1.\\
+		2 & Muestra por pantalla las ofertas de la compañía.\\
+		3 & Si el cliente accede a una oferta en concreto, se rediccionará a esa oferta a través de \textit{Acceder a la oferta}. Si error S-2.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & No se puede acceder a la base de datos. No se cargan las ofertas y se muestra la pantalla de la página web sin las ofertas.\\
+		S-2 & Si no se ha podido rediccionar a la oferta elegida se mostrará un mensaje por pantalla indicando que la oferta no es accesible en estos momentos.
+	\end{tablasecuencias}
+}

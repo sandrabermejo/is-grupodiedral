@@ -1,0 +1,26 @@
+\srsfuncion{Editar empleado}
+	Esta función debe mostrar la ficha de empleado y permitir la modificación de la misma.
+
+\begin{enumerate}
+	\item \textit{Entradas}
+	\begin{enumerate}
+		\item Las opciones que admiten modificación son: nombre, apellidos, foto, número de teléfono, NIF, número de seguridad social, contraseña de acceso, domicilio, dirección de correo electrónico y número de cuenta bancaria.
+		\item La contraseña estará formada por entre 8 y 16 caracteres alfanuméricos.
+		\item El \gls{NIF} será verificado algorítmicamente.
+		\item El código postal del domicilio ha de estar formado por 5 cifras.
+		\item Se verificará mediante el dígito de control la validez del número de cuenta.
+	\end{enumerate}
+	\item \textit{Flujo de operaciones}
+	\begin{enumerate}
+		\item Se muestra un listado de empleados.
+		\item El usuario selecciona una de las fichas.
+		\item Se muestra la ficha de empleado seleccionada y se pulsa el botón \verb|Modificar|.
+		\item El usuario modifica al menos uno de los diferentes campos. La validez de los campos modificados se comprueba al pulsar el botón \verb|Guardar Cambios|.
+		\item Si se encuentra algún dato erróneo se informa de ello. Si se verificarán los datos modificados se confirma la operación, actualizando la \gls{base_de_datos}.
+		\item Se muestra de nuevo la ficha de empleado actualizada.
+	\end{enumerate}
+	\item \textit{Respuesta a situaciones no previstas}
+	\begin{enumerate}
+		\item Si no se puede acceder o modificar a la base de datos: informa de la no disponibilidad temporal al usuario.
+	\end{enumerate}
+\end{enumerate}

@@ -1,0 +1,32 @@
+% Caso de uso: Programar oferta.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Programar oferta.,
+	% Objetivo
+	objetivo=Poder crear una nueva oferta para poder mostrarla y darle acceso posteriomente a los clientes.,
+	% Entradas
+	entradas=Los datos concretos de la oferta.,
+	% Precondiciones
+	precondiciones=Haber accedido al sistema.,
+	% Salidas
+	salidas=Crear una oferta que la empresa desea mostrar.,
+	% Postcondiciones en caso de éxito
+	postexito=Se crea una nueva oferta para promocionar un item y motivar su venta.,
+	% Postcondiciones en caso de error
+	posterror=No se modifica la lista de ofertas de la empresa.,
+	% Actores
+	actores=La base de datos y el personal administrativo cuyo rol sea programar., 
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Rellenar el formulario de una oferta con todos los datos requeridos.\\
+		2 & Añadir la oferta a la lista de ofertas de la base de datos de la empresa. Si error S-1.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & No se ha podido añadir la oferta a la base de datos, mostrar un mensaje de error y permitir que el usuario pueda volver a intentar añadir la oferta.
+	\end{tablasecuencias}
+}

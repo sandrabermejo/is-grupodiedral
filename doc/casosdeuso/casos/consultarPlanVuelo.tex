@@ -1,0 +1,36 @@
+% Caso de uso: Consultar el plan de vuelo.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Consultar el plan de vuelo,
+	% Objetivo
+	objetivo=Muestra planes de vuelo de los servicios operados por la compañía que afectan al usuario.,
+	% Entradas
+	entradas={Alguno de las siguientes: un número de vuelo (4 dígitos); fecha, hora y aeropuertos implicados; tripulación asignada\dots},
+	% Precondiciones
+	precondiciones=El operador de la aplicación está debidamente registrado y tiene credenciales que le habilitan para realizar dicha operación. Los planes de vuelo han sido introducidos con anterioridad.,
+	% Salidas
+	salidas={El plan de vuelo detallado o, en caso de que la entrada no determine unívocamente un servicio, una lista de vuelos.},
+	% Postcondiciones en caso de éxito
+	postexito=Se muestra el plan de vuelo o la lista de vuelos de acuerdo a la entrada.,
+	% Postcondiciones en caso de error
+	posterror=Muestra un mensaje de error.,
+	% Actores
+	actores={Personal de la compañía autorizado para la consulta del plan de vuelo (pilotos, copilotos\dots y el personal administrativo que corresponda) y la base de datos.}
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Introducir un número de vuelo u otras restricciones. Si el número de vuelo no es válido S-1.\\
+		2 & Acceder a la base de datos y buscar la información. Si error S-2.\\
+		3 & Si el criterio no es unívoco, mostrar una lista de vuelos (permitiendo pasar a \verb|4| con cada uno de ellos) o informar de que ningún vuelo cumple los requisitos establecidos. Si lo es, \verb|4|.\\
+		4 & Muestra el plan de vuelo por pantalla.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Mostrar mensaje de error y volver a pedir al usuario que introduzca un número de vuelo.\\
+		S-2 & No se puede acceder a la base de datos. Mostrar error por pantalla y volver a la página principal del sistema.\\
+		S-3 & Si se produce algún error en las operaciones con la base de datos: mostrar error por pantalla y volver a la página principal del sistema.
+	\end{tablasecuencias}
+}

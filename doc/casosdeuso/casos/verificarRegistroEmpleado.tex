@@ -1,0 +1,38 @@
+% Caso de uso: verificar registro empleado.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Verificar el registro de un empleado.,
+	% Objetivo
+	objetivo=Establece una nueva cuenta de usuario como válida y totalmente operativa.,
+	% Entradas
+	entradas={Los datos del usuario previamente registrado, incluyendo su futuro puesto de trabajo en la compañía.},
+	% Precondiciones
+	precondiciones={El nuevo usuario ha sido registrado correctamente en el sistema, el empleado de Recursos Humanos tiene los permisos necesarios para realizar la operación y ha accedido a la opción \textit{Verificar registro empleado}.},
+	% Salidas
+	salidas={Confirmación de la operación, si procede.},
+	% Postcondiciones en caso de éxito
+	postexito={La cuenta del usuario queda verificada y, por tanto, pasa a estar activa y totalmente operativa.},
+	% Postcondiciones en caso de error
+	posterror=La cuenta del usuario permanece inactiva.,
+	% Actores
+	actores=El personal del departamento de intervención y la base de datos.,
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Se extrae de la base de datos del sistema la información de la cuenta del usuario. Si error S-1. \\
+		2 & Se muestran los datos por pantalla y se comprueba que sean correctos. Si error S-2.\\
+		3 & Se verifica la cuenta del usuario y se modifica en la base de datos. Si error S-3.\\
+		4 & Se muestra por pantalla un mensaje de confirmación de la operación.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & No se ha podido conectar con la base de datos. Mostrar un mensaje de error por pantalla y volver a la página principal de la aplicación.\\
+		S-2 & Alguno de los datos de la cuenta es erróneo, o se han concedido al usuario permisos que no se corresponden a su función en la compañía. El empleado del departamento de intervención cancela la operación e informa al personal administrativo para que contacten con el futuro empleado y se proceda de nuevo a su registro.\\
+		S-3 & No se ha podido acceder a la base de datos. Se cancela la operación, se muestra un mensaje de error por pantalla y vuelve a la página principal de la aplicación.\\
+	\end{tablasecuencias}
+}
+
+

@@ -1,0 +1,38 @@
+% Caso de uso: dar de baja a un empleado.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Dar de baja a un empleado,
+	% Objetivo
+	objetivo={Dar de baja a un empleado, eliminando su información personal de acuerdo a la legislación vigente y derogando las autorizaciones de acceso al sistema y las instalaciones.},
+	% Entradas
+	entradas={Peticionario, causa y otra información adicional.},
+	% Precondiciones
+	precondiciones={El operador de la aplicación está debidamente registrado como personal de Recursos Humanos. La ficha del empleado está abierta y por tanto existe, además está verificada.},
+	% Salidas
+	salidas=En caso de éxito: número de registro de la operación.,
+	% Postcondiciones en caso de éxito
+	postexito=El usuario dado de baja pierde inmediatamente todo acceso al sistema. Los datos del usuario se eliminarán en un tiempo prudencial ante posible revocación exceptuando aquellos datos que la ley fije como de obligada conservación.,
+	% Postcondiciones en caso de error
+	posterror=El sistema central no se verá alterado. Se puede reintentar la operación.,
+	% Actores
+	% REV: ¿Qué pinta aquí el cliente?
+	actores={El personal administrativo de \textit{Recursos Humanos} habilitado para ello, el cliente a dar de baja y la base de datos.},
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Desde la ficha del usuario, lo da de baja especificando los datos requeridos.\\
+		2 & Se intenta acometer la transacción con el sistema central. Si error S-1. \\
+		3 & Se registra la operación en la \textit{Cola de Supervisión}. Si error S-2.\\
+		4 & Se muestra un mensaje afirmando que la operación se ha completado correctamente.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & La base de datos no está operativa o no se puede establecer conexión. Abortar o reintentar el proceso.\\
+		S-2 & Dependiendo de los niveles de exigencia de supervisión, se anula la operación o se solicita al operador que informe a dicho departamento manualmente.
+	\end{tablasecuencias}
+}
+
+
