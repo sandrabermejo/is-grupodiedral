@@ -1,0 +1,49 @@
+% Apuntes sobre el paquete beamer: http://metodos.fam.cie.uva.es/~latex/apuntes/apuntes.html (Universidad de Valladolid)
+\documentclass{beamer}
+
+\usepackage[utf8x, utf8]{inputenc}
+\usepackage{ucs}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+
+
+\newcommand{\software}{\textit{software }}
+
+% Configuración de Beamer
+\mode<presentation>{\usetheme{Berkeley} \setbeamercovered{dynamic}}
+% Otros temas semejantes: Madrid, PaloAlto, Ilmenau, Berkeley, Rochester
+\logo{\includegraphics[scale=.04]{logodiedral.pdf}}
+\institute{Universidad Complutense de Madrid}
+
+\title[ACE]{\itshape Airline Common Environment}
+\author{Grupo $\mathcal{D}$iedral}
+\date{20 de diciembre de 2012}
+
+\begin{document}
+\maketitle
+
+	\frame{\frametitle{Resumen} \tableofcontents}
+	
+	\section{Descripción general}
+	
+\begin{frame}
+	\frametitle{Descripción general}
+	
+	\begin{block}{Resumen}
+		\textit{Airline Common Environment} es un producto \software destinado a la gestión integral de una compañía aérea.		\end{block}
+
+	\begin{itemize}
+		\item Propósito y alcance
+			\begin{itemize}
+				\item Gestión interna
+				\item Gestión externa
+			\end{itemize}
+		\item Perspectivas y funciones del producto
+		\item Características del usuario
+		\item Restricciones y dependencias
+	\end{itemize}
+\end{frame}
+
+\end{document}

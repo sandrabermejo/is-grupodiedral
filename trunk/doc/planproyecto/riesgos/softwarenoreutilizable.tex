@@ -1,0 +1,33 @@
+% Hoja de descripción de riesgo: ejemplo
+
+\hojariesgo{Riesgo de ejemplo}{
+	% Identificador del riesgo
+	id=A1,
+	% Persona o departamento que ha identificado el riesgo
+	identificador=Departamento de desarrollo de software.,
+	% Fecha de identificación del riesgo
+	fecha=19 de febrero de 2013,
+	% Descripción
+	descripcion={No es posible la reutilización del software en etapas posteriores, lo que supone la generación de
+	nuevo software y unas pérdidas del antiguo (pérdidas de costes, rendimiento y tiempo por ese software que no se
+	va a poder reutilizar y que queda inservible).},
+	% Consecuencia (C->coste, S->calendario, R->rendimiento, Q->calidad)
+	consecuencia={C, S, R},
+	% Impacto (C->crítico, S->serio, M->moderado, N->menor)
+	impacto=N,
+	% Probabilidad (A->alta, M->media, B->baja, %)
+	probabilidad=M,
+	% Periodo de previsión (C->corto plazo, L->largo plazo)
+	periodo=L,
+	% Estrategia de prevención
+	estrategia={Los desarrolladores se ceñirán a los requisitos que pida el cliente para intentar evitar la producción
+	de software no reutilizable. Además, los desarrolladores intentarán llegar lo más pronto posible a la línea base con 
+	el cliente en el documento de Especificación de Requisitos para que así se puedan centrar en el desarrollo de 
+	software que sea necesario y no tener cambios imprevisibles de los que pueda surgir este riesgo.},
+	% Plan de contigenicia ante el acontecimiento
+	contingencia={Pese a que el software no pueda aprovecharse por completo, se intentará hacer todas las pequeñas
+	reutilizaciones que sean posibles en todas las partes de desarrollo que tengan algo de parecido al software anterior. 
+	Con esto, se intentará reducir el coste del nuevo software y mejorar el rendimiento de los desarrolladores.},
+	% Grupo de riesgos al que pertenece
+	grupo=Técnicos
+}

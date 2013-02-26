@@ -1,0 +1,26 @@
+\srsfuncion{Editar información económica} \label{fun:editareconomica}
+	Esta función debe permitir añadir, editar o eliminar elementos patrimoniales que forman parte de los gastos e ingresos de la compañía aérea, de acuerdo a los resultados del último ejercicio.
+
+\begin{enumerate}
+	\item \textit{Entradas}
+	\begin{enumerate}
+		\item Los nombres de los conceptos deberán contener únicamente carácteres alfabéticos latinos, acentuados o no, y espacios.
+		\item Los datos tanto de los gastos como de los ingresos de la compañía aérea en el último ejercicio serán números reales positivos, con dos decimales a lo sumo separados por una coma (se completará con \verb|0| los dos dígitos decimales en caso de no especificarse).
+		\item Se utilizará el euro como unidad monetaria.
+	\end{enumerate}
+	\item \textit{Flujo de operaciones}
+	\begin{enumerate}
+		\item Se mostrarán dos tablas: la primera de ella con los gastos de la compañía y la segunda con los ingresos. Ambas tablas aparecerán ordenadas por defecto en orden alfabético por concepto. Se dará la opción al usuario de ordenarlas según diferentes criterios (de mayor a menor importe y de mayor a menor porcentaje que suponen dentro de la masa patrimonial correspondiente), los cuales aparecen en pestañas en la parte superior de la tabla.
+		\item Al final de cada tabla aparecerá una fila adicional con el importe total. En un cuadro separado en la parte inferior aparecerá el resultado del ejercicio, el cual se calculará como la resta de ingresos menos gastos, y se mostrará en negro si tiene saldo positivo o cero y en rojo si tiene saldo negativo.
+		\item En cada tabla, aparecerá en la parte superior un botón \verb|Añadir| que permitirá añadir un nuevo elemento a la masa patrimonial. Al añadirlo, deberá indicarse un nombre y un importe válidos. Además, cada elemento patrimonial de la tabla podrá modificarse (debiendo introducirse nuevos datos válidos) y eliminarse de la tabla. Cada vez que se produzca una modificación en los datos, se actualizará el total de la tabla así como el resultado del ejercicio.
+	\end{enumerate}
+	\item \textit{Respuesta a situaciones no previstas}
+	\begin{enumerate}
+		\item Si no se puede conectar con la base de datos para obtener la información económica: se muestra un mensaje de error por pantalla y regresa a la página principal del sistema.
+		\item Si no se puede conectar con la base de datos para almacenar la información: se muestra un mensaje de error por pantalla informando de que la información económica no ha podido actualizarse y se vuelve a la página principal del sistema.
+		\item El nombre introducido no es válido: se muestra un mensaje avisando del error y se da la opción de editarlo de nuevo.
+		\item El importe introducido no es válido: se muestra un mensaje avisando del error y se da la opción de editarlo de nuevo.
+		\item Si no se ha podido ordenar en orden alfabético: mostrar la información desordenada e indicar que no se ha podido ordenar.
+	\end{enumerate}
+
+\end{enumerate}

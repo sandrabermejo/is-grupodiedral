@@ -1,0 +1,26 @@
+\srsfuncion{Consultar vuelos}
+	Esta función debe mostrar al cliente la relación de vuelos operados por la compañía, pudiendo filtrar resultados y buscar por diferentes criterios; permitiendo además obtener información detallada de los vuelos seleccionados.
+	
+\begin{enumerate}
+	\item \textit{Prioridad}: media.
+	\item \textit{Entradas}
+	\begin{enumerate}
+		\item Opcionalmente las que correspondan a los filtros (aeropuertos de origen y destino, número de escalas, fecha y hora, precio del billete\ldots). En última instancia, vuelo seleccionado..
+		\item Los aeropuertos de origen y destino son un conjunto finito y han de haber sido configurados previamente. Internamente se componen de nombre, ciudad y código \gls{IATA}; externamente se visualizan como una secuencia de texto configurada. El usuario podrá seleccionar uno entre ellos para cada entrada (operación que se puede abreviar introduciendo el código IATA).
+		\item No se debe permitir introducir fechas u horas no válidas.
+		\item El precio del billete será indicado en la moneda correspondiente al pais de origen del cliente.
+	\end{enumerate}
+	\item \textit{Flujo de operaciones}
+	\begin{enumerate}
+		\item Se muestra un formulario con los campos anteriormente descritos y un botón \verb|Buscar|.
+		\item El usuario completa al menos uno de los diferentes campos. Ningún campo permite entradas erróneas por definición.
+		\item Si no se obtiene ningún resultado se informa de ello con un cuadro de diálogo.Si se producen varias coincidencias se muestra una lista (indicando precios, fechas y aeropuertos) que permite la selección de alguno de ellos.
+		\item Seleccionando uno de ellos se accederá a la información especializada en ese servicio, dando acceso a la adquisición de billetes.
+	\end{enumerate}
+	\item \textit{Respuesta a situaciones no previstas}
+	\begin{enumerate}
+		\item Si no se puede acceder al servidor central o no se puede obtener la información de vuelos, informar al usuario.
+		\item Si la respuesta de búsqueda en la base datos no tiene lugar o es errónea: informar al usuario y permanecer en la pantalla actual como si no se hubiese buscado.
+		\item Si la información de vuelos no puede ser obtenida: informar al usuario y permanecer en la pantalla actual como si no se hubiese buscado o seleccionado un vuelo.
+	\end{enumerate}
+\end{enumerate}

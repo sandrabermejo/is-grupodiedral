@@ -1,0 +1,41 @@
+% Caso de uso: editar empleado.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Modificar ficha de empleado.,
+	% Objetivo
+	objetivo=Permite actualizar la información referente a uno de los empleados.,
+	% Entradas
+	entradas=Los datos nuevos a actualizar.,
+	% Precondiciones
+	precondiciones={Haber accedido al sistema con un usuario válido y los permisos necesarios.},
+	% Salidas
+	salidas=La ficha de empleado con los datos modificados actualizados.
+	% Postcondiciones en caso de éxito
+	postexito=Los cambios efectuados se guardan en la base de datos.,
+	% Postcondiciones en caso de error
+	posterror={El sistema central no ha sufrido cambios y, por tanto, no se modifica la ficha del empleado.},
+	% Actores
+	actores={El personal administrativo de la compañía con permisos para realizar estas modificaciones, base de datos.},
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Muestra lista de empleados. Si error S-1. \\
+		2 & Selecciona ficha de empleado. \\
+		3 & Muestra ficha seleccionada.\\
+		4 & Selecciona campos a modificar. \\
+		5 & Introducir datos nuevos. \\
+		6 & Comprueba corrección en los datos introducidos. Si error S-2. \\
+		7 & Almacenar los cambios en la base de datos. Si error S-3. \\
+		8 & Muestra confirmación y a continuación vuelve al paso 3.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Si no se puede conectar con la base de datos se muestra mensaje  de tipo \textit{información no disponible temporalmente} y se vuelve al paso 1 de la secuencia normal.\\
+		S-2 & Alguno de los datos introducidos no es válido. Volver al paso 3 de la secuencia normal de uso indicando los campos erróneos. \\
+		S-3 & No se han podido almacenar los cambios en la base de datos. Se cancela la operación, se informa y se vuelve a la página principal del sistema.
+	\end{tablasecuencias}
+}
+

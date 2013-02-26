@@ -1,0 +1,31 @@
+\srsfuncion{Registrarse} \label{fun:registrarse}
+	Esta función permite a un visitante de la página web de la compañía registrarse como cliente y así poder contratar vuelos por \gls{Internet}, obtener información de aquellos y posiblemente obtener ofertas.
+
+	\begin{enumerate}
+		\item \textit{Prioridad}: alta.
+		\item \textit{Entradas}\\
+			Será necesario introducir los siguiente datos: nombre y apellidos, número de identificación personal (por ejemplo \gls{NIF}) y una cuenta de correo electrónico. En cambio, la introducción de los siguientes datos será opcional: teléfono, dirección.
+
+			\begin{enumerate}
+				\item El número de idenficación personal será validado de acuerdo a las especificaciones de su formato.
+				\item El nombre y los apellidos deberán contener únicamente carácteres alfabéticos latinos, acentuados o no, y espacios.
+				\item La dirección de correo ha de seguir el formato \verb|nombre@dominio.com|. Se comprobará, en la medida de los posible, la autenticidad del servicio de correo introducido.
+				\item El número de teléfono deberá ser una secuencia de 9 dígitos.
+				\item La dirección se compondrá de un tipo de vía (calle, avenida, paseo), un nombre válido, un número de portal (entero mayor estricto que 0), escalera (izquierda, derecha, centro o nada), piso (entero mayor estricto que 0 o letra B) y puerta (letra o entero mayor estricto 0).
+			\end{enumerate}
+		
+		\item \textit{Flujo de operaciones}
+			\begin{enumerate}
+				\item Se muestra un formulario con los distintos campos anteriormente detallados para que el usuario los rellene. 
+				\item Se solicitará además el paso de un \gls{captcha} por motivos de seguridad. Hasta que éste no sea superado no se permitirá continuar con el registro.
+				\item Se mostrarán los derechos del usuario y las condiciones del servicio que deberán ser aceptadas, no pudiendo seguir con el registro hasta entonces.
+				\item Cuando haya realizado correctamente todos los pasos anteriores deberá pulsar un botón \verb|Confirmar registro| y se procederá al registro en la base de datos central.
+			\end{enumerate}
+		\item \textit{Respuesta a situaciones no previstas}
+			\begin{enumerate}
+				\item Si alguno de los datos no es válido o se ha dejado sin rellenar algún campo obligatorio se mostrará como erróneo y se dará la opción al usuario de modificarlo.
+				\item Si no se puede registrar al usuario en la base de datos: informar al usuario e indicarle que puede volverlo a intentar en otro momento.
+			\end{enumerate}
+		\item \textit{Relación con otras funciones}\\
+			Este caso es útil para todos aquellos que requieran un usuario registrado, como \verb|Acceder web| o \nameref{fun:iniciarpago}.
+	\end{enumerate}

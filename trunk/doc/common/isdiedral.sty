@@ -1,0 +1,308 @@
+\ProvidesPackage{isdiedral}[2012/11/01 v1.0 macros para el proyecto de Ingeniería del Software]
+\typeout{ISDiedral}
+
+% isdiedral.sty
+% Grupo Diedral 2012-2013
+
+% Paquetes requeridos
+\NeedsTeXFormat{LaTeX2e}[2001/06/01]
+\RequirePackage{color}
+\RequirePackage{xkeyval}
+\RequirePackage{tabularx}
+\RequirePackage{ifthen}
+\RequirePackage{environ}
+\RequirePackage{multirow}
+\RequirePackage{supertabular}
+\RequirePackage{fancyhdr}
+\RequirePackage{ifpdf}
+\RequirePackage{tikz}
+
+% Opciones soportadas
+%\DeclareOption{trsubsec}{}
+
+%%%%%%%%%%% DEFINICIÓN DE MODELO DE CASOS DE USO %%%%%%%%%%%%
+
+%% Entrada de parámetros al estilo clave-valor (http://www.ctan.org/pkg/xkeyval) %%
+
+% Se podría evitar almacenar los parámetros, imprimiendo la fila directamente.
+\makeatletter
+% Define las claves para xkeyval
+\define@key{kcasodeuso}{nombre}{\def\casosdeusoNombre{#1}}
+\define@key{kcasodeuso}{objetivo}{\def\casosdeusoObjetivo{#1}}
+\define@key{kcasodeuso}{entradas}{\def\casosdeusoEntradas{#1}}
+\define@key{kcasodeuso}{precondiciones}{\def\casosdeusoPrecondiciones{#1}}
+\define@key{kcasodeuso}{salidas}{\def\casosdeusoSalidas{#1}}
+\define@key{kcasodeuso}{postexito}{\def\casosdeusoPostexito{#1}}
+\define@key{kcasodeuso}{posterror}{\def\casosdeusoPosterror{#1}}
+\define@key{kcasodeuso}{actores}{\def\casosdeusoActores{#1}}
+\makeatother
+
+% Crea el contador de casos de uso
+\newcounter{ncasouso}
+\setcounter{ncasouso}{1}
+
+%% Comando de casos de uso, requiere una lista de claves-valor con ciertos
+% parámetros y dos tablas que representan secuencias.
+\newcommand{\casodeuso}[3]{
+	% Otorga valores iniciales a las variables (xkeyval también lo puede hacer).
+	% Se utiliza def porque es altamente improbable que exista otro símbolo
+	% con el mismo nombre (salvo el creado anteriormente)
+	\def\casosdeusoNombre{\bfseries \color{red} <<Falta nombre>>}
+	\def\casosdeusoObjetivo{\bfseries \color{red} <<Falta objetivo>>}
+	\def\casosdeusoEntradas{}
+	\def\casosdeusoPrecondiciones{}
+	\def\casosdeusoSalidas{}
+	\def\casosdeusoPostexito{}
+	\def\casosdeusoPosterror{}
+	\def\casosdeusoActores{\bfseries \color{red} <<Faltan actores>>}
+
+	% Procesa el primer parámetro
+	\setkeys{kcasodeuso}{#1}
+
+	% Prepara la estructura del documento (mejorar/hacer bien)
+	\refstepcounter{subsubsection}
+	\addcontentsline{toc}{subsubsection}{\casosdeusoNombre}
+
+	% Tabla principal
+	\label{CU:\casosdeusoNombre} \begin{tabularx}{.9\linewidth}{| l | X |}
+		\hline
+		\multicolumn{1}{|c|}{\rmfamily \scshape Caso de uso \arabic{ncasouso}} & \multicolumn{1}{c|}{\bfseries \casosdeusoNombre} \\
+		\hline
+		Objetivo & \casosdeusoObjetivo \\
+		\hline
+		Entradas & \casosdeusoEntradas \\
+		\hline
+		Precondiciones & \casosdeusoPrecondiciones \\
+		\hline
+		Salidas & \casosdeusoSalidas \\
+		\hline
+		Postcondición si éxito & \casosdeusoPostexito \\
+		\hline
+		Postcondición si error & \casosdeusoPosterror \\
+		\hline
+		Actores & \casosdeusoActores \\
+		\hline
+	\end{tabularx}\\ \\
+
+	% Tablas de secuencias
+	\def\casosdeusoNombreTabla{Secuencia normal}
+	#2\\
+
+	\def\casosdeusoNombreTabla{Secuencias alternativas}
+	#3\\
+
+	\addtocounter{ncasouso}{1}
+}
+
+%% Entorno para las tablas de secuencias
+\NewEnviron{tablasecuencias}{
+	% Se considera que puede ser necesario introducir un entorno de tabla multipágina para esta función.
+	\begin{tabularx}{.9\linewidth}{| >{\slshape \small \centering} p{.5cm} | X |} \hline
+		% Imprime el encabezado de la tabla con el título almacenado
+		\multicolumn{2}{|c|}{\ifthenelse{\isundefined{casosdeusoNombreTabla}}{\color{red} Tabla mal emplazada}{\casosdeusoNombreTabla}} \\ 			\hline
+		% Escribe el cuerpo de la tabla
+		\BODY\\\hline
+	\end{tabularx} \\
+}
+
+
+%%%%%%%%%%% DEFINICIÓN DE COMANDOS PARA SRS %%%%%%%%%%%%
+
+%% Alias para escribir soft(hard)ware en cursiva (de acuerdo a la RAE)
+\newcommand{\software}{\textit{software} }
+\newcommand{\hardware}{\textit{hardware} }
+
+%% Alias para escribir marca registrada
+\newcommand*{\marcaregistrada}{\raisebox{2mm}{\tiny\textregistered}}
+
+%% Comandos de sección de nivel 4
+% Definición general
+\newcounter{subsubsubsection}[subsubsection]	% Crea el contador
+\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}	% Define el formato de numeración
+\def\subsubsubsectionmark#1{}	% Por si acaso
+
+\makeatletter
+\newcommand\subsubsubsection{\@startsection
+{subsubsubsection}{4}{\z@} {-3.25ex plus -1
+ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el comando de sección
+\newcommand{\l@subsubsubsection}{\@dottedtocline{4}{10em}{4.2em}}	% Establece como aparecerá en el índice
+\providecommand*{\toclevel@subsubsubsection}{4}			% Fija su nivel en el índice (hyperref)
+\makeatother
+
+% Macro para función
+\newcommand{\srsfuncion}[1]{\subsubsubsection{#1}}
+
+
+%%%%%%%%%%% CONTROL DE CAMBIOS %%%%%%%%%%%%
+
+\NewEnviron{tablacambios}{
+	\begin{tabularx}{.9\linewidth}{| c | c | l | X |} \hline
+		\multicolumn{4}{|c|}{\bfseries Control de cambios} \\ \hline
+		\itshape Versión & \itshape Fecha & \itshape Autores & \itshape Descripción\\ \hline
+		% Escribe el cuerpo de la tabla
+		\BODY\\\hline
+	\end{tabularx} \\
+}
+
+
+%%%%%%%%%% DEFINICIÓN DE MODELO DE FORMULARIO DE RIESGOS %%%%%%%%%%%%%
+
+\makeatletter
+% Define las claves para xkeyval
+\define@key{kriesgos}{id}{\def\riesgosID{#1}}
+\define@key{kriesgos}{identificador}{\def\riesgosIdentificador{#1}}
+\define@key{kriesgos}{fecha}{\def\riesgosFecha{#1}}
+\define@key{kriesgos}{descripcion}{\def\riesgosDescripcion{#1}}
+\define@key{kriesgos}{influye}{\def\riesgosInfluye{#1}}
+\define@key{kriesgos}{consecuencia}{\def\riesgosConsecuencia{#1}}
+\define@key{kriesgos}{impacto}{\def\riesgosImpacto{#1}}
+\define@key{kriesgos}{probabilidad}{\def\riesgosProbabilidad{#1}}
+\define@key{kriesgos}{periodo}{\def\riesgosPeriodo{#1}}
+\define@key{kriesgos}{estrategia}{\def\riesgosEstrategia{#1}}
+\define@key{kriesgos}{contingencia}{\def\riesgosContingencia{#1}}
+\define@key{kriesgos}{grupo}{\def\riesgosGrupo{#1}}
+\makeatother
+
+% Crea el contador de riesgos
+\newcounter{nriesgos}
+\setcounter{nriesgos}{1}
+
+% Configura supertabular para notificar el salto de línea
+\tabletail{\hline \multicolumn{3}{r}{\emph{Continúa en la página siguiente...}}\\}
+\tablelasttail{}
+
+%% Comando de hojas de riesgos, requiere una lista de claves-valor con ciertos
+% parámetros.
+\newcommand{\hojariesgo}[2]{
+	% Otorga valores iniciales a las variables (xkeyval también lo puede hacer).
+	% Se utiliza def porque es altamente improbable que exista otro símbolo	
+	% con el mismo nombre (salvo el creado anteriormente)
+	\def\riesgosID{\bfseries \color{red} <<Falta ID>>}
+	\def\riesgosIdentificador{}
+	\def\riesgosFecha{\bfseries {\color{red} <<Falta fecha>>}}
+	\def\riesgosDescripcion{\bfseries {\color{red} <<Falta descripción>>}}
+	\def\riesgosInfluye{\bfseries {\color{red} ?}}
+	\def\riesgosConsecuencia{\bfseries {\color{red} ?}}
+	\def\riesgosImpacto{\bfseries {\color{red} ?}}
+	\def\riesgosProbabilidad{\bfseries {\color{red} ?}}
+	\def\riesgosPeriodo{\bfseries {\color{red} ?}}
+	\def\riesgosEstrategia{\bfseries {\color{red} <<Falta estrategia>>}}
+	\def\riesgosContingencia{\bfseries {\color{red} <<Falta plan de contigencia>>}}
+	\def\riesgosGrupo{}
+
+	% Procesa el segundo parámetro
+	\setkeys{kriesgos}{#2}
+
+	\subsubsection{#1}
+
+	% Tabla principal
+	\label{Riesgos:\riesgosID} \begin{supertabular}{| p{.1\linewidth} | p{.5\linewidth} | p{.3\linewidth} |}
+		\hline
+		\multicolumn{3}{|c|}{\bfseries Formulario de descripción de riesgo} \\
+		\hline
+		\multicolumn{2}{|l|}{\textbf{Identificado por:} \riesgosIdentificador} & \textbf{Fecha:} \riesgosFecha \\
+		\hline
+		\multicolumn{2}{|l|}{} & \textbf{ID:} \riesgosID \\
+		\hline
+		\multicolumn{3}{|p{\linewidth}|}{\textbf{Descripción de riesgo (con contexto):} \riesgosDescripcion} \\
+		\hline
+		\riesgosInfluye & \scriptsize Influye en (\textbf{c}oste, calendario (\textbf{s}), \textbf{r}endimiento, calidad (\textbf{q})) & Impacto del riesgo: \riesgosImpacto\\
+		\hline
+		\riesgosConsecuencia & \scriptsize Consecuencia (\textbf{c}rítico, \textbf{s}erio, \textbf{m}oderado, me\textbf{n}or) & \multirow{3}{*}{}\\
+		\cline{1-2}
+		\riesgosProbabilidad & \scriptsize Probabilidad (\textbf{a}lta, \textbf{m}edia, \textbf{b}aja, \%) & \\
+		\cline{1-2}
+		\riesgosPeriodo & \scriptsize Periodo (\textbf{c}orto plazo, \textbf{l}argo plazo) &\\
+		\hline
+		\multicolumn{3}{|p{\linewidth}|}{\textbf{Estrategia de mitigación:} \riesgosEstrategia} \\
+		\hline
+		\multicolumn{3}{|p{\linewidth}|}{\textbf{Detonantes y acción de contigencia:} \riesgosContingencia} \\
+		\hline
+		\multicolumn{3}{|l|}{\textbf{Grupo:} \riesgosGrupo} \\
+		\hline
+	\end{supertabular}\\
+
+	\addtocounter{nriesgos}{1}
+}
+
+% Tabla sumario de riesgos
+\NewEnviron{tablariesgos}{
+	\begin{center}
+	\begin{tabularx}{.9\linewidth}{| l | X | c | c | c | c | c |} \hline
+		\multicolumn{7}{|c|}{\bfseries Resumen de riesgos} \\ \hline
+		\itshape ID & \itshape Denominación & \itshape Duración & \itshape Ámbito & \itshape Probab. & \itshape Consec. & \itshape Impac. \\ \hline
+		% Escribe el cuerpo de la tabla
+		\BODY\\\hline
+	\end{tabularx}
+	\end{center}
+}
+
+% Tabla de descripción de material
+\newcommand{\recurso}[6]{
+	\begin{tabularx}{.9\linewidth}{>{\bfseries}r X}
+		\hline \\
+		#1		& #2 \\
+		Descripción:	& #3 \\
+		\ifthenelse{\equal{#4}{}}{}%
+		{Procedencia: 	& #4 \\}
+		Disponibilidad: & #5
+		\ifthenelse{\equal{#6}{}}{}%
+		{\\ Uso: 	& #6 \\}
+    \end{tabularx}
+}
+
+%%%%%%%%%% DEFINICIÓN DE CONVENCIONES SOBRE ENCABEZADOS Y PIE DE PÁGINA %%%%%%%%%%%%%
+% Requiere como parámetro el nombre del documento
+\newcommand*{\encabezadodiedral}[1]{
+	\definecolor{hdrgray}{gray}{0.6}
+	\fancyhead[REH, LOH]{\color{hdrgray}#1 > \nouppercase{\rightmark}}
+	\fancyhead[LEH, ROH]{\thepage}
+	\fancyfoot{}
+	\setlength{\headheight}{15pt}
+	\renewcommand{\headrulewidth}{.1pt}
+}
+
+\newcommand{\iniciarnumeraciondiedral}{
+	\setcounter{page}{1}
+	\renewcommand*{\thepage}{\arabic{page}}
+}
+
+%%%%%%%%% PÁGINA DE TÍTULO CON FORMATO COMÚN PARA EL PROYECTO ACE %%%%%%%%%%%%%%
+\newcommand{\portadaace}[1]{
+\ifpdf
+\begin{titlepage}
+		% Título del documento
+		\begin{center}
+		\vspace*{2cm}
+			{\fontsize{60}{72} \selectfont \bfseries \color{green!15!black!85} #1}
+		\vfill
+
+		\normalsize
+
+		% Autores y nombre del proyecto (con PGF/TikZ)
+		\begin{tikzpicture}
+			\draw (1, 1.5) node[above]{\color{gray} \Huge \itshape Airline Common Environment};
+			\draw (1, 1.5) node[yscale=-1, above, opacity=0.1]{\color{gray} \Huge \itshape Airline Common Environment};
+
+			\draw (-4, -0.2) node[below]{\includegraphics[scale=.06]{../common/logodiedral.pdf}};
+			\draw (-4.1, -2.5) node[below]{\bfseries Grupo Diedral};
+
+			\draw (5, -.6) node[below]{
+				\begin{tabular}{r}
+					Cristina Alonso Fernández\\
+					Natalia Angulo Herrera\\
+					Sandra Bermejo Cañadas\\
+					Juan Andreś Claramunt Pérez\\
+					Rubén Rafael Rubio Cuéllar
+				\end{tabular}
+			};
+		\end{tikzpicture}
+		\end{center}
+	\end{titlepage}
+
+\else
+	\maketitle
+\fi
+}
+
+% Fin del paquete "isdiedral.sty"

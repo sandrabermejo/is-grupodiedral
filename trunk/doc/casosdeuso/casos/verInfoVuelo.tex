@@ -1,0 +1,32 @@
+% Caso de uso: ver información de vuelo
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Ver información de vuelo contratado,
+	% Objetivo
+	objetivo=Muestra al usuario la información del sus vuelos contratados.,
+	% Entradas
+	entradas=,
+	% Precondiciones
+	precondiciones={El usuario ha iniciado sesión correctamente en la interfaz web. Para que se muestre información, tener plaza reservada o comprada en un vuelo operado por la compañía.},
+	% Salidas
+	salidas={Información de la reserva como puede ser número de vuelo, fecha y hora, número de plaza, terminales de salida y de llegada.},
+	% Postcondiciones en caso de éxito
+	postexito=No se realizan cambios en el sistema.,
+	% Postcondiciones en caso de error
+	posterror=No se realizan cambios en el sistema.,
+	% Actores
+	actores=Cliente-usuario de interfaz web.
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Muestra una sucesión detalla de información sobre los vuelos contratados. Si no disponibles S-1.\\
+		2 & Ofrece la opción de imprimir la información de los vuelos mostrados o de alguno de ellos en particular.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Si no se puede conectar con la base de datos se muestra mensaje  de tipo \textit{información no disponible temporalmente} y se vuelve al paso 1 de la secuencia normal.
+	\end{tablasecuencias}
+}

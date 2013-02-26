@@ -1,0 +1,38 @@
+% Caso de uso: modificar items inventario.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Modificar inventario,
+	% Objetivo
+	objetivo=Permite modificar diversos datos sobre el material registrado en el inventario de la empresa.,
+	% Entradas
+	entradas=La nueva información sobre el material.,
+	% Precondiciones
+	precondiciones={El operador de la aplicación está debidamente registrado y posee credenciales que le habilitan para realizar esta operación. El servidor que hospeda la base de datos de inventario está operativo.},
+	% Salidas
+	salidas=El inventario de la empresa modificado en función de los cambios registrados.
+	% Postcondiciones en caso de éxito
+	postexito=El material disponible de la empresa en el inventario se habrá actualizado de acuerdo a los datos introducidos.,
+	% Postcondiciones en caso de error
+	posterror={El sistema central no ha sufrido cambios y, por tanto, no se actualiza el material disponible de la empresa.},
+	% Actores
+	actores=El personal de la compañía con permisos para realizar estas modificaciones y la base de datos.,
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Extraer de la base de datos el inventario con los elementos disponibles. Si error S-1. \\
+		2 & Mostrar una lista ordenada según el criterio configurado y permitir la búsqueda. Si error S-2. \\
+		3 & Permitir añadir o eliminar elementos del inventario. Si error S-3.\\
+		4 & Al seleccionar un objeto, mostrar una vista editable de sus propiedades. Si error S-4.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & La base de datos está dañada y no se han podido extraer los datos, o ha habido un error en la aplicación. Mostrar por pantalla un mensaje para que el usuario se ponga en contacto con el personal técnico de la empresa y le manifieste el error, disculparse por las molestias y dar las gracias por el aviso.\\
+		S-2 & Si no se ha podido generar la lista, mostrar información del error al usuario y abortar la operación. \\
+		S-3 & Si no se puede acometer la transacción con la base de datos, informar al usuario y permitir reintento. \\
+		S-4 & Si no se puede obtener la información de la base de datos, informar al usuario y cancelar la pantalla de edición. Si no se puede introducir el contenido editado, S-3.
+	\end{tablasecuencias}
+}
+

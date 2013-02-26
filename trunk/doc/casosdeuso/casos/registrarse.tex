@@ -1,0 +1,33 @@
+% Caso de uso: Registrarse
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Registrarse,
+	% Objetivo
+	objetivo=Registrar un nuevo cliente de la compañía en la base de datos.,
+	% Entradas
+	entradas={Datos personales del cliente, incluyendo una dirección de correo electrónico.},
+	% Precondiciones
+	precondiciones={El visitante que pretende registrarse no está previamente registrado.},
+	% Salidas
+	salidas=Confirmación del registro del nuevo cliente.,
+	% Postcondiciones en caso de éxito
+	postexito=El cliente queda registrado en la base de datos.,
+	% Postcondiciones en caso de error
+	posterror=La base de datos de clientes no ha sido alterada.,
+	% Actores
+	actores=El visitante de la interfaz externa y la base de datos.,
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & El usuario introduce sus datos personales. Si error S-1.\\
+		2 & Se vuelcan los datos del nuevo cliente a la base de datos. Si error S-2.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & Si los datos no son válidos, el sistema vuelve al paso 1 de la secuencia normal de uso e indica los campos erróneos.\\
+		S-2 & Si no se puede conectar con la base de datos, se muestra un mensaje informando al cliente acerca del error y el sistema vuelve al paso 1 de la secuencia normal de uso.
+	\end{tablasecuencias}
+}

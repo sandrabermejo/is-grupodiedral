@@ -1,0 +1,27 @@
+\srsfuncion{Registrar empleado}
+	Esta función debe permitir añadir un nuevo empleado a la base de datos del sistema de la compañía aérea.
+
+\begin{enumerate}
+	\item \textit{Prioridad}: alta.
+	\item \textit{Entradas}
+	\begin{enumerate}
+		\item El nombre y apellidos del empleado deberán contener únicamente carácteres alfabéticos latinos, acentuados o no, y espacios.
+		\item El código de identificación personal debererá cumplir los requisitos que se establecen en \nameref{srs:idpersonal}.
+		\item La dirección se compondrá de un tipo de vía (calle, avenida, paseo), un nombre válido, un número de portal (entero mayor estricto que 0), escalera (izquierda, derecha, centro o nada), piso (entero mayor estricto que 0 o letra B) y puerta (letra o entero mayor estricto 0).
+		\item El número de teléfono deberá ser una secuencia de 9 dígitos.
+		\item El puesto de trabajo deberá seleccionarse de una lista finita fijada con anterioridad.
+	\end{enumerate}
+	\item \textit{Flujo de operaciones}
+	\begin{enumerate}
+		\item Se muestra por pantalla una tabla con los datos personales del empleado que deben ser completados (nombre, apellidos, código de identificación peronal, dirección, teléfono, puesto de trabajo que ocupará dentro de la empresa y otros datos personales opcionales para completar el registro).
+		\item El encargado del registro deberá confirmar el alta pulsando en el botón \verb|Guardar|.
+		\item Se generá un nuevo nombre de usuario y una contraseña, que se asignarán a la cuenta de correo interna del usuario.
+		\item Se imprime entonces una ficha con los datos de la cuenta para el empleado.
+	\end{enumerate}
+	\item \textit{Respuesta a situaciones no previstas}
+	\begin{enumerate}
+		\item Si no se puede acceder a la base de datos para almacenar la información: se muestra un mensaje de error por pantalla informando de que el registro no ha podido completarse y el usario no ha sido añadido a la base de datos. Se vuelve a la página principal del sistema.
+		\item Si algún campo introducido no es válido: se señalan los campos erróneos y se da la opción de volver a introducir los datos.
+	\end{enumerate}
+
+\end{enumerate}
