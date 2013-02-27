@@ -227,14 +227,25 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 
 % Tabla sumario de riesgos
 \NewEnviron{tablariesgos}{
-	\begin{center}
-	\begin{tabularx}{.9\linewidth}{| l | X | c | c | c | c | c |} \hline
+	% Primera cabecera de tabla
+	\tablefirsthead{\hline
 		\multicolumn{7}{|c|}{\bfseries Resumen de riesgos} \\ \hline
 		\itshape ID & \itshape Denominación & \itshape Duración & \itshape Ámbito & \itshape Probab. & \itshape Consec. & \itshape Impac. \\ \hline
+	}
+
+	% Cabecera de tabla para páginas subsiguientes
+	\tablehead{\hline \itshape ID & \itshape Denominación & \itshape Duración & \itshape Ámbito & \itshape Probab. & \itshape Consec. & \itshape Impac. \\}
+
+	\begin{center}
+	\begin{supertabular}{| l | p{.35\linewidth} | c | c | c | c | c |} \hline
 		% Escribe el cuerpo de la tabla
 		\BODY\\\hline
-	\end{tabularx}
+	\end{supertabular}
 	\end{center}
+
+	% Reinicia las configuraciones de "supertabular"
+	\tablefirsthead{}
+	\tablehead{}
 }
 
 % Tabla de descripción de material
