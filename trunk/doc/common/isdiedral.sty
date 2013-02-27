@@ -16,6 +16,9 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{ifpdf}
 \RequirePackage{tikz}
+\RequirePackage{colortbl}
+\RequirePackage{longtable}
+\RequirePackage{tabu}
 
 % Opciones soportadas
 %\DeclareOption{trsubsec}{}
@@ -197,6 +200,7 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 
 	% Tabla principal
 	\label{Riesgos:\riesgosID} \begin{supertabular}{| p{.1\linewidth} | p{.5\linewidth} | p{.3\linewidth} |}
+%	\label{Riesgos:\riesgosID} \begin{longtabu} to \.9\linewidth {| X[1, l] | X[5, l] | X[3, l] |}
 		\hline
 		\multicolumn{3}{|c|}{\bfseries Formulario de descripción de riesgo} \\
 		\hline
@@ -221,6 +225,7 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 		\multicolumn{3}{|l|}{\textbf{Grupo:} \riesgosGrupo} \\
 		\hline
 	\end{supertabular}\\
+%	\end{longtabu}\\
 
 	\addtocounter{nriesgos}{1}
 }
@@ -262,8 +267,30 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
     \end{tabularx}
 }
 
+
+%%%%%%%%%% OTRAS DEFINICIONES PLAN DE PROYECTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Requiere un parámetro que es el nombre de función
+\NewEnviron{tablapf}[2]{
+	\begin{center}
+	\begin{tabu} to .9\linewidth {| >{\itshape}X[1, l] | X[1, l] | X[1, l] | X[1, l] | X[1, l] | X[1, l] | X[1, l] | X[1, l] |} \hline
+		% Encabezado general
+		\multicolumn{8}{|c|}{\bfseries #1} \\ \hline
+
+		\rowfont{\itshape} & \multicolumn{2}{c|}{Baja} & \multicolumn{2}{c|}{Media} & \multicolumn{2}{c|}{Alta} & \multicolumn{1}{c|}{PF}\\ \hline
+		
+		% Encabezado particular
+		& Número & Peso & Número & Peso & Número & Peso & \\ \hline
+		
+		% Aquí va el contenido
+		\BODY\\\hline
+		\multicolumn{7}{|r|}{TOTAL:} & #2 \\ \hline
+	\end{tabu}
+	\end{center}
+}
+
 %%%%%%%%%% DEFINICIÓN DE CONVENCIONES SOBRE ENCABEZADOS Y PIE DE PÁGINA %%%%%%%%%%%%%
-% Requiere como parámetro el nombre del documento
+% Requiere como parámetro el nombre del documento y el número total de PFs
 \newcommand*{\encabezadodiedral}[1]{
 	\definecolor{hdrgray}{gray}{0.6}
 	\fancyhead[REH, LOH]{\color{hdrgray}#1 > \nouppercase{\rightmark}}
