@@ -14,6 +14,7 @@
 \usepackage[colorlinks, linkcolor=red]{hyperref}
 \usepackage{isdiedral}
 \usepackage[italian]{isodate}
+\usepackage{comment} % temporal
 
 % Configuraciones
 \marginsize{2.5cm}{2cm}{2cm}{2cm}
@@ -68,7 +69,7 @@ pdfinfo={
 		\subsection{Propósito del plan}
 		\subsection{Ámbito del proyecto y objetivos}
 			\subsubsection{Declaración del ámbito}
-			El ámbito del proyecto es la gestión tanto interna como externa de una compañia aérea. La aplicación para la gestión interna pemitirá a los empleados de la compañía organizar y programar de manera más rapida y eficiente varias de sus tareas laborales, así como consultar diversos datos relativos a su trabajo en la empresa, como horarios, nómina, etc. En cuanto a la gestión externa, los clientes de la compañía podrán realizar a través de la página web todo lo relacionado con la compra de los billetes de avión: acceder a la información relativa a los vuelos ofertados, efectuar el pago de los billetes y beneficiarse de diversas ofertas.
+			El ámbito del proyecto es la gestión tanto interna como externa de una compañia aérea. La aplicación para la gestión interna pemitirá a los empleados de la compañía organizar y programar de manera más rápida y eficiente varias de sus tareas laborales, así como consultar diversos datos relativos a su trabajo en la empresa, como horarios, nómina, etc. En cuanto a la gestión externa, los clientes de la compañía podrán realizar a través de la página web todo lo relacionado con la compra de los billetes de avión: acceder a la información relativa a los vuelos ofertados, efectuar el pago de los billetes y beneficiarse de diversas ofertas.
 
 			\subsubsection{Funciones principales}
 			Las funciones principales de la aplicación interna son la consulta de horarios y nóminas para todos los empleados de la compañía, así como otras funciones específicas según el empleo que realicen dentro de la empresa como consultar, añadir o editar distintos datos de empleados, inventario o información de la empresa, y otras funciones concretas relativas al empleo como puede ser realizar un mantenimiento o registrar un nuevo empleado. \\
@@ -84,7 +85,7 @@ pdfinfo={
 			El diseño de la aplicación estará codificado de acuerdo a los estándares reconocidos, para facilitar así su reutilización y adaptación. Además, el programa debe proporcionar mecanismos para la realización de controles de funcionamiento y auditorías. También hay que vigilar que el sistema quede protegido frente a intentos de accesos externos, respetando en todo momento las regulaciones de protección de datos de carácter personal.
 
 		\subsection{Modelo de proceso}
-		El desarrollo de nuestro proyecto estará basado en el modelo conocido como Proceso Unificiado también conocido como RUP(Rational Unified Process). Éste modelo fue inicialmente descrito en 1999 por los desarrolladores del lenguaje UML, Ivar Jacobson, Grady Booch y James Rumbaugh y se caracteriza principalmente por estar dirigido por los casos de usos, centrarse en la aquitectura y ser iterativo incremental. En él podemos diferenciar cuatro fases. En la fase de inicio se desarrolla una descripción del producto final, en la fase de elaboración se especifican los casos de uso y se diseña la arquitectura del sistema, en la fase de construccion se crea el producto y por último en la fase de transición se entrega el producto al cliente.
+		El desarrollo de nuestro proyecto estará basado en el modelo conocido como Proceso Unificiado también conocido como RUP(Rational Unified Process). Éste modelo fue inicialmente descrito en 1999 por los desarrolladores del lenguaje UML, Ivar Jacobson, Grady Booch y James Rumbaugh y se caracteriza principalmente por estar dirigido por los casos de usos, centrarse en la arquitectura y ser iterativo incremental. En él podemos diferenciar cuatro fases. En la fase de inicio se desarrolla una descripción del producto final, en la fase de elaboración se especifican los casos de uso y se diseña la arquitectura del sistema, en la fase de construcción se crea el producto y por último en la fase de transición se entrega el producto al cliente.
 
 	\section{Estimaciones del proyecto}
 		\subsection{Datos históricos}
@@ -94,44 +95,45 @@ pdfinfo={
 		\subsection{Estimaciones de esfuerzo, coste y duración}
 	\section{Estrategia de gestión del riesgo}
 		\subsection{Análisis del riesgo}
-		Esta sección está dedicada a la identificación de riesgos para el proyecto. Adoptaremos una estrategia de gestión de riesgos proactiva, que consistirá en estimar cómo de probables son los riesgos identificados y cuáles son sus consecuencias. El anáisis de un riesgo quedará determinado por la duración del periodo de tiempo al que estamos expuestos (corto/ largo plazo), el ámbito (coste/ calendario/ rendimiento/ calidad), la probabilidad (alta/ media/ baja, la consecuencia (crítico/ serio/ moderado/ menor) de dicho riesgo y el impacto
+		Esta sección está dedicada a la identificación de riesgos para el proyecto. Adoptaremos una estrategia de gestión de riesgos proactiva, que consistirá en estimar cómo de probables son los riesgos identificados y cuáles son sus consecuencias. El análisis de un riesgo quedará determinado por la duración del periodo de tiempo al que estamos expuestos (corto/ largo plazo), el ámbito (coste/ calendario/ rendimiento/ calidad), la probabilidad (alta/ media/ baja, la consecuencia (crítico/ serio/ moderado/ menor) de dicho riesgo y el impacto
 			\begin{tablariesgos}
 			%DE PROYECTO
 				% ID & Denominación & Duración & Ámbito & Probabilidad & Consecuencia & Impacto
-				P1 & \nameref{Riesgos:P1} & L	& C/S	& P	& S	& \textbf{ALTO}\\ \hline % planificaciones poco reallistas
-				P2 & \nameref{Riesgos:P2} & L	& R/S	& P	& S	&	\textbf{ALTO}\\ \hline % pbms ensamblaje
-				P3 & \nameref{Riesgos:P3} & L	& S/C & P	& S	&	ALTO \\ \hline % cambios requisitos
-				P4 & \nameref{Riesgos:P4} & L	& S	& F	& S	&	ALTO	\\ \hline % inactividad prolongada
-				P5 & Discrepancias en el equipo & L & R & O	& MEN	&	BAJO\\ \hline
-				P6 & \nameref{Riesgos:P6} & L & S & O	& CRI	& ALTO	\\ \hline % incumplimiento de lo acordado
-				P7 & Falta o exceso de personal al desempeñar una tarea & L	& R/Q	& O	& MEN	&	BAJO\\ \hline
-				P8 & \nameref{Riesgos:P8} & L	& C/S/Q	& P	& S	& ALTO	\\ \hline % conflictos o ambigüedad SRS			
-				P9 & \nameref{Riesgos:P9} & L	& S/R	& R	& CRI	&	MEDIO\\ \hline % perdida equipo
-				P10 & Adelanto de la fecha de entrega del proyecto o presentaciones parciales & L	& S/Q	& R	& CRI	& MEDIO	\\ \hline
-				P11 & Modificaciones de las leyes vigentes & L & C & I & MEN & TOLERABLE	\\ \hline
+				P1 & \nameref{Riesgos:P1} & L	& C/S	& P	& S	& \bfseries A	\\ \hline % planificaciones poco realistas
+				P2 & \nameref{Riesgos:P2} & L	& R/S	& P	& S	& \bfseries A	\\ \hline % pbms ensamblaje
+				P3 & \nameref{Riesgos:P3} & L	& S/C 	& P	& S	& \bfseries A	\\ \hline % cambios requisitos
+				P4 & \nameref{Riesgos:P4} & L	& S	& F	& S	& \bfseries A	\\ \hline % inactividad prolongada
+				P5 & Discrepancias en el equipo & L 	& R 	& O	& M	& B		\\ \hline
+				P6 & \nameref{Riesgos:P6} & L 	& S 	& O	& c	& \bfseries A	\\ \hline % incumplimiento de lo acordado
+				P7 & Falta o exceso de personal al desempeñar una tarea & L	& R/Q	& O	& M	& B \\ \hline
+				P8 & \nameref{Riesgos:P8} & L	& C/S/Q	& P	& S	& \bfseries A	\\ \hline % conflictos o ambigüedad SRS			
+				P9 & \nameref{Riesgos:P9} & L	& S/R	& R	& c	& M \\ \hline % perdida equipo
+				P10 & Adelanto de la fecha de entrega del proyecto o presentaciones parciales & L	& S/Q	& R	& C	& M	\\ \hline
+				P11 & Modificaciones de las leyes vigentes & L & C & I & M & T	\\ \hline
 			%TÉCNICOS
-				T1 & \nameref{Riesgos:T1} & L	& S/R	& F	& S	&	ALTO\\ \hline % Desconocimiento de las tecnologías empleadas  (Herramientas CASE)
-				T2 & \nameref{Riesgos:T2} & L	& S/R	& P	& CRI	&	\textbf{INTOLERABLE}\\ \hline % Repositorio inoperativo
-				T3 & \nameref{Riesgos:T3} & L	& C/S/R	& O	& CRI	& ALTO	\\ \hline % errores estructurales de diseño
-				T4 & \nameref{Riesgos:T4} & C	& Q	& P	& SER	&	ALTO \\ \hline % errores documentacion
-				T5 & \nameref{Riesgos:T5} & L	& C/S/R	& P	& MEN	& MEDIO	\\ \hline % Software no reutilizable
-				T6 & Ausencia del software requerido en los laboratorios &	L & R	& O	& MEN	& BAJO	\\ \hline
-				T7 & Conexión por red sobresaturada & L	& R	& R	& MEN & TOLERABLE	\\ \hline
-				T8 & Deficiencias en componentes externos &	L & Q/C	& O	& S	& MEDIO	\\ \hline	
-				T9 & Incompatibilidad de las herramientas de desarrollo con el software de los desarrolladores & C	& R/C	& P	& INSIG	& BAJO	\\ \hline
-				T10 & Obsolescencia de las tecnologías empleadas & L & C/S & R & MEN &	TOLERABLE\\ \hline
-				T11 & Uso de tecnologías experimentales & L	& R & R	&	MEN &	TOLERABLE\\ \hline
+				T1 & \nameref{Riesgos:T1} & L	& S/R	& F	& S	& \bfseries A\\ \hline % Desconocimiento de las tecnologías empleadas  (Herramientas CASE)
+				T2 & \nameref{Riesgos:T2} & L	& S/R	& P	& c	& \bfseries I \\ \hline % Repositorio inoperativo
+				T3 & \nameref{Riesgos:T3} & L	& C/S/R	& O	& c	& \bfseries A \\ \hline % errores estructurales de diseño
+				T4 & \nameref{Riesgos:T4} & C	& Q	& P	& S	& \bfseries A \\ \hline % errores documentación
+				T5 & \nameref{Riesgos:T5} & L	& C/S/R	& P	& M	& M	\\ \hline % Software no reutilizable
+				T6 & Ausencia del software requerido en los laboratorios &	L & R	& O	& M	& B	\\ \hline
+				T7 & Conexión por red sobresaturada & L	& R	& R	& M & T	\\ \hline
+				T8 & Deficiencias en componentes externos &	L & Q/C	& O	& S	& M \\ \hline	
+				T9 & Incompatibilidad de las herramientas de desarrollo con el software de los desarrolladores & C	& R/C	& P	& I	& B	\\ \hline
+				T10 & Obsolescencia de las tecnologías empleadas & L & C/S & R & M & T\\ \hline
+				T11 & Uso de tecnologías experimentales & L	& R & R	&	M & T\\ \hline
 			%DE NEGOCIO
-				N1 & \nameref{Riesgos:N1} & L	& R/C/S/Q	& P	& CATAST & \textbf{INTOLERABLE}	\\ \hline % falta de comunicacion con el cliente
-				N2 & Espionaje industrial & L & C/S & R & S &	BAJO \\ \hline
-				N3 & Desacuerdo sobre algún tema decidido anteriormente & L	& S/R	& O	& S	& MEDIO	\\ \hline
-				N4 & Competencia con otros proyectos del sector & L	& C	& O	& S	& MEDIO	\\ \hline
-				N5 & Defecto de documentación en otros idiomas & L & C/Q	& P	& MEN	& MEDIO	\\ \hline
-				N6 & Falta de soporte para plataformas móviles o web &  L	& C/Q	& P	& MEN	& TOLERABLE	% Fin
+				N1 & \nameref{Riesgos:N1} & L	& R/C/S/Q	& P	& C & \bfseries I \\ \hline % falta de comunicación con el cliente
+				N2 & Espionaje industrial & L & C/S & R & S  & B \\ \hline
+				N3 & Desacuerdo sobre algún tema decidido anteriormente & L	& S/R	& O	& S	& M	\\ \hline
+				N4 & Competencia con otros proyectos del sector & L	& C	& O	& S	& M	\\ \hline
+				N5 & Defecto de documentación en otros idiomas & L & C/Q	& P	& M	& M	\\ \hline
+				N6 & Falta de soporte para plataformas móviles o web &  L	& C/Q	& P	& M	& T	% Fin
 				
 			\end{tablariesgos}			
 		\subsection{Estudio de los riesgos}
-			Una vez identificados los riesgos, procedemos a la priorización. Para ello, calculamos la exposición al riesgo multiplicando probablidad por consecuencias. A continuación, trataremos el estudio de los riesgos más graves, incluyendo una estrategia de prevención y el plan de contingencia ante el acontecimiento.
+			Una vez identificados los riesgos, procedemos a la priorización. Para ello, calculamos la exposición al riesgo multiplicando probabilidad por consecuencias. A continuación, trataremos el estudio de los riesgos más graves, incluyendo una estrategia de prevención y el plan de contingencia ante el acontecimiento.
+
 			\input{riesgos/ambiguedadespecificacion}
 			\input{riesgos/cambiorequisitos}
 			\input{riesgos/desconocimientotecnologias}
@@ -160,68 +162,7 @@ pdfinfo={
 			\ldots
 
 		\subsection{Lista de recursos}
-			\begin{itemize}
-				\item Herramientas para la elaboración de la documentación: \begin{itemize}
-					\item El sistema tipográfico {\rmfamily \TeX{}} y {\rmfamily\LaTeX{}} en las distribuciones {\rmfamily\TeX{} Live} y {\rmfamily Mik\TeX{}}.
-					\subitem \textit{Disponibilidad}: simultáneo y no limitado.
-					\item Los paquetes {\rmfamily color}, {\rmfamily babel}, {\rmfamily xkeyval}, {\rmfamily ifthen}, {\rmfamily ifpdf}, {\rmfamily environ}, {\rmfamily tabularx}, {\rmfamily supertabular}, {\rmfamily multirow}, {\rmfamily fancyhdr}, {\rmfamily tikz}, {\rmfamily hyphenat}, {\rmfamily anysize}, {\rmfamily graphicsx}, {\rmfamily float}, {\rmfamily rotating}, {\rmfamily hyperref}, {\rmfamily titletoc}, {\rmfamily glossaries} y {\rmfamily todonotes}\footnote{Para ver descripción y autores, visitar \url{www.ctan.org}.}.
-					\subitem \textit{Disponibilidad}: disponible en los equipos personales de los desarrolladores. Algunos miembros del equipo no cuentan con la distribución correctamente configurada. No disponible en los laboratorios de las facultades salvo instalación \textit{ad-hoc}.
-					\item La clases {\rmfamily ltxdoc} y {\rmfamily beamer}.
-					\subitem \textit{Disponibilidad}: ilimitada y simultanea.
-					\item La familia de fuentes {\rmfamily Latin Modern}.
-					\subitem \textit{Disponibilidad}: ilimitada y simultanea.
-					\item La herramienta de modelado UML \textit{ArgoUML} bajo licencia EPL 1.0\footnote{Página oficial: \url{http://argouml.tigris.org}.}.
-					\subitem \textit{Disponibilidad}: ilimitada y simultanea. Ejecutable en los laboratorios de la Facultad de Informática.
-				\end {itemize}
-				
-				% Herramientas de comunicicación
-				\item Herramientas para la comunicación: \begin{itemize}
-					\item Repositorio de control de versiones basado en SVN \textit{RiouxSVN}.
-					\subitem \textit{Disponibilidad}: continua y simultánea. Cortes del servicio puntuales por labores de mantenimiento.
-					\item Correo electrónico de la Universidad Complutense de Madrid.
-					\subitem \textit{Disponibilidad}: continua y simultánea. Generalmente operativo.
-					\item \textit{Google Drive} de las \textit{Google Apps} de la Universidad Complutense de Madrid.
-				\end{itemize}
-
-				% Herramientas CASE
-				\item Herramientas CASE: \begin{itemize}
-					\item \textit{Microsoft Project} de \textit{Microsoft Corporation}, descargado a través de la cuenta \textit{DreamSpark} asociada a la Facultad de Informática de la UCM.
-					\subitem \textit{Disponibilidad}: ilimitada y simultánea. Sujeta a la licencia de \software correspondiente.
-				\end{itemize}
-				
-				% Equipos
-				\item Equipos: \begin{itemize}
-					\item Uso de los laboratorios de la \textit{Facultad de Informática} de la UCM.
-					\subitem \textit{Disponibilidad}: restringida al horario de apertura y disponibilidad de plazas.
-					\item Uso de las aulas de informática de la \textit{Facultad de Ciencias Matemáticas} de la UCM.
-					\subitem \textit{Disponibilidad}: restringida al horario de apertura y disponibilidad de plazas.
-					\item Ordenadores personales de los miembros del equipo de desarrollo.
-					\item Equipo utilizado en las exposiciones (proyector, ordenador del profesor\ldots).
-				\end{itemize}
-
-				% Herramientas de desarrollo
-				\item Herramientas para la programación de prototipos y versiones del producto: \begin{itemize}
-					\item La colección de compiladores de GNU (especialmente C y C++) distribuidos bajo licencia GPL por la \textit{Free Software Fundation}.
-					\item El compilador de \textit{Microsoft Visual C++} versión 11 distribuido por \textit{Microsoft Corporation}.
-					\item La biblioteca gráfica \textit{Qt} en su versión GPL distribuida por \textit{Digia} (anteriormente \textit{Nokia}).
-					\item Los iconos de \textit{Tango Desktop Project}\footnote{Más información en \url{http://tango.freedesktop.org/}}.
-					\item El lenguaje de programación \textit{Java} y el \software \textit{OpenJDK} por \textit{Oracle Corporation}.
-				\end{itemize}
-
-				% Material de referencia
-				\item Material de referencia: \begin{itemize}
-					\item El libro \cite{PSMAN}.
-					\subitem \textit{Disponibilidad}: sujeta a la disponibilidad de ejemplares en la biblioteca de la facultad.
-					\item Los estándares sobre Ingeniería de Software accesibles a través de \textit{IEEEXplore\marcaregistrada} mediante la cuenta de la Universidad Complutense de Madrid.
-					\subitem \textit{Disponibilidad}: ilimitada y simultánea al conjunto de estándares necesarios.
-					\item La documentación de C++ disponible en los sitios web \url{www.cplusplus.com} y \url{http://es.cppreference.com/}.
-					\subitem \textit{Disponibilidad}: ilimitada y simultánea.
-					\item Los estándares de C++ disponibles en \url{www.open-std.com} y el libro \emph{El lenguaje de programación C++} de Bjarne Stroustrup \cite{STROUSTRUP}.
-					\subitem \textit{Disponibilidad}: ilimitada y simultánea. Para el libro: sujeta a la disponibilidad de ejemplares en la biblioteca aunque disponible en inglés de forma ilimitada y simultánea por medio de la biblioteca de la universidad.
-					\item La documentación de la API de \textit{Java}, disponible en \url{http://docs.oracle.com/javase/7/docs/api/} y los apuntes de la asignatura \textit{Tecnología de la Programación} \cite{AP_TP}.
-				\end{itemize}
-				
-			\end{itemize}
+			\input{lista_recursos}
 	\section{Organización del personal}
 		\subsection{Estructura de equipo}	% Si procede
 		El escaso número de miembros del que consta el equipo de trabajo ha dificultado el establecimiento de una estructura compleja del mismo, sin embargo, sí se han realizado unas pequeñas divisiones para facilitar y organizar de manera más clara el trabajo. En este sentido, Rubén ha sido el coordinador del equipo, debido a sus mayores conocimientos en las herramientas que podían utilizarse. Siguiendo sus pautas, el resto del equipo ha realizado un trabajo similar, repartiendo las distintas partes del proyecto entre todos los miembros del mismo y realizando múltiples rotaciones para garantizar la homogeneidad y el trabajo de todos los miembros en todos los aspectos del proyecto.
