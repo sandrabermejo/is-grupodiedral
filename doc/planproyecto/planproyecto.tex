@@ -146,23 +146,23 @@ pdfinfo={
 			\begin{tablariesgos}
 			%DE PROYECTO
 				% ID & Denominación & Duración & Ámbito & Probabilidad & Consecuencia & Impacto
-				P1 & \nameref{Riesgos:P1} & L	& C/S	& P	& S	& \bfseries A	\\ \hline % planificaciones poco realistas
-				P2 & \nameref{Riesgos:P2} & L	& R/S	& P	& S	& \bfseries A	\\ \hline % pbms ensamblaje
-				P3 & \nameref{Riesgos:P3} & L	& S/C 	& P	& S	& \bfseries A	\\ \hline % cambios requisitos
-				P4 & \nameref{Riesgos:P4} & L	& S	& F	& S	& \bfseries A	\\ \hline % inactividad prolongada
+				P1 & \nameref{Riesgos:P1} & L	& C/S	& P	& S	& \bfseries A	\\ \hline % Planificacion poco realista
+				P2 & \nameref{Riesgos:P2} & L	& R/S	& P	& S	& \bfseries A	\\ \hline % Problemas ensamblaje
+				P3 & \nameref{Riesgos:P3} & L	& S/C 	& P	& S	& \bfseries A	\\ \hline % Cambios requisitos
+				P4 & \nameref{Riesgos:P4} & L	& S	& F	& S	& \bfseries A	\\ \hline % Inactividad prolongada
 				P5 & Discrepancias en el equipo & L 	& R 	& O	& M	& B		\\ \hline
-				P6 & \nameref{Riesgos:P6} & L 	& S 	& O	& c	& \bfseries A	\\ \hline % incumplimiento de lo acordado
+				P6 & \nameref{Riesgos:P6} & L 	& S 	& O	& c	& \bfseries A	\\ \hline % Incumplimiento de lo acordado
 				P7 & Falta o exceso de personal al desempeñar una tarea & L	& R/Q	& O	& M	& B \\ \hline
-				P8 & \nameref{Riesgos:P8} & L	& C/S/Q	& P	& S	& \bfseries A	\\ \hline % conflictos o ambigüedad SRS			
-				P9 & \nameref{Riesgos:P9} & L	& S/R	& R	& c	& M \\ \hline % perdida equipo
+				P8 & \nameref{Riesgos:P8} & L	& C/S/Q	& P	& S	& \bfseries A	\\ \hline % Conflictos o ambigüedad SRS			
+				P9 & Pérdida temporal o permanente de alguno de los miembros del equipo & L	& S/R	& R	& c	& M \\ \hline
 				P10 & Adelanto de la fecha de entrega del proyecto o presentaciones parciales & L	& S/Q	& R	& C	& M	\\ \hline
 				P11 & Modificaciones de las leyes vigentes & L & C & I & M & T	\\ \hline
 			%TÉCNICOS
 				T1 & \nameref{Riesgos:T1} & L	& S/R	& F	& S	& \bfseries A\\ \hline % Desconocimiento de las tecnologías empleadas  (Herramientas CASE)
 				T2 & \nameref{Riesgos:T2} & L	& S/R	& P	& c	& \bfseries I \\ \hline % Repositorio inoperativo
-				T3 & \nameref{Riesgos:T3} & L	& C/S/R	& O	& c	& \bfseries A \\ \hline % errores estructurales de diseño
-				T4 & \nameref{Riesgos:T4} & C	& Q	& P	& S	& \bfseries A \\ \hline % errores documentación
-				T5 & \nameref{Riesgos:T5} & L	& C/S/R	& P	& M	& M	\\ \hline % Software no reutilizable
+				T3 & \nameref{Riesgos:T3} & L	& C/S/R	& O	& c	& \bfseries A \\ \hline % Errores estructurales de diseño
+				T4 & \nameref{Riesgos:T4} & C	& Q	& P	& S	& \bfseries A \\ \hline % Errores documentación
+				T5 & Software no reutilizable & L	& C/S/R	& P	& M	& M	\\ \hline
 				T6 & Ausencia del software requerido en los laboratorios &	L & R	& O	& M	& B	\\ \hline
 				T7 & Conexión por red sobresaturada & L	& R	& R	& M & T	\\ \hline
 				T8 & Deficiencias en componentes externos &	L & Q/C	& O	& S	& M \\ \hline	
@@ -170,7 +170,7 @@ pdfinfo={
 				T10 & Obsolescencia de las tecnologías empleadas & L & C/S & R & M & T\\ \hline
 				T11 & Uso de tecnologías experimentales & L	& R & R	&	M & T\\ \hline
 			%DE NEGOCIO
-				N1 & \nameref{Riesgos:N1} & L	& R/C/S/Q	& P	& C & \bfseries I \\ \hline % falta de comunicación con el cliente
+				N1 & \nameref{Riesgos:N1} & L	& R/C/S/Q	& P	& C & \bfseries I \\ \hline % Falta de comunicación con el cliente
 				N2 & Espionaje industrial & L & C/S & R & S  & B \\ \hline
 				N3 & Desacuerdo sobre algún tema decidido anteriormente & L	& S/R	& O	& S	& M	\\ \hline
 				N4 & Competencia con otros proyectos del sector & L	& C	& O	& S	& M	\\ \hline
@@ -189,11 +189,9 @@ pdfinfo={
 			\input{riesgos/faltacomunicacion}
 			\input{riesgos/inactividadprolongada}			
 			\input{riesgos/incumplimientofecha}
-			\input{riesgos/perdidaequipo}
 			\input{riesgos/planificacionpocorealista}
 			\input{riesgos/problemasensamblar}
 			\input{riesgos/repositorioinoperativo}
-			\input{riesgos/softwarenoreutilizable}
 
 		\subsection{Plan de gestión de riesgo}
 	\section{Planificación temporal}		
