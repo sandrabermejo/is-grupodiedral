@@ -1,6 +1,5 @@
 \srsfuncion{Consultar plan de vuelo}
-	\todo[inline]{¿De qué manera depende de ``Introducir plan de vuelo''?}
-	Esta función debe mostrar una formulario de búsqueda de vuelos y devolver al usuario una lista de vuelos según sus restricciones para así obtener el plan de vuelo detallado de cada servicio.
+	Esta función debe mostrar una formulario de búsqueda de vuelos y devolver al usuario una lista de vuelos introducidos anteriormente según sus restricciones para así obtener el plan de vuelo detallado de cada servicio.
 
 \begin{enumerate}
 	\item \textit{Prioridad}: alta.
@@ -24,6 +23,7 @@
 		\item Si no se puede acceder a la base de datos de configuraciones: no mostrar la pantalla de inicio de la función e informar del error al usuario.
 		\item Si la respuesta de búsqueda en la base datos no tiene lugar o es errónea: informar al usuario y permanecer en la pantalla actual como si no se hubiese buscado.
 		\item Si la información de vuelos no puede ser obtenida: informar al usuario y permanecer en la pantalla actual como si no se hubiese buscado o seleccionado un vuelo.
+		\item Si la información introducida en un plan de vuelo está dañada y no se puede acceder a ella, informar al usuario sobre lo sucedido y continuar en la pantalla actual para poder realizar otra búsqueda.
 	\end{enumerate}
 	\item \textit{Relación con otras funciones}
 		Depende indirectamente de la función \verb|Introducir plan de vuelo|.
