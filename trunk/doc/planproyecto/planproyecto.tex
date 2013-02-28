@@ -200,12 +200,20 @@ pdfinfo={
 	\section{Planificación temporal}		
 		\subsection{Estructura de descomposición del trabajo/planificación temporal}
 			 \input{planific/edt}
+
+		\begin{landscape}
 		\subsection{Gráfico Gantt}
+			\begin{figure}[h] \centering
+			\vspace{1.1cm}
+			\includegraphics[scale=.8]{planific/Gantt}
+			\end{figure}
+		\end{landscape}
+
 		\subsection{Red de tareas}
 		\subsection{Tabla de uso de recursos}
 	\section{Recursos del proyecto}
 		\subsection{Personal}
-		Para el equipo desarrollo de éste proyecto disponemos de una plantilla de dimensión reducida pero a su vez un equipo motivado por lo pensamos que la organicación Descentralizado Democrático (DD) de Mantei puede resultar productiva. Ésta organización se caracteriza por no tener un jefe permanente si no que se nombran para cada tarea y las decisiones y soluciones a problemas se llevan a consenso del grupo. Se asignarán las tareas de forma individual o por equipos bien definidos.
+		Para el equipo desarrollo de éste proyecto disponemos de una plantilla de dimensión reducida pero a su vez un equipo motivado por lo pensamos que la organización Descentralizado Democrático (DD) de Mantei puede resultar productiva. Ésta organización se caracteriza por no tener un jefe permanente si no que se nombran para cada tarea y las decisiones y soluciones a problemas se llevan a consenso del grupo. Se asignarán las tareas de forma individual o por equipos bien definidos.
 
 		\subsection{Hardware y software}
 			\ldots
@@ -221,20 +229,18 @@ pdfinfo={
 		Cuando un miembro del equipo genere nueva documentación, la depositará en el repositorio \textit{RiouxSVN}, añadiendo un comentario con las principales modificaciones, informando así al resto del equipo. Todos los documentos solicitados por el cliente en las distintas entregas, así como el material empleado en las exposiciones y la documentación interna será compartido por el equipo de desarrollo y por el cliente a través de  \textit{Google Drive}.
 	\section{Mecanismo de seguimiento y control}
 		\subsection{Garantía de calidad y control}
-		El objetivo de la garantia de calidad es proporcionar la gestión para informar de los datos necesarios sobre la calidad del producto. Para garantizar la calidad se aplicaran actividades de protección y control de calidad. Mediante procesos de verificacion y validación determinaremos si los productos desarrollados se ajustan a los requisitos. Estos procesos se veran materializados en evaluaciones, auditorias, inspecciónes y revisiones periodicas, pruebas del software, estándares que se pueden aplicar al proyecto, procedimientos para información y seguimiento de errores, y documentos producidos.
+		El objetivo de la garantía de calidad es proporcionar la gestión para informar de los datos necesarios sobre la calidad del producto. Para garantizar la calidad se aplicaran actividades de protección y control de calidad. Mediante procesos de verificación y validación determinaremos si los productos desarrollados se ajustan a los requisitos. Estos procesos se verán materializados en evaluaciones, auditorías, inspecciones y revisiones periódicas, pruebas del software, estándares que se pueden aplicar al proyecto, procedimientos para información y seguimiento de errores, y documentos producidos.
 		\subsection{Gestión y control de cambios}
-			Se consideran los siguientes elementos de control\ldots. El sistema de numeración empleado\ldots.
+			Se consideran los siguientes elementos de control: el desarrollo de casos de uso denotado \textit{CCUU}, los diagramas de casos de uso denotados \textit{Diagramas CCUU}, el documento de especificación de requisitos \software denotado \textit{SRS}, el plan de proyecto, el prototipo de gestión externa y el prototipo de gestión interna.\\
+
+			El notación de la versión del \software utiliza al menos dos dígitos numéricos, siendo el más representativo el situado más a la izquierda. Este número representa el número de entregas terminadas, de forma que la versión entregada en la primera entrega es la 1.0, la entregada en segundo término es la 2.0 y así sucesivamente. Versiones intermedias serán representadas mediante la numeración menos significativa. Cuando pueda resultar útil se indicará la revisión del sistema de control de versiones después del número de versión como en \verb|1.0-rv50|. La notación de versión de los elementos será independiente de la versión general.
 		
 		\begin{itemize}
-			\item[\bfseries 1.0] $\{$SRS 1.3, Prototipo gestión externa 1.4, Prototipo gestión interna 1.2, Casos de Uso 1.0, Diagramas de los Casos de Uso 1.1$\}$
-			\item[\bfseries 1.0] $\{$SRS 1.5, Prototipo gestión externa 1.4, Prototipo gestión interna 1.2, Casos de Uso 1.6, Diagramas de los Casos de Uso 1.1$\}$
-			\item[\bfseries 2.0] $\{$(Plan de Proyecto 2.0), EDT 2.0.1, Identificación riesgos 2.1 $\}$
-			\item[\bfseries 2.0] $\{$(Plan de Proyecto 2.0), EDT 2.0.1, Planes de estrategia y contingencia de riesgos 2.2 $\}$
-			\item[\bfseries 2.0] $\{$(Plan de Proyecto 2.0), EDT 2.0.1, Análisis de riesgos 2.3 $\}$
-			\item[\bfseries 2.0] $\{$(Plan de Proyecto 2.0), EDT 2.0.1, Estimación en PF 2.4 $\}$
-			\item[\bfseries 2.0] $\{$(Plan de Proyecto 2.0), EDT 2.0.1, Gráfico de Gantt 2.5 $\}$
-			\item[\bfseries 2.0] $\{$(Plan de Proyecto 2.0), EDT 2.0.1, Red de tareas 2.6 $\}$
-			\item[\bfseries 2.0] $\{$(Plan de Proyecto 2.0), EDT 2.0.1, Tabla uso de recursos 2.7 $\}$
+			\item[\bfseries 0.1] $\{$CCUU 0.1, Diagramas CCUU 0.1$\}$
+			\item[\bfseries 0.2] $\{$CCUU 0.2, Diagramas CCUU 0.1, SRS 0.2, Prototipo Interna 0.1, Prototipo Externa 0.1$\}$
+			\item[\bfseries 0.3] $\{$CCUU 0.3, Diagramas CCUU 0.3, SRS 0.3, Prototipo Interna 0.2, Prototipo Externa 0.2$\}$
+			\item[\bfseries 1.0] $\{$CCUU 1.0, Diagramas CCUU 1.0, SRS 1.0, Prototipo Interna 1.0, Prototipo Externa 1.0$\}$ de los Casos de Uso 1.1$\}$
+			\item[\bfseries 2.0] $\{$CCUU 2.0, Diagramas CCUU 1.0, SRS 2.0, Plan de Proyecto 2.0 (EDT 2.0, Riesgos 2.0, Estimación 2.0, Planificación 2.0) $\}$
 		\end{itemize}
 		
 	\newpage
