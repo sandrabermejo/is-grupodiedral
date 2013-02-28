@@ -67,9 +67,13 @@ pdfinfo={
 	\section{Introducción}
 	\iniciarnumeraciondiedral
 		\subsection{Propósito del plan}
+			Este documento pretende servir de guía para el proceso de desarrollo del \software \textit{Airline Common Environment}. Los principales puntos de este plan incluyen un estudio de los riesgos a los que está sometido nuestro proyecto, además de la estimación de coste y duración del mismo, seguida de la correspondiente planificación. Versiones futuras del documento incorporarán el análisis sobre garantía de calidad y la gestión de configuración, que ya están parcialmente desarrolladas.\\
+
+			Este documento no es un documento estático y será paulatinamente completado y refinado durante todo el proyecto.
+		
 		\subsection{Ámbito del proyecto y objetivos}
 			\subsubsection{Declaración del ámbito}
-			El ámbito del proyecto es la gestión tanto interna como externa de una compañia aérea. La aplicación para la gestión interna pemitirá a los empleados de la compañía organizar y programar de manera más rápida y eficiente varias de sus tareas laborales, así como consultar diversos datos relativos a su trabajo en la empresa, como horarios, nómina, etc. En cuanto a la gestión externa, los clientes de la compañía podrán realizar a través de la página web todo lo relacionado con la compra de los billetes de avión: acceder a la información relativa a los vuelos ofertados, efectuar el pago de los billetes y beneficiarse de diversas ofertas.
+			El ámbito del proyecto es la gestión tanto interna como externa de una compañía aérea. La aplicación para la gestión interna permitirá a los empleados de la compañía organizar y programar de manera más rápida y eficiente varias de sus tareas laborales, así como consultar diversos datos relativos a su trabajo en la empresa, como horarios, nómina, etc. En cuanto a la gestión externa, los clientes de la compañía podrán realizar a través de la página web todo lo relacionado con la compra de los billetes de avión: acceder a la información relativa a los vuelos ofertados, efectuar el pago de los billetes y beneficiarse de diversas ofertas.
 
 			\subsubsection{Funciones principales}
 			Las funciones principales de la aplicación interna son la consulta de horarios y nóminas para todos los empleados de la compañía, así como otras funciones específicas según el empleo que realicen dentro de la empresa como consultar, añadir o editar distintos datos de empleados, inventario o información de la empresa, y otras funciones concretas relativas al empleo como puede ser realizar un mantenimiento o registrar un nuevo empleado. \\
@@ -78,14 +82,16 @@ pdfinfo={
 			
 			\subsubsection{Aspectos de rendimiento}
 			El sistema interno podrá reconocer hasta 4.000 terminales. Deberá soportar hasta 1.000 usuarios conectados de forma simultánea a los servicios del software de gestión interna de la aplicación que requieran una conexión latente, e incluso se podrán soportar los 2.000 usuarios si se tratan de conexiones de corta duración.  En cuanto al servidor web, admitirá hasta 6.000 conexiones simultáneas para el contenido estático. \\
+
 			El 90 por ciento de las transacciones deberán realizarse en menos de un minuto. La base de datos es un elemento crítico en el rendimiento del sistema y deberá ofrecer una alta disponibilidad, puesto que se prevén realizar miles de interacciones al día.
 
 			\subsubsection{Restricciones y técnicas de gestión}
-			El rendimiento y las restricciones del sistema están íntimamente relacionadas. La aplicación de gestión interna deberá estar disponibe tanto en Linux como en Microsoft Windows XP, Vista y 7; y se podrán considerar Apple Mac OS X 10.X y Solaris en futuras versiones.  \\
+			El rendimiento y las restricciones del sistema están íntimamente relacionadas. La aplicación de gestión interna deberá estar disponible tanto en Linux como en Microsoft Windows XP, Vista y 7; y se podrán considerar Apple Mac OS X 10.X y Solaris en futuras versiones.  \\
+
 			El diseño de la aplicación estará codificado de acuerdo a los estándares reconocidos, para facilitar así su reutilización y adaptación. Además, el programa debe proporcionar mecanismos para la realización de controles de funcionamiento y auditorías. También hay que vigilar que el sistema quede protegido frente a intentos de accesos externos, respetando en todo momento las regulaciones de protección de datos de carácter personal.
 
 		\subsection{Modelo de proceso}
-		El desarrollo de nuestro proyecto estará basado en el modelo conocido como Proceso Unificiado también conocido como RUP(Rational Unified Process). Éste modelo fue inicialmente descrito en 1999 por los desarrolladores del lenguaje UML, Ivar Jacobson, Grady Booch y James Rumbaugh y se caracteriza principalmente por estar dirigido por los casos de usos, centrarse en la arquitectura y ser iterativo incremental. En él podemos diferenciar cuatro fases. En la fase de inicio se desarrolla una descripción del producto final, en la fase de elaboración se especifican los casos de uso y se diseña la arquitectura del sistema, en la fase de construcción se crea el producto y por último en la fase de transición se entrega el producto al cliente.
+		El desarrollo de nuestro proyecto estará basado en el modelo conocido como Proceso Unificado también conocido como RUP(Rational Unified Process). Éste modelo fue inicialmente descrito en 1999 por los desarrolladores del lenguaje UML, Ivar Jacobson, Grady Booch y James Rumbaugh y se caracteriza principalmente por estar dirigido por los casos de usos, centrarse en la arquitectura y ser iterativo incremental. En él podemos diferenciar cuatro fases. En la fase de inicio se desarrolla una descripción del producto final, en la fase de elaboración se especifican los casos de uso y se diseña la arquitectura del sistema, en la fase de construcción se crea el producto y por último en la fase de transición se entrega el producto al cliente.
 
 	\section{Estimaciones del proyecto}
 		\subsection{Datos históricos}
@@ -221,11 +227,13 @@ papel.
 			
 	\section{Estrategia de gestión del riesgo}
 		\subsection{Análisis del riesgo}
-		Esta sección está dedicada a la identificación de riesgos para el proyecto. Adoptaremos una estrategia de gestión de riesgos proactiva, que consistirá en estimar cómo de probables son los riesgos identificados y cuáles son sus consecuencias. El análisis de un riesgo quedará determinado por la duración del periodo de tiempo al que estamos expuestos (corto/ largo plazo), el ámbito (coste/ calendario/ rendimiento/ calidad), la probabilidad (alta/ media/ baja, la consecuencia (crítico/ serio/ moderado/ menor) de dicho riesgo y el impacto
+		Esta sección está dedicada a la identificación de riesgos para el proyecto. Adoptaremos una estrategia de gestión de riesgos proactiva, que consistirá en estimar cómo de probables son los riesgos identificados, cuáles son sus consecuencias y planear las acciones para prevenirlos y remediarlos sin esperar a que se produzcan.\\
+		
+		El análisis de un riesgo quedará determinado por la duración del periodo de tiempo al que estamos expuestos (corto / largo plazo), el ámbito (coste / calendario / rendimiento / calidad), la probabilidad (frecuente / probable / ocasional / remoto / improbable), la consecuencia (catastrófico / crítico / serio / menor / insignificante) de dicho riesgo y el impacto calculado mediante la tabla SQAS-SEI.\\
 			\begin{tablariesgos}
 			%DE PROYECTO
 				% ID & Denominación & Duración & Ámbito & Probabilidad & Consecuencia & Impacto
-				P1 & \nameref{Riesgos:P1} & L	& C/S	& P	& S	& \bfseries A	\\ \hline % Planificacion poco realista
+				P1 & \nameref{Riesgos:P1} & L	& C/S	& P	& S	& \bfseries A	\\ \hline % Planificación poco realista
 				P2 & \nameref{Riesgos:P2} & L	& R/S	& P	& S	& \bfseries A	\\ \hline % Problemas ensamblaje
 				P3 & \nameref{Riesgos:P3} & L	& S/C 	& P	& S	& \bfseries A	\\ \hline % Cambios requisitos
 				P4 & \nameref{Riesgos:P4} & L	& S	& F	& S	& \bfseries A	\\ \hline % Inactividad prolongada
@@ -273,6 +281,8 @@ papel.
 			\input{riesgos/repositorioinoperativo}
 
 		\subsection{Plan de gestión de riesgo}
+			Remítase a los planes de prevención y contingencia del apartado anterior.
+
 	\section{Planificación temporal}		
 		\subsection{Estructura de descomposición del trabajo/planificación temporal}
 			 \input{planific/edt}
@@ -308,10 +318,12 @@ papel.
 		\subsection{Tabla de uso de recursos}
 	\section{Recursos del proyecto}
 		\subsection{Personal}
-		Para el equipo desarrollo de éste proyecto disponemos de una plantilla de dimensión reducida pero a su vez un equipo motivado por lo pensamos que la organización Descentralizado Democrático (DD) de Mantei puede resultar productiva. Ésta organización se caracteriza por no tener un jefe permanente si no que se nombran para cada tarea y las decisiones y soluciones a problemas se llevan a consenso del grupo. Se asignarán las tareas de forma individual o por equipos bien definidos.
+			Para el equipo desarrollo de éste proyecto disponemos de una plantilla de dimensión reducida pero a su vez un equipo motivado por lo pensamos que la organización Descentralizado Democrático (DD) de Mantei puede resultar productiva. Ésta organización se caracteriza por no tener un jefe permanente si no que se nombran para cada tarea y las decisiones y soluciones a problemas se llevan a consenso del grupo. Se asignarán las tareas de forma individual o por equipos bien definidos.
 
 		\subsection{Hardware y software}
-			\ldots
+			El equipo de desarrollo cuenta, para la realización de sus tareas, con sus computadoras personales, además del uso de los laboratorios y las instalaciones de la Facultad de Informática y la Facultad de Matemáticas de la Universidad Complutense de Madrid, donde desarrollan su actividad académica.\\
+
+			El \software utilizado consiste principalmente en herramientas para la elaboración de la documentación, y en las herramientas CASE para desarrollar las actividades de la Ingeniería del Software. En la fase de desarrollo y creación de prototipos se han utilizado compiladores y herramientas de desarrollo estándar. Citamos además la documentación empleada.
 
 		\subsection{Lista de recursos}
 			\input{lista_recursos}
@@ -320,7 +332,7 @@ papel.
 		\subsection{Estructura de equipo}	% Si procede
 		El escaso número de miembros del que consta el equipo de trabajo ha dificultado el establecimiento de una estructura compleja del mismo, sin embargo, sí se han realizado unas pequeñas divisiones para facilitar y organizar de manera más clara el trabajo. En este sentido, Rubén ha sido el coordinador del equipo, debido a sus mayores conocimientos en las herramientas que podían utilizarse. Siguiendo sus pautas, el resto del equipo ha realizado un trabajo similar, repartiendo las distintas partes del proyecto entre todos los miembros del mismo y realizando múltiples rotaciones para garantizar la homogeneidad y el trabajo de todos los miembros en todos los aspectos del proyecto.
 		\subsection{Informes de gestión}
-		Las comunicaciones entre los miembros del equipo de desarrollo se realizarán principalmente a través del correo eléctronico de la Universidad Complutense de Madrid. Mediante este correo nos informaremos acerca de la organización del trabajo, las pautas a seguir, las reuniones del equipo\ldots También nos servirá para comunicar cualquier duda, sugerencia o descripción de problemas encontrados. \\
+		Las comunicaciones entre los miembros del equipo de desarrollo se realizarán principalmente a través del correo electrónico de la Universidad Complutense de Madrid. Mediante este correo nos informaremos acerca de la organización del trabajo, las pautas a seguir, las reuniones del equipo\ldots También nos servirá para comunicar cualquier duda, sugerencia o descripción de problemas encontrados. \\
 		Cuando un miembro del equipo genere nueva documentación, la depositará en el repositorio \textit{RiouxSVN}, añadiendo un comentario con las principales modificaciones, informando así al resto del equipo. Todos los documentos solicitados por el cliente en las distintas entregas, así como el material empleado en las exposiciones y la documentación interna será compartido por el equipo de desarrollo y por el cliente a través de  \textit{Google Drive}.
 	\section{Mecanismo de seguimiento y control}
 		\subsection{Garantía de calidad y control}
