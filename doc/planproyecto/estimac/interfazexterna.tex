@@ -1,0 +1,62 @@
+% Interfaz externa
+		\begin{enumerate}
+			\item\textit{ FLI}
+			\item\textit{ FIE}
+	
+				\begin{itemize}
+					\item Clientes \\
+					{1 RET (lista de clientes)}\\
+					{13 DET (nombre, apellidos, número de identificación personal, cuenta de correo electrónico, teléfono y dirección (6),
+					historial de servicios contratados, ofertas conseguidas))}\\
+					\item Vuelos \\
+					{1 RET (lista de vuelos)}\\
+					{21 DET (número de vuelo, fecha de salida, fecha de llegada, hora de salida, hora de llegada, aeropuertos de origen,
+					aeropuerto de destino, modelo de avión, precio por clase y tipo de pasajero (12))}\\
+					\item Ofertas \\
+					{1 RET (catálogo de ofertas)}\\
+					{7 DET (título, resumen, artículo, precio anterior, precio ofertado, periodo de validez, ámbito de validez)}\\
+					\item Países, ciudades y aeropuertos \\
+					{1 RET (registro de localización de aeropuertos)}\\
+					{3 DET (listado de los países, listado de ciudades asociados a un país, listado de aeropuertos asociados a una ciudad)}\\
+				\end{itemize}
+
+			\item \textit{EI}
+	
+				\begin{itemize}
+					\item Clientes \\
+					{1 RET (lista de clientes)}\\
+					{11 DET (nombre, apellidos, número de identificación personal, cuenta de correo electrónico, teléfono y dirección (6))}\\
+				\end{itemize}
+
+			\item \textit{EO}
+	
+				\begin{itemize}
+					\item Vuelos \\
+					{1 FTR (lista de vuelos)}\\
+					{6 DET (aeropuerto de origen, aeropuerto de destino, fecha, hora, número de pasajeros, clase)}\\
+					\item Ofertas \\
+					{1 FTR (catálogo de ofertas)}\\
+					{3 DET (título, vuelos a los que se puede aplicar la oferta, clientes que pueden acceder a la oferta)}\\
+					\item Países, ciudades y aeropuertos \\
+					{1 FTR (localización de aeropuertos)}\\
+					{3 DET (pais, ciudad, aeropuertos)}\\
+					\item Sugerencias \\
+					{1 FTR (lista de sugerencias)}\\
+					{3 DET (gestión de la compañía, tripulación, vuelos ofertados)}\\
+				\end{itemize}
+
+			\item \textit{EQ}
+	
+				\begin{itemize}
+					\item Vuelos \\
+					{1 FTR (lista de vuelos)}\\
+					{7 DET (aeropuerto de origen, aeropuerto de destino, fecha, hora, número de pasajeros, clase, ofertas)}\\
+					\item Ofertas \\
+					{3 FTR (ofertas, clientes y vuelos)}\\
+					{5 DET (fecha, origen y destino, rango de precio, número de billetes, clase de vuelo o cliente)}\\
+					\item Preguntas frecuentes \\
+					{1 FTR (FAQ)}\\
+					{1 DET (fecha)}\\
+				\end{itemize}
+			
+		\end{enumerate}

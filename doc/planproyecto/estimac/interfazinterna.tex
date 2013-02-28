@@ -1,0 +1,123 @@
+		% Interfaz interna
+		\begin{enumerate}
+			\item \textit{FLI}
+			\item \textit{FIE}
+	
+				\begin{itemize}
+					\item Clientes \\
+					{1 RET (lista de clientes)}\\
+					{13 DET (nombre, apellidos, número de identificación personal, cuenta de correo electrónico, teléfono y dirección (6),
+					historial de servicios contratados, ofertas conseguidas))}\\
+					\item Vuelos \\
+					{1 RET (lista de vuelos)}\\
+					{21 DET (número de vuelo, fecha de salida, fecha de llegada, hora de salida, hora de llegada, aeropuertos de origen,
+					aeropuerto de destino, modelo de avión, precio por clase y tipo de pasajero (12))}\\
+					\item Ofertas \\
+					{1 RET (catálogo de ofertas)}\\
+					{7 DET (título, resumen, artículo, precio anterior, precio ofertado, periodo de validez, ámbito de validez)}\\
+					\item Empleados \\
+					{1 RET (lista de empleados)}\\
+					{14 DET (nombre y apellidos, número de identificación personal, dirección (6), número de teléfono, puesto de trabajo,
+					permisos especiales, registros como usuario, periodo laboral)}\\
+					\item Nóminas \\
+					{1 RET (registro de modificaciones temporales o permanentes sobre la nómina base del usuario)}\\
+					{6 DET (identificador del empleado (apellidos, departamento, NIF) (3), incidencias (horas extras, huelgas, sustituciones)}\\
+					\item Inventario \\
+					{1 RET (registro items)}\\
+					{5 DET (número de registro, fecha, cantidad, destino de uso y valor de aquisición)}\\
+					\item Economía \\
+					{1 RET (historial)}\\
+					{3 DET (conceptos, ingresos, gastos)}\\
+					\item Horarios \\
+					{2 RET (horarios, ley vigente)}\\
+					{3 DET (jornada laboral, periodos de descanso y días festivos)}\\
+					\item Modelos de avión \\
+					{1 RET (registro de localización de aeropuertos)}\\
+					{13 DET (número de aviones de cada modelo, número de pasajeros, tipo de combustible, dimensiones del avión, fabricante,
+					versión, serie, coste, fecha de construcción, estado, consumo medio, peso del avión, motores)}\\
+				\end{itemize}
+
+			\item \textit{EI}
+	
+				\begin{itemize}
+					\item Empleados \\
+					{1 RET (lista de empleados)}\\
+					{13 DET (nombre, apellidos, número de identificación personal, dirección (6), número de teléfono, puesto de trabajo,
+					permisos especiales, periodo laboral)}\\
+					\item Vuelos \\
+					{1 RET (lista de vuelos)}\\
+					{9 DET (número de vuelo, fecha de salida, fecha de llegada, hora de salida, hora de llegada, aeropuertos de origen,
+					aeropuerto de destino, modelo de avión, precio por clase))}\\
+					\item Nóminas \\
+					{1 RET (registro de modificaciones temporales o permanentes sobre la nómina base del usuario)}\\
+					{6 DET (identificador del empleado (apellidos, departamento, NIF) (3), incidencias (horas extras, huelgas, sustituciones))}\\
+					\item Inventario \\
+					{1 RET (registro items)}\\
+					{5 DET (número de registro, fecha, cantidad, destino de uso y valor de aquisición)}\\
+					\item Economía \\
+					{1 RET (historial)}\\
+					{3 DET (conceptos, ingresos, gastos)}\\
+					\item Horarios \\
+					{1 RET (horarios)}\\
+					{2 DET (jornada laboral, periodos de descanso)}\\
+				\end{itemize}
+
+			\item \textit{EO}
+	
+				\begin{itemize}
+					\item Cliente \\
+					{1 FTR (clientes)}\\
+					{11 DET (nombre, apellidos, número de identificación personal, cuenta de correo electrónico, teléfono y dirección (6)))}\\
+					\item Vuelos \\
+					{1 FTR (vuelos)}\\
+					{21 DET (número de vuelo, fecha de salida, fecha de llegada, hora de salida, hora de llegada, aeropuertos de origen,
+					aeropuerto de destino, modelo de avión, precio)}\\
+					\item Empleados \\
+					{1 FTR (empleados)}\\
+					{14 DET (nombre y apellidos, número de identificación personal, dirección (6), número de teléfono, puesto de trabajo,
+					permisos especiales, registros como usuario, periodo laboral)}\\
+					\item Nóminas \\
+					{2 FTR (nóminas, económica)}\\
+					{5 DET (incidencias (4) (horas extras, huelgas, sustituciones, ausencias por motivos personales), modificaciones en la
+					jornada laboral)}\\
+					\item Inventario \\
+					{1 FTR (items)}\\
+					{5 DET (número de registro, fecha, cantidad, destino de uso y valor de aquisición)}\\
+					\item Economía \\
+					{1 FTR (historial)}\\
+					{4 DET (conceptos, ingresos, gastos, resultado del ejercicio)}\\
+					\item Horarios \\
+					{1 FTR (horarios)}\\
+					{3 DET (jornada laboral, periodos de descanso y días festivos)}\\
+				\end{itemize}
+
+			\item \textit{EQ}
+	
+				\begin{itemize}
+					\item Clientes \\
+					{1 FTR(lista de clientes)}\\
+					{3 DET (nombre, apellidos, número de identificación personal)}\\					
+					\item Empleados \\
+					{1 FTR (lista de empleados)}\\
+					{5 DET (nombre, apellidos, número de identificación personal, puesto de trabajo, periodo laboral)}\\
+					\item Vuelos \\
+					{1 FTR (vuelos)}\\
+					{6 DET (aeropuerto de origen, aeropuerto de destino, fecha, hora, número de pasajeros, clase, ofertas)}\\										
+					\item Nóminas \\
+					{2 FTR (nóminas, empleado)}\\
+					{2 DET (empleado, departamento)}\\
+					\item Inventario \\
+					{1 FTR (items)}\\
+					{5 DET (número de registro, fecha, cantidad, destino de uso y valor de aquisición)}\\
+					\item Economía \\
+					{2 FTR(económica, nóminas)}\\
+					{4 DET (periodo de tiempo, departamento determinado, pérdidas, ganancias)}\\
+					\item Horarios \\
+					{1 FTR (horarios)}\\
+					{1 DET (jornada laboral)}\\					
+				\end{itemize}
+			
+		\end{enumerate}
+
+
+	\end{enumerate}
