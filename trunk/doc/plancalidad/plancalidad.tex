@@ -1,0 +1,112 @@
+%
+%	Plan de Garantía de Calidad (SQA)
+%
+
+\documentclass[11pt, a4paper, twoside]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage{anysize}
+\usepackage{fancyhdr}
+\usepackage[none]{hyphenat}
+\usepackage[colorlinks, linkcolor=red]{hyperref}
+\usepackage{glossaries}
+\usepackage{glossaries-babel}
+\usepackage{isdiedral}
+
+%%% Configuraciones %%%
+\marginsize{2.5cm}{2cm}{2cm}{2cm}
+
+% Usa como familia tipográfica por defecto "Sans"
+\renewcommand{\familydefault}{\sfdefault}
+
+% Establece la profundidad hasta la cual se numeran los elementos de sección
+\setcounter{secnumdepth}{4}
+
+% Establece la profundidad de niveles de sección que aparece en el TOC
+\setcounter{tocdepth}{4}
+
+% Para las clases "book" o semejantes desactiva la impresión del número de capítulo
+\renewcommand*\thesection{\arabic{section}}
+
+% Cambia el nombre del TOC a "Índice" (pues en "report" se le denomina por defecto "Índice general")
+\addto{\captionsspanish}{\renewcommand*{\contentsname}{Índice}}
+
+% Fija que la entrada del glosario se comporte como una subsección
+\setglossarysection{subsection}
+
+% Configuración de los encabezados
+\encabezadodiedral{Plan de garantía de calidad}
+\pagestyle{fancy}
+
+\renewcommand*{\thepage}{\sffamily \roman{page}}
+
+
+% Modelo copiado de los apuntes del tema 8 (páginas 93 a 95) IEEE Std. 730-2002
+
+\title{Plan de garantía de calidad\\\textsl{Airline Common Environment}}
+\author{Grupo Diedral}
+
+% Metadatos del pdf
+\hypersetup{
+pdfinfo={
+	Author={Grupo Diedral},
+	Title={Plan de garantía de calidad},
+	Subject={Airline Common Environment},
+	Keywords={SQA;Airline Common Environment;Ingeniería del Software}
+}
+}
+
+% Inclusión del glosario (gracias a David Peñas)
+\input{calidadGlosario}
+\makeglossaries
+
+\begin{document}
+	% Portada
+	\portadaace{Plan de garantía de calidad}
+
+	\tableofcontents
+	\newpage
+	\thispagestyle{plain}
+
+	% Tabla de cambios
+	\begin{scriptsize}
+	\begin{tablacambios}
+
+	\end{tablacambios}
+	\end{scriptsize}
+	\newpage
+	\iniciarnumeraciondiedral
+		
+	\section{Propósito}
+	\section{Documentos de referencia}
+	\section{Gestión}
+	\section{Documentación}
+		\subsection{Propósito}
+		\subsection{Requisitos mínimos de documentación}
+		\subsection{Otra documentación}
+	\section{Estándares, prácticas, convenciones y métricas}
+		\subsection{Propósito}
+		\subsection{Contenido}
+	\section{Revisiones del software}
+		\subsection{Propósito}
+		\subsection{Requisitos mínimos}
+		\subsection{Otras revisiones y auditorías}
+		\subsection{Pruebas}
+	\section{Informe de errores y acciones correctoras}
+	\section{Herramientas, técnicas y metodologías}
+	\section{Control de medios}
+	\section{Control de proveedor}
+	\section{Colección de registros, mantenimiento y conservación}
+	\section{Formación}
+	\section{Gestión del riesgo}
+	\section{Glosario}
+		\printglossaries
+	\section{Procedimiento de cambio e historial del plan de SQA}
+
+
+	\newpage
+	\bibliography{plancalidad}
+	\bibliographystyle{plain}
+\end{document}
