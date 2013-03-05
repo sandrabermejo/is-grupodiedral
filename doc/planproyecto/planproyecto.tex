@@ -2,7 +2,7 @@
 %	Documento de plan de proyecto
 %
 
-\documentclass[11pt, a4paper, twoside]{report}
+\documentclass[11pt, a4paper, twoside, titlepage]{article}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -10,13 +10,17 @@
 \usepackage{anysize}
 \usepackage[none]{hyphenat}
 \usepackage{multicol}
+\usepackage{amsmath}
 %\usepackage{graphicx}
 \usepackage[colorlinks, linkcolor=red]{hyperref}
 \usepackage{isdiedral}
 \usepackage[italian]{isodate}
 \usepackage{lscape}
 
-% Configuraciones
+% Nombre del documento (para futuras referencias)
+\newcommand*{\doctitle}{Plan de proyecto}
+
+%%% Configuraciones %%%
 \marginsize{2.5cm}{2cm}{2cm}{2cm}
 
 % Usa como familia tipográfica por defecto "Sans"
@@ -25,43 +29,36 @@
 % Establece la profundidad hasta la cual se numeran los elementos de sección
 \setcounter{secnumdepth}{4}
 
-% Para las clases "book" o semejantes desactiva la impresión del número de capítulo
-\renewcommand*\thesection{\arabic{section}}
-
-% Cambia el nombre del TOC a "Índice" (pues en "report" se le denomina por defecto "Índice general")
-\addto{\captionsspanish}{\renewcommand*{\contentsname}{Índice}}
-
 % Configuración de los encabezados
-\encabezadodiedral{Especificación de requisitos software}
+\encabezadodiedral{\doctitle}
 \pagestyle{fancy}
 \renewcommand*{\thepage}{\sffamily \roman{page}}
 
 % Modelo copiado de los apuntes del tema 5 pág 69 (a lo Pressman)
 
-\title{Plan de proyecto\\\textsl{Airline Common Environment}}
+\title{\doctitle\\\textsl{Airline Common Environment}}
 \author{Grupo Diedral}
 
 % Metadatos del pdf
 \hypersetup{
 pdfinfo={
 	Author={Grupo Diedral},
-	Title={Plan de proyecto},
+	Title={\doctitle},
 	Subject={Airline Common Environment},
 	Keywords={Plan de proyecto;Airline Common Environment;Ingeniería del Software}
 }
 }
 
 \begin{document}
+	% Tabla de cambios
+	\begin{tablacambios}
+		1.0 & 1 de enero de 2013 & Todos & Nada
+	\end{tablacambios}
+
 	% Portada
-	\portadaace{Plan de proyecto}
+	\portadaace{\doctitle}
 	
 	\tableofcontents
-	\newpage
-
-	\begin{scriptsize}
-	\begin{tablacambios}
-	\end{tablacambios}
-	\end{scriptsize}
 	\newpage
 
 	\section{Introducción}
@@ -99,7 +96,7 @@ pdfinfo={
 		\subsection{Técnicas de estimación}
 		Para estimar el coste de nuestro proyecto software de la manera más precisa y dentro del tiempo disponible para ello, hemos intentado retrasar la estimación lo máximo posible, tomando como referencia algunos datos de otros proyectos similares ya terminados. Concretamente, hemos utilizado las técnicas de descomposición basadas en el problema, según el tamaño del software a desarrollar en puntos de función (PF), ayudándonos de modelos como el COCOMO (COnstructive COst MOdel).
 		\subsection{Estimaciones de esfuerzo, coste y duración}
-			\subsubsection{Discusión de los factores de ajuste}
+			\subsubsection{Discusión de los factores de ajuste} \label{estimac:factores}
 				En este epígrafe se discutirán brevemente los factores de ajuste escogidos para la estimación del proyecto de acuerdo al método de puntos de función y los factores de escala y coste de Cocomo II.
 
 				\begin{enumerate}
@@ -165,7 +162,7 @@ papel.
 
 				\end{itemize}
 
-			\subsubsection{Gestión corriente de la base de datos}
+			\subsubsection{Gestión corriente de la base de datos} \label{estimac:gestioncorriente}
 			\begin{tablapf}{Gestión corriente de la base de datos}{152}
 				FLI	& 8 & 7 & 0 & 10 & 0 & 15 & 56	\\ \hline
 				FIE	& 4	& 5 & 1 & 7 & 0 & 10 & 27	\\ \hline
@@ -175,7 +172,7 @@ papel.
 			\end{tablapf}
 			\input{estimac/gestionbasedatos}
 			
-			\subsubsection{Configuración de la base de datos}
+			\subsubsection{Configuración de la base de datos} \label{estimac:configuracion}
 			\begin{tablapf}{Configuración de la base de datos}{50}
 				FLI	& 5 & 7 & 0 & 10 & 0 & 15 & 35	\\ \hline
 				FIE	& 0	& 5 & 0 & 7 & 0 & 10 & 0	\\ \hline
@@ -185,7 +182,7 @@ papel.
 			\end{tablapf}
 			\input{estimac/gestionconfig}	
 
-			\subsubsection{Interfaz externa}
+			\subsubsection{Interfaz externa} \label{estimac:iexterna}
 			\begin{tablapf}{Interfaz externa}{51}
 				FLI	& 0 & 7 & 0 & 10 & 0 & 15 & 0	\\ \hline
 				FIE	& 4	& 5 & 0 & 7 & 0 & 10 & 20	\\ \hline
@@ -195,7 +192,7 @@ papel.
 			\end{tablapf}
 			\input{estimac/interfazexterna}	
 			
-			\subsubsection{Interfaz interna}
+			\subsubsection{Interfaz interna} \label{estimac:iinterna}
 			\begin{tablapf}{Interfaz interna}{113}
 				FLI	& 0 & 7 & 0 & 10 & 0 & 15 & 0	\\ \hline
 				FIE	& 9	& 5 & 0 & 7 & 0 & 10 & 45	\\ \hline
@@ -205,8 +202,8 @@ papel.
 			\end{tablapf}
 			\input{estimac/interfazinterna}	
 			
-			\subsubsection{Generación de gráficas}
-			\begin{tablapf}{Generación de gráficas}{47}
+			\subsubsection{Generación de gráficas} \label{estimac:graficas}
+			\begin{tablapf}{Generación de gráficas}{14}
 				FLI	& 0 & 7 & 0 & 10 & 0 & 15 & 0	\\ \hline
 				FIE	& 1	& 5 & 0 & 7 & 0 & 10 & 5	\\ \hline
 				EI	& 0	& 3	& 0	& 4	& 0	& 6	& 0	\\ \hline
@@ -215,7 +212,7 @@ papel.
 			\end{tablapf}
 			\input{estimac/generaciongraficas}	
 			
-			\subsubsection{Análisis y monitorización de datos}
+			\subsubsection{Análisis y monitorización de datos} \label{estimac:analisis}
 			\begin{tablapf}{Análisis y monitorización de datos}{47}
 				FLI	& 1 & 7 & 0 & 10 & 0 & 15 & 7	\\ \hline
 				FIE	& 8	& 5 & 0 & 7 & 0 & 10 & 40	\\ \hline
@@ -224,6 +221,38 @@ papel.
 				EQ 	& 0	& 3	& 0	& 4	& 0	& 6	& 0
 			\end{tablapf}
 			\input{estimac/analisisdatos}
+
+		\subsubsection{Cálculo de los puntos de función}
+			De acuerdo a lo indicado en la apartado \textit{\nameref{estimac:factores}} de este documento, el factor de complejidad total, que hemos calculado de forma global, suma 44.\\
+
+			De los epígrafes siguientes se tiene que los puntos de función sin ajustar son:
+
+	\begin{table}[h] \centering
+		\begin{tabu} to .6\linewidth {| X[3, l] | X[1, r] |}
+			%\nameref
+			\hline
+			\nameref{estimac:gestioncorriente} & 152\\ \hline
+			\nameref{estimac:configuracion} & 50\\ \hline
+			\nameref{estimac:iexterna} & 51\\ \hline
+			\nameref{estimac:iinterna} & 113\\ \hline
+			\nameref{estimac:graficas} & 14\\ \hline
+			\nameref{estimac:analisis} & 47\\ \hline
+			\multicolumn{1}{|r|}{Total} & 427 \\ \hline
+		\end{tabu}
+		\caption{Resumen de los puntos de función sin ajustar}
+	\end{table}
+
+		Por lo que los puntos de función ajustados (PFA) son:
+
+	\begin{equation}
+		\mathrm{PFA} = \mathrm{PFSA} (0,65 + 0,01 \cdot \mathrm{FCT}) = 427 (0,65 + 0,01 \cdot 44)) = 465,43 \tag{PFA}
+	\end{equation}\\
+
+		O equivalentemente, según la tabla de correspondencia sugerida en \cite{PSMAN} (pág. 578), 30.718,38 líneas de código en C++.\\
+
+		No hay datos suficientes sobre la productividad de la organización como para aventurar un coste en tiempo fiable.\\
+
+		El valor obtenido en la herramienta de Cocomo II\footnote{\url{http://csse.usc.edu/tools/COCOMOII.php}} con los parámetros especificados en el apartado \ref{estimac:factores}. estima el esfuerzo en 279,2 hombres/mes, en un calendario de 30,6 meses, una equivalencia de 22.631 líneas de código en Java. La herramienta sugiere que el reparto de esfuerzo sea 5\% en la primera fase, 20,33\% en el diseño, 64,4 \% en construcción y 10,27\% en la fase de transición.
 			
 	\section{Estrategia de gestión del riesgo}
 		\subsection{Análisis del riesgo}

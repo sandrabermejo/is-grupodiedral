@@ -2,7 +2,7 @@
 %	Plan de Garantía de Calidad (SQA)
 %
 
-\documentclass[11pt, a4paper, twoside]{report}
+\documentclass[11pt, a4paper, twoside, titlepage]{article}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -14,6 +14,10 @@
 \usepackage{glossaries}
 \usepackage{glossaries-babel}
 \usepackage{isdiedral}
+
+% Nombre del documento (para futuras referencias)
+\newcommand*{\doctitle}{Plan de calidad}
+
 
 %%% Configuraciones %%%
 \marginsize{2.5cm}{2cm}{2cm}{2cm}
@@ -27,17 +31,11 @@
 % Establece la profundidad de niveles de sección que aparece en el TOC
 \setcounter{tocdepth}{4}
 
-% Para las clases "book" o semejantes desactiva la impresión del número de capítulo
-\renewcommand*\thesection{\arabic{section}}
-
-% Cambia el nombre del TOC a "Índice" (pues en "report" se le denomina por defecto "Índice general")
-\addto{\captionsspanish}{\renewcommand*{\contentsname}{Índice}}
-
 % Fija que la entrada del glosario se comporte como una subsección
 \setglossarysection{subsection}
 
 % Configuración de los encabezados
-\encabezadodiedral{Plan de garantía de calidad}
+\encabezadodiedral{\doctitle}
 \pagestyle{fancy}
 
 \renewcommand*{\thepage}{\sffamily \roman{page}}
@@ -45,14 +43,14 @@
 
 % Modelo copiado de los apuntes del tema 8 (páginas 93 a 95) IEEE Std. 730-2002
 
-\title{Plan de garantía de calidad\\\textsl{Airline Common Environment}}
+\title{\doctitle\\\textsl{Airline Common Environment}}
 \author{Grupo Diedral}
 
 % Metadatos del pdf
 \hypersetup{
 pdfinfo={
 	Author={Grupo Diedral},
-	Title={Plan de garantía de calidad},
+	Title={\doctitle},
 	Subject={Airline Common Environment},
 	Keywords={SQA;Airline Common Environment;Ingeniería del Software}
 }
@@ -63,19 +61,17 @@ pdfinfo={
 \makeglossaries
 
 \begin{document}
+	% Tabla de cambios
+%	\begin{tablacambios}
+%	\end{tablacambios}
+
 	% Portada
-	\portadaace{Plan de garantía de calidad}
+	\portadaace{\doctitle}
 
 	\tableofcontents
 	\newpage
 	\thispagestyle{plain}
 
-	% Tabla de cambios
-	\begin{scriptsize}
-	\begin{tablacambios}
-
-	\end{tablacambios}
-	\end{scriptsize}
 	\newpage
 	\iniciarnumeraciondiedral
 		
