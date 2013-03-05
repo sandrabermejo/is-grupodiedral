@@ -1,4 +1,4 @@
-\ProvidesPackage{isdiedral}[2012/11/01 v1.0 macros para el proyecto de Ingeniería del Software]
+\ProvidesPackage{isdiedral}[2013/03/01 v2.0 macros para el proyecto de Ingeniería del Software]
 \typeout{ISDiedral}
 
 % isdiedral.sty
@@ -141,13 +141,10 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 
 %%%%%%%%%%% CONTROL DE CAMBIOS %%%%%%%%%%%%
 
+% Ver implementación de la portada
+
 \NewEnviron{tablacambios}{
-	\begin{tabularx}{.9\linewidth}{| c | c | l | X |} \hline
-		\multicolumn{4}{|c|}{\bfseries Control de cambios} \\ \hline
-		\itshape Versión & \itshape Fecha & \itshape Autores & \itshape Descripción\\ \hline
-		% Escribe el cuerpo de la tabla
-		\BODY\\\hline
-	\end{tabularx} \\
+	\global\expandafter\def\expandafter\tablacambioscontenido\expandafter{\BODY}
 }
 
 
@@ -345,10 +342,34 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 		\end{tikzpicture}
 		\end{center}
 	\end{titlepage}
-
 \else
 	\maketitle
 \fi
+
+	% Introduce la contrapágina de la partada
+	\thispagestyle{empty}
+	\phantom{}\vfill
+
+	% Si el documento ha especificado tabla de cambios la añade
+	\ifthenelse{\isundefined{\tablacambioscontenido}}{}{
+
+		\begin{tabularx}{.9\linewidth}{| c | c | l | X |} \hline
+			\rowcolor{black!5} \multicolumn{4}{|c|}{\bfseries Control de cambios} \\ \hline
+			\rowcolor{black!2} \itshape Versión & \itshape Fecha & \itshape Autores & \itshape Descripción\\ \hline
+			% Escribe el cuerpo de la tabla
+			\tablacambioscontenido\\\hline
+		\end{tabularx} \\
+
+		\vspace*{1cm}
+	}
+
+	Grupo Diedral, 2013\\
+
+	Impreso en Madrid
+	\newpage
 }
+
+% Entorno prólogo
+\newenvironment{prologo}{\newpage \section*{\addcontentsline{toc}{section}{Prólogo} Prólogo} \renewcommand*{\rightmark}{Prólogo}}{\newpage}
 
 % Fin del paquete "isdiedral.sty"

@@ -2,7 +2,7 @@
 %	Documento de especificación de requisitos software (SRS).
 %
 
-\documentclass[11pt, a4paper, twoside]{report}
+\documentclass[11pt, a4paper, twoside, titlepage]{article}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -19,6 +19,9 @@
 \usepackage{isdiedral}
 \usepackage[disable]{todonotes}
 
+% Nombre del documento (para futuras referencias)
+\newcommand*{\doctitle}{Especificación de requisitos software}
+
 %%% Configuraciones %%%
 \marginsize{2.5cm}{2cm}{2cm}{2cm}
 
@@ -31,17 +34,11 @@
 % Establece la profundidad de niveles de sección que aparece en el TOC
 %\setcounter{tocdepth}{4}
 
-% Para las clases "book" o semejantes desactiva la impresión del número de capítulo
-\renewcommand*\thesection{\arabic{section}}
-
-% Cambia el nombre del TOC a "Índice" (pues en "report" se le denomina por defecto "Índice general")
-\addto{\captionsspanish}{\renewcommand*{\contentsname}{Índice}}
-
 % Fija que la entrada del glosario se comporte como una subsección
 \setglossarysection{subsection}
 
 % Configuración de los encabezados
-\encabezadodiedral{Especificación de requisitos software}
+\encabezadodiedral{\doctitle}
 \pagestyle{fancy}
 
 \renewcommand*{\thepage}{\sffamily \roman{page}}
@@ -49,14 +46,14 @@
 
 % Modelo copiado de los apuntes del tema 3 (páginas 69 a 98)
 
-\title{Especificación de requisitos software\\\textsl{Airline Common Environment}}
+\title{\doctitle\\\textsl{Airline Common Environment}}
 \author{Grupo Diedral}
 
 % Metadatos del pdf
 \hypersetup{
 pdfinfo={
 	Author={Grupo Diedral},
-	Title={Especificación de requisitos software},
+	Title={\doctitle},
 	Subject={Airline Common Environment},
 	Keywords={SRS;Airline Common Environment;Ingeniería del Software}
 }
@@ -67,34 +64,17 @@ pdfinfo={
 \makeglossaries
 
 \begin{document}
+	% Tabla de cambios
+	\begin{tablacambios}
+		1 & 15 de Noviembre de 2012 & \begin{tabular}{l}Cristina Alonso\\Natalia Angulo\\Sandra Bermejo\\Juan Andrés Claramunt\\Rubén Rafael Rubio \\\textit{(Todo el grupo)}\end{tabular} & Realización completa de la Introducción al proyecto.
+	\end{tablacambios}
+
 	% Portada
-	\portadaace{Especificación de requisitos software}
+	\portadaace{\doctitle}
 
 	\tableofcontents
 	\newpage
-	\thispagestyle{plain}
 
-	% Tabla de cambios
-	\begin{scriptsize}
-	\begin{tablacambios}
-		1 & 15 de Noviembre de 2012 & \begin{tabular}{l}Cristina Alonso\\Natalia Angulo\\Sandra Bermejo\\Juan Andrés Claramunt\\Rubén Rafael Rubio \\\textit{(Todo el grupo)}\end{tabular} & Realización completa de la Introducción al proyecto.\\ \hline
-		2 & 19 de Noviembre de 2012 & Todo el grupo & Realización de los primeros diagramas de los casos de uso y preparar la charla sobre el proyecto del 22 de noviembre de 2012.\\ \hline
-		3 & 27 de Noviembre de 2012 & Rubén Rafael Rubio & Preparación y distribución de la plantilla de \LaTeX{} para los Casos de Uso.\\ \hline
-		4 & 28 de Noviembre de 2012 & Todo el grupo & Sorteo de los Casos de Uso y reparto del trabajo.\\ \hline
-		5 & 6 de Diciembre de 2012 & Rubén Rafael Rubio & Preparación y distribución de la plantilla de \LaTeX{} para los SRS.\\ \hline
-		6 & 11 de Diciembre de 2012 & Todo el grupo & Puesta en común de los Casos de Uso y reparto de estos para realizar una revisión desde un punto de vista diferente al que los ha hecho. Discusión sobre el entorno y lenguaje en el que vamos a realizar el prototipo (aplicación).\\ \hline
-		7 & 12 de Diciembre de 2012 & Todo el grupo & Revisión desde casa de los Casos de Uso y posterior modificación de algunos para mejorarlos. Obtención de nuevos Casos de Uso mientras se hacía esta revisión y realización de ellos.\\ \hline
-		8 & 13 de Diciembre de 2012 & Todo el grupo & Puesta en común de ideas y explicaciones de los SRS. Planificación de los SRS y de las pantallas para el prototipo (aplicación). Reparto del trabajo.\\ \hline
-		9 & 14 de Diciembre de 2012 & Todo el grupo & Realización en casa de las pantallas para el prototipo y del documento de los SRS.\\ \hline
-		10 & 15 de Diciembre de 2012 & Todo el grupo & (Reunión durante todo el día). Puesta en común de las pantallas para el prototipo y organización del mismo para que Rubén Rafael Rubio las juntase todas en el prototipo (aplicación). Revisión general de los SRS y reparto de trabajo para una segunda revisión individual de estos. Diagramas con el nuevo programa recomendado por el profesor ARGO UML realizados por Cristina Alonso. Discusión sobre el prototipo (página Web) y reparto de dibujos de las diversas páginas correspondientes con los Casos de Uso.\\ \hline
-		11 & 16 de Diciembre de 2012 & Todo el grupo & Realización individual de todo el trabajo repartido el día 15 de diciembre de 2012. \\ \hline
-		12 & 17 de Diciembre de 2012 & Todo el grupo & Revisión de todo el grupo al prototipo (aplicación) para ver cómo ha quedado y proposición de nuevas ideas y sugerencias para la futura aplicación. Puesta en común de lo nuevo de los SRS. Nueva revisión de los SRS realizada por Juan Andrés Claramunt y Sandra Bermejo. Vista común de los dibujos de las pantallas para el prototipo Web. Diseño de dicho prototipo (página Web) realizado por Natalia Angulo. \\ \hline
-		13 & 18 de Diciembre de 2012 & Todo el grupo & Realización de la presentación en Beamer (\LaTeX) y organización y pequeña simulación de dicha presentación. Realización individual de las tareas pendientes.\\ \hline
-		14 & 19 de Diciembre de 2012 & Todo el grupo & Revisión de todo el grupo al prototipo (página Web) para ver cómo ha quedado y proposición de nuevas ideas y sugerencias para la futura página Web. Última revisión general antes de la exposición y preparación individual de ésta.\\ \hline
-		15 & 20 de Diciembre de 2012 & Todo el grupo & Presentación de los Casos de Uso, los SRS y los prototipos (aplicación y página Web).
-	\end{tablacambios}
-	\end{scriptsize}
-	\newpage
 	\iniciarnumeraciondiedral
 		
 	\section{Introducción}

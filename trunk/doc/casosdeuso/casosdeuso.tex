@@ -1,6 +1,6 @@
 %% Casos de uso %%
 
-\documentclass[11pt, a4paper, twoside]{report}
+\documentclass[11pt, a4paper, twoside, titlepage]{article}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -14,54 +14,54 @@
 \usepackage{rotating}
 \usepackage[colorlinks, linkcolor=black]{hyperref}
 
+% Nombre del documento (para futuras referencias)
+\newcommand*{\doctitle}{Casos de uso}
 
-% Configuraciones
+%%% Configuraciones %%%
 \marginsize{2cm}{2cm}{2cm}{2cm}
 
 % Usa como familia tipográfica por defecto "Sans"
 \renewcommand{\familydefault}{\sfdefault}
 
-% Para las clases "book" o semejantes desactiva la impresión del número de capítulo
-\renewcommand*\thesection{\arabic{section}}
-
-% Cambia el nombre del TOC a "Índice" (pues en "report" se le denomina por defecto "Índice general")
-\addto{\captionsspanish}{\renewcommand*{\contentsname}{Índice}}
-
 % Establece la profundidad de niveles de sección que aparece en el TOC
 \setcounter{tocdepth}{3}
 
 % Configura los encabezados y pies de paǵina
-\encabezadodiedral{Casos de uso}
+\encabezadodiedral{\doctitle}
 \pagestyle{fancy}
 \renewcommand*{\thepage}{\sffamily \roman{page}}
 
-\title{Casos de uso\\\textsl{Airline Common Environment}}
+\title{\doctitle\\\textsl{Airline Common Environment}}
 \author{Grupo Diedral}
 
 % Metadatos del pdf
 \hypersetup{
 pdfinfo={
 	Author={Grupo Diedral},
-	Title={Casos de uso},
+	Title={\doctitle},
 	Subject={Airline Common Environment},
 	Keywords={Casos de uso;Airline Common Environment;Ingeniería del Software}
 }
 }
 
 \begin{document}
+	% Historial de cambios
+	\begin{tablacambios}
+		1 & 13 de diciembre de 2013 & CAF, NAH, SBC, JCP, RRC & Continuación
+	\end{tablacambios}
+	\newpage
+
 	% Página de título
-	\portadaace{Casos de uso}
-	
+	\portadaace{\doctitle}
+
 	% Índice
 	\tableofcontents
 	\listoffigures
-	\newpage
-
-	% Historial de cambios
-%	\begin{tablacambios}
-%		1 & 13 de diciembre de 2013 & \begin{tabular}{l}Cristina Alonso\\Natalia Angulo\\Sandra Bermejo\\Juan Andrés Claramunt\\Rubén Rafael Rubio\end{tabular} & Continuación
-%	\end{tablacambios}
-%	\newpage
+	
+	% Prólogo
+	\begin{prologo}
+		Este documento, bla, bla, bla\ldots
+	\end{prologo}
 
 	% Cada caso de uso se puede escribir en un archivo aparte e importar
 	% usando  "include"  que  utiliza  necesariamente  una  página (para
