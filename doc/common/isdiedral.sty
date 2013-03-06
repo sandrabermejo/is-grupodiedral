@@ -304,6 +304,13 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 }
 
 %%%%%%%%% PÁGINA DE TÍTULO CON FORMATO COMÚN PARA EL PROYECTO ACE %%%%%%%%%%%%%%
+
+% Definición del formato de cita célebre
+\newcommand*{\citacelebre}[3][6cm]{\begin{flushright} \parbox{#1}{\raggedleft \itshape <<#2>> \flushright \normalfont \small #3}\end{flushright}}
+
+% Definifinición del comando para asignar la cita
+\newcommand{\fijacitainicial}[2]{\newcommand*{\citatrasportada}{#1}\newcommand*{\citatrasportadaautor}{#2}}
+
 \newcommand{\portadaace}[1]{
 \ifpdf
 \begin{titlepage}
@@ -339,6 +346,7 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 					Rubén Rafael Rubio Cuéllar
 				\end{tabular}
 			};
+
 		\end{tikzpicture}
 		\end{center}
 	\end{titlepage}
@@ -346,19 +354,23 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 	\maketitle
 \fi
 
-	% Introduce la contrapágina de la partada
+	% Introduce la contrapágina de la portada
 	\thispagestyle{empty}
-	\phantom{}\vfill
+	\ifthenelse{\isundefined{\citatrasportada}}{\phantom{}}{
+		\citacelebre{\citatrasportada}{\citatrasportadaautor}
+	}
+	\vfill
 
 	% Si el documento ha especificado tabla de cambios la añade
 	\ifthenelse{\isundefined{\tablacambioscontenido}}{}{
-
-		\begin{tabularx}{.9\linewidth}{| c | c | l | X |} \hline
+		\begin{center}
+		\begin{tabularx}{.85\linewidth}{| c | c | l | X |} \hline
 			\rowcolor{black!5} \multicolumn{4}{|c|}{\bfseries Control de cambios} \\ \hline
 			\rowcolor{black!2} \itshape Versión & \itshape Fecha & \itshape Autores & \itshape Descripción\\ \hline
 			% Escribe el cuerpo de la tabla
 			\tablacambioscontenido\\\hline
-		\end{tabularx} \\
+		\end{tabularx}
+		\end{center}
 
 		\vspace*{1cm}
 	}

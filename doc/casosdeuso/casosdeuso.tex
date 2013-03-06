@@ -12,7 +12,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{rotating}
-\usepackage[colorlinks, linkcolor=black]{hyperref}
+\usepackage[colorlinks, linkcolor=red]{hyperref}
 
 % Nombre del documento (para futuras referencias)
 \newcommand*{\doctitle}{Casos de uso}
@@ -47,7 +47,11 @@ pdfinfo={
 \begin{document}
 	% Historial de cambios
 	\begin{tablacambios}
-		1 & 13 de diciembre de 2013 & CAF, NAH, SBC, JCP, RRC & Continuación
+		0.1 & 6 de diciembre de 2012 & CAF, NAH, SBC, JCP, RRC & Primera versión\\ \hline
+		0.2 & 12 de diciembre de 2012 & CAF, NAH, SBC, JCP, RRC & Diagramas y amplicación\\ \hline
+		0.3 & 16 de diciembre de 2012 & CAF, NAH, SBC, JCP, RRC & Diagramas con ArgoUML\\ \hline
+		1.0 & 20 de diciembre de 2012 & CAF, NAH, SBC, JCP, RRC & Primera entrega\\ \hline
+		2.0 & 28 de febrero de 2013 & CAF, NAH, SBC, JCP, RRC & Segunda entrega
 	\end{tablacambios}
 	\newpage
 
@@ -60,7 +64,18 @@ pdfinfo={
 	
 	% Prólogo
 	\begin{prologo}
-		Este documento, bla, bla, bla\ldots
+		Este documento es la especificación de casos de uso del proyecto de \software{} {\itshape Airline Common Environment} desarrollado en la asignatura Ingeniería del Software en la Facultad de Informática de la Universidad Complutense de Madrid por el Grupo Diedral. El proyecto trata de desarrollar un sistema para la gestión de una compañía aérea. Entre las actividades que soporta se encuentran algunas comunes a todos los programas de gestión, como la gestión del personal, horarios, recursos materiales, economía o ventas; junto con otras funcionalidades relacionadas con la usanza particular de este tipo de negocio, entre las que se cuentan la gestión de vuelos y revisiones de mantenimiento.\\
+
+		Los principales actores citados en este documento son:
+
+		\begin{itemize}
+			\item Usuario (entendido como cualquier usuario).
+			\item Personal de la compañía (en sus diferentes ocupaciones).
+			\item Cliente de la compañía.
+			\item Visitante de la web (individuo que hace uso de la interfaz externa de la compañía sin estar registrado en ella como cliente).
+			\item Base de datos.
+			\item Entidades financieras (para las transacciones comerciales).
+		\end{itemize}
 	\end{prologo}
 
 	% Cada caso de uso se puede escribir en un archivo aparte e importar
@@ -72,15 +87,19 @@ pdfinfo={
 	\subsection{Gestión interna} \vspace{.5cm}
 	\iniciarnumeraciondiedral
 
+	\ifpdf
 	\begin{sidewaysfigure}	% LaTex lo coloca donde le parece (como debe hacer)
 		\hspace*{-2cm}\includegraphics[scale=.9]{diagramas/gestioninterna1.pdf}
 		\caption{Diagrama de gestión interna (administrativo)}
 	\end{sidewaysfigure}
+	\fi
 
+	\ifpdf
 	\begin{sidewaysfigure}
 		\hspace*{0cm}\includegraphics[scale=.9]{diagramas/gestioninterna2.pdf}
 		\caption{Diagrama de gestión interna (mecánico y personal de a bordo)}
 	\end{sidewaysfigure}
+	\fi
 
 	\input{casos/accederGI}
 	\include{casos/registrarEmpleado}
@@ -112,10 +131,12 @@ pdfinfo={
 	% Gestión externa
 	\subsection{Gestión externa} \vspace{.5cm}
 
+	\ifpdf
 	\begin{sidewaysfigure}
 		\includegraphics[scale=.93]{diagramas/gestionexterna.pdf}
 		\caption{Diagrama de gestión externa}
 	\end{sidewaysfigure}
+	\fi
 
 	\input{casos/accederGE}
 	\include{casos/registrarse}
