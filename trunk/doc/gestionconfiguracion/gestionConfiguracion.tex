@@ -1,0 +1,108 @@
+%
+%	Plan de Gestión de Configuración del Software (GCS)
+%
+
+\documentclass[11pt, a4paper, twoside, titlepage]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage{anysize}
+\usepackage{fancyhdr}
+\usepackage[none]{hyphenat}
+\usepackage[colorlinks, linkcolor=red]{hyperref}
+\usepackage{glossaries}
+\usepackage{glossaries-babel}
+\usepackage{isdiedral}
+
+% Nombre del documento (para futuras referencias)
+\newcommand*{\doctitle}{Plan de gestión de configuración del software}
+
+
+%%% Configuraciones %%%
+\marginsize{2.5cm}{2cm}{2cm}{2cm}
+
+% Usa como familia tipográfica por defecto "Sans"
+\renewcommand{\familydefault}{\sfdefault}
+
+% Establece la profundidad hasta la cual se numeran los elementos de sección
+\setcounter{secnumdepth}{4}
+
+% Establece la profundidad de niveles de sección que aparece en el TOC
+\setcounter{tocdepth}{4}
+
+% Fija que la entrada del glosario se comporte como una subsección
+\setglossarysection{subsection}
+
+% Configuración de los encabezados
+\encabezadodiedral{\doctitle}
+\pagestyle{fancy}
+
+\renewcommand*{\thepage}{\sffamily \roman{page}}
+
+
+% Modelo copiado de los apuntes del tema 8 (páginas 93 a 95) IEEE Std. 730-2002
+
+\title{\doctitle\\\textsl{Airline Common Environment}}
+\author{Grupo Diedral}
+
+% Metadatos del pdf
+\hypersetup{
+pdfinfo={
+	Author={Grupo Diedral},
+	Title={\doctitle},
+	Subject={Airline Common Environment},
+	Keywords={SQA;Airline Common Environment;Ingeniería del Software}
+}
+}
+
+% Inclusión del glosario (gracias a David Peñas)
+\input{gestionConfiguracionGlosario}
+\makeglossaries
+
+\begin{document}
+
+	% Cita inicial
+	\fijacitainicial{La calidad de la tela, ya una hilacha la revela}{Refrán popular}
+
+	% Portada
+	\portadaace{\doctitle}
+
+	\tableofcontents
+	\newpage
+
+	\iniciarnumeraciondiedral
+	
+	\section{Introducción}
+		\subsection{Propósito}
+		\subsection{Alcance}
+		\subsection{Definición de términos clave}
+		\subsection{Referencia}
+	\section{Gestión de la GCS}
+		\subsection{Organización}
+		\subsection{Responsabilidades GCS}
+		\subsection{Políticas, directivas y procedimientos aplicables}
+	\section{Actividades de la GCS}
+		\subsection{Identificación de la configuración}
+			\subsubsection{Identificación de ECS'}
+			\subsubsection{Nombrado de ECS'}
+			\subsubsection{Adquisición de ECS'}
+		\subsection{Control de configuración}
+			\subsubsection{Petición de cambios}
+			\subsubsection{Evaluación de cambios}
+			\subsubsection{Aprobación o desaprobación de cambios}
+			\subsubsection{Implementación de cambios}
+		\subsection{Contabilidad de estado de configuración}
+		\subsection{Auditorías y revisiones de la configuración}
+		\subsection{Control de interfaz}
+		\subsection{Control de la subcontratación/compra}
+	\section{Planificación de la GCS}
+	\section{Recursos de la GCS}
+	\section{Mantenimiento del plan de GCS}
+	\section{Glosario}
+		\printglossaries
+
+
+	\newpage
+	\bibliographystyle{plain}
+\end{document}
