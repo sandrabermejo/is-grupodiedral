@@ -70,7 +70,7 @@ pdfinfo={
 	\fijacitainicial{La calidad de la tela, ya una hilacha la revela}{Refrán popular}
 
 	% Portada
-	\portadaace{\doctitle}
+	%\portadaace{\doctitle}
 
 	\tableofcontents
 	\newpage
@@ -78,8 +78,58 @@ pdfinfo={
 	\iniciarnumeraciondiedral
 		
 	\section{Propósito}
+		El propósito de este documento es establecer unos planes de control de calidad de software para así poder entender las expectativas del cliente en términos de calidad. Se basa en la determinación y puesta en marcha de las políticas de calidad de la empresa. \\
+		%lista de los nombres de lso elementos software cubiertos por el plan SQA??
+		Este Plan de Calidad del Software, cubre solo la parte correspondiente al desarrollo del software, no cubre la parte del ciclo de vida que corresponde al mantenimiento.
+		
 	\section{Documentos de referencia}
+		\begin{itemize}
+			\item \textit{IEEE 730-2002 - Standard for Software Quality Assurance Plans.}
+			\item \textit{IEEE 1028-1997 - Standard for Software Reviews}
+			\item \textit{IEEE 1058-1998 - standard for Software Project Management Plans}
+			\item \textit{Pressman, R.S.Ingeniería del Software. Un Enfoque Práctico.}
+		\end{itemize}
 	\section{Gestión}
+		Las tareas desarrolladas en la SQA deberán reflejar los estándares a seguir, los procedimientos correctos que hay que seguir para la elaboración de los productos, los productos a revisar e informar de los fallos encontrados y realizar un seguimiento de los mismos hasta su corrección. Así, las actividades que se van a llevar a cabo son: \\
+			\begin{enumerate}
+				\item Realización de Revisiones Técnicas Formales (RTF).
+				\item Revisión de cada producto.
+				\item Asegurar que los fallos de los productos y sus respectivas modificaciones son documentadas.
+				\item Revisión de los productos que se ajustan al proceso Software.
+			\end{enumerate}
+		\subsection{Ciclo de vida del software} %Etapas más importantes del software que cubre el plan
+			Las etapas más importantes que cubre este Plan son el análisis, la especificación de los requisitos y la gestión de riesgos. De la calidad de estas depende la intensidad con la que se tendrán que realizar las revisiones de calidad. \\
+			Productos que tendrán revisión de calidad: \\
+				\begin{itemize}
+					\item Casos de Uso
+					\item SRS
+					\item Plan de Proyecto
+						\begin{itemize}
+							\item Planificación temporal
+							\item Gestión de Riesgos
+						\end{itemize}
+				\end{itemize}
+				
+		\subsection{Organización interna del equipo de trabajo}
+		
+			Para una mejor organización y control de la calidad del software, el equipo de desarrollo ha quedado estructurado de la siguiente manera: \\
+	
+			\begin{tabular}[t]{|l |c |r|}
+			\hline
+			\textbf{Nombre} & \textbf{Linea de trabajo}\\
+			\hline
+			Rubén Rafael & Coordinador, Desarrollador y Jefe de Proyecto\\
+			\hline
+			Juan Andrés & \gls{Gestor_tecnico} y Supervisor\\
+			\hline
+			Sandra & \gls{Gestor_superior} y Supervisor\\
+			\hline
+			Cristina & Gestor superior del proyecto y \gls{Profesional}\\
+			\hline
+			Natalia & Gestor técnico del proyecto y Profesional\\
+			\hline
+			\end{tabular}
+			
 	\section{Documentación}
 		\subsection{Propósito}
 		\subsection{Requisitos mínimos de documentación}
