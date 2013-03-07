@@ -1,5 +1,10 @@
 \tiny
 
+% Usa como impresor de fechas el del paquete "isdiedral"
+% Otra opción es "isodate" (pero no soporta español aún)
+\let \printdate = \imprimefecha
+
+% Comando de uso particular para imprimir revisiones
 \newcommand*{\reporev}[3]{\item #1 (#2, \printdate{#3}).}
 
 \begin{multicols}{2}
