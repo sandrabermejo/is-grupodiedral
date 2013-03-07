@@ -19,6 +19,7 @@
 \RequirePackage{colortbl}
 \RequirePackage{longtable}
 \RequirePackage{tabu}
+\RequirePackage{localloc}
 
 % Opciones soportadas
 %\DeclareOption{trsubsec}{}
@@ -286,6 +287,32 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 	\end{tabu}
 	\end{center}
 }
+
+% DEFINICIONES PARA IMPRESIÓN DE FECHAS
+
+% Macro para imprimir la fecha con formato bonito usando el comando \today
+\def\imprimefechadeverdad#1.#2.#3 {%
+	\begingroup
+	% Declara contadores temporales (locales) para almacenar el estado anterior
+	\lnewcount\copiamonth \lnewcount\copiaday \lnewcount\copiayear%
+%
+	% Almacena la fecha previa en las variables locales
+	\copiamonth = \month \copiaday = \day \copiayear = \year%
+%
+	% Asigna los valores recibidos a dichos parámetros cronológicos
+	\day = #1 \month = #2 \year = #3%
+%
+	% Imprime la fecha (de acuerdo a Babel...)
+	\phantom{}\today %
+%
+	% Restablece los valores anteriores de fecha
+	\month = \copiamonth \day = \copiaday \year = \copiayear%
+	\endgroup
+}
+
+% Comando para formatear fechas de acuerdo al estilo global
+\newcommand{\imprimefecha}[1]{\imprimefechadeverdad#1 }
+
 
 %%%%%%%%%% DEFINICIÓN DE CONVENCIONES SOBRE ENCABEZADOS Y PIE DE PÁGINA %%%%%%%%%%%%%
 % Requiere como parámetro el nombre del documento y el número total de PFs

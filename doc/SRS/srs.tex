@@ -173,11 +173,11 @@ pdfinfo={
 
 				A efectos de visualización y entrada la fecha ha de ajustarse, según configuración, a los patrones \verb|DD/MM/AAAA| o \verb|AAAA/MM/DD|\footnote{De acuerdo al estándar ISO 8601.}. En el caso de la visualización se puede incluir como prefijo el día de la semana. Siendo los campos enteros positivos, se ha de cumplir:
 				\begin{itemize}
-					\item $0 \leq \verb|MM| \leq 12$
-					\item $\verb|MM| \in \{1, 3, 5, 7, 8, 10, 12\} \Rightarrow 0 \leq \verb|DD| \leq 31$
-					\item $\verb|MM| \in \{4, 6, 9, 11\} \Rightarrow 0 \leq \verb|DD| \leq 30$ 
-					\item $\verb|MM| = 2 \wedge ((4 | \verb|AAAA| \wedge 100 \not| \verb|AAAA|) \vee (100 | \verb|AAAA| \wedge 400 | \verb|AAAA|)) \Rightarrow 0 \leq \verb|DD| \leq 29$ (año bisiesto)
-					\item $\verb|MM| = 2$ y en caso contrario $\Rightarrow 0 \leq \verb|DD| \leq 28$
+					\item $1 \leq \verb|MM| \leq 12$
+					\item $\verb|MM| \in \{1, 3, 5, 7, 8, 10, 12\} \Rightarrow 1 \leq \verb|DD| \leq 31$
+					\item $\verb|MM| \in \{4, 6, 9, 11\} \Rightarrow 1 \leq \verb|DD| \leq 30$ 
+					\item $\verb|MM| = 2 \wedge ((4 | \verb|AAAA| \wedge 100 \not| \verb|AAAA|) \vee (100 | \verb|AAAA| \wedge 400 | \verb|AAAA|)) \Rightarrow 1 \leq \verb|DD| \leq 29$ (año bisiesto)
+					\item $\verb|MM| = 2$ y en caso contrario $\Rightarrow 1 \leq \verb|DD| \leq 28$
 				\end{itemize}
 			La aplicación también puede producir expresiones de fecha \textit{redactadas} en el idioma configurado tales como \verb|DD de MM de AAAA| pudiendo ser \verb|MM| el nombre del mes en lenguaje natural.\\
 
