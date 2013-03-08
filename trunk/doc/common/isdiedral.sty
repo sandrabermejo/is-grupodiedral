@@ -338,7 +338,7 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 % Definifinición del comando para asignar la cita
 \newcommand{\fijacitainicial}[2]{\newcommand*{\citatrasportada}{#1}\newcommand*{\citatrasportadaautor}{#2}}
 
-\newcommand{\portadaace}[1]{
+\newcommand{\portadaace}[2]{
 \ifpdf
 \begin{titlepage}
 		% Título del documento
@@ -347,7 +347,7 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 			{\fontsize{60}{72} \selectfont \bfseries \color{green!15!black!85} #1}
 
 		\begin{center}
-			\itshape v2.0 - \today % Hacer pasar como parámetro
+			\itshape v#2 - \today
 		\end{center}
 
 		\vfill
