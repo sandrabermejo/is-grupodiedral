@@ -11,7 +11,6 @@
 \usepackage[none]{hyphenat}
 \usepackage{multicol}
 \usepackage{amsmath}
-%\usepackage{graphicx}
 \usepackage[colorlinks, linkcolor=red]{hyperref}
 \usepackage{isdiedral}
 \usepackage{lscape}
@@ -54,8 +53,11 @@ pdfinfo={
 		2.0 & 28 de febrero de 2013 & CAF, NAH, SBC, JCP, RRC & Segunda entrega
 	\end{tablacambios}
 
+	% Fija la cita inicial
+	\fijacitainicial{Difícil de ver el futuro es}{Maestro Yoda, Star Wars: La Venganza de los Sith}
+
 	% Portada
-	\portadaace{\doctitle}
+	\portadaace{\doctitle}{2.0}
 	
 	\tableofcontents
 	\newpage
@@ -226,9 +228,8 @@ papel.
 
 			De los epígrafes siguientes se tiene que los puntos de función sin ajustar son:
 
-	\begin{table}[h] \centering
+	\begin{table}[ht] \centering
 		\begin{tabu} to .6\linewidth {| X[3, l] | X[1, r] |}
-			%\nameref
 			\hline
 			\nameref{estimac:gestioncorriente} & 152\\ \hline
 			\nameref{estimac:configuracion} & 50\\ \hline

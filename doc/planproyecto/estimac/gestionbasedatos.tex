@@ -1,54 +1,149 @@
+%% Estimación. Función "Generación de gráficas".
+
 \begin{enumerate}
-	\item \textit{FLI}
+	\item \textit{Ficheros Lógicos Internos}
 	\begin{itemize}
 		\item Clientes \\
-			1 RET(Personales) \\
-			11 DET(Nombre, apellidos, e-mail, NIF, teléfono, dirección(6)) \\
+			1 RET (Personales) \\
+			11 DET (Nombre, apellidos, e-mail, NIF, teléfono, dirección(6)) \\
 			Complejidad: Baja\\
 		\item Empleados \\
-			2 RET(Personales, Laborales)
-			15 DET(Nombre, apellidos, NIF, e-mail, teléfono, dirección(6), puesto trabajo, permisos, registros, periodo laboral)
+			2 RET (Personales, Laborales)
+			15 DET (Nombre, apellidos, NIF, e-mail, teléfono, dirección(6), puesto trabajo, permisos, registros, periodo laboral)
 			Complejidad: Baja\\
 		\item Vuelos\\
 			1 RET(General)
-			7 DET(Número de vuelo, fecha de salida/llegada, hora de salida, hora de llegada, aeropuerto de origen, aeropuerto destino,
+			7 DET (Número de vuelo, fecha de salida/llegada, hora de salida, hora de llegada, aeropuerto de origen, aeropuerto destino,
 			clase)
 			Complejidad: Baja\\
 		\item Ofertas\\
-			3 RET(Descripción, prestaciones, restricciones)
-			6 DET(Titulo, resumen, articulo, precio ofertado, periodo validez, ámbito de validez)
+			3 RET (Descripción, prestaciones, restricciones)
+			6 DET (Título, resumen, articulo, precio ofertado, periodo validez, ámbito de validez)
 			Complejidad: Baja\\
 		\item Nóminas\\
-			1 RET(Registro)
-			8 DET(Identificador del empleado(5)(nombre, apellidos, NIF, nº SS, departamento), incidencias(3)(horas extras,
+			1 RET (Registro)
+			8 DET (Identificador del empleado(5)(nombre, apellidos, NIF, nº SS, departamento), incidencias(3)(horas extras,
 			sustituciones, huelgas))
 			Complejidad: Baja\\
 		\item Inventario\\
-			1 RET(Descriptivos)
-			7 DET(Nombre articulo, número, cantidad, precio de compra, departamento, proveedor, fecha última compra)
+			1 RET (Descriptivos)
+			7 DET (Nombre articulo, número, cantidad, precio de compra, departamento, proveedor, fecha última compra)
 			Complejidad: Baja\\
 		\item Economía\\
-			1 RET(Resultados)
-			3 DET(Ingresos, gastos, resultados por periodos)
+			1 RET (Resultados)
+			3 DET (Ingresos, gastos, resultados por periodos)
 			Complejidad: Baja\\
 		\item Horarios\\
-			1 RET(Calendario laboral)
-			4 DET(hora de entrada, hora salida, tipo de jornada, festivos)
+			1 RET (Calendario laboral)
+			4 DET (hora de entrada, hora salida, tipo de jornada, festivos)
 			Complejidad: Baja\\
 	\end{itemize}
+	\item \textit{Ficheros de Interfaz Externos}
 	\begin{itemize}
-	\item\textit{FIE}
 		\item Modelos de avión \\
-			1 FTR(Técnicas) \\
-			7 DET(Fabricante, dimensiones, plazas, año fabricacion, capacidad de bodega, autonomia, nombre modelo) \\
+			1 FTR (Técnicas) \\
+			7 DET (Fabricante, dimensiones, plazas, año fabricación, capacidad de bodega, autonomía, nombre modelo) \\
 			Complejidad: Baja\\
 		\item Paises \\
-			2 FTR(Geográficos, politicos) \\
-			6 DET(Nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario) \\
+			2 FTR (Geográficos, politicos) \\
+			6 DET (Nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario) \\
 			Complejidad: Media\\	
 		\item Ciudades \\
-			2 FTR(Geograficos, politicos) \\
-			5 DET(Nombre, pais, poblacion, gentilicio, altitud media) \\
+			2 FTR (Geograficos, politicos) \\
+			5 DET (Nombre, pais, poblacion, gentilicio, altitud media) \\
+			Complejidad: Baja\\
+		\item Aeropuertos \\
+			1 FTR (Identificativos) \\
+			6 DET (Nombre, identificador, tipo, operador, ciudad, pistas) \\
+			Complejidad: Baja\\
+		\item Organigrama Laboral \\
+			1 FTR (Laboral) \\
+			4 DET (Departamentos, jerarquías, elementos de autoridad, funciones) \\
+			Complejidad: Baja\\
+	\end{itemize}
+	\item \textit{Entradas Externas}
+	\begin{itemize}
+		\item Clientes \\
+			1 FTR (Personales) \\
+			11 DET (Nombre, apellidos, e-mail, NIF, teléfono, dirección(6)) \\
+			Complejidad: Baja\\
+		\item Empleados \\
+			2 FTR (Personales, Laborales)
+			15 DET (Nombre, apellidos, NIF, e-mail, teléfono, dirección(6), puesto trabajo, permisos, registros, periodo laboral)
+			Complejidad: Media\\
+		\item Vuelos\\
+			1 FTR (General)
+			7 DET (Número de vuelo, fecha de salida/llegada, hora de salida, hora de llegada, aeropuerto de origen, aeropuerto destino,
+			clase)
+			Complejidad: Baja\\
+		\item Ofertas\\
+			3 FTR (Descripción, prestaciones, restricciones)
+			6 DET (Titulo, resumen, articulo, precio ofertado, periodo validez, ámbito de validez)
+			Complejidad: Alta\\
+		\item Nóminas\\
+			1 FTR (Registro)
+			8 DET (Identificador del empleado(5)(nombre, apellidos, NIF, nº SS, departamento), incidencias(3)(horas extras,
+			sustituciones, huelgas))
+			Complejidad: Baja\\
+		\item Inventario\\
+			1 FTR (Descriptivos)
+			7 DET (Nombre articulo, número, cantidad, precio de compra, departamento, proveedor, fecha última compra)
+			Complejidad: Baja\\
+		\item Economía\\
+			1 FTR (Resultados)
+			3 DET (Ingresos, gastos, resultados por periodos)
+			Complejidad: Baja\\
+		\item Horarios\\
+			1 FTR (Calendario laboral)
+			4 DET (hora de entrada, hora salida, tipo de jornada, festivos)
+			Complejidad: Baja\\
+	\end{itemize}
+
+%	\item \textsl{EO}
+
+	\begin{itemize}
+	\item \textsl{Consultas externas}
+		\item Clientes \\
+			1 FTR (Personales) \\
+			11 DET (Nombre, apellidos, e-mail, NIF, teléfono, dirección(6)) \\
+			Complejidad: Baja\\
+		\item Empleados \\
+			2 FTR (Personales, Laborales)
+			15 DET (Nombre, apellidos, NIF, e-mail, teléfono, dirección(6), puesto trabajo, permisos, registros, periodo laboral)
+			Complejidad: Media\\
+		\item Vuelos\\
+			1 FTR (General)
+			7 DET (Número de vuelo, fecha de salida/llegada, hora de salida, hora de llegada, aeropuerto de origen, aeropuerto destino,
+			clase)
+			Complejidad: Baja\\
+		\item Ofertas\\
+			3 FTR (Descripción, prestaciones, restricciones)
+			6 DET (Titulo, resumen, articulo, precio ofertado, periodo validez, ámbito de validez)
+			Complejidad: Alta\\
+		\item Nóminas\\
+			1 FTR (Registro)
+			8 DET (Identificador del empleado(5)(nombre, apellidos, NIF, nº SS, departamento), incidencias(3)(horas extras,
+			sustituciones, huelgas))
+			Complejidad: Baja\\
+		\item Inventario\\
+			1 FTR (Descriptivos)
+			7 DET (Nombre articulo, número, cantidad, precio de compra, departamento, proveedor, fecha última compra)
+			Complejidad: Baja\\
+		\item Economía\\
+			1 FTR (Resultados)
+			3 DET (Ingresos, gastos, resultados por periodos)
+			Complejidad: Baja\\
+		\item Horarios\\
+			1 FTR (Calendario laboral)
+			4 DET (hora de entrada, hora salida, tipo de jornada, festivos)
+			Complejidad: Baja\\
+		\item Paises \\
+			2 FTR (Geográficos, politicos) \\
+			6 DET (Nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario) \\
+			Complejidad: Media\\	
+		\item Ciudades \\
+			2 FTR (Geográficos, políticos) \\
+			5 DET (Nombre, país, población, gentilicio, altitud media) \\
 			Complejidad: Baja\\
 		\item Aeropuertos \\
 			1 FTR(Identificativos) \\
@@ -56,100 +151,7 @@
 			Complejidad: Baja\\
 		\item Organigrama Laboral \\
 			1 FTR(Laboral) \\
-			4 DET(Departamentos, jerarquias, elementos de autoridad, funciones) \\
-			Complejidad: Baja\\
-	\end{itemize}
-	\begin{itemize}
-	\item \textit{EI}
-		\item Clientes \\
-			1 FTR(Personales) \\
-			11 DET(Nombre, apellidos, e-mail, NIF, teléfono, dirección(6)) \\
-			Complejidad: Baja\\
-		\item Empleados \\
-			2 FTR(Personales, Laborales)
-			15 DET(Nombre, apellidos, NIF, e-mail, teléfono, dirección(6), puesto trabajo, permisos, registros, periodo laboral)
-			Complejidad: Media\\
-		\item Vuelos\\
-			1 FTR(General)
-			7 DET(Número de vuelo, fecha de salida/llegada, hora de salida, hora de llegada, aeropuerto de origen, aeropuerto destino,
-			clase)
-			Complejidad: Baja\\
-		\item Ofertas\\
-			3 FTR(Descripción, prestaciones, restricciones)
-			6 DET(Titulo, resumen, articulo, precio ofertado, periodo validez, ámbito de validez)
-			Complejidad: Alta\\
-		\item Nóminas\\
-			1 FTR(Registro)
-			8 DET(Identificador del empleado(5)(nombre, apellidos, NIF, nº SS, departamento), incidencias(3)(horas extras,
-			sustituciones, huelgas))
-			Complejidad: Baja\\
-		\item Inventario\\
-			1 FTR(Descriptivos)
-			7 DET(Nombre articulo, número, cantidad, precio de compra, departamento, proveedor, fecha última compra)
-			Complejidad: Baja\\
-		\item Economía\\
-			1 FTR(Resultados)
-			3 DET(Ingresos, gastos, resultados por periodos)
-			Complejidad: Baja\\
-		\item Horarios\\
-			1 FTR(Calendario laboral)
-			4 DET(hora de entrada, hora salida, tipo de jornada, festivos)
-			Complejidad: Baja\\
-	\end{itemize}
-	\begin{itemize}
-	\item \textsl{EO}
-	\end{itemize}
-	\begin{itemize}
-	\item \textsl{EQ}
-		\item Clientes \\
-			1 FTR(Personales) \\
-			11 DET(Nombre, apellidos, e-mail, NIF, teléfono, dirección(6)) \\
-			Complejidad: Baja\\
-		\item Empleados \\
-			2 FTR(Personales, Laborales)
-			15 DET(Nombre, apellidos, NIF, e-mail, teléfono, dirección(6), puesto trabajo, permisos, registros, periodo laboral)
-			Complejidad: Media\\
-		\item Vuelos\\
-			1 FTR(General)
-			7 DET(Número de vuelo, fecha de salida/llegada, hora de salida, hora de llegada, aeropuerto de origen, aeropuerto destino,
-			clase)
-			Complejidad: Baja\\
-		\item Ofertas\\
-			3 FTR(Descripción, prestaciones, restricciones)
-			6 DET(Titulo, resumen, articulo, precio ofertado, periodo validez, ámbito de validez)
-			Complejidad: Alta\\
-		\item Nóminas\\
-			1 FTR(Registro)
-			8 DET(Identificador del empleado(5)(nombre, apellidos, NIF, nº SS, departamento), incidencias(3)(horas extras,
-			sustituciones, huelgas))
-			Complejidad: Baja\\
-		\item Inventario\\
-			1 FTR(Descriptivos)
-			7 DET(Nombre articulo, número, cantidad, precio de compra, departamento, proveedor, fecha última compra)
-			Complejidad: Baja\\
-		\item Economía\\
-			1 FTR(Resultados)
-			3 DET(Ingresos, gastos, resultados por periodos)
-			Complejidad: Baja\\
-		\item Horarios\\
-			1 FTR(Calendario laboral)
-			4 DET(hora de entrada, hora salida, tipo de jornada, festivos)
-			Complejidad: Baja\\
-		\item Paises \\
-			2 FTR(Geográficos, politicos) \\
-			6 DET(Nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario) \\
-			Complejidad: Media\\	
-		\item Ciudades \\
-			2 FTR(Geograficos, politicos) \\
-			5 DET(Nombre, pais, poblacion, gentilicio, altitud media) \\
-			Complejidad: Baja\\
-		\item Aeropuertos \\
-			1 FTR(Identificativos) \\
-			6 DET(Nombre, identificador, tipo, operador, ciudad, pistas) \\
-			Complejidad: Baja\\
-		\item Organigrama Laboral \\
-			1 FTR(Laboral) \\
-			4 DET(Departamentos, jerarquias, elementos de autoridad, funciones) \\
+			4 DET(Departamentos, jerarquías, elementos de autoridad, funciones) \\
 			Complejidad: Baja\\	
 	\end{itemize}		
 \end{enumerate}

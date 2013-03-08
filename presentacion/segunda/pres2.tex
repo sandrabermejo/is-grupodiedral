@@ -7,6 +7,7 @@
 \usepackage{lmodern}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
+\usepackage{tabu}
 
 
 \newcommand{\software}{\textit{software }}
@@ -26,7 +27,7 @@
 
 	\frame{\frametitle{Resumen} \tableofcontents}
 	
-	\section{Descripción general}
+	\section{Introducción}
 	
 \begin{frame}
 	\frametitle{Descripción general}
@@ -44,6 +45,35 @@
 		\item Características del usuario
 		\item Restricciones y dependencias
 	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Estimación}
+
+	\begin{block}{Cálculo de los puntos de función} \centering \scriptsize
+	\vspace*{2mm}
+	\begin{tabu} to .9\linewidth { X[6, l]  X[1, r] }
+		Gestión corriente de la base de datos \dotfill & 152\\
+		Configuración de la base de datos \dotfill & 50\\
+		Interfaz externa \dotfill & 51\\
+		Interfaz interna \dotfill & 113\\
+		Generación de gráficas \dotfill & 14\\
+		Análisis y monitorización de datos \dotfill & 47\\
+		\multicolumn{1}{r}{Total} & 427 \\
+	\end{tabu}
+	\vspace*{2mm}
+	\end{block}
+
+	\pause
+
+	\begin{block}{Resultados}
+		\begin{itemize}
+			\item $\mathrm{PFA} = \mathrm{PFSA} (0,65 + 0,01 \cdot \mathrm{FCT}) = 465,43$.
+			\item 30.718,38 líneas de código en C++.
+			\item COCOMO: 279,2 hombres/mes y 22.631 LOC en Java.
+		\end{itemize}
+		
+	\end{block}
 \end{frame}
 
 \end{document}
