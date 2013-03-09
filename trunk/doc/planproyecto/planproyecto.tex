@@ -12,8 +12,9 @@
 \usepackage{multicol}
 \usepackage{amsmath}
 \usepackage[colorlinks, linkcolor=red]{hyperref}
-\usepackage{isdiedral}
+\usepackage[doc=planproyecto]{isdiedral}
 \usepackage{lscape}
+\usepackage{float}
 
 % Nombre del documento (para futuras referencias)
 \newcommand*{\doctitle}{Plan de proyecto}
@@ -163,72 +164,32 @@ papel.
 
 				\end{itemize}
 
+			%% El detalle de las estimaciones está desarrollado en archivos aparte
+
 			\subsubsection{Gestión corriente de la base de datos} \label{estimac:gestioncorriente}
-			\begin{tablapf}{Gestión corriente de la base de datos}{152}
-				FLI	& 8 & 7 & 0 & 10 & 0 & 15 & 56	\\ \hline
-				FIE	& 4	& 5 & 1 & 7 & 0 & 10 & 27	\\ \hline
-				EI	& 6	& 3	& 1	& 4	& 1	& 6	& 28	\\ \hline
-				EO	& 0	& 4	& 0	& 5	& 0	& 7	& 0	\\ \hline
-				EQ 	& 9	& 3	& 2	& 4	& 1	& 6	& 41
-			\end{tablapf}
-			\input{estimac/gestionbasedatos}
+				\input{estimac/gestionbasedatos}
 			
 			\subsubsection{Configuración de la base de datos} \label{estimac:configuracion}
-			\begin{tablapf}{Configuración de la base de datos}{50}
-				FLI	& 5 & 7 & 0 & 10 & 0 & 15 & 35	\\ \hline
-				FIE	& 0	& 5 & 0 & 7 & 0 & 10 & 0	\\ \hline
-				EI	& 5	& 3	& 0	& 4	& 0	& 6	& 15	\\ \hline
-				EO	& 0	& 4	& 0	& 5	& 0	& 7	& 0	\\ \hline
-				EQ 	& 0	& 3	& 0	& 4	& 0	& 6	& 0
-			\end{tablapf}
-			\input{estimac/gestionconfig}	
+				\input{estimac/gestionconfig}	
 
 			\subsubsection{Interfaz externa} \label{estimac:iexterna}
-			\begin{tablapf}{Interfaz externa}{51}
-				FLI	& 0 & 7 & 0 & 10 & 0 & 15 & 0	\\ \hline
-				FIE	& 4	& 5 & 0 & 7 & 0 & 10 & 20	\\ \hline
-				EI	& 1	& 3	& 0	& 4	& 0	& 6	& 3	\\ \hline
-				EO	& 4	& 4	& 0	& 5	& 0	& 7	& 16	\\ \hline
-				EQ 	& 2	& 3	& 0	& 4	& 1	& 6	& 12
-			\end{tablapf}
-			\input{estimac/interfazexterna}	
+				\input{estimac/interfazexterna}	
 			
 			\subsubsection{Interfaz interna} \label{estimac:iinterna}
-			\begin{tablapf}{Interfaz interna}{113}
-				FLI	& 0 & 7 & 0 & 10 & 0 & 15 & 0	\\ \hline
-				FIE	& 9	& 5 & 0 & 7 & 0 & 10 & 45	\\ \hline
-				EI	& 6	& 3	& 0	& 4	& 0	& 6	& 18	\\ \hline
-				EO	& 6	& 4	& 1	& 5	& 0	& 7	& 29	\\ \hline
-				EQ 	& 7	& 3	& 0	& 4	& 0	& 6	& 21
-			\end{tablapf}
-			\input{estimac/interfazinterna}	
+				\input{estimac/interfazinterna}	
 			
 			\subsubsection{Generación de gráficas} \label{estimac:graficas}
-			\begin{tablapf}{Generación de gráficas}{14}
-				FLI	& 0 & 7 & 0 & 10 & 0 & 15 & 0	\\ \hline
-				FIE	& 1	& 5 & 0 & 7 & 0 & 10 & 5	\\ \hline
-				EI	& 0	& 3	& 0	& 4	& 0	& 6	& 0	\\ \hline
-				EO	& 0	& 4	& 1	& 5	& 0	& 7	& 5	\\ \hline
-				EQ 	& 0	& 3	& 1	& 4	& 0	& 6	& 4
-			\end{tablapf}
-			\input{estimac/generaciongraficas}	
+				\input{estimac/generaciongraficas}	
 			
 			\subsubsection{Análisis y monitorización de datos} \label{estimac:analisis}
-			\begin{tablapf}{Análisis y monitorización de datos}{47}
-				FLI	& 1 & 7 & 0 & 10 & 0 & 15 & 7	\\ \hline
-				FIE	& 8	& 5 & 0 & 7 & 0 & 10 & 40	\\ \hline
-				EI	& 0	& 3	& 0	& 4	& 0	& 6	& 0	\\ \hline
-				EO	& 0	& 4	& 0	& 5	& 0	& 7	& 0	\\ \hline
-				EQ 	& 0	& 3	& 0	& 4	& 0	& 6	& 0
-			\end{tablapf}
-			\input{estimac/analisisdatos}
+				\input{estimac/analisisdatos}
 
 		\subsubsection{Cálculo de los puntos de función}
 			De acuerdo a lo indicado en la apartado \textit{\nameref{estimac:factores}} de este documento, el factor de complejidad total, que hemos calculado de forma global, suma 44.\\
 
 			De los epígrafes siguientes se tiene que los puntos de función sin ajustar son:
 
-	\begin{table}[ht] \centering
+	\begin{table}[H] \centering
 		\begin{tabu} to .6\linewidth {| X[3, l] | X[1, r] |}
 			\hline
 			\nameref{estimac:gestioncorriente} & 152\\ \hline

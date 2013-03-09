@@ -4,7 +4,7 @@
 % isdiedral.sty
 % Grupo Diedral 2012-2013
 
-% Paquetes requeridos
+%% Paquetes requeridos
 \NeedsTeXFormat{LaTeX2e}[2001/06/01]
 \RequirePackage{color}
 \RequirePackage{xkeyval}
@@ -20,11 +20,70 @@
 \RequirePackage{longtable}
 \RequirePackage{tabu}
 \RequirePackage{localloc}
+\RequirePackage{boolexpr}
 
-% Opciones soportadas
-%\DeclareOption{trsubsec}{}
+%% Opciones soportadas
+% Esta opción permite indicar al usuario el documento en el que se está incluyendo
+% el paquete para así filtrar los comandos aportados, en beneficio de la eficiencia
+% y para reducir el riesgo de conflictos de nombres. Por defecto se carga todo el
+% paquete.
+\DeclareOptionX{doc}{\def\mododoceficiente{#1}}
+\ProcessOptionsX\relax
+\ExecuteOptionsX{}
+
+
+%%%%%%%%%%% DEFINICIONES COMUNES A TODOS LOS DOCUMENTOS %%%%%%%%%%%%
+
+%% Alias para escribir soft(hard)ware en cursiva (de acuerdo a la RAE)
+\newcommand{\software}{\textit{software} }
+\newcommand{\hardware}{\textit{hardware} }
+
+%% Alias para escribir marca registrada
+\newcommand*{\marcaregistrada}{\raisebox{2mm}{\tiny\textregistered}}
+
+%% Comandos de sección de nivel 4
+% Utilizado en las SRS con el nombre srsfuncion
+\newcounter{subsubsubsection}[subsubsection]	% Crea el contador
+\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}	% Define el formato de numeración
+\def\subsubsubsectionmark#1{}	% Por si acaso
+
+\makeatletter
+\newcommand\subsubsubsection{\@startsection
+{subsubsubsection}{4}{\z@} {-3.25ex plus -1
+ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el comando de sección
+\newcommand{\l@subsubsubsection}{\@dottedtocline{4}{10em}{4.2em}}	% Establece como aparecerá en el índice
+\providecommand*{\toclevel@subsubsubsection}{4}			% Fija su nivel en el índice (hyperref)
+\makeatother
+
+%% Impresión de fechas
+% Macro para imprimir la fecha con formato bonito usando el comando \today
+\def\imprimefechadeverdad#1.#2.#3 {%
+	\begingroup
+	% Declara contadores temporales (locales) para almacenar el estado anterior
+	\lnewcount\copiamonth \lnewcount\copiaday \lnewcount\copiayear%
+%
+	% Almacena la fecha previa en las variables locales
+	\copiamonth = \month \copiaday = \day \copiayear = \year%
+%
+	% Asigna los valores recibidos a dichos parámetros cronológicos
+	\day = #1 \month = #2 \year = #3%
+%
+	% Imprime la fecha (de acuerdo a Babel...)
+	\phantom{}\today %
+%
+	% Restablece los valores anteriores de fecha
+	\month = \copiamonth \day = \copiaday \year = \copiayear%
+	\endgroup
+}
+
+% Comando para formatear fechas de acuerdo al estilo global
+\newcommand{\imprimefecha}[1]{\imprimefechadeverdad#1 }
+
 
 %%%%%%%%%%% DEFINICIÓN DE MODELO DE CASOS DE USO %%%%%%%%%%%%
+
+% Carga condicional para casos de usos (curiosamente pdfstrcmp también funciona sin con tex sin pdf)
+\ifcase\boolexpr{ \ifdefined\mododoceficiente 1\else 0\fi  \OR \pdfstrcmp{\mododoceficiente}{casosdeuso} }
 
 %% Entrada de parámetros al estilo clave-valor (http://www.ctan.org/pkg/xkeyval) %%
 
@@ -112,44 +171,18 @@
 	\end{tabularx} \\
 }
 
+\fi % mododoceficiente:casosdeuso
 
 %%%%%%%%%%% DEFINICIÓN DE COMANDOS PARA SRS %%%%%%%%%%%%
 
-%% Alias para escribir soft(hard)ware en cursiva (de acuerdo a la RAE)
-\newcommand{\software}{\textit{software} }
-\newcommand{\hardware}{\textit{hardware} }
-
-%% Alias para escribir marca registrada
-\newcommand*{\marcaregistrada}{\raisebox{2mm}{\tiny\textregistered}}
-
-%% Comandos de sección de nivel 4
-% Definición general
-\newcounter{subsubsubsection}[subsubsection]	% Crea el contador
-\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}	% Define el formato de numeración
-\def\subsubsubsectionmark#1{}	% Por si acaso
-
-\makeatletter
-\newcommand\subsubsubsection{\@startsection
-{subsubsubsection}{4}{\z@} {-3.25ex plus -1
-ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el comando de sección
-\newcommand{\l@subsubsubsection}{\@dottedtocline{4}{10em}{4.2em}}	% Establece como aparecerá en el índice
-\providecommand*{\toclevel@subsubsubsection}{4}			% Fija su nivel en el índice (hyperref)
-\makeatother
-
-% Macro para función
-\newcommand{\srsfuncion}[1]{\subsubsubsection{#1}}
-
-
-%%%%%%%%%%% CONTROL DE CAMBIOS %%%%%%%%%%%%
-
-% Ver implementación de la portada
-
-\NewEnviron{tablacambios}{
-	\global\expandafter\def\expandafter\tablacambioscontenido\expandafter{\BODY}
-}
+% Macro para función (usando subsubsection)
+\let \srsfuncion = \subsubsubsection
 
 
 %%%%%%%%%% DEFINICIÓN DE MODELO DE FORMULARIO DE RIESGOS %%%%%%%%%%%%%
+
+% Carga condicional de los comandos para plan de proyecto
+\ifcase\boolexpr{ \ifdefined\mododoceficiente 1\else 0\fi  \OR \pdfstrcmp{\mododoceficiente}{planproyecto} }
 
 \makeatletter
 % Define las claves para xkeyval
@@ -229,7 +262,7 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 	\addtocounter{nriesgos}{1}
 }
 
-% Tabla sumario de riesgos
+%% Tabla sumario de riesgos
 \NewEnviron{tablariesgos}{
 	% Primera cabecera de tabla
 	\tablefirsthead{\hline
@@ -252,7 +285,7 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 	\tablehead{}
 }
 
-% Tabla de descripción de material
+%% Tabla de descripción de material
 \newcommand{\recurso}[6]{
 	\begin{tabularx}{.9\linewidth}{>{\bfseries}r X}
 		\hline \\
@@ -288,31 +321,81 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 	\end{center}
 }
 
-% DEFINICIONES PARA IMPRESIÓN DE FECHAS
+%% Definición (documento plan de proyecto) para asegurar un formato común a la estimación
 
-% Macro para imprimir la fecha con formato bonito usando el comando \today
-\def\imprimefechadeverdad#1.#2.#3 {%
-	\begingroup
-	% Declara contadores temporales (locales) para almacenar el estado anterior
-	\lnewcount\copiamonth \lnewcount\copiaday \lnewcount\copiayear%
-%
-	% Almacena la fecha previa en las variables locales
-	\copiamonth = \month \copiaday = \day \copiayear = \year%
-%
-	% Asigna los valores recibidos a dichos parámetros cronológicos
-	\day = #1 \month = #2 \year = #3%
-%
-	% Imprime la fecha (de acuerdo a Babel...)
-	\phantom{}\today %
-%
-	% Restablece los valores anteriores de fecha
-	\month = \copiamonth \day = \copiaday \year = \copiayear%
-	\endgroup
+\newcommand{\estimacionfunc}[5]{
+	% Previene llamadas sin parámetros: tenemos precondición (no sirve de mucho pues con que haya un comentario ya es no vacío)
+	% Con la implementación actual, si alguno de los parámetros no contiene un "\item" (y no es vacío) el comando fallará
+	\ifthenelse{\equal{\unexpanded{#1}}{} \AND \equal{\unexpanded{#2}}{} \AND \equal{\unexpanded{#3}}{} \AND \equal{\unexpanded{#4}}{}}{
+		\PackageError{isdiedral}{Este comando no puede utilizarse sin par'ametros}{No tiene sentido escribir una estimaci'on vac'ia.}
+	}{}
+
+	% Enumeración de los diferentes elementos y subelementos
+	\begin{enumerate}
+		% Añade a la numeración el número de subsubsección
+		\renewcommand*{\theenumi}{{\tiny \thesubsubsection} \arabic{enumi}}
+
+		% Comando para generar los comandos Ret y Det
+		\newcommand{\defineRetYDet}{\newcommand*{\rets}[2]{\\####1 RET \ifthenelse{\equal{####2}{}}{}{(####2)}}%
+					    \newcommand*{\dets}[2]{\\####1 DET \ifthenelse{\equal{####2}{}}{}{(####2)}}}
+
+		% Comando para generar los comandos Det y Ftr
+		\newcommand{\defineDetYFtr}{\newcommand*{\dets}[2]{\\####1 DET \ifthenelse{\equal{####2}{}}{}{(####2)}}%
+					    \newcommand*{\ftrs}[2]{\\####1 FTR \ifthenelse{\equal{####2}{}}{}{(####2)}}}
+
+		% Escribe los diferentes conceptos de la estimación por puntos de función
+		\ifthenelse{\equal{\unexpanded{#1}}{}}{}{
+		\item {\itshape Ficheros Lógicos Internos}
+			\begin{itemize}
+				\newcommand*{\estfli}[3]{\item ##1 \begingroup \defineRetYDet  ##2 \endgroup \\Complejidad: ##3}
+				#1
+			\end{itemize}
+		}
+
+		\ifthenelse{\equal{\unexpanded{#2}}{}}{}{
+		\item {\itshape Ficheros de Interfaz Externos}
+			\begin{itemize}
+				\newcommand*{\estfie}[3]{\item ##1 \begingroup \defineRetYDet  ##2 \endgroup \\Complejidad: ##3}
+				#2
+			\end{itemize}
+		}
+
+		\ifthenelse{\equal{\unexpanded{#3}}{}}{}{
+		\item {\itshape Entradas Externas}
+			\begin{itemize}
+				\newcommand*{\estee}[3]{\item ##1 \begingroup \defineDetYFtr  ##2 \endgroup \\Complejidad: ##3}
+				#3
+			\end{itemize}
+		}
+
+		\ifthenelse{\equal{\unexpanded{#4}}{}}{}{
+		\item {\itshape Salidas Externas}
+			\begin{itemize}
+				\newcommand*{\estse}[3]{\item ##1 \begingroup \defineDetYFtr  ##2 \endgroup \\Complejidad: ##3}
+				#4
+			\end{itemize}
+		}
+
+		\ifthenelse{\equal{\unexpanded{#5}}{}}{}{
+		\item {\itshape Consultas Externas}
+			\begin{itemize}
+				\newcommand*{\estce}[3]{\item ##1 \begingroup \defineDetYFtr  ##2 \endgroup \\Complejidad: ##3}
+				#5
+			\end{itemize}
+		}
+
+		% Esto es todo
+	\end{enumerate}
 }
 
-% Comando para formatear fechas de acuerdo al estilo global
-\newcommand{\imprimefecha}[1]{\imprimefechadeverdad#1 }
+\fi
 
+%%%%%%%%%%% CONTROL DE CAMBIOS %%%%%%%%%%%%
+
+% Ver implementación de la portada
+\NewEnviron{tablacambios}{
+	\global\expandafter\def\expandafter\tablacambioscontenido\expandafter{\BODY}
+}
 
 %%%%%%%%%% DEFINICIÓN DE CONVENCIONES SOBRE ENCABEZADOS Y PIE DE PÁGINA %%%%%%%%%%%%%
 % Requiere como parámetro el nombre del documento y el número total de PFs
