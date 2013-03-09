@@ -12,7 +12,7 @@
 \usepackage[colorlinks, linkcolor=red]{hyperref}
 \usepackage{glossaries}
 \usepackage{glossaries-babel}
-\usepackage{isdiedral}
+\usepackage[doc=gcs]{isdiedral}
 
 % Nombre del documento (para futuras referencias)
 \newcommand*{\doctitle}{Plan de gestión de configuración del software}
@@ -60,6 +60,9 @@ pdfinfo={
 \makeglossaries
 
 \begin{document}
+
+	% Cita inicial
+	\fijacitainicial{Nada es permanente a excepción del cambio}{Heráclito de Éfeso, $\sim$ 500 a.C.}
 
 	% Portada
 	\portadaace{\doctitle}{2.0}

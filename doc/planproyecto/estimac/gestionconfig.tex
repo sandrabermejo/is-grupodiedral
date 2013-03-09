@@ -1,41 +1,82 @@
-\begin{enumerate}
-	\item \textit{FLI}
-		\begin{itemize}
-			\item Países \\
-			1 RET(registro de países) \\
-			1 DET(nombre) \\
-			\item Ciudades \\
-			1 RET(registro de ciudades) \\
-			2 DET(nombre ciudad y nombre país) \\
-			\item Aeropuertos \\
-			1 RET(registro de aeropuertos) \\
-			3 DET(ombre, nombre ciudad y nombre país) \\
-			\item Instalaciones \\
-			1 RET(registro de instalaciones) \\
-			6 DET(tipo instalación, dirección (3: tipo de vía, nombre y número), ciudad, país) \\
-			\item Organigrama laboral \\
-			1 RET(registro de empleados) \\
-			3 DET(nombre y apellidos del empleado, función en la empresa) \\
-		\end{itemize}
-	\item \textit{FIE}
-	\item \textit{EI}
-		\begin{itemize}
-			\item Países \\
-			1 FTR(registro de países) \\
-			1 DET(nombre) \\
-			\item Ciudades \\
-			1 FTR(registro de ciudades) \\
-			2 DET(nombre ciudad y nombre país) \\
-			\item Aeropuertos \\
-			1 FTR(registro de aeropuertos) \\
-			3 DET(ombre, nombre ciudad y nombre país) \\
-			\item Instalaciones \\
-			1 FTR(registro de instalaciones) \\
-			6 DET(tipo instalación, dirección (3: tipo de vía, nombre y número), ciudad, país) \\
-			\item Organigrama laboral \\
-			1 FTR(registro de empleados) \\
-			3 DET(nombre y apellidos del empleado, función en la empresa) \\
-		\end{itemize}
-	\item \textit{EO}
-	\item \textit{EQ}
-\end{enumerate}
+%% Estimación. Función "Configuración de la base de datos".
+
+% Tabla de la estimación
+
+\begin{tablapf}{Configuración de la base de datos}{50}
+	FLI	& 5 & 7 & 0 & 10 & 0 & 15 & 35	\\ \hline
+	FIE	& 0	& 5 & 0 & 7 & 0 & 10 & 0	\\ \hline
+	EI	& 5	& 3	& 0	& 4	& 0	& 6	& 15	\\ \hline
+	EO	& 0	& 4	& 0	& 5	& 0	& 7	& 0	\\ \hline
+	EQ 	& 0	& 3	& 0	& 4	& 0	& 6	& 0
+\end{tablapf}
+
+
+
+% Detalles de la estimación
+
+\estimacionfunc	%	Ficheros Lógicos Internos
+{
+
+	\estfli{Modelos de avión}{
+		\rets{1}{técnicas}
+		\dets{7}{fabricante, dimensiones, plazas, año fabricación, capacidad de bodega, autonomía, nombre modelo}
+	}{baja}
+
+	\estfli{Países}{
+		\rets{2}{geográficos, políticos}
+		\dets{6}{nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario}
+	}{media}
+
+	\estfli{Ciudades}{
+		\rets{2}{geográficos, políticos}
+		\dets{5}{nombre, país, población, gentilicio, altitud media}
+	}{baja}
+
+	\estfli{Aeropuertos}{
+		\rets{1}{Identificativos}
+		\dets{6}{nombre, identificador, tipo, operador, ciudad, pistas}
+	}{baja}
+
+	\estfli{Organigrama laboral}{
+		\rets{1}{laboral}
+		\dets{4}{departamentos, jerarquías, elementos de autoridad, funciones}
+	}{baja}
+
+}
+%	Ficheros de Interfaz Externos
+{}
+%	Entradas Externas
+{
+
+	\estee{Modelos de avión}{
+		\ftrs{1}{técnicas}
+		\dets{7}{fabricante, dimensiones, plazas, año fabricación, capacidad de bodega, autonomía, nombre modelo}
+	}{baja}
+
+	\estee{Países}{
+		\ftrs{2}{geográficos, políticos}
+		\dets{6}{nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario}
+	}{media}
+
+	\estee{Ciudades}{
+		\ftrs{2}{geográficos, políticos}
+		\dets{5}{nombre, país, población, gentilicio, altitud media}
+	}{baja}
+
+	\estee{Aeropuertos}{
+		\ftrs{1}{Identificativos}
+		\dets{6}{nombre, identificador, tipo, operador, ciudad, pistas}
+	}{baja}
+
+	\estee{Organigrama laboral}{
+		\ftrs{1}{laboral}
+		\dets{4}{departamentos, jerarquías, elementos de autoridad, funciones}
+	}{baja}
+
+}
+% Salidas Externas
+{}
+% Consultas Externas
+{}
+
+% fin
