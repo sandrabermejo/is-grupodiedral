@@ -79,14 +79,15 @@ pdfinfo={
 		
 	\section{Propósito}
 		El propósito de este documento es establecer unos planes de control de calidad de software para así poder entender las expectativas del cliente en términos de calidad. Se basa en la determinación y puesta en marcha de las políticas de calidad de la empresa. \\
-		%lista de los nombres de lso elementos software cubiertos por el plan SQA??
+		%lista de los nombres de los elementos software cubiertos por el plan SQA??
 		Este Plan de Calidad del Software, cubre solo la parte correspondiente al desarrollo del software, no cubre la parte del ciclo de vida que corresponde al mantenimiento.
 		
 	\section{Documentos de referencia}
 		\begin{itemize}
 			\item \textit{IEEE 730-2002 - Standard for Software Quality Assurance Plans.}
-			\item \textit{IEEE 1028-1997 - Standard for Software Reviews}
-			\item \textit{IEEE 1058-1998 - standard for Software Project Management Plans}
+			\item \textit{IEEE 1028-1997 - Standard for Software Reviews.}
+			\item \textit{IEEE 1058-1998 - Standard for Software Project Management Plans.}
+			\item \textit{IEEE 1012-1998 - Standard for Software Verification and Validation.}
 			\item \textit{Pressman, R.S.Ingeniería del Software. Un Enfoque Práctico.}
 		\end{itemize}
 	\section{Gestión}
@@ -138,13 +139,144 @@ pdfinfo={
 		\subsection{Otra documentación} 
 	\section{Estándares, prácticas, convenciones y métricas}%Sandra
 		\subsection{Propósito}
+			Esta sección trata de identificar los estándares, prácticas, convenciones y métricas que se aplicarán para evaluar la calidad del software. Además, se realizará un seguimiento de su cumplimiento, el cual será verificado en el proceso de  \textit{Verificación y Validadación del Software}.
 		\subsection{Contenido}
+			\begin{itemize}
+				\item Estándar de documentación
+					Los documentos generados por el equipo de desarrollo deben ser precisos, completos, no muy extensos y claros, de tal forma que cualquier persona ajena al proyecto pueda encontrar la información relevante con facilidad.
+Para los distintos documentos se han creado plantillas en {\rmfamily\LaTeX{}}, a partir de las cuales generar los documentos a entregar a nuestro cliente. \\
+					Estas plantillas deben incluir: portada (en la que aparecerán el título del documento, la versión, la fecha de entrega, el nombre del proyecto (\textit{Airline Common Environment}) y de los integrantes del equipo de desarrollo y el icono del \textit{Grupo Diedral}). A continuación se deben incluir el control de cambios y el índice del documento. La bibliografía aparecerá al final del mismo. Las páginas estarán numeradas y en el encabezado de cada una debe figurar la sección del documento que se está tratando. En el pie de página aperecerán el nombre del proyecto y del equipo de desarrollo. El formato de texto será común a todos los documentos generados.
+
+				\item Estándar de  codificación %duda, preguntar a Rubén
+					
+
+				\item Estándar de verificación y prácticas
+					Se utilizarán las prácticas definidas en el estándar \textit{IEEE 1012-1998 - Standard for Software Verification and Validation}.
+
+				\item Métricas elegidas
+					\begin{itemize}
+						\item Defectos por cada página de documento generado
+						\item Defectos por cada 1000 líneas de código
+					\end{itemize}
+			\end{itemize}			
 	\section{Revisiones del software}%natalia
 		\subsection{Propósito}
 		\subsection{Requisitos mínimos}
 		\subsection{Otras revisiones y auditorías}
 		\subsection{Pruebas}
 	\section{Informe de errores y acciones correctoras}%sandra
+		A continuación, se muestran los informes sumarios de las revisiones técnicas formales llevadas a cabo el día 8 de marzo de 2013 en la \textit{Facultad de Informática} de la UCM.
+		\begin{itemize}
+			\item Revisión de casos de uso
+				\begin{itemize}
+					\item Revisó: Nameless
+					\item Errores encontrados
+						\begin{itemize}
+							\item Notas generales 
+								Hay muchos casos de uso con los verbos en tiempos no consistentes y con secuencias alternativas a las que no se llega nunca. Las secuencias han sido marcadas en los casos de uso, en cambio los verbos únicamente en los casos que más llamaban la atención hasta el punto de hacer incómoda la lectura. \\
+								También sugerimos en lugar de dejar campos de las tablas en blanco poner no procede, o no hay ninguna salida. Otra sugerencia es poner como precondición una conexión estable con la base de datos, porque ahorraría numerosas secuencias alternativas.
+							\item Diagramas de gestión interna 
+								Falta la descripción de editar cliente, y muestra que registrar empleado y dar de baja empleado extienden a acceder, cuando no hay ninguna relación entre esos casos de uso. Los casos de uso que aparecen en los diagramas modificar items inventario y realizar entrada de material en las tablas se llaman modificar inventario y registrar entrada de material respectivamente.
+							\item Caso de uso 3: Verificar el registro de un empleado 
+								No figura en el diagrama, y pensamos que puede ser incluido en la secuencia del caso de uso 2: Registrar empleado, o incluso ser eliminado, porque da más trabajo a los empleados y en la vida real probablemente fuesen aceptados todos los nuevos empleados sistemáticamente sin comprobarse que son nuevos empleados que deben ser registrados.
+							\item Casos de uso 4 y 5: Consultar ficha empleado y Modificar ficha de empleado 
+								Son unos de los casos de uso en los que la inconsistencia entre los tiempos verbales es más acusada.
+							\item Caso de uso 7: Configurar sistema general 
+								Permitís hacer cambios en la configuración del sistema, pero no detalláis que cambios.
+							\item Caso de uso 8: Establecer organización laboral 
+								No se llega nunca a S-1
+							\item Caso de uso 9: Acceder horarios 
+								No se llega nunca a S-2. Además pensamos que debería estar incluido en el caso de uso 4, si no ser el mismo caso de uso, porque lo lógico es que desde la ficha del empleado se pueda acceder también a sus horarios.
+							\item Caso de uso 10: Consultar el plan de vuelo 
+								Nunca se alcanza S-3.
+							\item Caso de uso 12: Introducir plan de vuelo 
+								En S-1 no entendemos por qué motivo no iba a poder ser introducida la información de vuelo, en caso de haber un error al volcar la información en la base de datos se haría la secuencia alternativa S-2.
+							\item Caso de uso 18: Consultar ficha cliente 
+								Falta en el diagrama.
+							\item Caso de uso 19: Modificar inventario 
+								En salidas la última palabra, "postexito", no procede, suponemos que es la etiqueta que se encuentra mal ubicada. Asimismo no creemos que en S-1 sea correcto disculparse por las molestias y dar las gracias por el aviso, en 	S-3 no se especifica a que parte de la secuencia normal lleva el reintento, y sugerimos que en lugar de en S-4 que haya que reintroducir los datos en caso de error o esperar para volver a intentar comunicarse con la base de datos que haya una cola de tareas pendientes que lo gestione.
+							\item Caso de uso 20: realizar mantenimiento 
+								En salidas la última palabra, "postexito", no procede, suponemos que es la etiqueta que se encuentra mal ubicada. En 4 hay un error ortográfico, "el cantidad".
+							\item Caso de uso 21: Programar revisión 
+								En precondiciones hay un error ortográfico, "de del vehículo", y no se llega nunca a S-2.
+							\item Caso de uso 22: Registrar entrada de material 
+								No se entiende bien si se refiere a material ya existente o a nuevo material, y pensamos que puede ser redundante con el caso de uso 19. La parte del adhesivo es un problema de hardware, luego no debería figurar aquí.
+							\item Caso de uso 24: Programar oferta 
+								No especifica que datos hay que introducir para crear una nueva oferta.
+							\item Caso de uso 25: Efectuar embarque 
+								No se sabe qué ocurre si nunca llega a efectuarse el embarque. Asimismo numerosas compañías aéreas procesan de forma diferente a los clientes que no han embarcado en uno de sus vuelos, así que aunque no sea este caso de uso en concreto pensamos que debería explicarse en este documento.
+							\item Caso de uso 26: Ver incidencias del sistema 
+								Las secuencias alternativas deben ser concretadas en este documento.
+							\item Diagramas de gestión externa 
+								No creemos que acceder incluya a registrarse ni que sea extendido por modificar datos de cliente ni por comprar billete. Tampoco pensamos que acceder a una oferta extienda a iniciar pago billetes de vuelo, porque antes habría que comprar el billete. El nombre en la tabla de a iniciar pago billetes de vuelo es a iniciar el pago de los billetes de vuelo.
+							\item Caso de uso 29: Editar cliente 
+								Creemos que es el que figura en el primer diagrama de gestión interna, en cualquier caso no figura en el de gestión externa.
+							\item Caso de uso 34: Comprar billete 
+								Permite imprimir la tarjeta de embarque sin haber realizado el pago.
+							\item Caso de uso 35: Iniciar el pago de los billetes de vuelo 
+								Es uno de los casos de uso en los que la inconsistencia entre los tiempos verbales es más acusada.
+							\item Caso de uso 36: realizar pago con tarjeta 
+								Parece que se da la opción de imprimir la tarjeta de embarque dos veces.
+						\end{itemize}
+				\end{itemize}	
+			\item Revisión de SRS
+				\begin{itemize}
+					\item Revisó: Cauchy Team
+					\item Errores encontrados 
+						\begin{itemize}
+							\item Notas generales 
+								En líneas generales, hay algún detalle de demasiado bajo nivel (expresiones como “botón”, “array” (ver 3.4)), así como inespecificación de actores en la mayor parte de las funcionalidades (se los llama de forma genérica “usuarios”). Además, a lo largo de la sección 3.2 aparece y desaparece constantemente el campo Prioridad, llegando incluso a que en una funcionalidad se especifica la precondición. Se debe intentar ser más homogéneo. Definir alfabetización informática.
+							\item 3.1 Interfaces externas 
+								\begin{itemize}
+								\item Las faltas ortográficas aparecen escritas sobre la copia impresa que se nos entregó. 
+								\item 2.5 (Supuestos y dependencias): Demasiadas vueltas sin llegar a algo concreto. 
+								\item 3.1 (Interfaces externos): Cuando dice “… se admitirán caracteres alfabéticos latinos…” definir una codificación concreta o no decir nada. 
+								\item 3.1.1.1 (Fecha): Los días y meses no empiezan en 0. La definición formal de año bisiesto es excesiva. 
+								\item 3.1.1.3 (NIF): Es innecesario detallar el algoritmo para hallar las letras de la identificación fiscal en España. Con poner únicamente la referencia al RD 1065/2007 y citar los tipos admitidos sería suficiente. 
+								\item 3.1.1.4 (Dirección postal): No hay calle en los tipos de vía admitidos. Si la aplicación sólo opera en España, el ZIP es innecesario.
+								\end{itemize}
+							\item  3.2 Funciones 
+								\begin{itemize}
+								\item 3.2.1 Gestión interna
+									\begin{itemize}
+									\item 3.2.1.1 (Acceder): ¿No puede recuperarse la contraseña? 
+										Quizá sea mejor, debido a las características de la compañía exigir conexión a la base de datos central y especificarlo en algún lado. ¿Dónde quedan almacenadas las contraseñas?
+									\item 3.2.1.2 (Consultar plan de vuelo): La denominación plan de vuelo puede llevar a equívoco, puesto que en realidad lo que se quiere hacer en consultar una ruta aérea, no un plan de vuelo concreto. 
+									\item 3.2.1.4 (Establecer organización laboral): Caso redundante. Si lo que se quiere es establecer la jerarquía de la empresa, puede hacerse a medida que se van dando de alta a los trabajadores en el sistema. Si en algún momento debe modificarse el escalafón de algún empleado, la Editar empleado (3.2.1.16) puede encargarse de ello sin mayores problemas. \\
+									 2b) Excesiva tecnicidad, 2d) ¿Las horas trabajadas no pueden ser decimales también?, ¿Qué usuarios consultan y qué usuarios modifican? 
+									\item 3.2.1.5 (Consultar ficha de clientes): ¿No debería existir una función que sea Modificar ficha de clientes? 
+									\item 3.2.1.6 (Configurar el sistema): Demasiado general. Especificar un poco más. Definir qué funcionalidades/herramientas/parámetros son los que pueden modificarse aquí. 
+									\item 3.2.1.7 (Dar de baja cliente): La expresión “nuestro sistema” está de más. 2b) Pregunta: ¿Alguna consideración especial por tratarse de datos sensibles?
+									\item 3.2.1.8 (Editar información económica): 3e) No puede ordenarse por orden alfabético ¿Por qué? 
+									\item 3.2.1.11 (Programar revisión): A la hora de programar el mantenimiento de una aeronave es imposible predecir con exactitud qué piezas van a usarse/cambiarse. Especificar las herramientas quizá sea también excesivo (hay que conocer muy muy muy bien la composición de las partes de una aeronave para saber qué herramientas deben usarse) 
+									\item 3.2.1.12 (Realizar mantenimiento): Falta algún campo/formulario/cuadro que indique qué ha pasado con el vehículo que se tiene en mantenimiento. Si se sobrepasa la fechaque se tenía programada y la nave sigue en mantenimiento ¿se alarga la revisión? 
+									\item 3.2.1.13 (Registrar empleado): 2c) Basta decir que la dirección postal sigue la especificación anterior. 
+									\item 3.2.1.21 (Consultar ficha empleado) ¿En qué se mide Tiempo trabajado en la empresa? (ver figura 4) 
+									\item 3.2.1.22 (Dar de baja empleado): ¿Cola de supervisión? ¿Qué es esto? 
+									\item 3.2.1.24 (Introducir plan de vuelo): La expresión plan de vuelo puede llevar a confusión. Y el verbo introducir probablemente no sea el más adecuado. 
+										 La representación interna del aeropuerto puede hacerse con el código IATA (¡que lo identifica unívocamente!). Además, creo que esto debería estar especificado en algún apartado anterior, no en una funcionalidad. 
+									\item 3.2.1.25 (Facturar) y 3.2.1.26 (Efectuar embarque): ¿Qué es número de reserva?
+									\end{itemize}
+								\item 3.1.2 Gestión externa 
+									\begin{itemize}
+									\item 3.2.2.1 (Registrarse): 2c) Para verificar el correo, un mail de confirmación a la cuenta indicada por el cliente. 2e) Basta decir que la dirección postal sigue los criterios de la especificación anterior. 
+									\item 3.2.2.3 (Ver información de vuelo): Para distinguirlo de 3.2.2.10 (Consultar vuelos), sugiero cambiar el nombre de la funcionalidad a algo similar a Ver información de vuelo comprado. 
+									\item 3.2.2.4 (Mostrar ofertas): 4a) Si no pueden mostrarse las ofertas, avisar al cliente indicado específicamente que no están disponibles y que los precios que se muestran son otros (la tarifa normal, precios a los que se les ha aplicado otra oferta…). 
+									\item 3.2.2.7 (Realizar pago con tarjeta): El IBAN es para cuentas corrientes bancarias y no guarda relación alguna con las tarjetas de crédito/débito. 
+									\item 3.2.2.8 (Presentar reclamación): Presentante como que no suena muy bien. 
+									\item 3.2.2.9 (Comprar billete): ¿Y el DNI para imprimirlo en la tarjeta de embarque? ¿No se pide? Si se está comprando el billete del usuario registrado, sería interesante ofrecer una opción Autorrellenar con datos de usuario.
+									\end{itemize}
+								\end{itemize}
+							\item  3.3 Requisitos de rendimiento 
+								¿Cuáles son las circunstancias en las que agrupaciones de terminales se comportan como uno solo? Si la aerolínea es de tamaño medio (aerolíneas regionales, tipo AirNostrum de Iberia) conexión simultánea de 1.000 personas en la parte interna de la aplicación puede ocasionar embotellamientos y caídas graves que en sistemas sensibles como los del transporte aéreo no puede permitirse. Además, debe definirse qué es KeepAlive.
+						\end{itemize}
+				\end{itemize}
+			\item Revisión de Plan de Proyecto 
+				\begin{itemize}
+					\item Revisó: PTK
+					\item % pendiente
+				\end{itemize}
+		\end{itemize}	
 	\section{Herramientas, técnicas y metodologías}%natalia
 	\section{Control de medios}%sandra
 	\section{Control de proveedor}%natalia
