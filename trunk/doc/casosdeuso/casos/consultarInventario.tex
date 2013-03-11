@@ -1,36 +1,34 @@
 % Caso de uso: Consultar inventario
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
-
+% Revisado por Juanan el día 11/03/2013
 \casodeuso{
 	% Nombre del caso de uso
-	nombre=Consultar inventario,
+	nombre=Consultar inventario.,
 	% Objetivo
-	objetivo=Muestra el inventario de la empresa. Este material es tanto para reparaciones como de otros tipos que necesite la empresa.,
+	objetivo={Mostrar el inventario de material de la empresa, permitiendo buscar y filtrar resultados.},
 	% Entradas
-	entradas=,
+	entradas=Opcionalmente, campos de búsqueda.,
 	% Precondiciones
-	precondiciones={El operador de la aplicación está debidamente registrado y posee credenciales que le habilitan para realizar esta operación. El servidor que hospeda la base de datos de inventario está operativo.},
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación.,
 	% Salidas
-	salidas=El registro de material en el inventario de la empresa.,
+	salidas=El registro de material en el inventario de la empresa e información detallada sobre el seleccionado.,
 	% Postcondiciones en caso de éxito
-	postexito=El empleado quedará informado sobre el material del que dispone la empresa en el inventario.,
+	postexito=No se realiza ningún cambio en el sistema.,
 	% Postcondiciones en caso de error
-	posterror=El empleado no habrá podido recibir la información del inventario de la empresa y desconocerá el material disponible.,
+	posterror= No se realiza ningún cambio en el sistema.,
 	% Actores
-	actores=El empleado con permisos para acceder a la información requerida y la base de datos.
+	actores=Personal administrativo, mecánico y la base de datos.
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & Extraer de la base de datos el inventario. Si error S-1. \\
-		2 & Realizar una lista con la información organizada por el criterio configurado. Si error S-2. \\
-		3 & Mostrar por pantalla estos datos permitiendo ser filtrados.\\
-		4 & Al seleccionar un elemento, mostrar información detallada del mismo. Si error S-1.
+		1 & Se extrae de la base de datos el inventario. Si error S-1. \\
+		2 & Se muestra por pantalla listado de material. \\
+		3 & El usuario puede filtrar los resultados según diferentes criterios(Nombre, fabricante, vehiculo, \ldots),
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & No se pudo conectar con la base de datos o no se pudo obtener la información. Informar al usuario y abandonar la carga.\\
-		S-2 & Si no se encuentra configuración sobre criterios de ordenación, ordenar por orden lexicográfico o numérico del primer campo si lo hubiera.
+		S-1 & No se puede conectar con la base de datos. Informar al usuario y volver al menú principal.\\
 	\end{tablasecuencias}
 }
 

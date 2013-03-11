@@ -9,13 +9,13 @@
 	% Entradas
 	entradas={Nombre de usuario, datos personales y puesto de trabajo al que se incorpora dentro de la compañía.},
 	% Precondiciones
-	precondiciones={El futuro usuario debe estar contratado por la empresa y haber firmado la LOPD (Ley Orgánica de Protección de Datos).},
+	precondiciones={El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación. El futuro usuario debe estar contratado por la empresa y haber firmado la LOPD (Ley Orgánica de Protección de Datos).},
 	% Salidas
 	salidas=Se confirma la creación de la cuenta.,
 	% Postcondiciones en caso de éxito
 	postexito=El usuario se registra en la base de datos y su cuenta queda pendiente de verificación.,
 	% Postcondiciones en caso de error
-	posterror=La base de datos no se altera.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
 	actores=El personal administrativo y la base de datos.,
 }{

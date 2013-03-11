@@ -10,7 +10,7 @@
 	% Entradas
 	entradas=Los datos del empleado a actualizar.,
 	% Precondiciones
-	precondiciones=El empleado cuenta con los permisos necesarios y tiene una ficha seleccionada.,
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación y tiene una ficha seleccionada.,
 	% Salidas
 	salidas=La ficha de empleado con los datos modificados actualizados.,
 	% Postcondiciones en caso de éxito
@@ -29,7 +29,7 @@
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
 		S-1 & El sistema vuelve a 1 de la secuencia normal de uso e indica los campos erróneos.\\
-		S-2 & No se puede conectar con la base de datos. Se cancela la operación, se muestra un mensaje de error por pantalla y se vuelve a la página principal del sistema.
+		S-2 & No se puede conectar con la base de datos. Se cancela la operación, se muestra un mensaje de error por pantalla y se vuelve a la ficha del empleado.
 	\end{tablasecuencias}
 }
 
