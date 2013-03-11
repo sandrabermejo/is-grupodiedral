@@ -1,35 +1,34 @@
-% Caso de uso: Acceder horarios
+% Caso de uso: Consultar horarios
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
-
+% Revisado por Cristina y Juanan el día 11/03/2013
+%  Incluir o extender de consultar ficha empleado?
 \casodeuso{
 	% Nombre del caso de uso
-	nombre=Acceder Horarios,
+	nombre=Consultar horarios,
 	% Objetivo
 	objetivo=Mostrar los horarios de trabajo del empleado.,
 	% Entradas
 	entradas=Fecha o rango de fechas.,
 	% Precondiciones
-	precondiciones=Haber accedido al sistema con un usuario válido y acceder a la opción \textit{Consultar horarios},
+	precondiciones=El empleado cuenta con los permisos necesarios y tiene una ficha seleccionada.,
 	% Salidas
-	salidas=Muestra por pantalla los horarios del empleado.,
+	salidas=Muestra por pantalla los horarios del empleado en el rango seleccionado.,
 	% Postcondiciones en caso de éxito
-	postexito=El empleado puede acceder a los horarios en la fecha seleccionada.,
+	postexito=No se realiza ningún cambio en el sistema.,
 	% Postcondiciones en caso de error
-	posterror={Una pantalla de notificación de error, en la medida de lo posible.},
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
-	actores={Empleados de la compañía, base de datos.},
+	actores=Empleados y base de datos.,
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & Selecciona fecha o rango de fechas de las que consultar horario. Si error S-1. \\
-		2 & Extrae de la base de datos los horarios del empleado. Si error S-1. \\
-		2 & Muestra por pantalla horario pedido. 
+		1 & Se extrae de la base de datos los horarios del empleado. Si error de conexión S-1. Si otro error S-2.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & Si el rango de fechas no es válido o no hay datos registrados correspondientes se vuelve al paso 1 notificando del error. \\
-		S-2 & Si no se puede conectar con la base de datos se muestra mensaje  de tipo \textit{información no disponible temporalmente} y se vuelve al paso 1 de la secuencia normal.
+		S-1 & Si no se puede conectar con la base de datos se muestra mensaje  de tipo \textit{información no disponible temporalmente} , se vuelve  a la ficha del empleado y se notifica el error.\\
+		S-2 & Si no hay datos registrados correspondientes se vuelve a la ficha del empleado y se notifica el error. 
 	\end{tablasecuencias}
 }
 
