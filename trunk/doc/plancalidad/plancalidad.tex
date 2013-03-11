@@ -113,6 +113,7 @@ pdfinfo={
 				
 		\subsection{Organización interna del equipo de trabajo}
 		
+			
 			Para una mejor organización y control de la calidad del software, el equipo de desarrollo ha quedado estructurado de la siguiente manera:
 			
 			\begin{center}
@@ -120,23 +121,56 @@ pdfinfo={
 				\hline
 				\textbf{Nombre} & \textbf{Linea de trabajo}\\
 				\hline
-				Rubén Rafael & Coordinador, Desarrollador\\
+				Rubén Rafael & \gls{coordinador}, \gls{desarrollador}\\
 				\hline
-				Juan Andrés & \gls{Gestor_tecnico} y Supervisor\\
+				Juan Andrés & \gls{ing_software} y \gls{analista_sistemas}\\
 				\hline
-				Sandra & \gls{Gestor_superior} y Supervisor\\
+				Sandra & \gls{Gestor_tecnico} y Analista de Sistemas\\
 				\hline
-				Cristina & Gestor superior del proyecto y \gls{Profesional}\\
+				Cristina & \gls{Gestor_superior} y \gls{profesional}\\
 				\hline
-				Natalia & Gestor técnico del proyecto y Profesional\\
+				Natalia & Ingeniero de Software y Profesional\\
 				\hline
 				\end{tabular}
 			\end{center}
 			
 	\section{Documentación} %Natalia
 		\subsection{Propósito} 
+			El propósito de la documentación generada por las revisiones del proyecto es de proporcionar una consistencia y 
+			calidad a éste. \\
+			El criterio de supervisión será organizar a los analistas y supervisores para que realicen las modificaciones 
+			necesarias. Además se elaborarán reuniones para que miembros de otros proyectos junto con el cliente den su punto
+			de vista sobre los errores y modificaciones que se deberían de hacer para así elaborar una documentación consistente.\\
+			La documentación generada en el proceso de desarrollo será: \\
+			Documento de Casos de Uso, SRS, Plan de proyecto (Plan de riesgos, Planificación temporal), Plan de diseño, Plan de pruebas 
+			Verifiación y Validación) y la documentación relativa al uso y mantenimiento del software.
+			
 		\subsection{Requisitos mínimos de documentación} 
+			Para asegurarse de que la documentación cumpla los requisitos técnicos especificados, realizaremos las revisiones nombradas
+			anteriormente. Esto es necesario dado que la futura implementación también deberá cumplir dichos requisitos, y esta está basada
+			en esta documentación generada.\\
+			Los criterios principales a seguir para la corrección de la documentación serán: establecer una linea secuencial que sea
+			coherente en todos los documentos generados y que no haya por tanto partes contradictorias; comprobar que se van cumpliendo tal
+			y como se indican todos los requisitos detallados y que se sigue el modelo de documentación especificado (Estándares, normas de
+			documentación...), es decir, que la información es verificable; y por último, la información debe ser completa, esto es, no
+			debe quedar ningún elemento sin especificar y debe cumplir todo lo acordado con el cliente.
+			
+				\subsubsection{Especificación de requisitos del software}
+					El documento de los Requisitos del Sistema Software (SRS) deberá describir de forma clara y detallada todos los requisitos
+					necesarios del software y las Interfaces Externas. Así el cliente obtendrá una especificación que cubra las necesidades en
+					el área de alcance del proyecto y todo lo acordado anteriormente con los desarrolladores.
+		
 		\subsection{Otra documentación} 
+			Otros documentos que influyen directamente en la calidad del software a desarrollar son:
+			\begin{itemize}
+				\item Plan de desarrollo software.
+				\item Plan de proyecto.
+					\subitem Planificación temporal.
+					\subitem Plan de Gestión de Riesgos.
+				\item Estándares y manuales para generar la documentación.
+				\item Plan de Gestión de Configuración del Software.
+			\end{itemize}
+			
 	\section{Estándares, prácticas, convenciones y métricas}%Sandra
 		\subsection{Propósito}
 			Esta sección trata de identificar los estándares, prácticas, convenciones y métricas que se aplicarán para evaluar la calidad del software. Además, se realizará un seguimiento de su cumplimiento, el cual será verificado en el proceso de  \textit{Verificación y Validadación del Software}.
@@ -161,9 +195,59 @@ Para los distintos documentos se han creado plantillas en {\rmfamily\LaTeX{}}, a
 			\end{itemize}			
 	\section{Revisiones del software}%natalia
 		\subsection{Propósito}
+			Detallar las revisiones y auditorías que se realizarán y especificar cómo se van a llevar a cabo.
 		\subsection{Requisitos mínimos}
+			\subsubsection{Revisiones de Requisitos}
+				Antes de pasar a la \textit{Fase de Diseño} del producto software, se realizarán revisiones para asegurar que se
+				cumplieron los requisitos establecidos por el Cliente. Estas revisiones servirán para tener una buena base de 
+				Requisitos del Sistema y poder diseñar el producto desde una base sólida. Además servirán para poder establecer una línea 
+				base entre el Cliente y los Desarrolladores. 
+				
+			\subsubsection{Revisiones de Gestión}
+			Algunas personas ajenas a nuestro proyecto deberán revisar los documentos realizados hasta la fecha. Para ello se ha elaborado 
+			la siguiente planificación de reuniones: \\
+			
+			\begin{center}
+				\begin{tabular}{|c |c |c |c |c| c|}
+				\hline
+				\textbf{Documento} & \textbf{Fecha} &\textbf{Hora inicio} & \textbf{Hora fin}& \textbf{Equipo Revisor} & \textbf{Encargados}\\
+				\hline
+				Casos de Uso & 8/03/2013 & 13:00 & 13:30 & Nameless & Juan Andrés\\
+										 &					 &			 &			 &					& Rubén\\
+										 &					 &			 &			 &					& Cristina\\
+				\hline
+				SRS & 8/03/2013 & 12:30 & 13:00 & Cauchy Team & Natalia\\
+				    &						&				&				&							& Sandra\\
+				\hline
+				Plan de Proyecto & 8/03/2013 & 12:00 & 12:30 & PKT & Juan Andrés\\
+												 &					 &			 &			 &		 & Rubén\\
+												 &					 &			 &			 &		 & Cristina\\
+				\hline
+				\end{tabular}
+			\end{center}
+			
+			
 		\subsection{Otras revisiones y auditorías}
-		\subsection{Pruebas}
+		Los miembros del grupo encargados de las correcciones de los documentos realizados hasta la fecha tendrán que encargarse
+		de comprobar que dichos documentos quedan completos, claros y que son correctos. Además deberán corregir los fallos detectados
+		en las reuniones de la Revisión de Gestión. \\
+		
+			\begin{center}
+				\begin{tabular}{|c |c |c |c |}
+				\hline
+				\textbf{Documento} & \textbf{Fecha inicio} & \textbf{Fecha fin} &\textbf{Revisores encargados}\\
+				\hline
+				Casos de Uso & 5/03/2013 & 12/03/2013 & Cristina y Juan Andrés\\
+				\hline
+				SRS & 5/03/2013 & 12/03/2013 & Rubén\\
+				\hline
+				Plan de gestión de riesgos & 5/03/2013 & 12/03/2013 & Cristina y Juan Andrés\\
+				\hline
+				Plan de proyecto y Planificación temporal & 5/03/2013 & 12/03/2013 & Rubén\\
+				\hline
+				\end{tabular}
+			\end{center}
+		
 	\section{Informe de errores y acciones correctoras}%sandra
 		A continuación, se muestran los informes sumarios de las revisiones técnicas formales llevadas a cabo el día 8 de marzo de 2013 en la \textit{Facultad de Informática} de la UCM.
 		\begin{itemize}
@@ -318,7 +402,7 @@ ponerla.
 		Los documentos generados durante el proceso de desarrollo están disponibles en \textit{Google Drive}. Para acceder a estos documentos es necesario tener una cuenta de correo de \textit{Google} y contar con el permiso los integrantes del equipo de desarrollo. El propietario de la carpeta (el coordinador del proyecto) permitirá el acceso a los documentos. \\
 		En \url{https://drive.google.com/a/ucm.es/?tab=mo#folders/0B-DSueJcTSlPLUVwS0VLdGF1Sms} se pueden consultar, entre otros, la documentación interna, los documentos de Casos de Uso, SRS, Plan de Proyecto, Plan de Gestión y Configuración del Software y Plan de Garantía de Calidad del Software.
 
-	\section{Control de proveedor}%natalia
+	%\section{Control de proveedor}%natalia NO HAY PROVEEDORES
 	\section{Colección de registros, mantenimiento y conservación}%sandra
 
 
@@ -326,6 +410,15 @@ ponerla.
 
 
 	\section{Formación}%natalia
+	Las actividades de formación necesarias que tienen que tener los desarrolladores del proyecto  para satisfacer
+		y realizar correctamente el Plan de Calidad son:
+		\begin{enumerate}
+			\item Comprender el proceso de desarrollo del producto y saber identificar las desviaciones surgidas en la documentación.
+			\item Conocimiento sobre la Verificación y Validación de Requisitos.
+			\item Comunicación a través de auditorías con el Cliente para conocer a fondo sus necesidades y saber establecer correctamente
+			los requisitos.
+		\end{enumerate}
+		
 	\section{Gestión del riesgo}
 		Véase \textit{Plan de Proyecto}.
 	%\section{Glosario}
