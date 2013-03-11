@@ -1,13 +1,15 @@
 % Caso de uso: Consultar inventario
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
 % Revisado por Juanan el día 11/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
-	nombre=Consultar inventario.,
+	nombre=Consultar inventario,
 	% Objetivo
 	objetivo={Mostrar el inventario de material de la empresa, permitiendo buscar y filtrar resultados.},
 	% Entradas
-	entradas=Opcionalmente, campos de búsqueda.,
+	entradas={Opcionalmente, campos de búsqueda.},
 	% Precondiciones
 	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación.,
 	% Salidas
@@ -17,7 +19,7 @@
 	% Postcondiciones en caso de error
 	posterror= No se realiza ningún cambio en el sistema.,
 	% Actores
-	actores=Personal administrativo, mecánico y la base de datos.
+	actores={Personal administrativo, mecánico y la base de datos.}
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
@@ -28,7 +30,7 @@
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & No se puede conectar con la base de datos. Informar al usuario y volver al menú principal.\\
+		S-1 & No se puede conectar con la base de datos. Informar al usuario y volver al menú principal.
 	\end{tablasecuencias}
 }
 

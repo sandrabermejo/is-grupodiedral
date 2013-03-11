@@ -1,13 +1,15 @@
 % Caso de uso: consultar ficha empleado.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
 % Revisado por Cristina y Juanan el día 11/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
-	nombre=Consultar ficha empleado.,
+	nombre=Consultar ficha empleado,
 	% Objetivo
 	objetivo={Mostrar la lista de empleados de la compañía, permitiendo buscar y filtrar resultados, así como información detallada de cada empleado en particular.},
 	% Entradas
-	entradas=Opcionalmente, campos de búsqueda.,
+	entradas={Opcionalmente, campos de búsqueda.},
 	% Precondiciones
 	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación.,
 	% Salidas
@@ -30,6 +32,6 @@
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & No se puede conectar con la base de datos, se muestra un mensaje de error por pantalla dando la opción de reintentar o volver al menú principal de la aplicación.\\
+		S-1 & No se puede conectar con la base de datos, se muestra un mensaje de error por pantalla dando la opción de reintentar o volver al menú principal de la aplicación.
 	\end{tablasecuencias}
 }
