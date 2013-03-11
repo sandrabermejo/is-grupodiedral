@@ -1,34 +1,31 @@
 % Caso de uso:Consultar nómina.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
-
+% Revisado por Cristina el día 11/03/2013
 \casodeuso{
 	% Nombre del caso de uso
-	nombre=Consultar nómina,
+	nombre=Consultar nómina.,
 	% Objetivo
-	objetivo=Permite al personal de la compañía aérea consultar su nómina.,
+	objetivo=Consultar la nómina de un empleado.,
 	% Entradas
-	entradas=Mes del que se desea obtener la nómina,
+	entradas=Mes del que se desea obtener la nómina.,
 	% Precondiciones
-	precondiciones=Haber accedido al sistema con un usuario válido y acceder a la opción \textit{Consultar nómina},
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación y tiene una ficha seleccionada.,
 	% Salidas
 	salidas=El desglose detallado de la nómina.,
 	% Postcondiciones en caso de éxito
-	postexito=El cliente puede acceder a la nómina seleccionada.,
+	postexito=No se realiza ningún cambio en el sistema.,
 	% Postcondiciones en caso de error
-	posterror={Una pantalla de notificación de error, en la medida de lo posible.},
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
-	actores={Empleados de la compañía, base de datos.}.
+	actores=Empleados y base de datos.,
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & Accede a los datos de empleado en la base de datos. Si error S-1.\\
-		2 & Seleccionar el mes del que se desea consultar la nómina. Si error S-2.\\
-		3 & Muestra	por pantalla el desglose de la nómina seleccionada por el empleado.
+		1 & El usuario selecciona el mes del que se desea consultar la nómina. Si error S-1.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & No se puede acceder a la base de datos. Muestra un mensaje de error por pantalla y vuelve a la página principal del sistema.\\
-		S-2 & No se han encontrado los datos de la nómina seleccionada. Muestra un mensaje de error por pantalla y vuelve al paso 2 de la secuencia normal.
+		S-1 & No se han encontrado los datos de la nómina seleccionada. Se muestra un mensaje de error por pantalla dando la opción de reintentar o volver al menú principal de la aplicación.
 	\end{tablasecuencias}
 }

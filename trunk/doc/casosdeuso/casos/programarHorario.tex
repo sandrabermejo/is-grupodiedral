@@ -1,0 +1,34 @@
+% Caso de uso: programar horario
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+% Revisado por Cristina el día 11/03/2013
+%  Incluir o extender de consultar horario?
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Programar horario.,
+	% Objetivo
+	objetivo=Añadir a la base de datos del sistema el horario de un empleado.,
+	% Entradas
+	entradas=El nuevo horario.,
+	% Precondiciones
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación.,
+	% Salidas
+	salidas=El horario del empleado modificado.,
+	% Postcondiciones en caso de éxito
+	postexito=El horario del empleado ha sido actualizado en la base de datos.,
+	% Postcondiciones en caso de error
+	posterror=No se realiza ningún cambio en el sistema.,
+	% Actores
+	actores=El personal administrativo y la base de datos.,
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Se selecciona un nuevo horario para el empleado y una fecha a partir de la cual será vigente. Si error S-1.\\
+		2 & Se almacenan los cambios en la base de datos. Si error S-2.
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & El horario o la fecha introducidos no son válidos por algún motivo. Vuelve a 1 de la secuencia normal de uso indicando que el horario no es válido. \\
+		S-2 & No se puede conectar con la base de datos. Se cancela la operación, se muestra un mensaje de error por pantalla y se vuelve a la ficha del empleado.
+	\end{tablasecuencias}
+}
