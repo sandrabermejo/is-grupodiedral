@@ -1,6 +1,8 @@
 % Caso de uso: realizar pago con tarjeta.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
+% Revisado por Cristina el día 11/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Realizar pago con tarjeta,
@@ -9,29 +11,30 @@
 	% Entradas
 	entradas=Datos de la tarjeta bancaria del usuario.,
 	% Precondiciones
-	precondiciones=Haber iniciado el pago mediante \textbf{Iniciar Pago Billetes}.,
+	precondiciones=El cliente inicia el pago mediante \textbf{Iniciar Pago Billetes}.,
 	% Salidas
-	salidas={La compañía aérea recibe el dinero por la venta, si procede.},
+	salidas=Tarjeta de embarque.,
 	% Postcondiciones en caso de éxito
-	postexito=El usuario completa la compra y la empresa recibirá el dinero por la venta.,
+	postexito=El usuario completa la compra y la empresa recibe el dinero por la venta.,
 	% Postcondiciones en caso de error
-	posterror=La compra no se ha efectuado y la base de datos no ha sido alterada.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
 	actores={El usuario, la base de datos y las entidades financieras.},
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & Rellenar los campos obligatorios introduciendo todos los datos de la tarjeta de crédito o débito del usuario desde la se quiere efectuar el pago. Si error S-1. \\
-		2 & Mostrar los detalles del pago y pedir confirmación al usuario. Si error S-2. \\
-		3 & Se transfieren los datos de la tarjeta a la empresa emisora de las mismas para que compruebe si los datos son correctos y la tarjeta está operativa. En este caso, se enviará al instante un mensaje a la compañía indicando que los datos introducidos por el usuario son válidos. Si error S-3.\\
+		1 & El cliente rellena los campos obligatorios con los datos de la tarjeta de crédito o débito desde la se quiere efectuar el pago. Si error S-1.\\
+		2 & Se muestran los detalles del pago.\\
+		3 & El usuario confirma el pago. Si no S-2.\\
+		3 & Se transfieren los datos de la tarjeta a la empresa emisora de la misma para que compruebe si los datos son correctos y la tarjeta está operativa. En este caso, se envia un mensaje a la compañía indicando que los datos introducidos por el usuario son válidos. Si no S-3.\\
 		4 & Se da la opción de imprimir en el momento la tarjeta de embarque o guardarla como pdf para imprimirla en otro momento.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & Algún dato no es válido o no se ha rellenado algún campo obligatorio. Volver al paso 1 de la secuencia normal de uso indicando los campos incorrectos para que el usuario los pueda modificar.\\
-		S-2 & El usuario no ha confirmado el pago. Se cancela el proceso de compra, se muestra un mensaje por pantalla informando de la cancelación y se vuelve a la página principal de la aplicación. \\
-		S-3 & Los datos introducidos por el usuario no son válidos. Volver al paso 1 de la secuencia normal de uso indicando los campos erróneos.
+		S-1 & Algún dato no es válido o no se ha rellenado algún campo obligatorio. El sistema vuelve a 1 de la secuencia normal de uso e indica los campos erróneos.\\
+		S-2 & El usuario cancela el proceso de compra. Se muestra un mensaje por pantalla informando de la cancelación y se vuelve al menú principal de la aplicación.\\
+		S-3 & El sistema vuelve a 1 de la secuencia normal de uso e indica los campos erróneos.
 	\end{tablasecuencias}
 }
 

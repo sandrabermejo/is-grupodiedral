@@ -1,32 +1,37 @@
 % Caso de uso: Programar oferta.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
+% Revisado por Cristina el día 11/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Programar oferta,
 	% Objetivo
-	objetivo=Poder crear una nueva oferta para poder mostrarla y darle acceso posteriomente a los clientes.,
+	objetivo=Crear una nueva oferta para los clientes de la compañía.,
 	% Entradas
-	entradas=Los datos concretos de la oferta.,
+	entradas=Tipo de vuelos y clientes a los que se aplica.,
 	% Precondiciones
-	precondiciones=Haber accedido al sistema.,
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación.,
 	% Salidas
-	salidas=Crear una oferta que la empresa desea mostrar.,
+	salidas=Confirmación de la operación.,
 	% Postcondiciones en caso de éxito
-	postexito=Se crea una nueva oferta para promocionar un item y motivar su venta.,
+	postexito=Se actualiza el listado de ofertas incluyendo la oferta programada.,
 	% Postcondiciones en caso de error
-	posterror=No se modifica la lista de ofertas de la empresa.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
-	actores=La base de datos y el personal administrativo cuyo rol sea programar., 
+	actores=El personal administrativo y la base de datos., 
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & Rellenar el formulario de una oferta con todos los datos requeridos.\\
-		2 & Añadir la oferta a la lista de ofertas de la base de datos de la empresa. Si error S-1.
+		1 & Se extrae de la base de datos el listado de vuelos. Si error S-1.\\
+		2 & El administrativo selecciona los vuelos afectados por la oferta.\\
+		3 & Se extrae de la base de datos el listado de clientes. Si error S-1.\\
+		4 & El administrativo selecciona los clientes afectados por la oferta.\\
+		5 & Se almacenan los cambios en la base de datos. Si error S-1.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & No se ha podido añadir la oferta a la base de datos, mostrar un mensaje de error y permitir que el usuario pueda volver a intentar añadir la oferta.
+		S-1 & No se puede conectar con la base de datos, se muestra un mensaje de error por pantalla dando la opción de reintentar o volver al menú principal de la aplicación.
 	\end{tablasecuencias}
 }

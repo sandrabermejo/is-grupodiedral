@@ -1,34 +1,36 @@
 % Caso de uso: registrar entrada de material.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
+% Revisado por Cristina el día 11/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Registrar entrada de material,
 	% Objetivo
-	objetivo={Registrar una entrada de material en el inventario, declarando en que sección y ubicación física se encuentra.},
+	objetivo=Registrar una entrada de material en el inventario de la empresa.,
 	% Entradas
 	entradas={Nombre del producto o identificador si es un material previamente registrado, descripción, sección que lo recibe (si procede) y ubicación final.},
 	% Precondiciones
-	precondiciones={El operador de la aplicación está debidamente registrado y tiene credenciales que le habilitan para realizar dicha operación. Existen configuraciones sobre ubicaciones, productos y secciones que previamente han sido introducidas.},
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación.,
 	% Salidas
 	salidas=Adhesivo de inventario con la clave de identificación del material en el sistema (si procede).,
 	% Postcondiciones en caso de éxito
-	postexito=El material introducido aparecerá en el inventario.,
+	postexito=Se actualiza el inventario de la empresa de acuerdo al registro realizado.,
 	% Postcondiciones en caso de error
-	posterror=El sistema central no ha sufrido cambio alguno.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
-	actores=El personal de la compañía cuyo rol implique registro de entrada de material dentro de su ámbito y la base de datos.,
+	actores=El personal de la compañía y la base de datos.,
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & En el formulario de registro de inventario, introduce los datos necesarios del ingreso. Si error S-1.\\
+		1 & El empleado introduce los datos necesarios del registro. Si error S-1.\\
 		2 & Se registran los cambios en el sistema correspondiente. Si error S-2.\\
-		3 & Obtiene una adhesivo impreso para identificar el objeto catalogado (si procede).
+		3 & Se obtiene una adhesivo impreso para identificar el objeto catalogado (si procede).
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & Se reitera la opción de insertar los datos o abandonar.\\
-		S-2 & Da la opción de escoger entre abortar la operación o reintentar.
+		S-1 & El sistema vuelve a 1 de la secuencia normal de uso e indica los campos erróneos.\\
+		S-2 & No se puede conectar con la base de datos, se muestra un mensaje de error por pantalla dando la opción de reintentar o volver al menú principal de la aplicación.
 	\end{tablasecuencias}
 }

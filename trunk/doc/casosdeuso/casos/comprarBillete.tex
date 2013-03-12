@@ -1,38 +1,37 @@
 % Caso de uso: Comprar billete.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
+% Revisado por Cristina el día 11/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Comprar billete,
 	% Objetivo
 	objetivo=Realizar la compra de un billete.,
 	% Entradas
-	entradas={Nombre y apellidos del(los) pasajero(s), reserva de asientos, datos de la persona que paga, identificación del billete a comprar},
+	entradas={Nombre y apellidos del(los) pasajero(s), así como su NIF o equivalentes, reserva de asientos, datos de la persona que paga e identificación del billete a comprar.},
 	% Precondiciones
-	precondiciones={Estar correctamente registrado en el sistema y que el billete a comprar sea válido.},
+	precondiciones=No hay precondiciones.,
 	% Salidas
-	salidas={Comprobación del itinerario de vuelo, precio total a pagar, desglose del precio (pasajero, tarifa, impuestos, tasas y suplementos de de transporte), opción de reservar asientos y campos a rellenar con la informacion de los pasajeros y la persona que realizará el pago.},
+	salidas={Información detallada de la compra (itinerario de vuelo, precio total a pagar, desglose del precio (pasajero, tarifa, impuestos, tasas y suplementos de de transporte) y datos de los pasajeros).},
 	% Postcondiciones en caso de éxito
-	postexito={Se registra la compra, se muestran por pantalla los detalles de la misma, se da la opción al cliente de imprimirlos y se redirecciona a \textit{Iniciar Pago Billetes de Vuelo}.},
+	postexito=Se registra la compra y se redirecciona a \textit{Iniciar Pago Billetes de Vuelo}.,
 	% Postcondiciones en caso de error
-	posterror=No se puede realizar la compra del billete del vuelo seleccionado.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
-	actores={Clientes de la compañía, previamente registrados en la aplicación, y la base de datos}.
+	actores=Clientes de la compañía y la base de datos.,
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & Se muestra la información del itinerario de vuelo, así como los detalles del precio de compra. Si error S-1. \\
-		2 & El cliente introduce los datos de los pasajeros y de la persona que realiza el pago. Si error S-2.\\
-		3 & El cliente selecciona los asientos que desee. Si error S-3. \\
-		3 & Se almacenan los datos de la compra en la base de datos. Si error S-4.\\
-		4 & Se muestran por pantalla los detalles completos de la compra y se da la opción de imprimir la tarjeta de embarque.
+		1 & El cliente introduce los datos de los pasajeros y de la persona que realiza el pago. Si error S-1.\\
+		2 & El cliente selecciona los asientos. Si error S-2. \\
+		3 & Se almacenan los datos de la compra en la base de datos. Si error S-3.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & Se muestra el error por pantalla y se vuelve a la página principal de la aplicación. \\
-		S-2 & Alguno de los datos introducidos por el cliente no es válido.Se pide de nuevo que introduzca los datos.\\
-		S-3 & No se puede realizar la reserva de asientos. Se muestra el error y sigue la secuencia normal. \\
-		S-4 & No se ha podido conectar con la base de datos ni realizarse la compra. Se muestra el error por pantalla y se vuelve a la página principal de la aplicación.
+		S-1 & El sistema vuelve a 1 de la secuencia normal de uso e indica los campos erróneos.\\
+		S-2 & No se puede realizar la reserva de asientos. Se muestra un mensaje de error por pantalla dando la opción de reintentar o volver al menú principal de la aplicación.\\
+		S-3 & No se puede conectar con la base de datos, se muestra un mensaje de error por pantalla dando la opción de reintentar o volver al menú principal de la aplicación.
 	\end{tablasecuencias}
 }
