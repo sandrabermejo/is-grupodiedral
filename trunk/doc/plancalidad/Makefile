@@ -8,7 +8,7 @@ LATEX_CMD=pdflatex#	# Comando Latex (preferiblemente pdflatex)
 make:
 	pdflatex $(SQA_TEX)
 	makeindex -s $(SQA_TEX).ist -t $(SQA_TEX).glg -o $(SQA_TEX).gls $(SQA_TEX).glo
-#	bibtex $(SQA_TEX)
+	bibtex $(SQA_TEX)
 	pdflatex $(SQA_TEX)
 
 clean:
