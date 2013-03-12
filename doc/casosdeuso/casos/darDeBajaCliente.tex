@@ -1,37 +1,36 @@
 % Caso de uso: Dar de baja cliente.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
+% Revisado por Juanan el día 12/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
-	nombre= Dar de baja cliente,
+	nombre=Dar de baja cliente,
 	% Objetivo
-	objetivo={Permitir a un cliente que pueda darse de baja en nuestro sistema borrando todos sus datos de él. Esta acción es obligatoria en cualquier sistema donde se pueda registrar un cliente por la LOPD \textit{(Ley Orgánica de Protección de Datos)}.},
+	objetivo={Causar la baja de un cliente en el sistema a petición del mismo.},
 	% Entradas
-	entradas={Un personal administrativo acceda a la opción del sistema para dar de baja a un cliente.},
+	entradas=No hay entradas.,
 	% Precondiciones
-	precondiciones={Que el cliente se haya puesto en contacto con la empresa indicándole que quiere darse de baja en el sistema y haberse registrado como un usuario válido de la aplicación perteneciente al Personal de atención al cliente. Elegir la opción \textit{Dar de baja cliente}.},
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación y la petición expresa del cliente y la ficha de cliente seleccionada.,
 	% Salidas
-	salidas= {Eliminar al cliente de la base de datos de la empresa.},
+	salidas=Confirmación de la operación.,
 	% Postcondiciones en caso de éxito
-	postexito={Los datos del cliente habrán desaparecido de la base de datos del sistema, borrándose todo por completo.},
+	postexito=Los datos del cliente almacenados en el sistema son eliminados.,
 	% Postcondiciones en caso de error
-	posterror={Los datos del cliente no se habrán eliminado y seguirán estando en nuestro sistema.},
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
-	actores={El Personal de atención al cliente, el cliente a dar de baja y la base de datos.},
+	actores=Personal administrativo y la base de datos., %quizá personal de atencion al cliente?
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & El cliente notifica a la empresa que desea darse de baja en su sistema.\\
-		2 & El personal administrativo accede al sistema y da a la opción de dar de baja al cliente.\\
-		3 & El sistema accede a la base de datos para encontrar al cliente. Si error S-1\\
-		4 & Se borran del sistema los datos del cliente. Si error S-2.\\
-		5 & Se notifica al cliente de que ha sido dado de baja con éxito.
+		1 & El personal administrativo confirma la operación. Si no S-1.\\
+		2 & Se hacen efectivos los cambios en la base de datos. Si error S-2.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & No se ha encontrado al cliente en la base de datos, por lo que se muestra un mensaje de que el cliente no existe.\\
-		S-2 & Si no se ha podido eliminar los datos del cliente se le notifica indicándole que si quiere darse de baja vuelva a realizar la operación.
+		S-1 & Se cancela la operación y se vuelve a la ficha del cliente.\\
+		S-2 & No se puede conectar con la base de datos. Se cancela la operación, se muestra un mensaje de error por pantalla y se vuelve a la ficha del cliente.
 	\end{tablasecuencias}
 }
 

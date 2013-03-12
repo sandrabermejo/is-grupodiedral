@@ -1,34 +1,36 @@
 % Caso de uso: iniciar pago billetes de vuelo.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
+% Revisado por Juanan el día 12/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Iniciar el pago de los billetes de vuelo,
 	% Objetivo
 	objetivo=Iniciar el proceso de pago del billete para finalizar el proceso de compra.,
 	% Entradas
-	entradas=La información detallada de los billetes de vuelo.,
+	entradas=Oferta seleccionada.,
 	% Precondiciones
-	precondiciones={Haberse registrado en la página web de la compañía aérea y haber seleccionado todos los campos detallados de los billetes.},
+	precondiciones=Usuario identificado correctamente,
 	% Salidas
-	salidas={Se procede a realizar el pago mediante tarjeta de crédido o débito, si procede}.,
+	salidas=No hay salidas.,
 	% Postcondiciones en caso de éxito
 	postexito=El proceso de compra será redirigido para finalizar el pago mediante tarjeta de crédito o débito.,
 	% Postcondiciones en caso de error
-	posterror=La compra no se ha realizado y la base de datos no ha sido modificada.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
 	actores={El usuario, la base de datos y las entidades financieras.},
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & Mostrar todos los datos de la compra. Si error S-1.\\
-		2 & Indicar con claridad las claúsulas de las leyes de protección de datos para que el usuario las acepte y pueda seguir con la compra. Si error S-2.\\ 
-		3 & Se redirecciona según a \textbf{Realizar Pago con Tarjeta}.
+		1 & Se muestran todos los datos de la compra. Si error S-1.\\
+		2 & Se indican con claridad las claúsulas de las leyes de protección de datos para que el usuario las acepte y pueda seguir con la compra. Si rechazo S-2.\\ 
+		3 & Se redirecciona a \textbf{Realizar Pago con Tarjeta}.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & La reserva de los billetes ha expirado porque ha pasado mucho tiempo desde que se añadieron los billetes al carrito de la compra o por algún error en su almacenamiento. Se mostrará un mensaje indicando que se vuelva a realizar la compra desde el principio.\\3
+		S-1 & La reserva de los billetes ha expirado. Se muestra un mensaje indicando que se vuelva a realizar la compra desde el principio.\\
 		S-2 & El cliente no ha aceptado las claúsulas de leyes de protección de datos. Se aborta la operación, se muestra un mensaje por pantalla indicándolo y se vuelve a la página principal de la aplicación.
 	\end{tablasecuencias}
 }

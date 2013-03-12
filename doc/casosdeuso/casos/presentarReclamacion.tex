@@ -1,6 +1,8 @@
 % Caso de uso: Presentar reclamacion
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
+% Revisado por Juanan el día 12/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Presentar reclamaciones,
@@ -9,27 +11,27 @@
 	% Entradas
 	entradas= Motivo de la queja y detallado de la misma.,
 	% Precondiciones
-	precondiciones=Intención por parte del usuario de transmitir una sugerencia o queja a la empresa.,
+	precondiciones=No hay precondiciones,
 	% Salidas
 	salidas=Confirmación del envio y número asociado a la reclamación.,
 	% Postcondiciones en caso de éxito
-	postexito=La notificación es enviada correctamente al departamento correspondiente.,
+	postexito=La notificación se envia al departamento correspondiente.,
 	% Postcondiciones en caso de error
-	posterror=No se tramita la petición.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
 	actores=Cliente-usuario de interfaz web.,
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & Completar todos sus datos, el motivo de la reclamación, y detalles de la misma. Si error S-1. \\
+		1 & El usuario completa los datos requeridos. Si error S-1. \\
 		2 & Muestra número asignado a la reclamación junto a la confirmación de que la reclamación ha sido tramitada y en breve será atendia por el departamento correspondiente. Si error S-2. 
 		
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & Los campos de datos están incompletos. Indicar los campos erróneos o vacíos.\\
-		S-2 & Si no se han podido transmitir los datos de la reclamación a nuestra base de datos se indicará un mensaje de que la operación ha sido fallida debido a errores técnicos y de que se vuelva a intentar.
+		S-1 & Los campos de datos están incompletos. Se vuelve a 1 de la secuencia normal de uso y se incican los campos erróneos o vacíos.\\
+		S-2 & Si no puede transmitir los datos de la reclamación a la base de datos se indica en un mensaje y se insta a que se vuelva a intentar.
 	\end{tablasecuencias}
 }
 
