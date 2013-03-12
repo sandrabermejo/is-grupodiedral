@@ -1,30 +1,32 @@
 % Caso de uso: ver incidencias del sistema.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
-% Cristina solicita mayor información acerca de este caso de uso
+% Revisado por Cristina el día 12/03/2013
+
+% Los archivos de registro del servidor central y los errores reportados por las aplicaciones cliente componen una serie de archivos de texto en el servidor central. 
+% Esos archivos podrán ser consultados dando acceso a su ubicación en el sistema de archivos del servidor central.
 
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Ver incidencias del sistema,
 	% Objetivo
-	objetivo={Permite a los supervisores informáticos del sistema inspeccionar el correcto funcionamiento del \software y responder a comportamientos erróneos del mismo que hayan sido detectados, a partir de los registros que este genera.},
+	objetivo={Comprobar el correcto funcionamiento del \software y solucionar los posibles comportamientos erróneos del mismo que hayan sido detectados a partir de los registros que éste genera.},
 	% Entradas
-	entradas={El nombre de registro que se quiere consultar.},
+	entradas=El nombre de registro que se quiere consultar.,
 	% Precondiciones
-	precondiciones={El operador de la aplicación está debidamente registrado y posee credenciales que le habilitan para realizar esta operación.},
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar esta operación.,
 	% Salidas
-	salidas={Archivos de registro del sistema solicitados.},
+	salidas=Archivos de registro del sistema solicitados.,
 	% Postcondiciones en caso de éxito
-	postexito={El usuario habrá accedido a los registros del sistema.},
+	postexito=No se realiza ningún cambio en el sistema.,
 	% Postcondiciones en caso de error
-	posterror={El sistema central no habrá sufrido cambios.},
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
-	actores={Personal de \textit{Servicios Informáticos} y supervisores del sistema con autorización para ello.},
+	actores=Personal de \textit{Servicios Informáticos} y supervisores del sistema.,
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & Los archivos de registro del servidor central y los errores reportados por las aplicaciones cliente componen una serie de archivos de texto en el servidor central. Esos archivos podrán ser consultados dando acceso a su ubicación en el sistema de archivos del servidor central.
-		% De momento, ¿para qué complicarlo?
+		1 & El empleado consulta los archivos de registro del servidor central. Si error S-1.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso

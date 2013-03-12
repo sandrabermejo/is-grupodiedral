@@ -1,40 +1,36 @@
 % Caso de uso: editar información económica.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
-% Dudas existenciales de Juanan
+
+% Revisado por Cristina el día 12/03/2013
 
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Editar información económica,
 	% Objetivo
-	objetivo=Editar la información económica de la compañía de acuerdo a los resultados del último ejercicio (cuentas anuales).,
+	objetivo=Modificar la información económica de la compañía debido a algún cambio relevante en la misma.,
 	% Entradas
-	entradas=La nueva información económica de la compañía.,
+	entradas={La nueva información económica de la compañía (nuevos activos, pasivos, inversiones de la empresa\dots).},
 	% Precondiciones
-	precondiciones={Haber accedido a la aplicación con un usuario válido, tener permisos para editar la información requerida y elegir la opción \textit{Editar información económica.}},
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación.,
 	% Salidas
-	salidas={La información económica de la compañía modificada, si procede.},
+	salidas=La información económica de la compañía actualizada.,
 	% Postcondiciones en caso de éxito
-	postexito=La información económica de la compañía ha sido modificada correctamente.,
+	postexito=Los cambios efectuados se guardan en la base de datos.,
 	% Postcondiciones en caso de error
-	posterror=El sistema no ha sufrido ningún cambio.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
-	actores={El personal administrativo de la compañía, con permisos para editar la información económica, y la base de datos.},
+	actores=El personal administrativo de la compañía y la base de datos.,
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & Extraer de la base de datos la información económica de la compañía. Si error S-1.\\
-		2 & Mostrar la información por pantalla.\\
-		3 & Seleccionar la información a modificar.\\
-		4 & Introducir los datos económicos actualizados de la compañía. Si error S-2.\\
-		5 & Almacenar los cambios en la base de datos. Si error S-3.\\
-		6 & Mostrar un mensaje de confirmación de la operación.
+		1 & El empleado modifica los datos económicos de la compañía. Si error S-1.\\
+		2 & Se almacenan los cambios en la base de datos. Si error S-2.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & No se ha podido conectar con la base de datos para obtener la información requerida. Mostrar un mensaje de error por pantalla y volver a la página principal del sistema.\\
-		S-2 & Alguno de los datos introducidos no es válido. Volver al paso 4 de la secuencia normal de uso indicando los campos erróneos.\\
-		S-3 & No se han podido almacenar los cambios en la base de datos. Se cancela la operación, se muestra un mensaje de error por pantalla informando de que la información económica no ha podido actualizarse y se vuelve a la página principal del sistema.
+		S-1 & Alguno de los datos introducidos no es válido. Vuelve a 1 de la secuencia normal de uso indicando los campos erróneos.\\
+		S-2 & No se puede conectar con la base de datos, se muestra un mensaje de error por pantalla dando la opción de reintentar o volver al menú principal de la aplicación.
 	\end{tablasecuencias}
 }
 
