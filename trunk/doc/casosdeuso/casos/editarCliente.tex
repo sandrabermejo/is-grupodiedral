@@ -25,13 +25,13 @@
 	\begin{tablasecuencias}
 		1 & Muestra los campos de datos personales de usuario. Si error S-1.\\
 		2 & El usuario modifica los datos deseados. Si error S-2.\\
-		3 & Se almacenan los cambios en la base de datos. Si error S-3.\\
+		3 & Se almacenan los cambios en la base de datos. Si error S-3.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
 		S-1 & Si no se puede conectar con la base de datos se muestra mensaje  de tipo \textit{información no disponible temporalmente} y se vuelve a 1 de la secuencia normal de uso.\\
-		S-2 & Alguno de los datos introducidos no es válido. vuelve a 1 de la secuencia normal de uso indicando los campos erróneos.\\
+		S-2 & Alguno de los datos introducidos no es válido. Vuelve a 1 de la secuencia normal de uso indicando los campos erróneos.\\
 		S-3 & No se puede conectar con la base de datos. Se cancela la operación, se muestra un mensaje de error por pantalla y se vuelve a la ficha del cliente.
 	\end{tablasecuencias}
 }

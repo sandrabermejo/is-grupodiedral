@@ -5,17 +5,17 @@
 
 \casodeuso{
 	% Nombre del caso de uso
-	nombre=Iniciar el pago de los billetes de vuelo,
+	nombre=Iniciar pago billetes de vuelo,
 	% Objetivo
 	objetivo=Iniciar el proceso de pago del billete para finalizar el proceso de compra.,
 	% Entradas
-	entradas=Oferta seleccionada.,
+	entradas=No hay entradas.,
 	% Precondiciones
-	precondiciones=Usuario identificado correctamente,
+	precondiciones=El usuario completa el proceso de \textit{Comprar billete} correctamente.,
 	% Salidas
 	salidas=No hay salidas.,
 	% Postcondiciones en caso de éxito
-	postexito=El proceso de compra será redirigido para finalizar el pago mediante tarjeta de crédito o débito.,
+	postexito=El proceso de compra se redirecciona a \textit{Realizar Pago con Tarjeta} para finalizar el pago mediante tarjeta de crédito o débito.,
 	% Postcondiciones en caso de error
 	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
@@ -24,13 +24,12 @@
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
 		1 & Se muestran todos los datos de la compra. Si error S-1.\\
-		2 & Se indican con claridad las claúsulas de las leyes de protección de datos para que el usuario las acepte y pueda seguir con la compra. Si rechazo S-2.\\ 
-		3 & Se redirecciona a \textbf{Realizar Pago con Tarjeta}.
+		2 & Se indican con claridad las claúsulas de las leyes de protección de datos para que el usuario las acepte y pueda seguir con la compra. Si rechazo S-2.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & La reserva de los billetes ha expirado. Se muestra un mensaje indicando que se vuelva a realizar la compra desde el principio.\\
+		S-1 & La reserva de los billetes ya no es válida. Se muestra un mensaje de error y se da la opción de abortar la operación o volver al menú de compra de billete.\\
 		S-2 & El cliente no ha aceptado las claúsulas de leyes de protección de datos. Se aborta la operación, se muestra un mensaje por pantalla indicándolo y se vuelve a la página principal de la aplicación.
 	\end{tablasecuencias}
 }
