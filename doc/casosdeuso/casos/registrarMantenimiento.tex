@@ -1,0 +1,39 @@
+% Caso de uso: registrar mantenimiento.
+% Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
+
+% Revisado por Cristina el día 11/03/2013
+% Nombre antiguo: realizarMantenimiento
+
+\casodeuso{
+	% Nombre del caso de uso
+	nombre=Registrar mantenimiento,
+	% Objetivo
+	objetivo=Registrar la información sobre un mantenimiento realizado.,
+	% Entradas
+	entradas={Los datos del mantenimiento realizado (tipo y cantidad de items utilizados, observaciones, si ha podido completarse o no, etc.).},
+	% Precondiciones
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación.,
+	% Salidas
+	salidas=Confirmación del registro del mantenimiento.,
+	% Postcondiciones en caso de éxito
+	postexito={Se registra el mantenimiento y, si procede, se actualiza el material disponible de la empresa en el inventario.},
+	% Postcondiciones en caso de error
+	posterror=No se realiza ningún cambio en el sistema.,
+	% Actores
+	actores=El personal mecánico de la compañía y la base de datos.,
+}{
+	% Tabla de secuencia normal del caso de uso
+	\begin{tablasecuencias}
+		1 & Se extrae de la base de datos el listado de los mantenimientos programados para el usuario. Si error S-1.\\
+		2 & El empleado selecciona un mantenimiento.\\
+		3 & El empleado introduce la información detallada del mantenimiento realizado. Si error S-1.\\
+		4 & Se extrae el listado del material mecánico disponible en el inventario. Si error S-1.\\
+		5 & Se muestra el inventario por pantalla.\\
+		6 & El usuario selecciona el material empleado en el mantenimiento, así como la cantidad de items de cada tipo utilizados. Si error S-1. 
+	\end{tablasecuencias}
+}{
+	% Tabla de secuencia con errores del caso de uso
+	\begin{tablasecuencias}
+		S-1 & No se puede conectar con la base de datos, se muestra un mensaje de error por pantalla dando la opción de reintentar o volver al menú principal de la aplicación.
+	\end{tablasecuencias}
+}
