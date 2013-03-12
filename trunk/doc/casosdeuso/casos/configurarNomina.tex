@@ -17,20 +17,20 @@
 	% Postcondiciones en caso de éxito
 	postexito=La nómina queda archivada en la base de datos.,
 	% Postcondiciones en caso de error
-	posterror=El sistema no ha sufrido ningún cambio.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
 	actores=Personal de administración y la base de datos.
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & Seleccionar el empleado correspondiente y obtener los datos de la base de datos. Si error S-1. \\
+		1 & Se extraen los datos de la base de datos. Si error S-1. \\
 		2 & Se introducen los conceptos e incidencias correspondientes.\\
 		3 & Se almacenan los cambios en la base de datos. Si error S-2.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & Si no se puede conectar con la base de datos, mostrar un mensaje de error y volver a la ficha de empleado. \\
+		S-1 & Si no se puede conectar con la base de datos, se muestra un mensaje de error y vuelve a la ficha de empleado. \\
 		S-2 & No se puede conectar con la base de datos. Se cancela la operación, se muestra un mensaje de error por pantalla y se vuelve a la ficha del empleado.
 	\end{tablasecuencias}
 }

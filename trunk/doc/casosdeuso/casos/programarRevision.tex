@@ -1,21 +1,23 @@
 % Caso de uso: Programar revisión.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
+% Revisado por Juanan el día 12/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Programar revisión,
 	% Objetivo
-	objetivo=Permite al personal de mantenimiento programar una revisión para un vehiculo determinado.,
+	objetivo=Programar una revisión para un vehiculo determinado.,
 	% Entradas
-	entradas={Equipo, herramientas , material y personal necesario. Además de la hora, fecha y vehiculo.},
+	entradas={Equipo, herramientas , material y personal necesario. Además de la fecha, hora y vehiculo.},
 	% Precondiciones
-	precondiciones={Disponibilidad de del vehiculo, así como del peresonal necesario.},
+	precondiciones={Disponibilidad del vehiculo, así como del peresonal necesario.},
 	% Salidas
-	salidas=Confirmación adjuntando todos los detalles de la revisión,
+	salidas=Confirmación adjuntando informe de la revisión programada.,
 	% Postcondiciones en caso de éxito
-	postexito={Quedarán asignado un hangar para llevar a cabo la revisión, así como registrados los datos correspondientes y reservados para el propósito los recursos humanos y materiales indicados.},
+	postexito={Queda asignado un hangar para la revisión, así como registrados los datos correspondientes y reservados para el propósito los recursos humanos y materiales indicados.},
 	% Postcondiciones en caso de error
-	posterror=No se altera la base de datos.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
 	actores=Personal de mantenimiento autorizado.
 }{
@@ -30,7 +32,7 @@
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & Si alguno de los elementos no se encuentra disponible en el almacén se notificará y vuelve al paso 3 de la secuencia normal.\\
-		S-2 & Si no se puede conectar con la base de datos, se muestra un mensaje de error.
+		S-1 & Si alguno de los elementos no se encuentra disponible en el almacén se notifica y vuelve a 3 de la secuencia normal de uso.\\
+		S-2 & Si no se puede conectar con la base de datos, se muestra un mensaje de error. Se ofrece la posibilidad de reintentar o cancelar operación.
 	\end{tablasecuencias}
 }

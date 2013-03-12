@@ -1,21 +1,23 @@
 % Caso de uso: Acceder Gestión Externa
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
+% Revisado por Juanan el día 12/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Acceder web,
 	% Objetivo
-	objetivo=Abrir la aplicación de gestión externa de la compañía.,
+	objetivo=Identificarse como cliente de la compañia en el servicio web.,
 	% Entradas
-	entradas=Nombre del usuario y contraseña.,
+	entradas=Nombre de usuario y contraseña.,
 	% Precondiciones
-	precondiciones=Que el usuario esté registrado como cliente de la compañía aérea.,
+	precondiciones=El usuario dispone de una cuenta de cliente de la compañía aérea.,
 	% Salidas
-	salidas=Las diversas opciones de la aplicación de gestión externa de la compañía.,
+	salidas=Menú principal de la aplicación de gestión externa de la compañía.,
 	% Postcondiciones en caso de éxito
-	postexito=El cliente tendrá acceso como usuario a los servicios ofertados por la compañia a través de la Web.,
+	postexito=No se realiza ningún cambio en el sistema.,
 	% Postcondiciones en caso de error
-	posterror=No se realizan cambios en el sistema.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
 	actores=Cliente-usuario de interfaz web,
 }{
@@ -26,7 +28,7 @@
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & Si el nombre o la contraseña no son válidos, el sistema vuelve a la secuencia normal de uso e indica los campos erróneos.
+		S-1 & Si el nombre o la contraseña no son válidos, el sistema vuelve a la secuencia normal de uso e indica que los datos son erróneos.
 	\end{tablasecuencias}
 }
 

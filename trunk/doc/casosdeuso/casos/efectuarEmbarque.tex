@@ -1,36 +1,39 @@
 % Caso de uso: Efectuar embarque
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
+% Comentario de Aitor, si un cliente no se presenta a un embarque se cancelan todos los billetes asociados a ese cliente.
+% Revisado por Juanan el día 12/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Efectuar embarque,
 	% Objetivo
-	objetivo=Controlar el embarque del pasajero.,
+	objetivo=Registrar el embarque del pasajero.,
 	% Entradas
 	entradas=El número de vuelo y el número de reserva del pasajero.,
 	% Precondiciones
-	precondiciones=Haber accedido al sistema con un usuario válido y elegir la opción \textit{Efectuar embarque} de la aplicación.,
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación y un billete válido,
 	% Salidas
-	salidas=Confirmación de que el pasajero ha pasado el control de seguridad con éxito y ha embarcado en el avión correctamente.,
+	salidas=Confirmación de que el pasajero pasa el control de seguridad con éxito y ha embarca en el avión.,
 	% Postcondiciones en caso de éxito
-	postexito=El pasajero ha embarcado correctamente en su vuelo.,
+	postexito=Se registra el embarque del pasajero.,
 	% Postcondiciones en caso de error
-	posterror=Ha habido algún error en el proceso de embarque y el pasajero se queda en tierra.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
 	actores=El personal de la compañía presente en el aeropuerto y la base de datos.
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
 		1 & El usuario introduce el número de vuelo y el número de reservar del pasajero. Si error S-1.\\
-		2 & Se comprueba que el usuario debe embarcar en ese vuelo. Si error S-2.\\
-		3 & Se mostrará un mensaje de embarque completado con éxito.
+		2 & Se comprueba la reserva y se actualiza la base de datos. Si error S-2.\\
+
 		
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & Alguno de los campos introducidos por el usuario no es válido. Se muestra un mensaje de error y se pide de nuevo la introducción de los datos. \\
-		S-2 & No se ha podido conectar con la base de datos. Se muestra un mensaje de error y se pide de nuevo la introducción de los datos.
+		S-1 & Alguno de los campos introducidos por el usuario no es válido. Se muestra un mensaje de error y se vuelve a 1 de la secuencia normal de uso indicando los datos erroneos. \\
+		S-2 & No se ha podido conectar con la base de datos. Se muestra un mensaje de error y se ofrece la posibilidad de reintentar.
 	\end{tablasecuencias}
 }
 
