@@ -1,24 +1,24 @@
-\srsfuncion{Efectuar embarque} \label{fun:efectuarembarque}
+
+% Revisado por Cristina el día 12/03/2013
+
+\srsfuncion{Efectuar embarque}
 	Esta función debe controlar el embarque del pasajero al avión.
 
 	\begin{enumerate}
 		\item \textit{Prioridad}: alta.
 		\item \textit{Entradas}
-			\begin{enumerate}
-				\item Los campos a introducir por el usuario son: \gls{numero_de_vuelo} y número de reserva.
-				\item El número de vuelo caracteriza e identifica unívocamente a todos los vuelos operados por la compañía.
-			\end{enumerate}
+		\begin{enumerate}
+			\item Los campos a introducir por el usuario son: \gls{numero_de_vuelo} y número de reserva.
+			\item El número de vuelo caracteriza e identifica unívocamente a todos los vuelos operados por la compañía.
+		\end{enumerate}
 		\item \textit{Flujo de operaciones}
-			\begin{enumerate}
-				\item El usuario introduce el número de vuelo y el número de reserva.
-				\item Una vez se haya realizado el embarque del pasajero en el avión, el usuario pulsará en el botón \verb|Confirmar embarque|.
-			\end{enumerate}
+		\begin{enumerate}
+			\item El empleado introduce el número de vuelo y el número de reserva.
+			\item Una vez se haya realizado el embarque del pasajero en el avión, el empleado debe confirmar el embarque.
+		\end{enumerate}
 		\item \textit{Respuesta a situaciones no previstas}
-			\begin{enumerate}
-				\item Si alguno de los datos introducidos no es válido: se muestran los campos erróneos y se da la opción de modificarlos.
-				\item Si no se puede acceder a la base de datos: mostrar un mensaje de error y volver a la pantalla anterior.
-			\end{enumerate}
-		\item \textit{Relación con otras funciones}\\
-		La función está relacionada con \nameref{fun:facturar}.				
+		\begin{enumerate}
+			\item Si algún campo introducido no es válido, se indica y se da la opción de introducirlo de nuevo.
+			\item Si no se puede acceder a la base de datos, se muestra un mensaje de error y se da la opción de reintentar o abortar el proceso.
+		\end{enumerate}
 	\end{enumerate}
-								
