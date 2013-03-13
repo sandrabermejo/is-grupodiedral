@@ -1,20 +1,25 @@
+
+% Revisado por Juanan el día 12/03/2013
+
 \srsfuncion{Dar de baja cliente} \label{fun:bajacliente}
-	Función que debe permitir borrar todos los datos de la base de datos de un cliente y así darlo de baja en nuestro sistema.
+	Función que permite borrar todos los datos de la base de datos asociados a un cliente dandolo de baja en el sistema.
 	
 \begin{enumerate}
+	\item \textit{Prioridad}: alta.
 	\item \textit{Entradas}
 	\begin{enumerate}
-		\item Los datos introducidos para poder dar de baja al cliente deben de existir y ser correctos.
+		\item Seleccion de una ficha mediante \nameref{fun:consultarcliente}.
 	\end{enumerate}
 	\item \textit{Flujo de operaciones}
 	\begin{enumerate}
-		\item Se muestran por pantalla los campos a rellenar del cliente para dar de baja: Nombre, Documento de Identidad Nacional (DNI) y nacionalidad. Además habrá un campo opcional en el que se podrá indicar el motivo por el cual el cliente quiere darse de baja.
-		\item Se busca al cliente y se borran los datos de la base de datos.
+		\item Se muestran por pantalla la ficha del cliente a dar de baja. Además habrá un campo opcional en el que se podrá indicar el motivo por el cual el cliente quiere darse de baja.
+		\item Se confirma que se desea realizar la operación.
 	\end{enumerate}
 	\item \textit{Respuesta a situaciones no previstas}
 	\begin{enumerate}
-		\item El cliente no existen en nuestra base de datos. Al buscarlo con los campos indicados no se ha encontrado. 
-		\item Se han introducido de forma errónea los campos a rellenar de los datos personales del cliente, por lo que se marcarán los campos que están mal y se mostrará por pantalla un mensaje de error indicando un breve resumen de los campos que son erróneos y el por qué.
+		No se han previsto situaciones no esperadas.
 	\end{enumerate}
+	\item \textit{Relación con otras funciones}\\
+		La función está relacionada con \nameref{fun:consultarcliente}.
 
 \end{enumerate}

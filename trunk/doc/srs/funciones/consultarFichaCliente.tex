@@ -1,4 +1,7 @@
-\srsfuncion{Consultar ficha de clientes}
+
+% Revisado por Juanan el día 12/03/2013
+
+\srsfuncion{Consultar ficha de clientes} \label{fun:consultarcliente}
 	Esta función permite consultar la relación de clientes de la compañía, así como obtener detalles sobre los servicios contratados y los datos personales del usuario. Esto le otorga a los diseñadores --y finalmente a los usuarios-- de esta función una fuerte responsabilidad en el tratamiento de la información.
 
 	\begin{enumerate}
@@ -13,13 +16,13 @@
 			\begin{enumerate}
 				\item Se muestra un formulario de búsqueda, permitiendo al usuario rellenar los campos y ejecutar la petición.
 				\item Si no hay resultados se muestra un mensaje; en caso contrario se muestra una pantalla con lista de clientes incluyendo identificador, nombre y apellidos y fecha del último vuelo (si hubiese).
-				\item Cuando el usuario seleccione un cliente se mostrará una pantalla con la información detallada del mismo.
+				\item Cuando el usuario selecciona un cliente se muestra una pantalla con la información detallada del mismo.
 			\end{enumerate}
 		\item \textit{Respuesta a situaciones no previstas}
 			\begin{enumerate}
-				\item Si no se puede realizar la búsqueda en la base de datos: informar del error y restablecer el sistema para que se pueda reintentar la operación.
+				\item Si no se puede realizar la búsqueda en la base de datos: se informa del error y restablece el sistema para que se pueda reintentar la operación.
 				\item Si no se puede obtener la información de la base de datos: informar al cliente y quedarse en la última pantalla funcional.
 			\end{enumerate}
 		\item \textit{Relación con otras funciones}\\
-		La función está relacionada con \nameref{fun:editarcliente} y \nameref{fun:registrarse} (en la gestión interna) y \nameref{fun:bajacliente}. Se puede utilizar los formularios de consulta para la edición en el \verb|Editar cliente| interno.
+		La función está relacionada con \nameref{fun:editarcliente}, \nameref{fun:registrarse} (en la gestión interna) y \nameref{fun:bajacliente}. Se puede utilizar los formularios de consulta para la edición en el \verb|Editar cliente| interno.
 	\end{enumerate}

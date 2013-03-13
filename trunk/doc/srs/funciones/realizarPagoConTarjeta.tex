@@ -1,17 +1,21 @@
+
+% Revisado por Juanan el día 12/03/2013
+
 \srsfuncion{Realizar pago con tarjeta} \label{fun:pagotarjeta}
-	Esta función debe permitir al usuario finalizar el proceso de compra del billete realizando el pago con trajeta de crédito o débito.
+	Esta función permite al usuario finalizar el proceso de compra del billete realizando el pago con trajeta de crédito o débito.
 
 \begin{enumerate}
+	\item \textit{Prioridad}: alta.
 	\item \textit{Entradas}
 	\begin{enumerate}
 		\item El nombre del usuario (nombre y apellidos) deberán contener únicamente carácteres alfabéticos latinos, acentuados o no, y espacios.
 		\item El número de la tarjeta deberá ser una secuencia de 4 bloques de 4 dígitos, todos ellos enteros mayores o iguales que 0.
-		\item El código IBAN deberá ser una secuencia de 3 dígitos mayores o iguales que 0.
-		\item La fecha de caducidad deberá ser una secuencia de 5 caracteres compuesta por: 2 dígitos para indicar el mes (en el rango 01-12) , una barra `/'  y otros 2 dígitos para indicar el año, que serán las dos últimas cifras del mismo.
+		\item El código CCV deberá ser una secuencia de 3 dígitos mayores o iguales que 0.
+		\item La fecha de caducidad  ser una secuencia de 5 caracteres compuesta por: 2 dígitos para indicar el mes (en el rango 01-12) , una barra `/'  y otros 2 dígitos para indicar el año, que serán las dos últimas cifras del mismo.
 	\end{enumerate}
 	\item \textit{Flujo de operaciones}
 	\begin{enumerate}
-		\item Se muestra por pantalla una tabla con los datos de la tarjeta a completar (nombre y apellidos, número, código IBAN -International Bank Account Number- y fecha de caducidad). Una vez completos, se habilita un botón \verb|Confirmar|.
+		\item Se muestra por pantalla una tabla con los datos de la tarjeta a completar (nombre y apellidos, número, código CCV y fecha de caducidad). Una vez completos, se habilita la opción \verb|Confirmar|.
 		\item Se transfieren los datos de la tarjeta a la empresa emisora de las mismas para que compruebe si los datos son correctos y la tarjeta está operativa. En este caso, se enviará al instante un mensaje a la compañía indicando que los datos introducidos por el usuario son válidos.
 		\item Si está todo correcto, se da la opción de imprimir en el momento la tarjeta de embarque o guardarla como pdf para imprimirla en otro momento.
 	\end{enumerate}
@@ -23,4 +27,6 @@
 		\item Si la tarjeta está inhabilitada por algún motivo: se muestra un error indicando que el pago no ha podido completarse porque la tarjeta está bloqueada. Se cancela la operación y se vuelve a la página principal de la aplicación.
 		\item Si los datos de la tarjeta no son válidos: se muestra un error indicando que el pago no ha podido completarse y se da la opción al usuario de modificar los datos introducidos al principio de la operación.
 	\end{enumerate}
+	\item \textit{Relación con otras funciones}\\
+		Esta función está relacionado con \nameref{fun:accederoferta}, \nameref{fun:mostrarofertas}, \nameref{fun:iniciarpago} y \nameref{fun:comprarbillete}.	
 \end{enumerate}
