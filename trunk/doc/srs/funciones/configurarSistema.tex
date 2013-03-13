@@ -1,19 +1,33 @@
 \srsfuncion{Configurar el sistema}  \label{fun:configSystem}
-	Esta función debe permitir modificar la configuración general del sistema restringiéndose a los servicios contratados por la empresa para que algunos datos sean modificables o no.
+	Esta función permite modificar ciertos parámetros de la configuración general del sistema.
 
 	\begin{enumerate}
-		\item \textit{Entradas}
-		\begin{enumerate}
-			\item No se podrán establecer configuraciones inválidas o que vayan a causar error en otras funciones.
-			\item Sólo se podrán modificar aquellas cosas que la empresa haya elegido al contratar el producto.
-			\item La configuración del sistema no puede quedar dañada por la modificación del empleado.
-		\end{enumerate}
+		\item \textit{Prioridad}: media
+		\item \textit{Usuarios}: personal administrativo o de los servicios informáticos debidamente autorizado.
+
+		\item \textit{Entradas} \\
+
+			Los parámetros configurables se restringirán a los indicados a continuación. Téngase en cuenta que algunos conllevan una considerables cambios difícilmente aplicables, son de uso totalmente infrecuente y requieren la supervisión activa del usuario.
+			\begin{enumerate}
+				\item Fecha y hora del servidor central. Su aplicación no será inmediata ya que requerirá procesos de sincronía con los equipos conectados y probablemente el reinicio de ciertos componentes del sistema.
+				\item Nombre de la compañía. El nombre que aparece en los informes generados por la aplicación, así como en las ventanas de su interfaz.
+				\item Moneda. Tipo monetario en el que se expresan los importes comerciales y la información económica de la empresa. Su implantación no es inmediata pues puede requerir conversión de los datos en uso o históricos. La guía del usuario será necesaria para la aplicación de este cambio.
+				\item Criterio de ordenación por defecto para cada caso de uso que presente información ordenada\footnote{\textit{Consultar ficha empleado}, \textit{Consultar ficha cliente}, \textit{Establecer organización laboral}\ldots}. Permitirá seleccionar entre los criterios de ordenación disponibles para cada caso de uso aquél que se tomará por omisión. De aplicación inmediata.
+			\end{enumerate}
+
+			Las entradas deberán atenerse a lo siguiente:
+			\begin{enumerate}
+				\item No se podrán establecer configuraciones inválidas o que vayan a causar error en otras funciones.
+				\item La configuración del sistema no puede quedar dañada por la modificación del empleado.
+			\end{enumerate}
+
 		\item \textit{Flujo de operaciones}
 		\begin{enumerate}
-			\item Acceder a la base de datos del sistema para cargar todos sus datos en la página y sólo dejar disponibles de modificación los que tengan autorización de ello.
+			\item Mostrar los valores previos de los parámetros configurables.
 			\item Se modifican los campos que se quieren reconfigurar en el sistema.
-			\item Para mandar a validar los datos se pulsará el botón \verb|Guardar configuración|. 
-			\item Una vez que la configuración ha sido reestablecida con éxito, se mostrará un mensaje por pantalla indicando que se ha modificado la configuración del sistema general.
+			\item El usuario, una vez satisfecho con los cambios realizados, confirma su modificación. Se comprueba la coherencia de los datos antes del envío. 
+			\item Una vez que la configuración ha sido establecida con éxito, se mostrará un mensaje por pantalla indicando que se ha modificado la configuración del sistema general.
+			\item Los cambios que así lo requieran presentarán al usuario pantallas para afinar el proceso de consolidación de los ajustes. Además si la implantación requiriese un determinado tiempo para llevarse a cabo se monitorizará el proceso. Algunos cambios pueden requerir el reinicio del sistema o alguno de sus componentes para llegar a efecto.
 		\end{enumerate}
 		\item \textit{Respuesta a situaciones no previstas}
 		\begin{enumerate}

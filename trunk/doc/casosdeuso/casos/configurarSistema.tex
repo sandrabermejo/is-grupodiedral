@@ -1,38 +1,39 @@
 % Caso de uso: Configurar sistema general.
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
-% A peticionario de Cristina ->
-% Revisado por Rubén el día xx/0x/2013
+% Revisado por Rubén el día 13/03/2013
 
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Configurar sistema general,
 	% Objetivo
-	objetivo=Configurar el sistema.,
+	objetivo={Configurar ciertos parámetros de configuración general del  sistema como nombre de la compañía, moneda utilizada, fecha y hora, ordenación de configuración por defecto\ldots\footnote{Para mayor concreción consúltese la {\itshape Especificación de Requisitos Software}.}}.,
 	% Entradas
-	entradas={Cambios que se quieran realizar en la configuración del sistema.},
+	entradas={Valores de los nuevos parámetros cuyo cambio se quiera aplicar al sistema.},
 	% Precondiciones
-	precondiciones={Que un personal administrativo autorizado acceda a la configuración del sistema para realizar los cambios que desee dentro de las opciones posibles.},
+	precondiciones={El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación.},
 	% Salidas
-	salidas={Cambiar la configuración.},
+	salidas={Confirmación de los cambios aplicados.},
 	% Postcondiciones en caso de éxito
-	postexito={La configuración que ha elegido el personal administrativo habrá sido restablecida por lo que haya indicado.},
+	postexito={Las variaciones en la configuración se habrán aplicado sobre el sistema o se implantarán, si así lo requieren, en el próximo reinicio.},
 	% Postcondiciones en caso de error
-	posterror={No se ha realizado ningún cambio en el sistema y la configuración sigue igual que estaba.},
+	posterror={No se ha realizado ningún cambio en el sistema.},
 	% Actores
-	actores=El personal administrativo cuyo rol implique cambiar la configuración del sistema de la empresa.,
+	actores={El personal administrativo o, por delegación, el personal de los servicios informáticos debidamente autorizado.},
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & El usuario registrado accede a la configuración del sistema.\\
-		2 & Introduce las modificaciones que desea realizar en el sistema.\\
-		3 & Se modifican los datos de la configuración indicados previamente. Si error S-1.\\
-		3 & Se confirma que los datos han sido modificados con éxito.
+		1 & Se presentan los valores actuales de la configuración general del sistema. \\
+		2 & El usuario introduce los nuevos valores de las propiedades que desee modificar. \\
+		3 & Se almacenan los ajustes introducidos en el sistema central. Si error S-1.\\
+		4 & Se aplican los ajustes si su naturaleza permite su aplicación inmediata. En caso contrario se inician los procesos correspondientes para su implantación o se pospone ésta al próximo reinicio de los componentes implicados. Si error S-2. \\
+		5 & Se confirma que los datos han sido modificados con éxito.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & Los datos indicados no se pueden eliminar. Si quiere modificar esos datos asegúrese de que son datos modificables. Si lo son, ha ocurrido un fallo en el sistema que debe de comunicar al personal técnico para su revisión.
+		S-1 & No se puede conectar con el servidor central. Se informa al usuario y se le permite reintentar la petición o abandonar la operación.\\
+		S-2 & Los datos no han podido ser aplicados o no se han podido iniciar los procesos correspondientes. Se informa al usuario y se le permite reintentar o abandonar la aplicación revirtiendo los efectos del punto 3 que no hayan podido ser aplicados.
 	\end{tablasecuencias}
 }
 

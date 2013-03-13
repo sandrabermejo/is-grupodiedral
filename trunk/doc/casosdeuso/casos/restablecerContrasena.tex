@@ -1,11 +1,11 @@
-% Caso de uso: Reestablecer Contraseña Cliente
+% Caso de uso: Restablecer Contraseña Cliente
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
 % Revisado por Juanan el día 12/03/2013
 
 \casodeuso{
 	% Nombre del caso de uso
-	nombre=Reestablecer contraseña,
+	nombre=Restablecer contraseña,
 	% Objetivo
 	objetivo=Cambiar la contraseña de acceso asociada a una cuenta.,
 	% Entradas
@@ -23,7 +23,7 @@
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & El cliente introduce su direccion de correo electrónico. Si error S-1.
+		1 & El cliente introduce su dirección de correo electrónico. Si error S-1. \\
 		2 & El sistema muestra mensaje de confirmación.
 	\end{tablasecuencias}
 }{
@@ -32,5 +32,3 @@
 		S-1 & Si la dirección de correo no se encuentra asociada a una cuenta registrada se avisa de ello mediante un mensaje y se vuelve a 1 de la secuencia normal de uso.
 	\end{tablasecuencias}
 }
-
-

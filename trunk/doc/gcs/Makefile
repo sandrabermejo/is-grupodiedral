@@ -10,7 +10,7 @@ DVIPDF=dvipdf
 make:
 	pdflatex $(GCS_TEX)
 	makeindex -s $(GCS_TEX).ist -t $(GCS_TEX).glg -o $(GCS_TEX).gls $(GCS_TEX).glo
-#	bibtex $(SQA_TEX)
+	bibtex $(GCS_TEX)
 	pdflatex $(GCS_TEX)
 
 latex+pdf:
