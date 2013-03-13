@@ -114,10 +114,10 @@ pdfinfo={
 			En cuanto a la parte externa, el sitio web de la compañía permitirá al usuario la compra de billetes, ofreciéndole la información de todos los vuelos disponibles según sus criterios de búsqueda, así como mostrándole las últimas ofertas y permitiendo el pago a través de la web.
 			
 		\subsection{Funciones del producto}
-			Las principales funciones del producto están destinadas a gestionar de forma centralizada todo lo relativo a las actividades normales de una compañía aérea. Básicamente éstas se pueden clasificar en dos grandes grupos, que serían los siguientes. \\
+			Las principales funciones del producto están destinadas a gestionar de forma centralizada todo lo relativo a las actividades corrientes de una compañía aérea. Básicamente éstas se pueden clasificar en dos grandes grupos, que serían los siguientes. \\
 			
 			\begin{itemize}
-				\item Funciones relacionadas con el funcionamiento interno de la compañía:
+				\item Funciones relacionadas con la gestión interna de la compañía:
 					\begin{itemize}
 						\item \textit{Financieras}: información de ventas, gastos y valoración de inventario.
 						\item \textit{Administrativas}: confección y consultas de nóminas de empleados y pedidos a proveedores.
@@ -272,10 +272,10 @@ pdfinfo={
 				\end{itemize}
 
 				% Dirección
-				\subsubsubsection{Dirección postal} \label{srs:direccionpostal}			
+				\subsubsubsection{Dirección postal}	\label{srs:direccionpostal}		
 					En lo referente a este proyecto de \software una dirección postal constará de los siguientes campos:
 					\begin{itemize}
-						\item \textbf{Tipo de vía}: será una opción entre un rango de opciones disponibles (configurables). Para un correcto funcionamiento deberían considerarse los siguientes tipos admitidos por Correos: \textit{alameda}, \textit{autopista}, \textit{autovía}, \textit{avenida}, \textit{bulevar}, \textit{camino}, \textit{carretera}, \textit{glorieta}, \textit{paseo}, \textit{plaza}, \textit{pasaje}, \textit{ronda}, \textit{sector}, \textit{travesía}, \textit{otros}, \textit{vía} (numerados por ese orden a partir de 1).
+						\item \textbf{Tipo de vía}: será una opción entre un rango de opciones disponibles (configurables). Para un correcto funcionamiento deberían considerarse los siguientes tipos admitidos por Correos: \textit{calle}, \textit{alameda}, \textit{autopista}, \textit{autovía}, \textit{avenida}, \textit{bulevar}, \textit{camino}, \textit{carretera}, \textit{glorieta}, \textit{paseo}, \textit{plaza}, \textit{pasaje}, \textit{ronda}, \textit{sector}, \textit{travesía}, \textit{otros}, \textit{vía} (numerados por ese orden a partir de 1).
 						\item \textbf{Nombre de la vía} o simplemente dirección. En principio limitada a 30 caracteres alfanuméricos.
 						\item \textbf{Número}: número dentro de la vía (opcional).
 						\item \textbf{Portal}: portal de la dirección. 2 caracteres alfanuméricos (opcional).
@@ -439,14 +439,10 @@ pdfinfo={
 		\subsection{Requisitos lógicos de la base de datos}
 			Los requisitos lógicos para las funciones que trabajan con la base de datos son:
 			\begin{itemize}
-				\item \textbf{Tipos de información usada por diversas funciones: }
-				Existen funciones que recibirán cadenas de texto, unas que las usarán para mostrar los datos por pantalla para que el usuario de la aplicación pueda observar la información, y otras que las recibirán para cubrir las necesidades ya que la acción que realiza requiere de dichos datos. En el primer tipo de funciones, existen varias que podrán recibir además imágenes como complemento para mostrar la información. \\ 
-				
-				Además, especificando en el ámbito de programación, algunas funciones como \nameref{fun:modinventario}, \nameref{fun:EntrMat} y \nameref{fun:consultarinventario} (entre otras), tendrán que manejar objetos de una ``clase Item'' para poder trabajar con ellos en la base de datos y almacenarlos ahí en \gls{arrays}. 
-				\item \textbf{Frecuencia de uso: } Habrá funciones que la frecuencia con la que accedan a la base de datos sea muy baja debido a que se accederá a dichas funciones en escasas ocasiones y en momentos específicos, como pueden ser~\nameref{fun:configSystem}, Organizar puestos de trabajo, Modificar empleados, etc. 
-				\item \textbf{Capacidades de acceso: } Si comparamos una función que tenga que buscar un cliente específico entre todos los que están en la base de datos, y una función que tenga que mostrar la información económica de la empresa, podemos observar la gran diferencia de capacidades que tienen que tener unas funciones y otras, pues el coste de lo primero es mucho más grande que el coste de lo segundo. Esto se debe a que por lo dicho anteriormente en el ámbito de la programación, no tiene el mismo coste buscar en un array un objeto de la clase Item en concreto a cargar unas cadenas de texto que te pasa la base de datos. Por ello una información tendrá que ser más accesible y fácil de encontrar para unas funciones, y así facilitarle el trabajo por ejemplo al que tenga que realizar la tarea de buscar un cliente/empleado específico. 
-				% Eso de lo arrays de la clase Item: demasiado informal y TPístico
-				\item \textbf{Entidades de datos y sus relaciones: } Existen datos que deben estar ``incluidos'' en otros datos, esto es por ejemplo, los datos personales de un empleado/cliente deben de estar incluidos en los datos del conjunto de empleados/clientes. Es por eso que en algunos casos para buscar algo específico debes buscar primero en lo general (a no ser que por algún motivo los datos que busques estén copiados temporalmente en otra sección de la base de datos). 
+				\item \textbf{Tipos de información usada por diversas funciones: } Existen funciones que recibirán cadenas de texto, unas que las usarán para mostrar los datos por pantalla para que el usuario de la aplicación pueda observar la información, y otras que las recibirán para cubrir las necesidades ya que la acción que realiza requiere de dichos datos. En el primer tipo de funciones, existen varias que podrán recibir además imágenes como complemento para mostrar la información.
+				\item \textbf{Frecuencia de uso: } Las funciones tienen distintas frecuencias de acceso a la base de datos, existiendo algunas en las que se acceda en escasas ocasiones y en momentos específicos como pueden ser \nameref{fun:configSystem}, Organizar puestos de trabajo, Modificar empleados, etc., mientras que otras funciones como Acceder en gestión interna o Consultar Vuelo tendrán una alta frecuencia de acceso a la base de datos.
+				\item \textbf{Capacidades de acceso: } Las funciones del sistema deben tener unas capacidades de acceso muy diferentes ya que costes como el que ocasiona la búsqueda un cliente específico entre todos los que están en la base de datos son mucho mayores que otros, como puede ser el de mostrar la información económica de la empresa. Por ello, una información tendrá que ser más accesible y fácil de encontrar para unas funciones, y así facilitarle el trabajo, por ejemplo, al que tenga que realizar la tarea de buscar un cliente o empleado específico. 
+				\item \textbf{Entidades de datos y sus relaciones: } Los datos almacenados deben cumplir unas condiciones prefijadas para posibilitar su correcto uso por el sistema y que dependerán de la entidad de datos a la que correspondan. Además, algunos datos estarán estrechamente relacionados con otros como puede ser las ofertas y los vuelos disponibles, o incluso los incluirán como los datos de los empleados de la empresa incluyen la información relativa a sus horarios y nóminas.
 			\end{itemize}
 
 		\subsection{Restricciones de diseño}
@@ -463,7 +459,7 @@ pdfinfo={
 			\begin{itemize}
 				\item \textit{Seguridad}: implementando sistemas para evitar fraude, sistemas seguros y de encriptado para cobro, procesos de identificación de empleados basados en niveles de acceso y secciones.
 				\item \textit{Estabilidad}: es fundamental la protección del sistema frente a errores, manteniendo en todo momento copias de seguridad de las bases de datos y registrando accesos y modificaciones.
-				\item \textit{\gls{Usabilidad}}: pone al alcance del usuario una interfaz gráfica sencilla e intuitiva pero a la vez completa.
+				\item \textit{\gls{Usabilidad}}: pone al alcance del usuario una interfaz gráfica relativamente sencilla e intuitiva pero a la vez completa.
 				\item \textit{Escalabilidad}: se desarrolla el sistema facilitando el mantenimiento del mismo así como la posibilidad de ampliaciones y nuevas funcionalidades futuras.
 			\end{itemize}
 	
