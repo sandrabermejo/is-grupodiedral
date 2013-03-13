@@ -1,6 +1,8 @@
 % Caso de uso: Facturar
 % Obs: para escribir comas en el texto del primer parámetro se han de encerrar entre {}.
 
+% Revisado por Cristina el día 13/03/2013
+
 \casodeuso{
 	% Nombre del caso de uso
 	nombre=Facturar,
@@ -9,26 +11,26 @@
 	% Entradas
 	entradas={El número de vuelo, el número de reserva del pasajero y el peso del equipaje.},
 	% Precondiciones
-	precondiciones=Haber accedido al sistema con un usuario válido y elegir la opción \textit{Facturar} de la aplicación.,
+	precondiciones=El operador de la aplicación tiene credenciales que le habilitan para realizar dicha operación.,
 	% Salidas
-	salidas={Confirmación de que el equipaje ha sido facturado, en caso de que proceda.},
+	salidas=Confirmación de que el equipaje ha sido facturado.,
 	% Postcondiciones en caso de éxito
-	postexito=El pasajero ha facturado su equipaje.,
+	postexito=Se registra la operación en la base de datos del sistema.,
 	% Postcondiciones en caso de error
-	posterror=Ha habido algún error en el proceso de facturación y el pasajero no puede facturar su equipaje.,
+	posterror=No se realiza ningún cambio en el sistema.,
 	% Actores
 	actores=El personal de la compañía presente en el aeropuerto y la base de datos.
 }{
 	% Tabla de secuencia normal del caso de uso
 	\begin{tablasecuencias}
-		1 & El usuario introduce el número de vuelo y el número de reserva del pasajero. Si error S-1. \\
-		2 & El usuario introduce el peso de la maleta del pasajero y, en caso de exceso de peso, se mostrará un mensaje indicando la cantidad de dinero a pagar en el momento. Si error S-2. \\
-		3 & Se mostrará un mensaje de facturación completada con éxito.	
+		1 & El usuario introduce el número de vuelo y el número de reserva del pasajero. Si algún dato no es válido S-1.\\
+		2 & El usuario introduce el peso de la maleta del pasajero. Si error S-2.\\
+		3 & En caso de exceso de peso, se muestra la cantidad de dinero a pagar en el momento.
 	\end{tablasecuencias}
 }{
 	% Tabla de secuencia con errores del caso de uso
 	\begin{tablasecuencias}
-		S-1 & Alguno de los campos introducidos por el usuario no es válido. Se muestra un mensaje de error y se pide de nuevo la introducción de los datos. \\
+		S-1 & El sistema vuelve a 1 de la secuencia normal de uso e indica los campos erróneos.\\
 		S-2 & El peso introducido no está en el rango admitido por la compañía. Se muestra un mensaje de error y se pide de nuevo la introducción del peso.
 	\end{tablasecuencias}
 }
