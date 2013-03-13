@@ -1,25 +1,27 @@
 
-\srsfuncion{Registrar entrada material}
-	Esta función debe permitir registrar un nuevo material en el inventario de la empresa.
+% Revisado por Cristina el día 12/03/2013
 
-\begin{enumerate}
-	\item \textit{Entradas}
-	\begin{enumerate}
-		\item Al añadirlo, los items del inventario deberán seguir quedando ordenados por defecto por orden alfabético, ordenando posteriormente el sistema si se desea por otros campos como fecha de entrada en almacén, cantidad de items, destino de uso (oficina, mecánica, edificios, aeronáutico\ldots) y valor de adquisición.
-		\item El número de registro del item debe de ser un número mayor o igual que cero (numeración de los items).
-	\end{enumerate}
-	\item \textit{Flujo de operaciones}
-	\begin{enumerate}
-		\item Se muestra por pantalla el formulario a rellenar con los datos específicos del item que se van a introducir en la base de datos para poder identificarlo posteriormente y poder mostrar la información sobre él.
-		\item Habrá un botón \verb|Añadir|, que registrará la entrada de material en el sistema.
-		\item Si el item existe se incrementará la cantidad de items en el inventario.
-		\item Si el item no existe, cuando se añada se modificará la lista añadiéndolo en el lugar correcto.
-	\end{enumerate}
-	\item \textit{Respuesta a situaciones no previstas}
-	\begin{enumerate}
-		\item Si se ha introducido algún campo incorrecto en el formulario a rellenar de los datos específicos del item, marcar los campos erróneos y mostrar un mensaje por pantalla indicando cuáles de estos campos son erróneos (por escrito) y una nota con una breve descripción diciendo el por qué.
-		\item Si no se ha podido ordenar en orden alfabético: mostrar la información desordenada e indicar que no se ha podido ordenar.
-	\end{enumerate}
+\srsfuncion{Registrar entrada material} \label{fun:EntrMat}
+	Esta función permite registrar un nuevo material en el inventario de la empresa.
 
-\end{enumerate}
-\label{fun:EntrMat}
+	\begin{enumerate}
+		\item \textit{Prioridad}: media.
+		\item \textit{Entradas}
+		\begin{enumerate}
+			\item Al añadir el nuevo material, los items del inventario deben seguir ordenados por defecto por orden alfabético, pudiendo ordenarse por otros campos como fecha de entrada en almacén, cantidad de items, destino de uso (oficina, mecánica, edificios, aeronáutico\ldots) y valor de adquisición.
+			\item El número de registro del item debe de ser un número mayor o igual que cero (numeración de los items).
+		\end{enumerate}
+		\item \textit{Flujo de operaciones}
+		\begin{enumerate}
+			\item Se muestra por pantalla el formulario a rellenar con los datos específicos del item que se van a introducir en la base de datos.
+			\item El empleado añade el item al inventario.
+			\item Si el item existe se incrementa la cantidad de items en el inventario.
+			\item Si el item no existe, se modifica la lista añadiéndolo en el lugar correcto.
+			\item Se obtiene una adhesivo impreso para identificar el objeto catalogado (si procede).
+		\end{enumerate}
+		\item \textit{Respuesta a situaciones no previstas}
+		\begin{enumerate}
+			\item Si algún campo introducido no es válido, se indica y se da la opción de introducirlo de nuevo.
+			\item Si no se puede acceder a la base de datos, se muestra un mensaje de error por pantalla dando la opción de reintentar o volver al menú principal de la aplicación.
+		\end{enumerate}
+	\end{enumerate}
