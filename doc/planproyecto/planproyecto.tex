@@ -72,7 +72,9 @@ pdfinfo={
 		
 		\subsection{Ámbito del proyecto y objetivos}
 			\subsubsection{Declaración del ámbito}
-			El ámbito del proyecto es la gestión tanto interna como externa de una compañía aérea. La aplicación para la gestión interna permitirá a los empleados de la compañía organizar y programar de manera más rápida y eficiente varias de sus tareas laborales, así como consultar diversos datos relativos a su trabajo en la empresa, como horarios, nómina, etc. En cuanto a la gestión externa, los clientes de la compañía podrán realizar a través de la página web todo lo relacionado con la compra de los billetes de avión: acceder a la información relativa a los vuelos ofertados, efectuar el pago de los billetes y beneficiarse de diversas ofertas.
+			El cliente del proyecto es una compañía aérea ya asentada en el sector, por lo que el software está destinado a la sustitución del sistema actual de la compañía que se ha quedado obsoleto y tiene un dificil mantenimiento y escalabilidad, por ello se requerirá de una fase previa a la transición de simulación y pruebas para conseguir una transición segura y sin provocar una parada en la actividad normal de la empresa.
+			En cuanto al equipo de desarrollo, se enfrenta por primera vez a un proyecto de esta embergadura por lo que esta especificación y el resto de documentación será susceptible de cambios a lo largo de todo el desarrollo.
+			En el marco competitivo, es cierto que existen alternativas generales en el mercado, pero nuestro proyecto pretende ser una solución a medida, viendose ello potenciado por la continua presencia y participación del cliente a lo largo del proyecto.
 
 			\subsubsection{Funciones principales}
 			Las funciones principales de la aplicación interna son la consulta de horarios y nóminas para todos los empleados de la compañía, así como otras funciones específicas según el empleo que realicen dentro de la empresa como consultar, añadir o editar distintos datos de empleados, inventario o información de la empresa, y otras funciones concretas relativas al empleo como puede ser realizar un mantenimiento o registrar un nuevo empleado. \\
@@ -80,14 +82,14 @@ pdfinfo={
 			La aplicación externa permitirá al cliente la compra de billetes de vuelo, pudiendo realizar el pago por diversos métodos. Además, permitirá la consulta de los vuelos ofertados así como ver información de las diversas ofertas y presentar sugerencias.
 			
 			\subsubsection{Aspectos de rendimiento}
-			El sistema interno podrá reconocer hasta 4.000 terminales. Deberá soportar hasta 1.000 usuarios conectados de forma simultánea a los servicios del software de gestión interna de la aplicación que requieran una conexión latente, e incluso se podrán soportar los 2.000 usuarios si se tratan de conexiones de corta duración.  En cuanto al servidor web, admitirá hasta 6.000 conexiones simultáneas para el contenido estático. \\
+			El sistema interno podrá reconocer hasta 4.000 terminales. Deberá soportar hasta 1.000 usuarios conectados de forma simultánea a los servicios del software de gestión interna de la aplicación que requieran una conexión latente, e incluso se podrán soportar los 2.000 usuarios si se tratan de conexiones de corta duración.  En cuanto al servidor web, admitirá hasta 6.000 conexiones simultáneas para el contenido estático(no necesita interacción con el servidor de la base de datos). \\
 
 			El 90 por ciento de las transacciones deberán realizarse en menos de un minuto. La base de datos es un elemento crítico en el rendimiento del sistema y deberá ofrecer una alta disponibilidad, puesto que se prevén realizar miles de interacciones al día.
 
 			\subsubsection{Restricciones y técnicas de gestión}
 			El rendimiento y las restricciones del sistema están íntimamente relacionadas. La aplicación de gestión interna deberá estar disponible tanto en Linux como en Microsoft Windows XP, Vista y 7; y se podrán considerar Apple Mac OS X 10.X y Solaris en futuras versiones.  \\
 
-			El diseño de la aplicación estará codificado de acuerdo a los estándares reconocidos, para facilitar así su reutilización y adaptación. Además, el programa debe proporcionar mecanismos para la realización de controles de funcionamiento y auditorías. También hay que vigilar que el sistema quede protegido frente a intentos de accesos externos, respetando en todo momento las regulaciones de protección de datos de carácter personal.
+			La aplicación se diseñará de acuerdo con los estándares reconocidos, para facilitar así su reutilización y adaptación. Además, el programa debe proporcionar mecanismos para la realización de controles de funcionamiento y auditorías. También hay que asegurar que el sistema quede protegido frente a intentos de accesos externos, respetando en todo momento las regulaciones de protección de datos de carácter personal.
 
 		\subsection{Modelo de proceso}
 		El desarrollo de nuestro proyecto estará basado en el modelo conocido como Proceso Unificado también conocido como RUP(Rational Unified Process). Éste modelo fue inicialmente descrito en 1999 por los desarrolladores del lenguaje UML, Ivar Jacobson, Grady Booch y James Rumbaugh y se caracteriza principalmente por estar dirigido por los casos de usos, centrarse en la arquitectura y ser iterativo incremental. En él podemos diferenciar cuatro fases. En la fase de inicio se desarrolla una descripción del producto final, en la fase de elaboración se especifican los casos de uso y se diseña la arquitectura del sistema, en la fase de construcción se crea el producto y por último en la fase de transición se entrega el producto al cliente.
@@ -305,10 +307,10 @@ papel.
 			\end{figure}
 		\end{landscape}
 
-		\subsection{Tabla de uso de recursos}
+		\subsection{Tabla de uso de recursos} %tabla?
 	\section{Recursos del proyecto}
 		\subsection{Personal}
-			Para el equipo desarrollo de éste proyecto disponemos de una plantilla de dimensión reducida pero a su vez un equipo motivado por lo pensamos que la organización Descentralizado Democrático (DD) de Mantei puede resultar productiva. Ésta organización se caracteriza por no tener un jefe permanente si no que se nombran para cada tarea y las decisiones y soluciones a problemas se llevan a consenso del grupo. Se asignarán las tareas de forma individual o por equipos bien definidos.
+			Para el equipo desarrollo de éste proyecto disponemos de una plantilla de dimensión reducida pero a su vez un equipo motivado por lo pensamos que la organización Descentralizado Democrático (DD) de Mantei puede resultar productiva. Esta organización se caracteriza por no tener un jefe permanente si no que se nombran para cada tarea y las decisiones y soluciones a problemas se llevan a consenso del grupo. Se asignarán las tareas de forma individual o por equipos bien definidos.
 
 		\subsection{Hardware y software}
 			El equipo de desarrollo cuenta, para la realización de sus tareas, con sus computadoras personales, además del uso de los laboratorios y las instalaciones de la Facultad de Informática y la Facultad de Matemáticas de la Universidad Complutense de Madrid, donde desarrollan su actividad académica.\\
@@ -330,7 +332,7 @@ papel.
 		\subsection{Gestión y control de cambios}
 			Se consideran los siguientes elementos de control: el desarrollo de casos de uso denotado \textit{CCUU}, los diagramas de casos de uso denotados \textit{Diagramas CCUU}, el documento de especificación de requisitos \software denotado \textit{SRS}, el plan de proyecto, el prototipo de gestión externa y el prototipo de gestión interna.\\
 
-			El notación de la versión del \software utiliza al menos dos dígitos numéricos, siendo el más representativo el situado más a la izquierda. Este número representa el número de entregas terminadas, de forma que la versión entregada en la primera entrega es la 1.0, la entregada en segundo término es la 2.0 y así sucesivamente. Versiones intermedias serán representadas mediante la numeración menos significativa. Cuando pueda resultar útil se indicará la revisión del sistema de control de versiones después del número de versión como en \verb|1.0-rv50|. La notación de versión de los elementos será independiente de la versión general.
+			La notación de la versión del \software utiliza al menos dos dígitos numéricos, siendo el más representativo el situado más a la izquierda. Este número representa el número de entregas terminadas, de forma que la versión entregada en la primera entrega es la 1.0, la entregada en segundo término es la 2.0 y así sucesivamente. Versiones intermedias serán representadas mediante la numeración menos significativa. Cuando pueda resultar útil se indicará la revisión del sistema de control de versiones después del número de versión como en \verb|1.0-rv50|. La notación de versión de los elementos será independiente de la versión general.
 		
 		\begin{itemize}
 			\item[\bfseries 0.1] $\{$CCUU 0.1, Diagramas CCUU 0.1$\}$
