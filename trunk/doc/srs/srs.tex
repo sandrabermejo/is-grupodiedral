@@ -385,6 +385,9 @@ pdfinfo={
 			\subsubsection{Gestión externa}
 				% FUNCIÓN: ACCEDER GESTIÓN EXTERNA
 				\input{funciones/accederGE}
+				
+				% FUNCIÓN: ACCEDER GESTIÓN EXTERNA
+				\input{funciones/restablecerContraseña}
 
 				% FUNCIÓN: REGISTRARSE
 				\input{funciones/registrarse}
@@ -447,13 +450,10 @@ pdfinfo={
 
 		\subsection{Restricciones de diseño}
 			El diseño de este producto está condicionado por la naturaleza y los usos del cliente, de lo que se derivan algunas limitaciones. La existencia previa de un parque de equipos informáticos distribuidos en las instalaciones de la compañía que el cliente quiere conservar imponen la necesidad de acomodar el \software a las posibilidades que ofrecen dichas máquinas. Este en particular, no plantea grandes problemas, ya que la aplicación cliente para la gestión interna --que será instalada en esos equipos-- no exige atributos que no estén presentes en la mayoría de las máquinas; si bien la obsolescencia de algunos equipos puede dejar sin efecto los requisitos de rendimiento indicados en el texto. Por otro lado, el amplio uso de ordenadores compartidos en ciertos sectores de la compañía ha impuesto limitar el almacenamiento local de información. Así mismo, la expansión internacional del cliente y las diferentes legislaciones sobre tratamiento de datos de carácter personal restringen posibles características del producto.
-			\subsubsection{Cumplimiento de estándares}
+			\subsubsection{Cumplimiento de estándares} %Mejorar este apartado, aportar y reestructurar ideas
 				Este producto ha sido diseñado de acuerdo a ciertos estándares sobre materias diversas.\\
 				
-				En el terreno económico y financiero, toda operación realizada por la aplicación es conforme a las \gls{NIC} \cite{NIC2006} y especialmente al \textit{Plan General de Contabilidad} de España \cite{PGC2007}.\\
-
-				En el ámbito de la actividad del cliente, se han seguido recomendaciones y estándares relevantes de la \gls{IATA}.
-				
+				Se especifican a lo largo del documento tanto en apartados especificos como en sus correspondientes funciones los estándares que cumple el producto, especificando de éste modo todo lo referente a unidades de medida usadas, codificación alfabetica, moneda, códigos de identificación, formato de fechas, formato de campos, criterios.
 		\subsection{Atributos del sistema software}
 			El diseño del sistema se ha basado en características como:
 			\begin{itemize}
