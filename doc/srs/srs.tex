@@ -2,6 +2,8 @@
 %	Documento de especificación de requisitos software (SRS).
 %
 
+%Revisado 12/03/2013
+
 \documentclass[11pt, a4paper, twoside, titlepage]{article}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
@@ -105,7 +107,7 @@ pdfinfo={
 			
 	\section{Descripción general}
 		\subsection{Perspectiva del producto}
-			ACE permitirá la gestión completa, tanto de la parte interna como de la parte externa, de una compañía aérea, sin que sea necesario, en un principio, integrarla dentro de otro sistema. \\
+			ACE permitirá la gestión completa, tanto de la parte interna como de la parte externa, de una compañía aérea sin que sea necesario, en un principio, integrarla dentro de otro sistema. \\
 			
 			La interfaz interna de ACE facilitará al personal de la compañía aérea acceder a sus datos laborales actualizados, ya que éstos estarán informatizados y podrán ser consultados a través de la aplicación, así como a ciertos datos de la compañía de interés general. Además, a través de su cuenta personal y en función del cargo que ejerza dentro de la compañía, la aplicación permitirá al usuario realizar unas u otras tareas para mejorar la programación laboral, optimizando así el tiempo y el esfuerzo del trabajador. \\
 			
@@ -117,10 +119,10 @@ pdfinfo={
 			\begin{itemize}
 				\item Funciones relacionadas con el funcionamiento interno de la compañía:
 					\begin{itemize}
-						\item \textit{Financieras}: información de ventas, gastos, valoración de inventario.
-						\item \textit{Administrativas}: confección y consultas de nóminas de empleados, pedidos a proveedores.
+						\item \textit{Financieras}: información de ventas, gastos y valoración de inventario.
+						\item \textit{Administrativas}: confección y consultas de nóminas de empleados y pedidos a proveedores.
 						\item \textit{Mantenimiento}: programación de revisiones de vehículos, inventariado de herramientas y repuestos.
-						\item \textit{Planificación}: creación y consultas de planes y rutas de vuelos, cuadrar horarios de personal.			
+						\item \textit{Planificación}: creación y consultas de planes y rutas de vuelos y cuadrar horarios de personal.			
 					\end{itemize}
 				\item Funciones relativas a la interacción con el cliente final:
 					\begin{itemize}
@@ -148,7 +150,7 @@ pdfinfo={
 			Con generalidad, la \textit{alfabetización informática} de los usuarios será suficiente para hacer uso eficiente de la aplicación.
 
 		\subsection{Restricciones}
-			% Descripción general de cualquier ¿otro? elemento que pueda limtar las opciones de los desarrolladores. En la primera versión incluimos -erróneamente- estas opciones.
+			% Descripción general de cualquier ¿otro? elemento que pueda limitar las opciones de los desarrolladores. En la primera versión incluimos -erróneamente- estas opciones.
 
 			La aplicación de la interfaz interna debe poder estar disponible para al menos los siguientes plataformas: \gls{Linux} (32 y 64 bits); \gls{Microsoft Windows} \textit{XP},  \textit{Vista} y \textit{7} (32 y 64 bits). Se considerará la disponibilidad para \textit{Apple Mac OS X 10.X} y \textit{Solaris}. Será necesario que el diseño de la aplicación cumpla unos mínimos de reutilización y facilidad de adaptación, por lo cual deberá ser codificado de acuerdo a los estándares reconocidos y los componentes no estándar o con riesgo de obsolescencia a corto plazo habrán de estar debidamente aislados del resto. El programa a su vez debe proporcionar los mecanismos necesarios para la realización de auditorías y controles de su funcionamiento, así como de su uso, a la par que garantizar el secreto de los datos manipulados, protegiendo el sistema frente a intentos de acceso externo o espionaje industrial y respetando las regulaciones que protegen los datos de carácter personal.\\
 
@@ -156,11 +158,12 @@ pdfinfo={
 
 			Para lograr lo pretendido en el \software de \textit{Gestión Interna} se considera utilizar \gls{C++} (C++98) con la biblioteca de interfaces gráficas \gls{Qt} que ofrece soporte para las plataformas requeridas\footnote{Información sobre soporte de Qt en \url{http://doc.qt.digia.com/qt/supported-platforms.html}}. El estándar C++11 puede no resultar conveniente debido a que no es soportado por todos los compiladores en la actualidad. La opción de utilizar \textit{Java} también es compatible con las restricciones de plataforma anteriormente especificadas. La interfaz de \textit{Gestión Externa} puede ser programada en \gls{HTML5}, que si bien está en fase experimental, es soportado en gran medida por los principales navegadores, disponibles en todas las plataformas requeridas.
 
-		\subsection{Supuestos y dependencias}
-			Los requisitos presuponen diversos factores que pueden cambiar en cualquier momento y, por tanto, afectar a dichos requisitos. Por ejemplo, si cambian ciertos detalles técnicos del sistema operativo, será necesario revisar y modificar los requisitos de nuestro proyecto. El sistema también depende del formato de la base de datos donde se almacena la información. \\
+		\subsection{Supuestos y dependencias} %No está muy claro
 			
-			Además, podría darse la situación de que el cliente solicitara alguna modificación sobre cierto aspecto de la aplicación o incluso una nueva funcionalidad de ésta. Para ello, el proyecto tiene que estar preparado para aceptar cualquier modificación con relativa facilidad, dependiendo de la magnitud y complejidad de la misma. Si llegase a producirse esta petición por parte del cliente, también se deberán modificar todos los documentos actualizando la información y los nuevos cambios producidos.
-
+			Suponemos para la definición de las funciones del producto la validación por parte del cliente de los casos de uso en los que éstas se basan.\\
+			Entre los supuestos nos encontramos además que los sistemas para los que va a ser desarrollado el software cumple el mínimo de requisitos especificados en la sección a tal fin.\\
+			Durante el proceso de desarrollo del proyecto, la especificacion del mismoo está sujeto a cambios por parte del cliente y en la fase de transición deberemos efectuarla paulatinamente y con seguridad por lo que dependeremos del sistema anterior a ser sustituido.
+			
 		\subsection{Requisitos futuros}
 			Futuras versiones de la aplicación ACE podrán integrar mejoras para la gestión interna de la compañía tales como modificar el puesto dentro de la empresa de un empleado y, en consecuencia, el nivel de permisos del usuario, o crear estadísticas basadas en los datos de entrada y salida del inventario que permitan prever las necesidades de comprar material y optimizar los recursos. \\
 		
@@ -168,7 +171,7 @@ pdfinfo={
 
 	\section{Requisitos específicos}
 		\subsection{Interfaces externas}
-			Las interfaces del usuario, tanto para la gestión interna como para la externa, se ajustarán al perfil del usuario promedio, así como a las restricciones específicas que imponga la empresa. En la gestión interna, cada usuario podrá acceder a una parte de la interfaz que será específica para él según el trabajo que realice en la compañía. Esta interfaz admitirá diferentes datos introducidos por el usuario, los cuales deberán ser válidos según los estándares establecidos por la empresa y que dependerán en gran medida del país donde se vaya a utilizar este software. Por defecto, en esta primera versión se utilizará el euro como unidad monetaria, las entradas numéricas deberán estar dentro de un rango determinado y admitirán un máximo de 2 dígitos decimales, y, para las entradas de texto, se admitirán carácteres alfabéticos latinos, con posibles carácteres especiales añadidos. Para la interfaz externa, se aplicarán estos mismos criterios y se comprobará que los datos introducidos por el cliente para efectuar la compra se ajustan a ellos. El usuario deberá identificarse obligatoriamente cuando llegue el momento de efectuar el pago.
+			Las interfaces del usuario, tanto para la gestión interna como para la externa, se ajustarán al perfil del usuario promedio, así como a las restricciones específicas que imponga la empresa. En la gestión interna, cada usuario podrá acceder a una parte de la interfaz que será específica para él según el trabajo que realice en la compañía. Esta interfaz admitirá diferentes datos introducidos por el usuario, los cuales deberán ser válidos según los estándares establecidos por la empresa y que dependerán en gran medida del país donde se vaya a utilizar este software. Por defecto, en esta primera versión se utilizará el euro como unidad monetaria. Las entradas numéricas deberán estar dentro de un rango determinado y admitirán un máximo de 2 dígitos decimales y para las entradas de texto se admitirán carácteres alfabéticos latinos, con posibles carácteres especiales añadidos. Para la interfaz externa se aplicarán estos mismos criterios y se comprobará que los datos introducidos por el cliente para efectuar la compra se ajustan a ellos. El usuario deberá identificarse obligatoriamente cuando llegue el momento de efectuar el pago.
 			
 
 		\subsubsection{Formato de entrada y salida}
@@ -424,7 +427,7 @@ pdfinfo={
 					\item Procesador \textit{Pentium} o equivalente a un mínimo de 233 MHz.
 					\item 128 Mb de memoria RAM con velocidad de transferencia de más de 250 MHz.
 					\item 10 GB disponibles en el disco duro a una tasa de transferencia superior a 10 MBit/s.
-					\item Adaptador de vídeo igual o superior a \textit{Nvidea GeForce 256} o equivalente.
+					\item Adaptador de vídeo igual o superior a \textit{Nvidia GeForce 256} o equivalente.
 				\end{itemize}
 
 			Bastará con una intensidad media de conexión a Internet para la \textit{Gestión Externa} de la compañía.\\

@@ -1,23 +1,28 @@
-\srsfuncion{Facturar}
-	Esta función debe controlar la facturación del equipaje del viajero.
+
+% Revisado por Juanan el día 12/03/2013
+
+\srsfuncion{Facturar} \label{fun:facturar}
+	Esta función registra y controla la facturación del equipaje del viajero.
 
 	\begin{enumerate}
 		\item \textit{Prioridad}: alta.
 		\item \textit{Entradas}
 			\begin{enumerate}
-				\item Los campos a introducir por el usuario son: \gls{numero_de_vuelo}, número de reserva y peso del equipaje.
-				\item El número de vuelo caracteriza e identifica unívocamente a todos los vuelos operados por la compañía.
-				\item El peso del equipaje debe ser expresado en kilogramos. En caso de que dicha cantidad supere el máximo permitido por billete, el pasajero deberá pagar la cantidad de dinero que indique el sistema. En cualquier caso, el peso del equipaje deberá estar dentro de un rango establecido previamente por la compañía.
+				\item Los campos a introducir por el usuario son: número de reserva y peso del equipaje.
+				\item El número de reserva caracteriza e identifica unívocamente tanto al usuario como al vuelo.
+				\item El peso del equipaje debe ser expresado en kilogramos. En caso de que dicha cantidad supere el máximo permitido por billete, el pasajero deberá abonar la cantidad calculada por indique el sistema. En cualquier caso, el peso del equipaje deberá estar dentro de un rango establecido previamente por la compañía.
 			\end{enumerate}
 		\item \textit{Flujo de operaciones}
 			\begin{enumerate}
 				\item Se muestra un formulario con el número de vuelo, número de reserva y peso del equipaje.
 				\item El usuario completa obligatoriamente todos los campos. Si el peso excede el permitido por billete, se indicará la cantidad a pagar y se habilitará un botón \verb|Confirmar pago| para indicar al sistema que el cliente ha abonado el dinero por el exceso de equipaje. No se dejará continuar mientras no se pulse dicha opción o no se modifique el peso del equipaje.
-				\item Cuando los datos sean correctos, el usuario deberá pulsar el boton de \verb|Facturar| para confirmar la operación.
+				\item Cuando los datos son correctos, el usuario confirma la operación.
 			\end{enumerate}
 		\item \textit{Respuesta a situaciones no previstas}
 			\begin{enumerate}
 				\item Si alguno de los datos introducidos no es válido: se muestran los campos erróneos y se da la opción de modificarlos.
 				\item Si no se puede acceder a la base de datos: se muestra un mensaje de error y vuelve a la página anterior.
 			\end{enumerate}
+		\item \textit{Relación con otras funciones}\\
+		La función está relacionada con \nameref{fun:efectuarembarque}.		
 	\end{enumerate}	

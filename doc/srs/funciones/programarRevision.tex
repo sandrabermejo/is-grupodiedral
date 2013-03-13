@@ -1,20 +1,22 @@
+
+% Revisado por Juanan el día 12/03/2013
+
 \srsfuncion{Programar revisión}
-	Esta función debe permitir programar una revisión a un vehículo determinado.
+	Esta función permite programar una revisión a un vehículo determinado.
 
 \begin{enumerate}
 	\item \textit{Prioridad}: alta.
 	\item \textit{Entradas}
 	\begin{enumerate}
-		\item El horario introducido para la revisión a un trabajador debe de estar incluido en su jornada laboral si no se le quiere añadir a su nómina horas extras de trabajo.
-		\item Cada trabajador podrá tener programada una única tarea en cada momento, por lo que al elegir la hora para la revisión sólo podrá elegirse a los empleados disponibles en ese momento.
+		\item Fecha y hora que será coherente con el horario del personal seleccionado, personal, material y herramientas necesarias.
 	\end{enumerate}
 	\item \textit{Flujo de operaciones}
 	\begin{enumerate}
 		\item Se elige fecha y hora para la revisión. 
 		\item Se selecciona el vehículo a reparar. Además, se rellena el resto del formulario indicando el material y las herramientas necesarias para la reparación, así como el motivo por el que necesita una reparación especificando qué se va a realizar en ella.
 		\item Se muestra por pantalla el listado de personal mecánico disponible en esos momentos, ordenados por orden alfabético según el primer apellido. 
-		\item Se deberá elegir un trabajador de revisión para que realice la tarea. Para ello se seleccionará el empleado de la lista y se pulsará el botón situado en la parte de abajo \verb|Programar revisión|
-		\item Cuando los datos se hayan modificado, se mostrará el nuevo horario y se enviará automáticamente un correo a la cuenta de correo personal del usuario para notificarle su nuevo horario.
+		\item Se elegien los trabajadores para que realice la tarea. Para ello se seleccionan los empleados de la lista.
+		\item Cuando los datos se han modificado, se muestra confirmación detallada y se envia automáticamente notificación al personal afectado.
 	\end{enumerate}
 	\item \textit{Respuesta a situaciones no previstas}
 	\begin{enumerate}

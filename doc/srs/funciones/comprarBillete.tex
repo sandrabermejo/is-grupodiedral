@@ -1,18 +1,22 @@
-\srsfuncion{Comprar billete}
-	Esta función debe permitir al usuario iniciar el proceso de compra de billetes de un vuelo seleccionado.		
+
+% Revisado por Juanan el día 12/03/2013
+
+\srsfuncion{Comprar billete} \label{fun:comprarbillete}
+	Esta función permite al usuario iniciar el proceso de compra de billetes de un vuelo seleccionado.		
 
 	\begin{enumerate}
+		\item \textit{Prioridad}: alta.	
 		\item \textit{Entradas}
 			\begin{enumerate}
-				\item El nombre y apellidos de los pasajeros deberá contener únicamente carácteres alfabéticos latinos, acentuados o no, y espacios.
-				\item La selección de asientos se realizará en función de los asientos disponibles en el momento de la compra de los billetes.
-				\item Los datos de la persona que paga serán, de momento, nombre y apellidos,  que deberá contener únicamente carácteres alfabéticos latinos, acentuados o no, y espacios.							
+				\item El nombre y apellidos de los pasajeros debe contener únicamente carácteres alfabéticos latinos, acentuados o no, y espacios.
+				\item La selección de asientos se realiza en función de los asientos disponibles en el momento de la compra de los billetes.
+				\item Los datos de la persona que paga son, de momento, nombre y apellidos,  que deberá contener únicamente carácteres alfabéticos latinos, acentuados o no, y espacios.							
 			\end{enumerate}
 		\item \textit{Flujo de operaciones}
 			\begin{enumerate}
 				\item Se muestra por pantalla el itinerario del vuelo a comprar, el precio total a pagar, desglosándolo en la parte correspondiente al pasajero, la tarifa, los impuestos, tasas y suplementos de transporte.
 				\item Se muestran los asientos disponibles del avión en el momento de la compra, dando la opción al cliente de reservar los asientos que desee en su vuelo.
-				\item El cliente deberá introducir los datos (nombre y apellidos) de la persona que realizará el pago de billetes (no tiene porqué ser un pasajero). Si todo ha ido correctamente se habilita un botón \verb|Continuar| y se redirecciona a~\ref{fun:iniciarpago}.
+				\item El cliente debe introducir los datos (nombre y apellidos) de la persona que realizará el pago de billetes (no tiene porqué ser un pasajero). Si todo ha ido correctamente se habilita una opción para \verb|Continuar| y se redirecciona a~\ref{fun:iniciarpago}.
 			\end{enumerate}
 		\item \textit{Respuesta a situaciones no previstas}
 			\begin{enumerate}
