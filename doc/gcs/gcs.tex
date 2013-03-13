@@ -12,11 +12,11 @@
 \usepackage[colorlinks, linkcolor=red]{hyperref}
 \usepackage{glossaries}
 \usepackage{glossaries-babel}
-\usepackage{lscape}
+%\usepackage{lscape}
 \usepackage[doc=gcs]{isdiedral}
-\usepackage{multicol}
-\usepackage{amsmath}
-\usepackage{float}
+%\usepackage{multicol}
+%\usepackage{amsmath}
+%\usepackage{float}
 
 % Nombre del documento (para futuras referencias)
 \newcommand*{\doctitle}{Plan de gestión de configuración del software}
@@ -76,7 +76,7 @@ pdfinfo={
 
 	\iniciarnumeraciondiedral
 	
-	\section{Introducción}%natalia
+	\section{Introducción} % Natalia
 		\subsection{Propósito}
 			El propósito del Plan de \gls{config_software} es establecer y mantener la integridad de los productos a desarrollar a través del proceso de software asociado. 
 		\subsection{Alcance}
@@ -87,53 +87,61 @@ pdfinfo={
 			\item Ayudará a la comunicación y organización en el grupo de desarrollo o con personas ajenas al proyecto.
 		\end{itemize}
 			
-		%\subsection{Definición de términos clave} ESTO ES EL GLOSARIO
+		%\subsection{Definición de términos clave} Esto es el Glosario
 		\subsection{Referencia}
-			\begin{itemize}
-				\item \textit{IEEE Standard for Software Configuration Management Plans 828-1998.}
-				\item \textit{Pressman, R.S.Ingeniería del Software. Un Enfoque Práctico.}
-			\end{itemize}
+			\nocite{IEEE828-1998}
+			\nocite{PSMAN}
+			Ver sección de {\itshape Referencias} al final del documento.
 		
-	\section{Gestión de la GCS}%sandra
+	\section{Gestión de la GCS} % Sandra
 		\subsection{Organización}
 		\subsection{Responsabilidades GCS}
 		\subsection{Políticas, directivas y procedimientos aplicables}
 	\section{Actividades de la GCS}
-		\subsection{Identificación de la configuración}%natalia
+		\subsection{Identificación de la configuración} % Natalia
 			En la siguiente sección se va a realizar la Identificación, nombrado y adquisición de \gls{ECS}.
-				\subsubsection{Casos de Uso}
+
+			\subsubsection{Casos de Uso}
 				Completar.
-				\subsubsection{Especificación de requisitos software}
+
+			\subsubsection{Especificación de requisitos Software}
+
 				\begin{enumerate}
-					\item \textit{\textbf{Descripción.}}
+					\item {\ithshape \bfseries Descripción.}
 						\begin{itemize}
 							\item \textit{Tipo de ECS:} Documento.
 							\item \textit{Identificador proyecto:} SRS.
 							\item \textit{Información de la versión y/o cambio:} Se han cambiado principalmente errores derivados de modificaciones en el documento de Casos de Uso. Además, también se han corregido errores de redacción, pequeñas contradicciones entre algunas partes del proyecto y se ha mejorado el documento gracias a revisiones de terceras personas desde otro punto de vista diferente.
 						\end{itemize}
-					\item \textit{\textbf{Lista de recursos.}}
-						Principalmente el documento de la Especificación de Requisitos Software tiene como entidades requeridas al Documento de Casos de Uso y al Prototipo, es decir, depende directamente de ellos.
+
+					\item {\itshape \bfseries Lista de recursos.}
+						Principalmente el documento de la Especificación de Requisitos Software tiene como entidades requeridas al documento de Casos de Uso y al Prototipo, es decir, depende directamente de ellos.
 				\end{enumerate}
-				\subsubsection{Prototipo Gestión Externa}
+
+			\subsubsection{Prototipo Gestión Externa}
 				Completar.
-				\subsubsection{Prototipo Gestión Interna}
+
+			\subsubsection{Prototipo Gestión Interna}
 				Completar.
-				\subsubsection{Plan de Proyecto}
+
+			\subsubsection{Plan de Proyecto}
 				Completar.
-				\subsubsection{Plan de Gestión de Configuración}
+
+			\subsubsection{Plan de Gestión de Configuración}
 				Completar.
-				\subsubsection{Plan de Gestión de Calidad}
+
+			\subsubsection{Plan de Gestión de Calidad}
 				Completar.
-				\subsubsection{Otros}
-			Algunos ECS importantes que no se van han desarrollado aún y que por tanto no se van a detallar en este documento son: Diagramas de colaboración de análisis, el documento de diseño, el manual de usuario, el plan de pruebas del sistema, documentos de diseño de base de datos, especificaciones de prueba del sistema...	
-				
-				
-		\subsection{Contabilidad de estado de configuración}%sandra
-	\section{Recursos de la GCS}%natalia
+
+			\subsubsection{Otros}
+				Algunos ECS importantes que no se van han desarrollado aún y que por tanto no se van a detallar en este documento son: Diagramas de colaboración de análisis, el documento de diseño, el manual de usuario, el plan de pruebas del sistema, documentos de diseño de base de datos, especificaciones de prueba del sistema\ldots
+
+		\subsection{Contabilidad de estado de configuración} % Sandra
+	\section{Recursos de la GCS} % Natalia
 	\section{Glosario}
 		\printglossaries
 
-	%\newpage
-	%\bibliography{gcs}
-	%\bibliographystyle{plain}
+	\newpage
+	\bibliography{gcs}
+	\bibliographystyle{plain}
 \end{document}
