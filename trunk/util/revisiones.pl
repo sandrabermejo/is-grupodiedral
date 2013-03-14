@@ -159,3 +159,12 @@ Uso: $0 [-h] [-d: directorio base]
 FIN
 	exit;
 }
+
+sub main::HELP_MESSAGE() {
+
+}
+
+# Información estándar sobre la versión (getopt)
+sub main::VERSION_MESSAGE() {
+	print "Comprobador de revisiones CU/SRS. Proyecto IS. Grupo Diedral (2012-2013) v1.1";
+}
