@@ -12,11 +12,10 @@
 \usepackage[colorlinks, linkcolor=red]{hyperref}
 \usepackage{glossaries}
 \usepackage{glossaries-babel}
-%\usepackage{lscape}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
 \usepackage[doc=gcs]{isdiedral}
-%\usepackage{multicol}
-%\usepackage{amsmath}
-%\usepackage{float}
+
 
 % Nombre del documento (para futuras referencias)
 \newcommand*{\doctitle}{Plan de gestión de configuración del software}
@@ -198,9 +197,14 @@ pdfinfo={
 		\subsection{Contabilidad de estado de configuración} % Sandra
 	\section{Recursos de la GCS} %Natalia
 		\textbf{Herramientas técnicas y Software.}
-			La principal herramienta en la que se va a basar la \textit{Gestión de Configuración del Software} será en el Repositorio de Documentación elegido para desarrollar el entorno de trabajo de los desarrolladores. Pese a los problemas resueltos que sucedieron antes de la última entrega (baja del Repositorio RiouxSVN) y que fueron resueltos gracias al desarrollo del Plan de Contingencia del riesgo identificado como \textit{"`Repositorio Inoperativo"'}, en las últimas entregas no han surgido granes conflictos de documentos. Así, la organización del nuevo repositorio AssemblaSVN ha quedado de la siguiente manera: \\
+			La principal herramienta en la que se va a basar la \textit{Gestión de Configuración del Software} será en el Repositorio de Documentación elegido para desarrollar el entorno de trabajo de los desarrolladores. Pese a los problemas resueltos que sucedieron antes de la última entrega (baja del Repositorio RiouxSVN) y que fueron resueltos gracias al desarrollo del Plan de Contingencia del riesgo identificado como \textit{`Repositorio Inoperativo'}, en las últimas entregas no han surgido grandes conflictos de documentos. Así, la organización del nuevo repositorio AssemblaSVN ha quedado de la siguiente manera: \\
 			\begin{center}
-				\includegraphics[scale=.4]{repositorio.png}
+				% Alternativa con tikz-tree
+				\tikzset{edge from parent/.style={draw, edge from parent path={(\tikzparentnode.south) -- +(0,-8pt) -| (\tikzchildnode)}}}
+				\Tree [.{.} [.trunk [.doc casosdeuso diagrama planproyecto plancalidad srs common gcs ].doc
+					[.presentacion primera  segunda ].presentacion ].trunk branches ].{.}
+
+				\includegraphics[scale=.5]{repositorio.pdf}				
 			\end{center}
 
 	\section{Glosario}
