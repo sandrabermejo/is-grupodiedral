@@ -18,5 +18,8 @@ latex+pdf:
 	$(DVIPDF) casosdeuso.dvi
 	$(RM) casosdeuso.dvi
 
+diagrepo:
+	inkscape --export-pdf=repositorio.pdf repositorio.svg
+
 clean:
 	$(RM) *.log *.aux *.glo *.ist *.toc *.out *.glg *.gls *.blb *.bbl *.blg *.lof
