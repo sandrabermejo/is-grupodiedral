@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="Icons">
+    <file>tango-icons/16x16/categories/applications-office.png</file>
+    <file>tango-icons/16x16/actions/document-properties.png</file>
+    <file>tango-icons/16x16/actions/list-add.png</file>
+    <file>tango-icons/16x16/actions/list-remove.png</file>
+  </qresource>
+  <qresource prefix="Images">
+    <file>images/Apu.png</file>
+  </qresource>
+</RCC>

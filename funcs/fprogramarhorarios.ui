@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FProgramarhorarios</class>
+ <widget class="QFrame" name="FProgramarhorarios">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>670</width>
+    <height>619</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::StyledPanel</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Listado de personal</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Seleccione un empleado cuyo horario desee programar:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTreeWidget" name="treeWidget">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>10000000</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
+        <column>
+         <property name="text">
+          <string>Apellidos</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Puesto de trabajo</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <item>
+         <property name="text">
+          <string>Pérez</string>
+         </property>
+         <property name="text">
+          <string>Peperro</string>
+         </property>
+         <property name="text">
+          <string>Mecánico</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Maldita</string>
+         </property>
+         <property name="text">
+          <string>Nerea</string>
+         </property>
+         <property name="text">
+          <string>Personal de limpieza</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Hernández</string>
+         </property>
+         <property name="text">
+          <string>Miguel</string>
+         </property>
+         <property name="text">
+          <string>Personal administrativo</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Christie</string>
+         </property>
+         <property name="text">
+          <string>Agatha</string>
+         </property>
+         <property name="text">
+          <string>Personal administrativo</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Alonso</string>
+         </property>
+         <property name="text">
+          <string>Fernando</string>
+         </property>
+         <property name="text">
+          <string>Piloto</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>Horario</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0" colspan="2">
+       <widget class="QComboBox" name="comboBox_3">
+        <item>
+         <property name="text">
+          <string>Horario de mañana</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Horario de tarde</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Horario de noche</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Fecha inicio:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDateTimeEdit" name="fechaOrigen">
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2012</year>
+          <month>12</month>
+          <day>15</day>
+         </datetime>
+        </property>
+        <property name="date">
+         <date>
+          <year>2012</year>
+          <month>12</month>
+          <day>15</day>
+         </date>
+        </property>
+        <property name="time">
+         <time>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+         </time>
+        </property>
+        <property name="currentSection">
+         <enum>QDateTimeEdit::DaySection</enum>
+        </property>
+        <property name="displayFormat">
+         <string>dd/MM/yyyy</string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>418</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="maximumSize">
+        <size>
+         <width>1000000</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Programar Horario</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+  <zorder>groupBox</zorder>
+  <zorder>groupBox_2</zorder>
+  <zorder>pushButton_3</zorder>
+  <zorder>horizontalSpacer</zorder>
+  <zorder>horizontalSpacer</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
