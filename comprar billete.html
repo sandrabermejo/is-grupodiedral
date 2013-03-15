@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<style type="text/css">
+body {
+	background-image: url(fondo.jpg);
+}
+#apDiv1 {
+	position:absolute;
+	width:878px;
+	height:302px;
+	z-index:1;
+	font-weight: bold;
+}
+#apDiv2 {
+	position:absolute;
+	width:667px;
+	height:247px;
+	z-index:1;
+	left: 120px;
+	top: 40px;
+	visibility: visible;
+}
+.DF {
+	color: #FFF;
+	text-align: center;
+	font-style: italic;
+}
+#apDiv3 {	position:absolute;
+	width:667px;
+	height:247px;
+	z-index:1;
+	left: 120px;
+	top: 40px;
+	visibility: visible;
+}
+#apDiv4 {
+	position:absolute;
+	width:896px;
+	height:305px;
+	z-index:2;
+	top: 324px;
+	left: 15px;
+}
+#apDiv5 {
+	position:absolute;
+	width:472px;
+	height:290px;
+	z-index:1;
+	left: 120px;
+	top: 10px;
+	visibility: visible;
+}
+.neg {
+	font-weight: bold;
+}
+#apDiv6 {
+	position:absolute;
+	width:272px;
+	height:315px;
+	z-index:2;
+	left: 615px;
+	top: 50px;
+}
+#apDiv7 {
+	position:absolute;
+	width:239px;
+	height:30px;
+	z-index:3;
+	left: 616px;
+	top: 17px;
+	font-weight: bold;
+}
+#apDiv8 {
+	position:absolute;
+	width:215px;
+	height:32px;
+	z-index:1;
+	left: 6px;
+	top: 64px;
+}
+#apDiv9 {
+	position:absolute;
+	width:248px;
+	height:36px;
+	z-index:2;
+	left: -284px;
+	top: 184px;
+	font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<div id="apDiv1">
+  <label for="select"></label>
+  <div id="apDiv2">
+    <table width="665" height="140" border="1">
+      <tr>
+        <th width="105" height="61" scope="row"><p><em><strong>Fecha salida</strong></em></p></th>
+        <td width="105" align="center"><em><strong> Fecha llegada</strong></em></td>
+        <td width="105" align="center"><em><strong>Terminal salida</strong></em></td>
+        <td width="120" align="center"><em><strong>Terminal llegada</strong></em></td>
+        <td width="80" align="center"><em><strong>Nº de vuelo</strong></em></td>
+        <td width="110" align="center"><em><strong>Precio total</strong></em></td>
+        <td width="110" align="center"><em><strong>Opción</strong></em></td>
+      </tr>
+      <tr>
+        <th scope="row">8/07/2013</th>
+        <td align="center"><strong>12/07/2013</strong></td>
+        <td align="center"><strong>Madrid/Barajas T2</strong></td>
+        <td align="center"><strong>Madrid/Barajas T2</strong></td>
+        <td align="center"><strong>BA5754</strong></td>
+        <td align="center"><strong>150 €</strong></td>
+        <td align="center"><input type="radio" name="radio" id="radio" value="radio" />
+          <label for="radio"></label></td>
+      </tr>
+      <tr>
+        <th scope="row">3/07/2013</th>
+        <td align="center"><strong>7/07/2013</strong></td>
+        <td align="center"><strong>Madrid/Barajas T2</strong></td>
+        <td align="center"><strong>Madrid/Barajas T3</strong></td>
+        <td align="center"><strong>FG36D5</strong></td>
+        <td align="center"><strong>163€</strong></td>
+        <td align="center"><input type="radio" name="radio" id="radio2" value="radio" /></td>
+      </tr>
+      <tr>
+        <th align="center" scope="row">11/08/2013</th>
+        <td align="center"><strong>16/08/2013</strong></td>
+        <td align="center"><strong>Madrid/Barajas T3</strong></td>
+        <td align="center"><strong>Madrid/Barajas T3</strong></td>
+        <td align="center"><strong>PLS3001</strong></td>
+        <td align="center"><strong>182€</strong></td>
+        <td align="center"><input type="radio" name="radio" id="radio3" value="radio" /></td>
+      </tr>
+      <tr>
+        <th align="center" scope="row">21/08/2013</th>
+        <td align="center"><strong>30/08/2013</strong></td>
+        <td align="center"><strong>Madrid/Barajas T2</strong></td>
+        <td align="center"><strong>Madrid/Barajas T2</strong></td>
+        <td align="center"><strong>02AP51Z</strong></td>
+        <td align="center"><strong>190€</strong></td>
+        <td align="center"><input type="radio" name="radio" id="radio4" value="radio" /></td>
+      </tr>
+    </table>
+  </div>
+  <form action="" method="post" name="form1" class="DF" id="form1">
+  ELEGIR DETALLES DE LA COMPRA:
+  </form>
+  <div id="apDiv3">
+    <table width="665" height="140" border="1">
+      <tr>
+        <th width="105" height="61" scope="row"><p><em><strong>Fecha salida</strong></em></p></th>
+        <td width="105" align="center"><em><strong> Fecha llegada</strong></em></td>
+        <td width="105" align="center"><em><strong>Terminal salida</strong></em></td>
+        <td width="120" align="center"><em><strong>Terminal llegada</strong></em></td>
+        <td width="80" align="center"><em><strong>Nº de vuelo</strong></em></td>
+        <td width="110" align="center"><em><strong>Precio total</strong></em></td>
+        <td width="110" align="center"><em><strong>Opción</strong></em></td>
+      </tr>
+      <tr>
+        <th scope="row">8/07/2013</th>
+        <td align="center"><strong>12/07/2013</strong></td>
+        <td align="center"><strong>Madrid/Barajas T2</strong></td>
+        <td align="center"><strong>Madrid/Barajas T2</strong></td>
+        <td align="center"><strong>BA5754</strong></td>
+        <td align="center"><strong>150 €</strong></td>
+        <td align="center"><input type="radio" name="radio" id="radio5" value="radio" />
+          <label for="radio5"></label></td>
+      </tr>
+      <tr>
+        <th scope="row">3/07/2013</th>
+        <td align="center"><strong>7/07/2013</strong></td>
+        <td align="center"><strong>Madrid/Barajas T2</strong></td>
+        <td align="center"><strong>Madrid/Barajas T3</strong></td>
+        <td align="center"><strong>FG36D5</strong></td>
+        <td align="center"><strong>163€</strong></td>
+        <td align="center"><input type="radio" name="radio" id="radio6" value="radio" /></td>
+      </tr>
+      <tr>
+        <th align="center" scope="row">11/08/2013</th>
+        <td align="center"><strong>16/08/2013</strong></td>
+        <td align="center"><strong>Madrid/Barajas T3</strong></td>
+        <td align="center"><strong>Madrid/Barajas T3</strong></td>
+        <td align="center"><strong>PLS3001</strong></td>
+        <td align="center"><strong>182€</strong></td>
+        <td align="center"><input type="radio" name="radio" id="radio7" value="radio" /></td>
+      </tr>
+      <tr>
+        <th align="center" scope="row">21/08/2013</th>
+        <td align="center"><strong>30/08/2013</strong></td>
+        <td align="center"><strong>Madrid/Barajas T2</strong></td>
+        <td align="center"><strong>Madrid/Barajas T2</strong></td>
+        <td align="center"><strong>02AP51Z</strong></td>
+        <td align="center"><strong>190€</strong></td>
+        <td align="center"><input type="radio" name="radio" id="radio8" value="radio" /></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div id="apDiv4">
+  <div id="apDiv5">
+    <table width="463" height="140" border="1">
+      <tr>
+        <th width="105" height="61" scope="row"><p><em><strong>Tipo de pasajero</strong></em></p></th>
+        <td width="105" align="center"><em><strong> Tarifa</strong></em></td>
+        <td width="105" align="center"><em><strong>Impuestos, tasas y suplementos</strong></em></td>
+        <td width="120" align="center"><em><strong>Precio total</strong></em></td>
+      </tr>
+      <tr>
+        <th scope="row">-</th>
+        <td align="center"><strong>-</strong></td>
+        <td align="center">*</td>
+        <td align="center"><strong>-</strong></td>
+      </tr>
+      <tr>
+        <th scope="row">-</th>
+        <td align="center"><strong>-</strong></td>
+        <td align="center"><strong>*</strong></td>
+        <td align="center"><strong>-</strong></td>
+      </tr>
+      <tr>
+        <th align="center" scope="row">-</th>
+        <td align="center">-</td>
+        <td align="center">*</td>
+        <td align="center">-</td>
+      </tr>
+      <tr>
+        <th align="center" scope="row">-</th>
+        <td align="center"><strong>-</strong></td>
+        <td align="center"><strong>*</strong></td>
+        <td align="center"><strong>-</strong></td>
+      </tr>
+    </table>
+    <p><span class="neg">Número de pasajeros total:</span>
+      <input type="text" name="textfield" id="textfield" />
+</p>
+    <p>
+      <input type="submit" name="button2" id="button2" value="Reservar asientos" />
+    </p>
+    <form id="form2" name="form2" method="post" action="">
+      <a href="realizar pago.html"><strong>REALIZAR PAGO </strong></a><strong></strong>
+    </form>
+    <p>&nbsp;</p>
+  </div>
+  <div id="apDiv6">
+    <table width="247" height="63" border="1">
+      <tr>
+        <th width="79" height="23" scope="row">Nombre</th>
+        <td width="174"><label for="textfield2"></label>
+        <input type="text" name="textfield2" id="textfield2" /></td>
+      </tr>
+      <tr>
+        <th height="23" scope="row">Apellidos</th>
+        <td><label for="textfield3"></label>
+        <input type="text" name="textfield3" id="textfield3" /></td>
+      </tr>
+    </table>
+    <div id="apDiv8">
+      <input type="submit" name="button" id="button" value="Añadir pasajero" />
+    </div>
+    <div id="apDiv9">Numero de billetes total: 
+      <label>
+        <input name="textfield4" type="text" id="textfield4" size="10" maxlength="3" />
+      </label>
+    </div>
+  </div>
+  <label for="textfield2"></label>
+  <div id="apDiv7">Pasajero/a:</div>
+</div>
+</body>
+</html>
