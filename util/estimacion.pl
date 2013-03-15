@@ -102,8 +102,8 @@ sub procesarArchivo {
 				print "\tLa complejidad debería ser '$complj' pero está escrito '$1'.\n\n";
 			}
 
-			# Suma los DETs a los puntos de función de la fase y la complejidad actuales
-			$sumapf[$fase-1]{$complj} += $tdets;
+			# Se contabiliza un punto de función más en esta fase y complejidad
+			$sumapf[$fase-1]{$complj}++;
 
 			# Reinicia los contadores temporales
 			$tdets = 0; $tretftrs = 0;
