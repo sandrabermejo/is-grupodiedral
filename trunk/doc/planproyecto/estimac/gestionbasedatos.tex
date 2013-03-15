@@ -1,13 +1,13 @@
-%% Estimación. Función "Generación de gráficas".
+%% Estimación. Función "Gestión corriente de la base de datos".
 
 % Tabla de la estimación
 
-\begin{tablapf}{Gestión corriente de la base de datos}{152}
-	FLI	& 8 & 7 & 0 & 10 & 0 & 15 & 56	\\ \hline
-	FIE	& 4	& 5 & 1 & 7 & 0 & 10 & 27	\\ \hline
+\begin{tablapf}{Gestión corriente de la base de datos}{109}
+	FLI	& 8 	& 7 	& 0 	& 10 	& 0 	& 15 	& 56	\\ \hline
+	FIE	& 5	& 5 	& 0 	& 7 	& 0 	& 10 	& 25	\\ \hline
 	EI	& 6	& 3	& 1	& 4	& 1	& 6	& 28	\\ \hline
 	EO	& 0	& 4	& 0	& 5	& 0	& 7	& 0	\\ \hline
-	EQ 	& 9	& 3	& 2	& 4	& 1	& 6	& 41
+	EQ 	& 6	& 3	& 1	& 4	& 1	& 6	& 0
 \end{tablapf}
 
 
@@ -71,7 +71,7 @@
 	\estfie{Países}{
 		\rets{2}{geográficos, políticos}
 		\dets{6}{nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario}
-	}{media}
+	}{baja}
 
 	\estfie{Ciudades}{
 		\rets{2}{geográficos, políticos}
@@ -100,7 +100,7 @@
 	\estee{Empleados}{
 		\ftrs{2}{personales, laborales}
 		\dets{15}{nombre, apellidos, NIF, e-mail, teléfono, dirección(6), puesto trabajo, permisos, registros, periodo laboral}
-	}{baja}
+	}{media}
 
 	\estee{Vuelos}{
 		\ftrs{1}{General}
@@ -111,7 +111,7 @@
 	\estee{Ofertas}{
 		\ftrs{3}{descripción, prestaciones, restricciones}
 		\dets{6}{título, resumen, articulo, precio ofertado, periodo validez, ámbito de validez}
-	}{baja}
+	}{alta}
 
 	\estee{Nóminas}{
 		\ftrs{1}{registro}
@@ -148,7 +148,7 @@
 	\estce{Empleados}{
 		\ftrs{2}{personales, laborales}
 		\dets{15}{nombre, apellidos, NIF, e-mail, teléfono, dirección(6), puesto trabajo, permisos, registros, periodo laboral}
-	}{baja}
+	}{media}
 
 	\estce{Vuelos}{
 		\ftrs{1}{General}
@@ -159,7 +159,7 @@
 	\estce{Ofertas}{
 		\ftrs{3}{descripción, prestaciones, restricciones}
 		\dets{6}{título, resumen, articulo, precio ofertado, periodo validez, ámbito de validez}
-	}{baja}
+	}{alta}
 
 	\estce{Nóminas}{
 		\ftrs{1}{registro}

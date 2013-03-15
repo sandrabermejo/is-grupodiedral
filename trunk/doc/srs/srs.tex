@@ -23,6 +23,7 @@
 
 % Nombre del documento (para futuras referencias)
 \newcommand*{\doctitle}{Especificación de requisitos software}
+\newcommand*{\docversion}{2.0}
 
 %%% Configuraciones %%%
 \marginsize{2.5cm}{2cm}{2cm}{2cm}
@@ -40,7 +41,7 @@
 \setglossarysection{subsection}
 
 % Configuración de los encabezados
-\encabezadodiedral{\doctitle}
+\encabezadodiedral{\doctitle{} \docversion}
 \pagestyle{fancy}
 
 \renewcommand*{\thepage}{\sffamily \roman{page}}
@@ -55,7 +56,7 @@
 \hypersetup{
 pdfinfo={
 	Author={Grupo Diedral},
-	Title={\doctitle},
+	Title={\doctitle{} \docversion},
 	Subject={Airline Common Environment},
 	Keywords={SRS;Airline Common Environment;Ingeniería del Software}
 }
@@ -78,7 +79,7 @@ pdfinfo={
 	\fijacitainicial{Si Java tuviese un verdadero recolector de basura, la mayoría de los programas se borrarían a sí mismos durante la ejecución}{Robert Sewell}
 
 	% Portada
-	\portadaace{\doctitle}{2.0}
+	\portadaace{\doctitle}{\docversion}
 
 	\tableofcontents
 	\newpage
@@ -90,7 +91,7 @@ pdfinfo={
 			El objetivo de este documento es especificar la naturaleza y detalles de realización de software, con el fin de organizar el proceso de desarrollo y servir como referencia a los clientes.
 
 		\subsection{Alcance}
-			El ámbito de \textit{Airline Common Environment} \glsunset{ACE} (\gls{ACE}) comprende la gestión interna y externa de una compañía aérea dedicada al transporte de viajeros. El sistema de gestión interna estará destinado a facilitar y optimizar la actividad laboral del empleado, así como permitir a la compañía el control de recursos tanto materiales, financieros como humanos. Sin embargo, no corresponde a este proyecto sustituir al empleado en procesos como pueden ser la la planificación de rutas de vuelo, horarios o revisiones. \\
+			El ámbito de \textit{Airline Common Environment} \glsunset{ACE} (\gls{ACE}) comprende la gestión interna y externa de una compañía aérea dedicada al transporte de viajeros. El sistema de gestión interna estará destinado a facilitar y optimizar la actividad laboral del empleado, así como permitir a la compañía el control de recursos tanto materiales, financieros como humanos. Sin embargo, no corresponde a este proyecto sustituir al empleado en procesos como pueden ser la planificación de rutas de vuelo, horarios o revisiones. \\
 
 			Por otro lado, el sistema de gestión externa abre un canal de comunicación fluido entre la empresa y el viajero, manteniendo actualizada la información referente a vuelos, billetes, ofertas y dando la posibilidad de realizar descuentos personalizados en sus compras.\\
 
@@ -101,7 +102,7 @@ pdfinfo={
 		\subsection{Referencias}
 			Véase sección Referencias al final del texto. Los estándares de IEEE se pueden obtener de \url{http://standards.ieee.org/findstds/standard/}.
 		\subsection{Resumen}
-			La especificación de requisitos trata, por tanto, de describir completamente el comportamiento de la aplicación que se va a desarrollar. Este documento incluye la especificación de los casos de uso, mostrando así todas las interacciones que se puedan llevar a cabo entre el cliente y el software. \\
+			La especificación de requisitos trata de describir completamente el comportamiento de la aplicación que se va a desarrollar. Este documento incluye la especificación de los casos de uso, mostrando así todas las interacciones que se puedan llevar a cabo entre el cliente y el software. \\
 
 			Además, este documento contiene la descripción general del producto y requisitos específicos como: funcionalidades que pueda realizar la aplicación en un futuro, requisitos de rendimiento y de la base de datos y restricciones de diseño o implementación.
 			
@@ -120,13 +121,13 @@ pdfinfo={
 				\item Funciones relacionadas con la gestión interna de la compañía:
 					\begin{itemize}
 						\item \textit{Financieras}: información de ventas, gastos y valoración de inventario.
-						\item \textit{Administrativas}: confección y consultas de nóminas de empleados y pedidos a proveedores.
+						\item \textit{Administrativas}: confección y consultas de nóminas de empleados.
 						\item \textit{Mantenimiento}: programación de revisiones de vehículos, inventariado de herramientas y repuestos.
-						\item \textit{Planificación}: creación y consultas de planes y rutas de vuelos y cuadrar horarios de personal.			
+						\item \textit{Planificación}: creación y consulta de planes y rutas de vuelo y elaboración de horarios de personal.
 					\end{itemize}
 				\item Funciones relativas a la interacción con el cliente final:
 					\begin{itemize}
-						\item \textit{Venta}: Venta de billetes.
+						\item \textit{Venta}: Venta de billetes y consulta del estado de la compra.
 						\item \textit{Oferta}: Ofertas, promociones y descuentos personalizados.
 					\end{itemize}
 			\end{itemize}
@@ -136,7 +137,7 @@ pdfinfo={
 			En cuanto a los usuarios ajenos a la empresa se cuenta con:
 	
 			\begin{itemize}
-				\item \textit{Cliente}: no hay restricción alguna en el tipo de cliente que puede acceder a la aplicación externa, aunque sí a la hora de realizar el pago, pues este cliente debería de tener como mínimo la mayoría de edad. Se puede suponer cierto conocimiento sobre realización de operaciones en \gls{Internet}, pero no se puede asumir dominio sobre la materia. El perfil educacional del cliente, en general, no incluye conocimiento sobre el marco legal y organizativo del transporte aéreo, así como tampoco se puede asumir un nivel educativo mínimo. Si bien, el nivel socio-cultural y económico de los usuarios del transporte aéreo, especialmente aquellos que hacen uso frecuente del mismo, es estadísticamente medio o alto.
+				\item \textit{Cliente}: no hay restricción alguna en el tipo de cliente que puede acceder a la aplicación externa, aunque sí a la hora de realizar el pago, pues este cliente ha de ser mayor de edad. Se puede suponer cierto conocimiento sobre realización de operaciones en \gls{Internet}, pero no se puede asumir dominio sobre la materia. El perfil educacional del cliente, en general, no incluye conocimiento sobre el marco legal y organizativo del transporte aéreo, así como tampoco se puede asumir un nivel educativo mínimo. Si bien, el nivel socio-cultural y económico de los usuarios del transporte aéreo, especialmente aquellos que hacen uso frecuente del mismo, es estadísticamente medio o alto.
 			\end{itemize}
 
 			El personal de la empresa es previsiblemente un usuario seleccionado por la empresa por disponer de suficiente conocimiento o experiencia en la materia de su ocupación. Adicionalmente, este usuario puede haber recibido formación por parte de la compañía sobre su función o la de otros componentes de la organización. Como consecuencia el perfil de los usuarios internos está más controlado y definido:
@@ -158,11 +159,12 @@ pdfinfo={
 
 			Para lograr lo pretendido en el \software de \textit{Gestión Interna} se considera utilizar \gls{C++} (C++98) con la biblioteca de interfaces gráficas \gls{Qt} que ofrece soporte para las plataformas requeridas\footnote{Información sobre soporte de Qt en \url{http://doc.qt.digia.com/qt/supported-platforms.html}}. El estándar C++11 puede no resultar conveniente debido a que no es soportado por todos los compiladores en la actualidad. La opción de utilizar \textit{Java} también es compatible con las restricciones de plataforma anteriormente especificadas. La interfaz de \textit{Gestión Externa} puede ser programada en \gls{HTML5}, que si bien está en fase experimental, es soportado en gran medida por los principales navegadores, disponibles en todas las plataformas requeridas.
 
-		\subsection{Supuestos y dependencias} %No está muy claro
+		\subsection{Supuestos y dependencias} % No está muy claro
 			
 			Suponemos para la definición de las funciones del producto la validación por parte del cliente de los casos de uso en los que éstas se basan.\\
 			Entre los supuestos nos encontramos además que los sistemas para los que va a ser desarrollado el software cumple el mínimo de requisitos especificados en la sección a tal fin.\\
-			Durante el proceso de desarrollo del proyecto, la especificacion del mismoo está sujeto a cambios por parte del cliente y en la fase de transición deberemos efectuarla paulatinamente y con seguridad por lo que dependeremos del sistema anterior a ser sustituido.
+
+			Durante el proceso de desarrollo del proyecto, la especificación del mismo está sujeto a cambios por parte del cliente y en la fase de transición deberemos efectuarla paulatinamente y con seguridad por lo que dependeremos del sistema anterior a ser sustituido.
 			
 		\subsection{Requisitos futuros}
 			Futuras versiones de la aplicación ACE podrán integrar mejoras para la gestión interna de la compañía tales como modificar el puesto dentro de la empresa de un empleado y, en consecuencia, el nivel de permisos del usuario, o crear estadísticas basadas en los datos de entrada y salida del inventario que permitan prever las necesidades de comprar material y optimizar los recursos. \\
@@ -171,8 +173,8 @@ pdfinfo={
 
 	\section{Requisitos específicos}
 		\subsection{Interfaces externas}
-			Las interfaces del usuario, tanto para la gestión interna como para la externa, se ajustarán al perfil del usuario promedio, así como a las restricciones específicas que imponga la empresa. En la gestión interna, cada usuario podrá acceder a una parte de la interfaz que será específica para él según el trabajo que realice en la compañía. Esta interfaz admitirá diferentes datos introducidos por el usuario, los cuales deberán ser válidos según los estándares establecidos por la empresa y que dependerán en gran medida del país donde se vaya a utilizar este software. Por defecto, en esta primera versión se utilizará el euro como unidad monetaria. Las entradas numéricas deberán estar dentro de un rango determinado y admitirán un máximo de 2 dígitos decimales y para las entradas de texto se admitirán carácteres alfabéticos latinos, con posibles carácteres especiales añadidos. Para la interfaz externa se aplicarán estos mismos criterios y se comprobará que los datos introducidos por el cliente para efectuar la compra se ajustan a ellos. El usuario deberá identificarse obligatoriamente cuando llegue el momento de efectuar el pago.
-			
+			Las interfaces del usuario, tanto para la gestión interna como para la externa, se ajustarán al perfil del usuario promedio, así como a las restricciones específicas que imponga la empresa. En la gestión interna, cada usuario podrá acceder a una parte de la interfaz que será específica para él según el trabajo que realice en la compañía. Esta interfaz admitirá diferentes datos introducidos por el usuario, los cuales deberán ser válidos según los estándares establecidos por la empresa y que dependerán en gran medida del país donde se vaya a utilizar este software. Por defecto, en esta primera versión se utilizará el euro como unidad monetaria. Las entradas numéricas deberán estar dentro de un rango determinado y admitirán un máximo de 2 dígitos decimales y para las entradas de texto se admitirán carácteres alfabéticos latinos, con posibles carácteres especiales añadidos. Para la interfaz externa se aplicarán estos mismos criterios y se comprobará que los datos introducidos por el cliente para efectuar la compra se ajustan a ellos. El usuario tendrá la opción de registrarse cuando llegue el momento de efectuar el pago a fin de abreviar la introducción de datos.
+
 
 		\subsubsection{Formato de entrada y salida}
 			\subsubsubsection{Fecha}
@@ -275,7 +277,7 @@ pdfinfo={
 				\subsubsubsection{Dirección postal}	\label{srs:direccionpostal}		
 					En lo referente a este proyecto de \software una dirección postal constará de los siguientes campos:
 					\begin{itemize}
-						\item \textbf{Tipo de vía}: será una opción entre un rango de opciones disponibles (configurables). Para un correcto funcionamiento deberían considerarse los siguientes tipos admitidos por Correos: \textit{calle}, \textit{alameda}, \textit{autopista}, \textit{autovía}, \textit{avenida}, \textit{bulevar}, \textit{camino}, \textit{carretera}, \textit{glorieta}, \textit{paseo}, \textit{plaza}, \textit{pasaje}, \textit{ronda}, \textit{sector}, \textit{travesía}, \textit{otros}, \textit{vía} (numerados por ese orden a partir de 1).
+						\item \textbf{Tipo de vía}: será una opción entre un rango de opciones disponibles (configurables). Para un correcto funcionamiento deberían considerarse los siguientes tipos admitidos por Correos: \textit{alameda}, \textit{autopista}, \textit{autovía}, \textit{avenida}, \textit{bulevar}, \textit{calle}, \textit{camino}, \textit{carretera}, \textit{glorieta}, \textit{paseo}, \textit{plaza}, \textit{pasaje}, \textit{ronda}, \textit{sector}, \textit{travesía}, \textit{otros}, \textit{vía} (numerados por ese orden a partir de 1).
 						\item \textbf{Nombre de la vía} o simplemente dirección. En principio limitada a 30 caracteres alfanuméricos.
 						\item \textbf{Número}: número dentro de la vía (opcional).
 						\item \textbf{Portal}: portal de la dirección. 2 caracteres alfanuméricos (opcional).
@@ -387,7 +389,7 @@ pdfinfo={
 				\input{funciones/accederGE}
 				
 				% FUNCIÓN: RESTABLECER CONTRASEÑA
-				\input{funciones/restablecerContraseña}
+				\input{funciones/restablecerContrasena}
 
 				% FUNCIÓN: REGISTRARSE
 				\input{funciones/registrarse}
