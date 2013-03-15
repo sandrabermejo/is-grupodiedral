@@ -1,0 +1,17 @@
+/**
+ * @mainpage Prototipo del proyecto de Ingeniería del Sofware (ACE)
+ *
+ * Este es el prototipo de la interfaz interna del sistema sofware ACE
+ * (Airline Common Environment) del proyecto de Ingeniería del Sofware.
+ *
+ * Este programa ofrece diferentes funcionalidades.
+ *
+ * La realización de este prototipo utiliza la biblioteca de interfaces
+ * gráficas Qt en su versión 4.8 que puede ser descargada de
+ * http://qt-project.org/downloads. El resto del código del programa
+ * es C++ estándar (C++98). En consecuencia este programa puede
+ * ser compilado y ejecutado en aquellas plataformas que soporte Qt, en
+ * particular en Windows (con Visual Studio y g++), Linux (g++) y Mac (g++).
+ *
+ *
+ */

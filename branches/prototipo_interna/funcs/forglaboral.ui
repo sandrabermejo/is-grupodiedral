@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FOrgLaboral</class>
+ <widget class="QFrame" name="FOrgLaboral">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>665</width>
+    <height>434</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::StyledPanel</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QGroupBox" name="gbox_Secciones">
+     <property name="title">
+      <string>Secciones</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QToolButton" name="addSecciones">
+          <property name="text">
+           <string>Añadir</string>
+          </property>
+          <property name="icon">
+           <iconset resource="appRes.qrc">
+            <normaloff>:/Icons/tango-icons/16x16/actions/list-add.png</normaloff>:/Icons/tango-icons/16x16/actions/list-add.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="toolButton">
+          <property name="text">
+           <string>Añadir subsección</string>
+          </property>
+          <property name="icon">
+           <iconset resource="appRes.qrc">
+            <normaloff>:/Icons/tango-icons/16x16/categories/applications-office.png</normaloff>:/Icons/tango-icons/16x16/categories/applications-office.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="removeSecciones">
+          <property name="text">
+           <string>Eliminar</string>
+          </property>
+          <property name="icon">
+           <iconset resource="appRes.qrc">
+            <normaloff>:/Icons/tango-icons/16x16/actions/list-remove.png</normaloff>:/Icons/tango-icons/16x16/actions/list-remove.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="editSecciones">
+          <property name="text">
+           <string>Editar</string>
+          </property>
+          <property name="icon">
+           <iconset resource="appRes.qrc">
+            <normaloff>:/Icons/tango-icons/16x16/actions/document-properties.png</normaloff>:/Icons/tango-icons/16x16/actions/document-properties.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="spacerSecciones">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>468</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTreeWidget" name="list_secciones">
+        <column>
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Descripción</string>
+         </property>
+        </column>
+        <item>
+         <property name="text">
+          <string>Administración</string>
+         </property>
+         <property name="text">
+          <string>Esta sección se encarga de la labor administrativa de la compañía.</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Sección de Recursos Humanos</string>
+          </property>
+          <property name="text">
+           <string>...</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sección de Contabilidad</string>
+          </property>
+          <property name="text">
+           <string>...</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sección de Planificación</string>
+          </property>
+          <property name="text">
+           <string>...</string>
+          </property>
+         </item>
+        </item>
+        <item>
+         <property name="text">
+          <string>Personal de a bordo</string>
+         </property>
+         <property name="text">
+          <string>Esta sección se encarga de la prestación de servicios en tránsito.</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Operaciones y mantenimiento</string>
+         </property>
+         <property name="text">
+          <string>Esta sección se encarga del mantenimiento y control del material y la infraestructura.</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Sección de Almacén</string>
+          </property>
+          <property name="text">
+           <string>..</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sección de Mantenimiento</string>
+          </property>
+          <property name="text">
+           <string>...</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sección de I+D</string>
+          </property>
+          <property name="text">
+           <string>...</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Sección de Seguridad</string>
+          </property>
+          <property name="text">
+           <string>...</string>
+          </property>
+         </item>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="gbox_puestos">
+     <property name="title">
+      <string>Puestos de trabajo</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="bar_Puestos">
+        <item>
+         <widget class="QToolButton" name="addPuestos">
+          <property name="text">
+           <string>Añadir</string>
+          </property>
+          <property name="icon">
+           <iconset resource="appRes.qrc">
+            <normaloff>:/Icons/tango-icons/16x16/actions/list-add.png</normaloff>:/Icons/tango-icons/16x16/actions/list-add.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="rmPuestos">
+          <property name="text">
+           <string>Eliminar</string>
+          </property>
+          <property name="icon">
+           <iconset resource="appRes.qrc">
+            <normaloff>:/Icons/tango-icons/16x16/actions/list-remove.png</normaloff>:/Icons/tango-icons/16x16/actions/list-remove.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="editPuestos">
+          <property name="text">
+           <string>Editar</string>
+          </property>
+          <property name="icon">
+           <iconset resource="appRes.qrc">
+            <normaloff>:/Icons/tango-icons/16x16/actions/document-properties.png</normaloff>:/Icons/tango-icons/16x16/actions/document-properties.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="spacerPuestos">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>468</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTreeWidget" name="list_puestos">
+        <column>
+         <property name="text">
+          <string>Nombre</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Descripción</string>
+         </property>
+        </column>
+        <item>
+         <property name="text">
+          <string>Piloto</string>
+         </property>
+         <property name="text">
+          <string>El que conduce la aeronave.</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="botones">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Apply|QDialogButtonBox::Reset</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="appRes.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FDardebajacliente</class>
+ <widget class="QFrame" name="FDardebajacliente">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>742</width>
+    <height>572</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::StyledPanel</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="Lease">
+     <property name="title">
+      <string>Léase</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="text">
+         <string>Condiciones legales al dar de baja al cliente:
+La baja del cliente en los servicios de la empresa se hará efectiva aproximadamente 48 horas después de la solicitud de baja,
+advirtiéndole al cliente que deberá observar esta circunstancia para no perder las ofertas u otros privilegios que tuviese en su cuenta.
+Una vez solicitada por el cliente la baja de los productos, nuestra compañía no se responsabilizará del contenido alojado en los mismos,
+siendo responsabilidad del cliente el haber guardado una copia de seguridad de su contenido y/o configuración.</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::LogText</enum>
+        </property>
+        <property name="scaledContents">
+         <bool>false</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+        <property name="openExternalLinks">
+         <bool>false</bool>
+        </property>
+        <property name="buddy">
+         <cstring></cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox">
+        <property name="text">
+         <string>Acepto</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Acepte las condiciones para realizar la baja.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Baja</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#55aaff;&quot;&gt;DAR DE BAJA CLIENTE:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineEdit_5"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Apellidos:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Nombre:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineEdit_6"/>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="lineEdit_7"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;NIF:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLineEdit" name="lineEdit_8"/>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_10">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Nacionalidad:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QComboBox" name="comboBox_2">
+          <item>
+           <property name="text">
+            <string>-ESPAÑOLA-</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>albana</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>alemana</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>andorrana</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>austriaca</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>belga</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>bielorrusa</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>británico</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>bosnia</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>búlgara</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>checa</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>china</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>croata</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>danés</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>eslovaca</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>eslovena</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>estonia</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>francesa</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>finlandés</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>galés</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>italiana</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>irlandesa</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>islandesa</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>kosova</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>letón</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>liechtensteiniana</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>lituana</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>luxemburguesa</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>macedonia</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>maltesa</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>moldova</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>monegasca</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>montenegrina</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>noruega</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>polaca</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>portuguesa</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>rumana</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>rusa</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>servia</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>sanmarinense</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>sueca</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>suiza</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>ucraniana</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>vaticana</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="text">
+           <string>Aceptar</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
