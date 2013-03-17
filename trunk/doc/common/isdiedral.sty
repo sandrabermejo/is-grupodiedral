@@ -401,7 +401,7 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 % Requiere como parámetro el nombre del documento y el número total de PFs
 \newcommand*{\encabezadodiedral}[1]{
 	\definecolor{hdrgray}{gray}{0.6}
-	\fancyhead[REH, LOH]{\color{hdrgray}#1 > \nouppercase{\rightmark}}
+	\fancyhead[REH, LOH]{\color{hdrgray}#1 > \nouppercase{\ifthenelse{\equal{\rightmark}{}}{\leftmark}{\rightmark}}}
 	\fancyhead[LEH, ROH]{\thepage}
 	\fancyfoot[C]{\color{hdrgray} \scriptsize \textit{Airline Common Environment} - Grupo Diedral}
 	\setlength{\headheight}{15pt}

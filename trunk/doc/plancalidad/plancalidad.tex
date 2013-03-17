@@ -17,6 +17,7 @@
 
 % Nombre del documento (para futuras referencias)
 \newcommand*{\doctitle}{Plan de calidad}
+\newcommand*{\docversion}{2.0}
 
 
 %%% Configuraciones %%%
@@ -35,7 +36,7 @@
 \setglossarysection{subsection}
 
 % Configuración de los encabezados
-\encabezadodiedral{\doctitle}
+\encabezadodiedral{\doctitle{} \docversion}
 \pagestyle{fancy}
 
 \renewcommand*{\thepage}{\sffamily \roman{page}}
@@ -50,7 +51,7 @@
 \hypersetup{
 pdfinfo={
 	Author={Grupo Diedral},
-	Title={\doctitle},
+	Title={\doctitle{} \docversion},
 	Subject={Airline Common Environment},
 	Keywords={SQA;Airline Common Environment;Ingeniería del Software}
 }
@@ -70,7 +71,7 @@ pdfinfo={
 	\fijacitainicial{La calidad de la tela, ya una hilacha la revela}{Refrán popular}
 
 	% Portada
-	\portadaace{\doctitle}{2.0}
+	\portadaace{\doctitle}{\docversion}
 
 	\tableofcontents
 	\newpage
@@ -80,7 +81,8 @@ pdfinfo={
 	\section{Propósito}	% ¿?
 		El propósito de este documento es establecer unos planes de control de calidad de software para así poder entender las expectativas del cliente en términos de calidad. Se basa en la determinación y puesta en marcha de las políticas de calidad de la empresa. \\
 		% lista de los nombres de los elementos software cubiertos por el plan SQA??
-		Este Plan de Calidad del Software, cubre solo la parte correspondiente al desarrollo del software, no cubre la parte del ciclo de vida que corresponde al mantenimiento.
+
+		Este \textit{Plan de Calidad del Software}, cubre solo la parte correspondiente al desarrollo del software, no cubre la parte del ciclo de vida que corresponde al mantenimiento.
 		
 	\section{Documentos de referencia}
 		\nocite{IEEE730-2002}
@@ -91,16 +93,15 @@ pdfinfo={
 
 		Véase la sección {\itshape Referencias} al final del documento.
 
-	\section{Gestión} % ¿?
+	\section{Gestión} % Eso no se entiende
 		Las tareas desarrolladas en la SQA deberán reflejar los estándares a seguir, los procedimientos correctos que hay que seguir para la elaboración de los productos, los productos a revisar e informar de los fallos encontrados y realizar un seguimiento de los mismos hasta su corrección. Así, las actividades que se van a llevar a cabo son: \\
 
 			\begin{enumerate}
 				\item Realización de Revisiones Técnicas Formales (RTF).
-				\item Revisión de cada producto.
+				\item Revisión de cada producto. % ¿Qué es un producto?
 				\item Asegurar que los fallos de los productos y sus respectivas modificaciones son documentadas.
-				\item Revisión de los productos que se ajustan al proceso Software.
+				\item Revisión de los productos que se ajustan al proceso \software.
 			\end{enumerate}
-
 
 		\subsection{Ciclo de vida del software} % Etapas más importantes del software que cubre el plan
 			Las etapas más importantes que cubre este plan son el análisis, la especificación de los requisitos y la gestión de riesgos. De la calidad de éstas depende la intensidad con la que se tendrán que realizar las revisiones de calidad. % ¿Qué?
@@ -134,14 +135,16 @@ pdfinfo={
 			\end{center}
 			
 	\section{Documentación} % Natalia
-		\subsection{Propósito} 
-			El propósito de la documentación generada por las revisiones del proyecto es de proporcionar una consistencia y calidad a éste.\\
-			El criterio de supervisión será organizar a los analistas y supervisores para que realicen las modificaciones necesarias. Además se elaborarán reuniones para que miembros de otros proyectos junto con el cliente den su punto de vista sobre los errores y modificaciones que se deberían de hacer para así elaborar una documentación consistente.\\
+		\subsection{Propósito}
+			% Dice IEEE: esta sección va de identificar la documentación que regula las diferentes fases del proyecto y enumerar los documentos que serán revisados. Para cada documento, identificar las revisiones que se llevarán a cabo y criterio para su validación (~ sección 6).
+			El propósito de la documentación generada por las revisiones del proyecto es proporcionar una consistencia y calidad a éste.\\ % ¿Sólo una?
+			El criterio de supervisión será organizar a los analistas y supervisores para que realicen las modificaciones necesarias. Además se elaborarán reuniones para que miembros de otros proyectos junto con el cliente den su punto de vista sobre los errores y modificaciones que se deberían hacer para así elaborar una documentación consistente.\\
 
 			La documentación generada en el proceso de desarrollo será: \\
 			Documento de Casos de Uso, SRS, Plan de proyecto (Plan de riesgos, Planificación temporal), Plan de diseño, Plan de pruebas Verificación y Validación) y la documentación relativa al uso y mantenimiento del \software.
 			
 		\subsection{Requisitos mínimos de documentación}
+			% Dice IEEE: enumeración de la documentación requerida como mínimo. Como SRS, especificación de diseño, plan de verificación y validación, resultados de la validación y verificación, documentación de usuario, plan GCS (algunos no proceden).
 			Para asegurarse de que la documentación cumpla los requisitos técnicos especificados, realizaremos las revisiones nombradas
 anteriormente. Esto es necesario dado que la futura implementación también deberá cumplir dichos requisitos, y esta está basada en esta documentación generada.\\
 
@@ -151,7 +154,9 @@ coherente en todos los documentos generados y que no haya por tanto partes contr
 				\subsubsection{Especificación de requisitos del software}
 					El documento de los Requisitos del Sistema {\itshape software} (SRS) deberá describir de forma clara y detallada todos los requisitos necesarios del software y las interfaces externas. Así el cliente obtendrá una especificación que cubra las necesidades en el área de alcance del proyecto y todo lo acordado anteriormente con los desarrolladores.
 		
-		\subsection{Otra documentación} 
+		\subsection{Otra documentación}
+			% Dice IEEE: plan de proyecto, descripción de los estándares de desarrollo, descripción de métodos procedimientos o herramientas, plan de mantenimiento... (algunos no proceden). 
+			
 			Otros documentos que influyen directamente en la calidad del software a desarrollar son:
 
 			\begin{itemize}
@@ -165,16 +170,19 @@ coherente en todos los documentos generados y que no haya por tanto partes contr
 			
 	\section{Estándares, prácticas, convenciones y métricas} % Sandra
 		\subsection{Propósito}
+			% Dice IEEE: la sección trata de identificar los estándares, prácticas, convenios, técnicas estadísticas, requisitos de calidad y métricas (PF) que se aplicarán. Establecer como se monitorizará y asegurará la correspondencia con lo anteriormente citado.
+
 			Esta sección trata de identificar los estándares, prácticas, convenciones y métricas que se aplicarán para evaluar la calidad del software. Además, se realizará un seguimiento de su cumplimiento, el cual será verificado en el proceso de \textit{Verificación y Validadación del Software}.
 
 		\subsection{Contenido}
+			% Dice IEEE: se ha de incluir las actividades básicas técnicas, de diseño y programación, como la documentación, la nomenclatura de variables y módulos, programación, inspección y prueba. Como mínimo: estándares de documentación, de diseño, de codificación, de comentarios, de pruebas y métricas (PF).
 			\begin{itemize}
 				\item Estándar de documentación\\
 					Los documentos generados por el equipo de desarrollo deben ser precisos, completos, no muy extensos y claros, de tal forma que cualquier persona ajena al proyecto pueda encontrar la información relevante con facilidad. % ¿?
 Para los distintos documentos se han creado plantillas en {\rmfamily\LaTeX{}}, a partir de las cuales generar los documentos a entregar a nuestro cliente.\\
 					Estas plantillas deben incluir: portada (en la que aparecerán el título del documento, la versión, la fecha de entrega, el nombre del proyecto (\textit{Airline Common Environment}) y de los integrantes del equipo de desarrollo y el icono del \textit{Grupo Diedral}). A continuación se deben incluir el control de cambios y el índice del documento. La bibliografía aparecerá al final del mismo. Las páginas estarán numeradas y en el encabezado de cada una debe figurar la sección del documento que se está tratando. En el pie de página aparecerán el nombre del proyecto y del equipo de desarrollo. El formato de texto será común a todos los documentos generados.
 
-				\item Estándar de  codificación %duda, preguntar a Rubén
+				\item Estándar de  codificación % duda, preguntar a Rubén
 					El código de los prototipos y las versiones finales se están de acuerdo al estándar C++ 2003. Cuando no ocasione conflicto con el anterior se tomará como referencia el estándar ISO/IEC 14882:2011\footnote{Borrador de trabajo disponible en \url{www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf}. La versión final es accesible gratuitamente.}.
 					
 				\item Estándar de verificación y prácticas
@@ -190,15 +198,18 @@ Para los distintos documentos se han creado plantillas en {\rmfamily\LaTeX{}}, a
 	\section{Revisiones del software} % Natalia
 
 		\subsection{Propósito}
+			% Dice IEEE: la sección va de definir las revisiones de software que se van a llevar a cabo. Enumerar el calendario de revisiones relacionándolo con el calendario del proyecto. Determinar como se han de efectuar la revisiones y qué otras acciones serán necesarias.
 			Detallar las revisiones y auditorías que se realizarán y especificar cómo se van a llevar a cabo.
 
 		\subsection{Requisitos mínimos}
+			% Dice IEEE: como mínimo se ha revisar SRS, diseño de la arquitectura, plan de validación y verificación, revisión funcional (no procede)..., correspondencia código-diseño, plan CGS...
 			\subsubsection{Revisiones de Requisitos}
 				Antes de pasar a la fase de diseño del producto software, se realizarán revisiones para asegurar que se cumplieron los requisitos establecidos por el cliente. Estas revisiones servirán para tener una buena base de Requisitos del Sistema y poder diseñar el producto desde una estructura sólida.
  Además servirán para poder establecer una \gls{linea_base} entre el cliente y los desarrolladores. 
 				
 			\subsubsection{Revisiones de Gestión}
-			Algunas personas ajenas a nuestro proyecto deberán revisar los documentos realizados hasta la fecha. Para ello se ha elaborado la siguiente planificación de reuniones: \\
+				% Dice IEEE: esta sección debe incluir todas las pruebas no incluidas en el plan de verificación y validación del software (todas) y los métodos que serán usados. Si existe un plan externo se ha de hacer referencia a él.
+			Algunas personas ajenas a nuestro proyecto han revisado los documentos realizados hasta la fecha. Para ello se ha elaborado la siguiente planificación de reuniones: \\
 			
 			\begin{center}
 				\begin{tabular}{| c | c | c | c | c | c |}
@@ -215,25 +226,26 @@ Para los distintos documentos se han creado plantillas en {\rmfamily\LaTeX{}}, a
 			\end{center}
 			
 			Estas revisiones sirven para que nuestro proyecto sea visto desde otro punto de vista diferente al del desarrollador y al del propio cliente. Así se tratarán de corregir los fallos detectados por estas terceras personas. Dado a que dichas personas corregirán nuestros documentos por primera vez, tendrán una visión global del proyecto y producto software a construir. Es por eso por lo que las modificaciones realizadas no serán de aspectos demasiado técnicos y específicos.
-		\subsubsection{Revisión del desarrollo de las correcciones}
-		Se realizarán reuniones entre los desarrolladores para poner en común cuál es el punto en el que se encuentran las revisiones del proyecto que se están realizando en este momento. Se comentarán ideas y optativas para modificar los errores cometidos.
+
+			\subsubsection{Revisión del desarrollo de las correcciones}
+				Se realizarán reuniones entre los desarrolladores para poner en común cuál es el punto en el que se encuentran las revisiones del proyecto que se están realizando en este momento. Se comentarán ideas y optativas para modificar los errores cometidos.
 		
 		\begin{center}
 				\begin{tabular}{| c | c | c | c |}
 				\hline
-				\bfseries Nº Reunión	& \bfseries Fecha & \bfseries Tareas a tratar & \bfseries Desarrolladores\\ \hline
-				1ª Reunión & 13/03/2013 & Actas de las reuniones & Todos los miembros del Grupo Diedral	\\ 
-									 & 						& Desarrollo de las revisiones &	\\	\hline
+				\bfseries Nº reunión	& \bfseries Fecha 	& \bfseries Tareas a tratar 	& \bfseries Desarrolladores	\\ \hline
+				1ª Reunión	& 13/03/2013 	& Actas de las reuniones & Todos los miembros del Grupo Diedral	\\ 							&		& Desarrollo de las revisiones &				\\ \hline
 				\end{tabular}
 			\end{center}
 			
-			\textit{Primera Revisión:} Se han puesto en común todas las ideas correctoras que han surgido gracias sobre todo a las Revisiones de Gestión realizadas anteriormente. Además se ha informado sobre todo el trabajo que queda pendiente a realizar antes de la siguiente entrega. Por último se han resuelto las dudas planteadas por los desarrolladores ante la situación de corrección de partes del proyecto para que todos estén de acuerdo con la decisión tomada.
+			\textit{Primera revisión:} se han puesto en común todas las ideas correctoras que han surgido gracias sobre todo a las Revisiones de Gestión realizadas anteriormente. Además se ha informado sobre todo el trabajo que queda pendiente a realizar antes de la siguiente entrega. Por último se han resuelto las dudas planteadas por los desarrolladores ante la situación de corrección de partes del proyecto para que todos estén de acuerdo con la decisión tomada. % sobre todo
+
 		\subsubsection{Auditoría física}
-		Esta revisión se realiza para verificar que el software y la documentación son sólidos o realizar las correcciones necesarias para llegar a conseguir lo antes posible una Línea Base de trabajo con el Cliente.\\
+			Esta revisión se realiza para verificar que el software y la documentación son sólidos o realizar las correcciones necesarias para llegar a conseguir lo antes posible una Línea Base de trabajo con el Cliente.\\
 		Aunque en nuestro proyecto no se han podido realizar estas reuniones individuales por falta de tiempo tanto por parte del Cliente como de los Desarrolladores, en la realidad debería de hacerse siempre que el Cliente quiera.
 		
 		\subsection{Otras revisiones y auditorías}
-		Los miembros del grupo encargados de las correcciones de los documentos realizados hasta la fecha tendrán que encargarse 	de comprobar que dichos documentos quedan completos, claros y que son correctos. Además deberán corregir los fallos detectados en las reuniones de la Revisión de Gestión. \\
+			Los miembros del grupo encargados de las correcciones de los documentos realizados hasta la fecha tendrán que encargarse 	de comprobar que dichos documentos quedan completos, claros y que son correctos. Además deberán corregir los fallos detectados en las reuniones de la Revisión de Gestión. \\
 		
 			\begin{center}
 			\begin{tabular}{| c | c | c | c |}
@@ -247,46 +259,64 @@ Para los distintos documentos se han creado plantillas en {\rmfamily\LaTeX{}}, a
 			\end{center}
 		
 	\section{Informe de errores y acciones correctoras} % Sandra
-		En este apartado especificamos la metodología que vamos a utlilizar para la elaboración de informes de errores y el procedimiento que se va a seguir para tomar acciones correctoras. \\
+		En este apartado especificamos la metodología que vamos a utilizar para la elaboración de informes de errores y el procedimiento que se va a seguir para tomar acciones correctoras. \\
+
 		Una vez realizadas las revisiones con los otros equipos de desarrollo, cada equipo revisor nos presentará un documento en el cual se recojan los errores detectados en nuestro proyecto durante el proceso de revisión. Posteriormente, se llevará a cabo una reunión entre los integrantes de nuestro equipo para evaluar los errores encontrados y plantear posibles soluciones a dichos fallos. En esta reunión también se repartirán los documentos a corregir por parte de los miembros del grupo encargados de dicha tarea. \\
-		Por último, se elaborarará un \textit{Acta de la Revisión Técnica Formal} de cada documento generado (Casos de Uso, Especificación de Requisitos y Plan de Proyecto), en el que se detalla quiénes llevaron a cabo la revisión, dónde y cuándo, así como los errores encontrados por orden de aparición y las soluciones adoptadas por parte del Grupo Diedral. En este acta se incluye el anexo elaborado por el equipo revisor.
+
+		Por último, se elaborará un \textit{Acta de la Revisión Técnica Formal} de cada documento generado (\textit{Casos de Uso}, \textit{Especificación de Requisitos Software} y \textit{Plan de Proyecto}), en el que se detalla quiénes llevaron a cabo la revisión, dónde y cuándo, así como los errores encontrados por orden de aparición % ¿? Esto no suena bien tal como está redactado (parece una descripción a posteriori de lo que ha salido)
+ y las soluciones adoptadas por parte del Grupo Diedral. En este acta se incluye el anexo elaborado por el equipo revisor.
 	
 	\section{Herramientas, técnicas y metodologías} % Natalia
+		% Dice IEEE: esta sección debe identificar las herramientas software, técnicas y métodos utilizados para los procesos de la SQA. Para cada uno de ellos, debe indicar su uso pretendido, aplicabilidad, circunstancias bajo las que se ha de usar o no usar, y sus limitaciones.
 		Las técnicas que se han llevado a cabo para la Gestión de Calidad del Software han sido:
-        \begin{itemize}
-          \item \textsl{RTF (Revisiones Técnicas Formales).} \\
-          Con ellas se intentarán detectar errores en la funcionalidad o la lógica, verificar que satisface las especificaciones detalladas y a los estándares establecidos, señalando las desviaciones que hayan sido detectadas.
-          \item \textsl{Revisiones de los productos.} \\
-          Se revisan los productos que se consideraron como claves para el desarrollo de el Plan de Calidad. Además, hay que asegurarse de que todas las correcciones de las revisiones realizadas quedan resueltas.
-         \end{itemize}
+
+		\begin{itemize}
+			\item \textit{RTF (Revisiones Técnicas Formales).} \\
+				Con ellas se intentarán detectar errores en la funcionalidad o la lógica, verificar que satisface las especificaciones detalladas y a los estándares establecidos, señalando las desviaciones que hayan sido detectadas.
+			\item \textit{Revisiones de los productos.} \\
+				Se revisan los productos que se consideraron como claves para el desarrollo de el Plan de Calidad. Además, hay que asegurarse de que todas las correcciones de las revisiones realizadas quedan resueltas.
+		 \end{itemize}
 
 	\section{Control de medios} % Sandra
-		Los documentos generados durante el proceso de desarrollo están disponibles en \textit{Google Drive}. Para acceder a estos documentos es necesario tener una cuenta de correo de \textit{Google} y contar con el permiso los integrantes del equipo de desarrollo. El propietario de la carpeta (el coordinador del proyecto) permitirá el acceso a los documentos. \\
-		Entre otros documentos se puede consultar, la documentación interna, los documentos de Casos de Uso, SRS, Plan de Proyecto, Plan de Gestión y Configuración del Software y Plan de Garantía de Calidad del Software.
+		% Dice IEEE: establecer los métodos para identificar los medios para cada trabajo intermedio o final y la documentación requerida para almacenarlos, incluido el proceso de copia y restauración. Métodos para proteger los medios físicos ante acceso no autorizado, daño inadvertido o degradación durante durante el ciclo de vida del software.
+		Los documentos generados durante el proceso de desarrollo están disponibles en \textit{Google Drive}. Para acceder a estos documentos es necesario tener una cuenta de correo de \textit{Google} % realmente nosotros no tenemos una cuenta de correo de Google
+ y contar con el permiso los integrantes del equipo de desarrollo.\\
+		% Usamos un servidor de control de versiones que no es de acceso público...
+
+		Entre otros documentos se puede consultar, la documentación interna, los documentos de \textit{Casos de Uso}, \textit{SRS}, \textit{Plan de Proyecto}, \textit{Plan de Gestión y Configuración del Software} y \textit{Plan de Garantía de Calidad del Software}.
 
 	%\section{Control de proveedor} % Natalia: no hay proveedores
 
 	\section{Colección de registros, mantenimiento y conservación} % Sandra
+		% Dice IEEE: establecer la documentación a conservar y cómo se almacenará (catalogará, protegerá) incluyendo el periodo de conservación.
 		Ya hemos comentado anteriormente que los documentos generados por el equipo de desarrollo se depositan en \textit{Google Drive}. Todas entregas solicitadas por el cliente, así como el material empleado en las exposiciones y la documentación interna será compartido por el equipo de desarrollo y por el cliente en esta plataforma. \\
-		Cada vez que un integrante del equipo genere nueva documentación, la depositará en el repositorio \textit{RiouxSVN},  comentando las principales modificaciones, informando así al resto del equipo. Sin embargo, por motivos de mantenimiento, el repositorio \textit{RiouxSVN} está inoperativo de forma temporal, lo que nos ha llevado a la búsqueda de un nuevo repositorio: \textit{Assembla}. La dirección del nuevo repositorio es \url{https://subversion.assembla.com/svn/grupodiedral/}. Requiere contraseña y también permite acceder a versiones antiguas de los documentos, llevando a cabo así un control sobre las distintas versiones.
+
+		Cada vez que un integrante del equipo genere nueva documentación, la depositará en el repositorio de control de versiones,  identificando la revisión mediante un mensaje debidamente explicativo, informando así al resto del equipo. Por motivos de mantenimiento el servidor de control de versiones anteriormente usado \textit{RiouxSVN} está inoperativo previsiblemente hasta mediados de 2013, lo que nos ha llevado a la búsqueda de un nuevo servidor: \textit{Assembla}. La dirección del nuevo repositorio es \url{https://subversion.assembla.com/svn/grupodiedral/}. Requiere contraseña y también permite acceder a versiones antiguas de los documentos, llevando a cabo así un control sobre las distintas versiones.
 
 	\section{Formación} % Natalia
-	Las actividades de formación necesarias que tienen que tener los desarrolladores del proyecto  para satisfacer y realizar correctamente el Plan de Calidad son:
+		Las actividades de formación necesarias que tienen que tener los desarrolladores del proyecto  para satisfacer y realizar correctamente el Plan de Calidad son:
+		% La formación no es sólo para realizar el plan de calidad o aplicar sus métodos, es para asegurar el cumplimiento de los objetivos fijados por el plan de calidad, lo cual da mucho más juego.
+
 		\begin{enumerate}
 			\item Comprender el proceso de desarrollo del producto y saber identificar las desviaciones surgidas en la documentación.
 			\item Conocimiento sobre la Verificación y Validación de Requisitos.
 			\item Comunicación a través de auditorías con el Cliente para conocer a fondo sus necesidades y saber establecer correctamente
 los requisitos.
 		\end{enumerate}
+
+		% ¿Algo más concreto?
 		
 	\section{Gestión del riesgo}
-		Véase \textit{Plan de Proyecto}.
+		Véase el documento de \textit{Plan de Proyecto}.
 
 	\section{Glosario}
 		\printglossaries
+
 	\section{Procedimiento de cambio e historial del plan de SQA} % Sandra
-		Cualquier propuesta que implique la modificación del plan SQA debe ser comunicada al coordinador del grupo de desarrollo y aprobada por los miembros del equipo encargados de esta tarea.
+		Cualquier propuesta que implique la modificación del plan SQA debe ser comunicada al coordinador del grupo de desarrollo y aprobada por los miembros del equipo encargados de esta tarea.\\
+
 		Se puede consultar el historial de cambios del plan SQA al principio del presente documento.
+
 	\appendix
 	\newpage
 	\bibliography{plancalidad}
