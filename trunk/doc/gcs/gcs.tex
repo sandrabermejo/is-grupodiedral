@@ -80,7 +80,7 @@ pdfinfo={
 			El propósito del Plan de \gls{config_software} es establecer y mantener la integridad de los productos a desarrollar a través del proceso de software asociado. 
 		\subsection{Alcance}
 		\begin{itemize}
-			\item Se \textit{identificarán y definirán los elementos del sistema}, controlando el posible cambio de estos durante todo su ciclo de vida, y se verificarán que sean correctos y completos.
+			\item Se \textit{identificarán y definirán los elementos del sistema}, controlando el posible cambio de estos durante todo su ciclo de vida, y se verificará que sean correctos y completos.
 			\item Se establecerá un protocolo de \textit{gestión de cambios} de estos elementos.
 			\item Será la base de partida para que se pueda generar una buena \textit{calidad de software}.
 			\item Ayudará a la comunicación y organización en el grupo de desarrollo o con personas ajenas al proyecto.
@@ -90,12 +90,44 @@ pdfinfo={
 		\subsection{Referencia}
 			\nocite{IEEE828-1998}
 			\nocite{PSMAN}
+			\nocite{ESA PSS-05-0}
 			Ver sección de {\itshape Referencias} al final del documento.
 		
 	\section{Gestión de la GCS} % Sandra
 		\subsection{Organización}
+			En este apartado describimos el contexto organizativo en el cual se aplicará la gestión de configuración de software. Para llevar a cabo dicha gestión hemos definido los siguientes roles:
+			\begin{itemize}
+				\item Líder de Proyecto: Rubén Rafael Rubio Cuéllar
+				\item Responsables de la Configuración: Natalia Angulo Herrera, Sandra Bermejo Cañadas
+				\item Ingenieros: Cristina Alonso Fernández, Juan Andrés Claramunt Pérez
+			\end{itemize}
+			Si la situación lo requiriese, se podrían realizar cambios en la estructura descrita con el obetivo de asegurar que todos los productos a desarrollar y sus cambios sean debidamente justificados y de una calidad conveniente.
 		\subsection{Responsabilidades GCS}
+			A continuación, se establecen las tareas asignadas a cada rol, garantizando así que todas las actividades esenciales se lleven a cabo y además que las realice sólo un integrante del equipo.
+			\begin{itemize}
+				\item Líder de Proyecto
+					\begin{itemize}
+						\item Controlar la gestión de configuración.
+						\item Informar al equipo de desarrollo acerca de los planes de gestión de configuración de software.
+						\item Asegurar que los documentos se generen de acuerdo con las políticas establecidas en la siguiente sección.
+					\end{itemize}
+				\item Responsables de la Configuración
+					\begin{itemize}
+						\item Organizar y realizar la gestión de configuración.
+						\item Mantener el documento de \textit{Gestión de Configuración de Software}.
+						\item Realizar informes (si procede).
+					\end{itemize}
+				\item Ingenieros
+					\begin{itemize}
+						\item Decidir si un cambio se lleva a cabo y evaluarlo.
+						\item Acatar las reglas de gestión de configuración que publiquen los  Responsables de la Configuración.
+						\item Almacenar los cambios realizados.
+					\end{itemize}
+			\end{itemize}
 		\subsection{Políticas, directivas y procedimientos aplicables}
+			Se llevarán a cabo las políticas establecidas en el estándar \textit{ESA PSS-05-0} que tengan relación con la gestión de configuración de software. \\
+			Además, se incluyen los procedimientos definidos por el líder del proyecto.
+
 	\section{Actividades de la GCS}
 		\subsection{Identificación de la configuración} % Natalia
 			En la siguiente sección se va a realizar la Identificación, nombrado y adquisición de \gls{ECS}.
