@@ -7,7 +7,7 @@
 	FIE	& 0	& 5 	& 0 	& 7 	& 0 	& 10 	& 0	\\ \hline
 	EI	& 3	& 3	& 2	& 4	& 0	& 6	& 17	\\ \hline
 	EO	& 0	& 4	& 0	& 5	& 0	& 7	& 0	\\ \hline
-	EQ 	& 0	& 3	& 0	& 4	& 0	& 6	& 0
+	EQ 	& 2	& 3	& 0	& 4	& 0	& 6	& 0
 \end{tablapf}
 
 
@@ -21,24 +21,27 @@
 		\dets{7}{fabricante, dimensiones, plazas, año fabricación, capacidad de bodega, autonomía, nombre modelo}
 	}{baja}
 
+	% ¿Hay países geográficos y otros políticos? (sobra información, ¿no?)
 	\estfli{Países}{
 		\rets{2}{geográficos, políticos}
 		\dets{6}{nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario}
 	}{baja}
 
+	% ¿Es relevante el gentilicio? ¿Qué va hacer el programa con él? No es una enciclopedia.
 	\estfli{Ciudades}{
 		\rets{2}{geográficos, políticos}
 		\dets{5}{nombre, país, población, gentilicio, altitud media}
 	}{baja}
 
+	% ¿Pistas significa número de pistas?
 	\estfli{Aeropuertos}{
-		\rets{1}{Identificativos}
+		\rets{1}{identificativos}
 		\dets{6}{nombre, identificador, tipo, operador, ciudad, pistas}
 	}{baja}
 
 	\estfli{Organigrama laboral}{
 		\rets{1}{laboral}
-		\dets{4}{departamentos, jerarquías, elementos de autoridad, funciones}
+		\dets{4}{secciones, departamentos, puestos de trabajo, privilegios de acceso}
 	}{baja}
 
 }
@@ -49,33 +52,53 @@
 
 	\estee{Modelos de avión}{
 		\ftrs{1}{técnicas}
-		\dets{7}{fabricante, dimensiones, plazas, año fabricación, capacidad de bodega, autonomía, nombre modelo}
+		\dets{7}{{\itshape véase FLI Modelos de avión}}
 	}{baja}
 
 	\estee{Países}{
 		\ftrs{2}{geográficos, políticos}
-		\dets{6}{nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario}
+		\dets{6}{{\itshape véase FLI Países}}
 	}{media}
 
 	\estee{Ciudades}{
 		\ftrs{2}{geográficos, políticos}
-		\dets{5}{nombre, país, población, gentilicio, altitud media}
+		\dets{5}{{\itshape véase FLI Ciudades}}
 	}{media}
 
 	\estee{Aeropuertos}{
-		\ftrs{1}{Identificativos}
-		\dets{6}{nombre, identificador, tipo, operador, ciudad, pistas}
+		\ftrs{1}{identificativos}
+		\dets{6}{{\itshape véase FLI Aeropuertos}}
 	}{baja}
 
 	\estee{Organigrama laboral}{
 		\ftrs{1}{laboral}
-		\dets{4}{departamentos, jerarquías, elementos de autoridad, funciones}
+		\dets{4}{{\itshape véase FLI Organigrama laboral}}
 	}{baja}
 
 }
 % Salidas Externas
 {}
 % Consultas Externas
-{}
+{
+
+	\estce{Modelos de avión disponibles}{
+		\ftrs{1}{técnicas}
+		\dets{2}{nombre modelo, plazas}
+	}{baja}
+
+	\estce{Aeropuertos disponibles}{
+		\ftrs{2}{aeropuertos, ciudades}
+		\dets{3}{nombre de aeropuerto, identificador, nombre de ciudad}
+	}{baja}
+	
+	\estce{Puestos laborales disponibles}{
+		\ftrs{1}{puesto}
+		\dets{1}{nombre del puesto de trabajo}
+	}{baja}
+
+
+
+	
+}
 
 % fin
