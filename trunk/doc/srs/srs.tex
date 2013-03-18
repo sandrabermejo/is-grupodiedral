@@ -37,8 +37,11 @@
 % Establece la profundidad de niveles de sección que aparece en el TOC
 %\setcounter{tocdepth}{4}
 
-% Fija que la entrada del glosario se comporte como una subsección
-\setglossarysection{subsection}
+% Fija que la entrada del glosario no genere una sección
+\renewcommand*{\glossarysection}[2][]{%
+	\setlength\glsdescwidth{0.6\linewidth}%
+	\glossarymark{Glosario}%
+}
 
 % Configuración de los encabezados
 \encabezadodiedral{\doctitle{} \docversion}
@@ -465,11 +468,12 @@ pdfinfo={
 				\item \textit{Escalabilidad}: se desarrolla el sistema facilitando el mantenimiento del mismo así como la posibilidad de ampliaciones y nuevas funcionalidades futuras.
 			\end{itemize}
 	
-	% Apéndice: Glosario
+	% Apéndice
 	\newpage
+	\part*{Apéndices}
 	\appendix
-	\section{Apéndice: Glosario} \label{srs:glosario}
-	\printglossary 
+	\section{Glosario} \label{srs:glosario}
+	\printglossary
 
 	% Subíndice de funciones
 	\newpage

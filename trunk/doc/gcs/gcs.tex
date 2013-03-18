@@ -36,8 +36,11 @@
 % Establece la profundidad de niveles de sección que aparece en el TOC
 \setcounter{tocdepth}{4}
 
-% Fija que la entrada del glosario se comporte como una subsección
-\setglossarysection{subsection}
+% Fija que la entrada del glosario no genere una sección
+\renewcommand*{\glossarysection}[2][]{%
+	\setlength\glsdescwidth{0.6\linewidth}%
+	\glossarymark{Glosario}%
+}
 
 % Configuración de los encabezados
 \encabezadodiedral{Plan GCS \docversion}
@@ -198,7 +201,7 @@ pdfinfo={
 						\begin{itemize}
 							\item \textit{Tipo de ECS:} documento.
 							\item \textit{Identificador proyecto:} \verb|PR|.
-							\item \textit{Información de la versión y/o cambio:} se están acometiendo referentes a la \textit{Estimación de Puntos de Función}. En la última versión entregada se omitió por error el cálculo de los PF totales, lo cual motivó un cambio para recoger tal apartado.
+							\item \textit{Información de la versión y/o cambio:} se están acometiendo diferentes cambios referentes a la \textit{Estimación de Puntos de Función}. En la última versión entregada se omitió por error el cálculo de los PF totales, lo cual motivó un cambio para recoger tal apartado.
 						\end{itemize}
 
 					\item {\itshape \bfseries Lista de recursos.}

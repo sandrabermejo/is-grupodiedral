@@ -33,7 +33,11 @@
 \setcounter{tocdepth}{4}
 
 % Fija que la entrada del glosario se comporte como una subsección
-\setglossarysection{subsection}
+% Fija que la entrada del glosario no genere una sección
+\renewcommand*{\glossarysection}[2][]{%
+	\setlength\glsdescwidth{0.6\linewidth}%
+	\glossarymark{Glosario}%
+}
 
 % Configuración de los encabezados
 \encabezadodiedral{\doctitle{} \docversion}
