@@ -2,41 +2,50 @@
 
 % Tabla de la estimación
 
-\begin{tablapf}{Generación de gráficas}{10}
-	FLI	& 0 	& 7 	& 0 	& 10 	& 0 	& 15 	& 0	\\ \hline
-	FIE	& 1	& 5 	& 0 	& 7 	& 0 	& 10 	& 5	\\ \hline
-	EI	& 0	& 3	& 0	& 4	& 0	& 6	& 0	\\ \hline
-	EO	& 0	& 4	& 1	& 5	& 0	& 7	& 5	\\ \hline
-	EQ 	& 0	& 3	& 0	& 4	& 0	& 6	& 0
+\begin{tablapf}{Generación de gráficas}{14}
+	FLI	&  0 &  7 &  0 & 10 &  0 & 15 &  0	\\ \hline
+	FIE	&  0 &  5 &  1 &  7 &  0 & 10 &  7	\\ \hline
+	EI	&  0 &  3 &  0 &  4	&  0 &  6 &  0	\\ \hline
+	EO	&  0 &  4 &  0 &  5	&  1 &  7 &  7	\\ \hline
+	EQ 	&  0 &  3 &  0 &  4	&  0 &  6 &  0
 \end{tablapf}
 
 
 % Detalles de la estimación
 
 \estimacionfunc	% Ficheros Lógicos Internos
-{}
+{
+
+	\estfli{No hay}{}
+	
+}
 % Ficheros de Interfaz Externos
 {
 
 	\estfie{Informes dinámicos de datos analizados}{
-		\rets{2}{ficheros internos, ficheros externos}
-		\dets{12}{clientes, empleados, vuelos, ofertas, nominas, inventarios, económica, horarios, países, ciudades, aeropuertos, organigrama 				laboral}
-		% más concreto ¿de qué haría el programa gráficas?
-	}{baja}
+		\rets{9}{personales, laborales, general, identificativos, históricos, calendario laboral, instalaciones, técnicos, restricciones}
+		\dets{13}{clientes, empleados, vuelos, ofertas, nóminas, inventario, económica, horarios, países, ciudades, aeropuertos, modelos de avión, organigrama laboral}
+	}{media}
 
 }
 %	Entradas externas
-{}
+{
+
+	\estee{No hay}{}
+	
+}
 %	Salidas externas
 {
 	\estse{Informes dinámicos de datos analizados}{
-		\dets{2}{ficheros internos, ficheros externos}
-		\ftrs{12}{clientes, empleados, vuelos, ofertas, nominas, inventarios, económica, horarios, países, ciudades, aeropuertos, organigrama 				laboral}
-	}{media}
-
-	% La salida sería un gráfico
+		\ftrs{9}{personales, laborales, general, identificativos, históricos, calendario laboral, instalaciones, técnicos, restricciones}
+		\dets{13}{clientes, empleados, vuelos, ofertas, nominas, inventarios, económica, horarios, países, ciudades, aeropuertos, modelos de avión, organigrama laboral}
+	}{alta}
 }
 %	Consultas externas
-{}
+{
+
+	\estce{No hay}{}
+	
+}
 
 % fin

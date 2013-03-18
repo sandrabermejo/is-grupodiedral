@@ -97,49 +97,61 @@ pdfinfo={
 
 	\section{Estimaciones del proyecto}
 		\subsection{Datos históricos}
-		A lo largo del documento de planificación temporal nos hemos apoyado en el plan de proyecto de algunos trabajos de la Universidad Complutense como por ejemplo IronHand, Estubox, sobre todo para la identificación de riesgos, tal y como sugiere la Gestión de Riesgos Boehm. Además, también nos hemos ayudado de \cite{PSMAN} y sobre todo de los Top 10 Risk.
+		Para realizar la estimación de nuestro proyecto, nos hemos apoyado en algunos trabajos de carácter similar realizados en la Universidad Complutense de Madrid en años anteriores como, por ejemplo, IronHand o Estubox. Además, también nos hemos ayudado de \cite{PSMAN} así como de los apuntes de clase de la asignatura \textit{Ingeniería del Software} del curso 2012/2013.
 		\subsection{Técnicas de estimación}
-		Para estimar el coste de nuestro proyecto software de la manera más precisa y dentro del tiempo disponible para ello, hemos intentado retrasar la estimación lo máximo posible, tomando como referencia algunos datos de otros proyectos similares ya terminados. Concretamente, hemos utilizado las técnicas de descomposición basadas en el problema, según el tamaño del software a desarrollar en puntos de función (PF), ayudándonos de modelos como el COCOMO (COnstructive COst MOdel).
+		Para estimar el coste de nuestro proyecto software de la manera más precisa y dentro del tiempo disponible para ello, hemos intentado retrasar la estimación lo máximo posible y tomar como referencia algunos datos de los datos históricos encontrados. Concretamente, hemos utilizado las técnicas de descomposición basadas en el problema, según el tamaño del software a desarrollar en puntos de función (PF), ayudándonos de modelos como el COCOMO (COnstructive COst MOdel).
 		\subsection{Estimaciones de esfuerzo, coste y duración}
+			% El detalle de las estimaciones está desarrollado en archivos aparte
+
+			\subsubsection{Gestión corriente de la base de datos} \label{estimac:gestioncorriente}
+				\input{estimac/gestionbasedatos}
+			
+			\subsubsection{Configuración de la base de datos} \label{estimac:configuracion}
+				\input{estimac/gestionconfig}	
+
+			\subsubsection{Interfaz externa} \label{estimac:iexterna}
+				\input{estimac/interfazexterna}	
+			
+			\subsubsection{Interfaz interna} \label{estimac:iinterna}
+				\input{estimac/interfazinterna}	
+			
+			\subsubsection{Generación de gráficas} \label{estimac:graficas}
+				\input{estimac/generaciongraficas}	
+			
+			\subsubsection{Análisis y monitorización de datos} \label{estimac:analisis}
+				\input{estimac/analisisdatos}
+				
 			\subsubsection{Discusión de los factores de ajuste} \label{estimac:factores}
 				En este epígrafe se discutirán brevemente los factores de ajuste escogidos para la estimación del proyecto de acuerdo al método de puntos de función y los factores de escala y coste de Cocomo II.
 
 				\begin{enumerate}
-					\item \textbf{Comunicación de datos}: (5) más de un front-end, más de un protocolo de comunicación.\\
-						El \software desarrollado tiene dos interfaces, una interna de tipo escritorio sobre la
-					red corporativa; y otra externa basada en web y de acceso por medio de Internet.
+					\item \textbf{Comunicación de datos}: (5) Más de un front-end, más de un protocolo de comunicación.\\
+						El \software desarrollado tiene dos interfaces, una interna de tipo escritorio sobre la red corporativa; y otra externa basada en web y de acceso por medio de Internet.
 
-					\item \textbf{Funciones distribuidas}: (4) proceso distribuido y transferencia de datos on-line. Ambas direcciones.\\
+					\item \textbf{Funciones distribuidas}: (4) Proceso distribuido y transferencia de datos on-line. Ambas direcciones.\\
 						El \software en desarrollo es principalmente un programa que gestiona bases de datos. El proceso de la información estará distribuido entre el servidor y el cliente. Cierta información será procesada por el servidor antes de ser enviada al cliente. Así mismo, el cliente procesará la información que le sea introducida por el usuario antes de hacer la correspondiente petición al servidor.
 
-					\item \textbf{Rendimiento}: (2) Tiempo de respuesta o capacidad de proceso crítico durante horas punta.
-No diseño especial para utilización CPU.
+					\item \textbf{Rendimiento}: (2) Tiempo de respuesta o capacidad de proceso crítico durante horas punta. No diseño especial para utilización CPU.
 	
-					\item \textbf{Configuraciones fuertemente utilizadas}: (4) Las restricciones obligan a limitaciones en la
-aplicación.
+					\item \textbf{Configuraciones fuertemente utilizadas}: (4) Las restricciones obligan a limitaciones en la aplicación.
 					\item \textbf{Frecuencia de transacciones}: (3) Periodo punta diario.
 					\item \textbf{Entradas de datos-online}: (3) 16\% al 23\% de las transacciones son interactivas.
-					\item \textbf{Eficiencia del usuario final}: (4) 6 o más, con requisitos de eficiencia que obligan a
-minimizar por ej. el número de tecleos o a usar máscaras.\\
+					\item \textbf{Eficiencia del usuario final}: (4) 6 o más, con requisitos de eficiencia que obligan a minimizar por ej. el número de tecleos o a usar máscaras.\\
 						Es requerida la pronta validación de los datos introducidos por el usuario y la elaboración de pantallas personalizables para el acceso a las tareas más frecuentes.
-					\item \textbf{Actualización on-line de los ILF}: (4) Actualización de los principales ILF, la protección
-contra pérdida de datos es esencial y ha sido especialmente diseñada y programada.\\
-						La mayor parte de los ILF de la aplicación se actualizan de forma remota a través del \software clientes, ya sea externo o interno.s
+					\item \textbf{Actualización on-line de los ILF}: (4) Actualización de los principales ILF, la protección contra pérdida de datos es esencial y ha sido especialmente diseñada y programada.\\
+						La mayor parte de los ILF de la aplicación se actualizan de forma remota a través del \software clientes, ya sea externo o interno.
 					\item \textbf{Procesos complejos}: (1) Proceso lógico completo.
 
-					\item \textbf{Reusabilidad}: (4) La aplicación se empaquetó y/o documentó para ser fácilmente reusable.
-Aplicación adaptada por el usuario a nivel de código fuente.\\
+					\item \textbf{Reusabilidad}: (4) La aplicación se empaquetó y/o documentó para ser fácilmente reusable. Aplicación adaptada por el usuario a nivel de código fuente.\\
 						La aplicación está documentada y organizada para facilitar la reutilización. Pese a que algunas adaptaciones están especificadas para poder realizarse a través de la configuración post-compilación, la mayoría de los cambios se han de realizar sobre el código fuente.
-					\item \textbf{Facilidad de instalación}: (2) Requisitos de conversión e instalación definidos por usuario.
-No se considera importante el impacto de la conversión.
-					\item \textbf{Facilidad de operación}: (2) Se minimiza la necesidad de montaje de cintas y manejo de
-papel.
+					\item \textbf{Facilidad de instalación}: (2) Requisitos de conversión e instalación definidos por usuario. No se considera importante el impacto de la conversión.
+					\item \textbf{Facilidad de operación}: (2) Se minimiza la necesidad de montaje de cintas y manejo de papel.
 					\item \textbf{Instalación en distintos lugares}: (3) Múltiples lugares con entornos distintos de hw y sw.\\
 						Es el caso de la aplicación interna que se instalará en los distintos equipos repartidos por las instalaciones de la compañía aérea.
 					\item \textbf{Facilidad de cambios}: (3) Facilidad para realizar consultas/informes simples.	
 				\end{enumerate}
 
-				Los valoraciones correspondientes a Cocomo son:
+				Los valoraciones correspondientes a COCOMO son:
 				
 				\begin{itemize}
 
@@ -167,41 +179,21 @@ papel.
 
 				\end{itemize}
 
-			%% El detalle de las estimaciones está desarrollado en archivos aparte
-
-			\subsubsection{Gestión corriente de la base de datos} \label{estimac:gestioncorriente}
-				\input{estimac/gestionbasedatos}
-			
-			\subsubsection{Configuración de la base de datos} \label{estimac:configuracion}
-				\input{estimac/gestionconfig}	
-
-			\subsubsection{Interfaz externa} \label{estimac:iexterna}
-				\input{estimac/interfazexterna}	
-			
-			\subsubsection{Interfaz interna} \label{estimac:iinterna}
-				\input{estimac/interfazinterna}	
-			
-			\subsubsection{Generación de gráficas} \label{estimac:graficas}
-				\input{estimac/generaciongraficas}	
-			
-			\subsubsection{Análisis y monitorización de datos} \label{estimac:analisis}
-				\input{estimac/analisisdatos}
-
 		\subsubsection{Cálculo de los puntos de función}
-			De acuerdo a lo indicado en la apartado \textit{\nameref{estimac:factores}} de este documento, el factor de complejidad total, que hemos calculado de forma global, suma 44.\\
+			De acuerdo a lo indicado en la apartado anterior \textit{\nameref{estimac:factores}}, el factor de complejidad total, que hemos calculado de forma global, suma 44.\\
 
-			De los epígrafes siguientes se tiene que los puntos de función sin ajustar son:
+			De los epígrafes previos se tiene que los puntos de función sin ajustar son:
 
 	\begin{table}[H] \centering
 		\begin{tabu} to .6\linewidth {| X[3, l] | X[1, r] |}
 			\hline
-			\nameref{estimac:gestioncorriente} & 152\\ \hline
-			\nameref{estimac:configuracion} & 50\\ \hline
-			\nameref{estimac:iexterna} & 51\\ \hline
-			\nameref{estimac:iinterna} & 113\\ \hline
+			\nameref{estimac:gestioncorriente} & 139\\ \hline
+			\nameref{estimac:configuracion} & 59\\ \hline
+			\nameref{estimac:iexterna} & 74\\ \hline
+			\nameref{estimac:iinterna} & 138\\ \hline
 			\nameref{estimac:graficas} & 14\\ \hline
-			\nameref{estimac:analisis} & 47\\ \hline
-			\multicolumn{1}{|r|}{Total} & 427 \\ \hline
+			\nameref{estimac:analisis} & 75\\ \hline
+			\multicolumn{1}{|r|}{Total} & 499 \\ \hline
 		\end{tabu}
 		\caption{Resumen de los puntos de función sin ajustar}
 	\end{table}
@@ -209,14 +201,14 @@ papel.
 		Por lo que los puntos de función ajustados (PFA) son:
 
 	\begin{equation}
-		\mathrm{PFA} = \mathrm{PFSA} (0,65 + 0,01 \cdot \mathrm{FCT}) = 427 (0,65 + 0,01 \cdot 44) = 465,43 \tag{PFA}
+		\mathrm{PFA} = \mathrm{PFSA} (0,65 + 0,01 \cdot \mathrm{FCT}) = 499 (0,65 + 0,01 \cdot 44) = 543,91 \tag{PFA}
 	\end{equation}\\
 
-		O equivalentemente, según la tabla de correspondencia sugerida en \cite{PSMAN} (pág. 578), 30.718,38 líneas de código en C++.\\
+		Según la tabla de correspondencia sugerida en \cite{PSMAN} (pág. 578) en la que cada PF corresponde a unas 66 líneas de código, los puntos de función calculados serían equivalentes a 35.898,06 líneas de código en C++.\\
 
 		No hay datos suficientes sobre la productividad de la organización como para aventurar un coste en tiempo fiable.\\
 
-		El valor obtenido en la herramienta de Cocomo II\footnote{\url{http://csse.usc.edu/tools/COCOMOII.php}} con los parámetros especificados en el apartado \ref{estimac:factores}. estima el esfuerzo en 279,2 hombres/mes, en un calendario de 30,6 meses, una equivalencia de 22.631 líneas de código en Java. La herramienta sugiere que el reparto de esfuerzo sea 5\% en la primera fase, 20,33\% en el diseño, 64,4 \% en construcción y 10,27\% en la fase de transición.
+		El valor obtenido en la herramienta de Cocomo II\footnote{\url{http://csse.usc.edu/tools/COCOMOII.php}} con los parámetros especificados en el apartado \ref{estimac:factores} estima el esfuerzo en 282,1 hombres/mes, en un calendario de 17,1 meses y una equivalencia de 26.447 líneas de código en Java. La herramienta sugiere que el reparto de esfuerzo sea 5,1\% en la primera fase, 20,3\% en el diseño, 64,4 \% en construcción y 10,2\% en la fase de transición.
 			
 	\section{Estrategia de gestión del riesgo}
 		\subsection{Análisis del riesgo}
