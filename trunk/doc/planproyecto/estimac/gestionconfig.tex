@@ -2,102 +2,104 @@
 
 % Tabla de la estimación
 
-\begin{tablapf}{Configuración de la base de datos}{52}
-	FLI	& 5 	& 7 	& 0 	& 10 	& 0 	& 15 	& 35	\\ \hline
-	FIE	& 0	& 5 	& 0 	& 7 	& 0 	& 10 	& 0	\\ \hline
-	EI	& 3	& 3	& 2	& 4	& 0	& 6	& 17	\\ \hline
-	EO	& 0	& 4	& 0	& 5	& 0	& 7	& 0	\\ \hline
-	EQ 	& 2	& 3	& 0	& 4	& 0	& 6	& 0
+\begin{tablapf}{Configuración de la base de datos}{59}
+	FLI	&  5 &  7 &  0 & 10 &  0 & 15 & 35	\\ \hline
+	FIE	&  0 &  5 &  0 &  7 &  0 & 10 &  0	\\ \hline
+	EI	&  5 &  3 &  0 &  4	&  0 &  6 & 15	\\ \hline
+	EO	&  0 &  4 &  0 &  5	&  0 &  7 &  0	\\ \hline
+	EQ 	&  3 &  3 &  0 &  4	&  0 &  6 &  9
 \end{tablapf}
 
 
 % Detalles de la estimación
 
-\estimacionfunc	%	Ficheros Lógicos Internos
+\estimacionfunc	% Ficheros Lógicos Internos
 {
 
 	\estfli{Modelos de avión}{
-		\rets{1}{técnicas}
-		\dets{7}{fabricante, dimensiones, plazas, año fabricación, capacidad de bodega, autonomía, nombre modelo}
+		\rets{1}{técnicos}
+		\dets{15}{fabricante, nombre modelo (2) (versión y serie), número de avion, plazas, dimensiones, capacidad bodega, coste, año fabricación, estado, tipo de combustible, consumo medio, autonomía, peso del avión, motores}
 	}{baja}
 
-	% ¿Hay países geográficos y otros políticos? (sobra información, ¿no?)
 	\estfli{Países}{
-		\rets{2}{geográficos, políticos}
-		\dets{6}{nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario}
+		\rets{1}{geográficos}
+		\dets{7}{nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario}
 	}{baja}
 
-	% ¿Es relevante el gentilicio? ¿Qué va hacer el programa con él? No es una enciclopedia.
 	\estfli{Ciudades}{
-		\rets{2}{geográficos, políticos}
-		\dets{5}{nombre, país, población, gentilicio, altitud media}
+		\rets{1}{geográficos}
+		\dets{4}{nombre, país, población, altitud media}
 	}{baja}
 
-	% ¿Pistas significa número de pistas?
 	\estfli{Aeropuertos}{
 		\rets{1}{identificativos}
-		\dets{6}{nombre, identificador, tipo, operador, ciudad, pistas}
+		\dets{6}{nombre, identificador, tipo, operador, ciudad, número de pistas}
 	}{baja}
 
 	\estfli{Organigrama laboral}{
 		\rets{1}{laboral}
-		\dets{4}{secciones, departamentos, puestos de trabajo, privilegios de acceso}
+		\dets{4}{{secciones, departamentos, puestos de trabajo, privilegios de acceso}
 	}{baja}
 
 }
 %	Ficheros de Interfaz Externos
-{}
+{
+
+	\estfie{No hay}{}
+	
+}
 %	Entradas Externas
 {
 
 	\estee{Modelos de avión}{
 		\ftrs{1}{técnicas}
-		\dets{7}{{\itshape véase FLI Modelos de avión}}
+		\dets{7}{fabricante, dimensiones, plazas, año fabricación, capacidad de bodega, autonomía, nombre modelo}
 	}{baja}
 
 	\estee{Países}{
-		\ftrs{2}{geográficos, políticos}
-		\dets{6}{{\itshape véase FLI Países}}
-	}{media}
+		\ftrs{1}{geográficos}
+		\dets{7}{nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario}
+	}{baja}
 
 	\estee{Ciudades}{
-		\ftrs{2}{geográficos, políticos}
-		\dets{5}{{\itshape véase FLI Ciudades}}
-	}{media}
+		\ftrs{1}{geográficos}
+		\dets{4}{nombre, país, población, altitud media}
+	}{baja}
 
 	\estee{Aeropuertos}{
 		\ftrs{1}{identificativos}
-		\dets{6}{{\itshape véase FLI Aeropuertos}}
+		\dets{6}{nombre, identificador, tipo, operador, ciudad, número de pistas}
 	}{baja}
 
 	\estee{Organigrama laboral}{
 		\ftrs{1}{laboral}
-		\dets{4}{{\itshape véase FLI Organigrama laboral}}
+		\dets{4}{secciones, departamentos, puestos de trabajo, privilegios de acceso}
 	}{baja}
 
 }
 % Salidas Externas
-{}
+{
+
+	\estse{No hay}{}
+	
+}
 % Consultas Externas
 {
 
 	\estce{Modelos de avión disponibles}{
-		\ftrs{1}{técnicas}
-		\dets{2}{nombre modelo, plazas}
+		\ftrs{1}{técnicos}
+		\dets{5}{fabricante, nombre modelo (2) (versión y serie), número de avion, plazas}
 	}{baja}
 
 	\estce{Aeropuertos disponibles}{
-		\ftrs{2}{aeropuertos, ciudades}
-		\dets{3}{nombre de aeropuerto, identificador, nombre de ciudad}
+		\ftrs{1}{identificativos}
+		\dets{3}{nombre del aeropuerto, identificador, ciudad}
 	}{baja}
 	
 	\estce{Puestos laborales disponibles}{
-		\ftrs{1}{puesto}
+		\ftrs{1}{laboral}
 		\dets{1}{nombre del puesto de trabajo}
 	}{baja}
-
-
-
 	
 }
 

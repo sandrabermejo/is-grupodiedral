@@ -2,12 +2,12 @@
 
 % Tabla de la estimación
 
-\begin{tablapf}{Análisis y monitorización de datos}{47}
-	FLI	& 1 	& 7 	& 0 	& 10 	& 0 	& 15 	& 7	\\ \hline
-	FIE	& 8	& 5 	& 0 	& 7 	& 0 	& 10 	& 40	\\ \hline
-	EI	& 0	& 3	& 0	& 4	& 0	& 6	& 0	\\ \hline
-	EO	& 0	& 4	& 0	& 5	& 0	& 7	& 0	\\ \hline
-	EQ 	& 0	& 3	& 0	& 4	& 0	& 6	& 0
+\begin{tablapf}{Análisis y monitorización de datos}{75}
+	FLI	&  0 &  7 &  1 & 10 &  0 & 15 & 10	\\ \hline
+	FIE	& 13 &  5 &  0 &  7 &  0 & 10 & 65	\\ \hline
+	EI	&  0 &  3 &  0 &  4	&  0 &  6 &  0	\\ \hline
+	EO	&  0 &  4 &  0 &  5	&  0 &  7 &  0	\\ \hline
+	EQ 	&  0 &  3 &  0 &  4	&  0 &  6 &  0
 \end{tablapf}
 
 
@@ -15,66 +15,98 @@
 
 \estimacionfunc % Ficheros Lógicos Internos
 {
-%
+
 	\estfli{Informes dinámicos de datos analizados}{
-		\rets{1}{registro de informes}
-		\dets{1}{dato analizado}
-	}{baja}
+		\rets{9}{personales, laborales, general, identificativos, históricos, calendario laboral, instalaciones, técnicos, restricciones}
+		\dets{13}{clientes, empleados, vuelos, ofertas, nóminas, inventario, económica, horarios, países, ciudades, aeropuertos, modelos de avión, organigrama laboral}
+	}{media}
 
 }
 % Ficheros de Interfaz Externos
 {
 
 	\estfie{Clientes}{
-		\rets{1}{registro de clientes}
-		\dets{10}{nombre y apellidos, NIF, número de teléfono, dirección(6: tipo de vía, nombre, número, escalera, piso y puerta}
+		\rets{2}{personales, históricos}
+		\dets{13}{nombre, apellidos, e-mail, NIF, teléfono, dirección(6), historial de servicios contratados, ofertas conseguidas}
 	}{baja}
 
 	\estfie{Empleados}{
-		\rets{1}{registro de empleados}
-		\dets{11}{nombre y apellidos, NIF, número de teléfono, dirección (6: tipo de vía, nombre, número, escalera, piso y puerta,
-			puesto de trabajo}
+		\rets{2}{personales, laborales}
+		\dets{15}{nombre, apellidos, NIF, e-mail, teléfono, dirección(6), puesto trabajo, permisos, registros, periodo laboral}
 	}{baja}
 	
 	\estfie{Vuelos}{
-		\rets{4}{registro de vuelos, registro de aeropuertos, registro de ciudades, registro de países}
-		\dets{8}{número de vuelo, fecha de origen, hora de origen, fecha de llegada, hora de llegada, aeropuerto de origen,
-			aeropuerto de destino, modelo de avión}
+		\rets{1}{general}
+		\dets{10}{número de vuelo, fecha de salida/llegada, hora de salida/llegada, aeropuerto de origen, aeropuerto destino, modelo de avión, tripulación, clase}
 	}{baja}
 
 	\estfie{Ofertas}{
-		\rets{3}{registro de ofertas, registro de vuelos, registro de clientes}
-		\dets{14}{vuelo(8), cliente(6)}
+		\rets{3}{descripción, prestaciones, restricciones}
+		\dets{6}{título, resumen, artículo, precio ofertado, periodo validez, ámbito de validez}
 	}{baja}
 
 	\estfie{Nóminas}{
-		\rets{2}{registro de nóminas, registro de empleados}
-		\dets{14}{empleado(11), mes, año, sueldo}
+		\rets{1}{general}
+		\dets{8}{identificador del empleado(5)(nombre, apellidos, NIF, nº SS, departamento), incidencias (3) (horas extras, sustituciones, huelgas)}
 	}{baja}
 
 	\estfie{Inventario}{
-		\rets{2}{registro de inventario, registro de instalaciones}
-		\dets{14}{instalaciones (6), nombre, número de registro, fecha(3: día, mes, año), cantidad, destino de uso, valor de
-			adquisición}
+		\rets{2}{descriptivos, instalaciones}
+		\dets{8}{nombre artículo, número, cantidad, precio de compra, departamento, proveedor, fecha última compra, almacén}
 	}{baja}
 
 	\estfie{Economía}{
-		\rets{1}{historial económico}
-		\dets{8}{gastos, ingresos, beneficios, pérdidas, resultados anteriores, inversiones en bolsa, inversiones financieras y
-			evolución de la infraestructura de la empresa}
+		\rets{1}{históricos}
+		\dets{4}{conceptos, ingresos, gastos, resultados por periodos}
 	}{baja}
 
 	\estfie{Horarios}{
-		\rets{1}{registro de empleados}
-		\dets{2}{tipo de horario, fecha de entrada en vigencia}
+		\rets{1}{calendario laboral}
+		\dets{5}{hora de entrada, hora salida, tipo de jornada, festivos, periodos de descanso}
 	}{baja}
 
+	\estfie{Países}{
+		\rets{1}{geográficos}
+		\dets{6}{nombre, capital, idiomas oficiales, forma de gobierno, población, moneda, huso horario}
+	}{baja}
+
+	\estfie{Ciudades}{
+		\rets{1}{geográficos}
+		\dets{4}{nombre, país, población, 4altitud media}
+	}{baja}
+
+	\estfie{Aeropuertos}{
+		\rets{1}{identificativos}
+		\dets{6}{nombre, identificador, tipo, operador, ciudad, número de pistas}
+	}{baja}
+	
+	\estfie{Modelos de avión}{
+		\rets{1}{técnicos}
+		\dets{15}{fabricante, nombre modelo (2) (versión y serie), número de avion, plazas, dimensiones, capacidad bodega, coste, año fabricación, estado, tipo de combustible, consumo medio, autonomía, peso del avión, motores}
+	}{baja}
+	
+	\estfie{Organigrama Laboral}{
+		\rets{1}{laboral}
+		\dets{4}{secciones, departamentos, puestos de trabajo, privilegios de acceso}
+	}{baja}
 }
 %	Entradas externas
-{}
+{
+
+	\estee{No hay}{}
+	
+}
 %	Salidas externas
-{}
+{
+
+	\estse{No hay}{}
+	
+}
 %	Consultas externas
-{}
+{
+
+	\estce{No hay}{}
+	
+}
 
 % fin
