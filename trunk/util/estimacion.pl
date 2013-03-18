@@ -233,8 +233,8 @@ sub generaTabla(){
 	my @sumafase = (0, 0, 0, 0, 0);
 	my $sumatotal = 0;
 
-	for (my $i = 0; $i < $#pesos; $i++){
-		$sumafase[$i] = 	$sumapf[$i]{baja} * $pesos[$i]{baja} + 
+	for (my $i = 0; $i <= $#pesos; $i++){
+		$sumafase[$i] = $sumapf[$i]{baja} * $pesos[$i]{baja} + 
 				$sumapf[$i]{media} * $pesos[$i]{media} +
 				$sumapf[$i]{alta} * $pesos[$i]{alta};
 
