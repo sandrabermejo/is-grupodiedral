@@ -33,11 +33,7 @@
 \setcounter{tocdepth}{4}
 
 % Fija que la entrada del glosario se comporte como una subsección
-% Fija que la entrada del glosario no genere una sección
-\renewcommand*{\glossarysection}[2][]{%
-	\setlength\glsdescwidth{0.6\linewidth}%
-	\glossarymark{Glosario}%
-}
+\setglossarysection{subsection}
 
 % Configuración de los encabezados
 \encabezadodiedral{\doctitle{} \docversion}
@@ -98,17 +94,17 @@ pdfinfo={
 		Véase la sección {\itshape Referencias} al final del documento.
 
 	\section{Gestión} % Eso no se entiende
-		Las tareas desarrolladas en la SQA deberán reflejar los estándares a seguir, los procedimientos correctos que hay que seguir para la elaboración de los productos, los productos a revisar e informar de los fallos encontrados y realizar un seguimiento de los mismos hasta su corrección. Así, las actividades que se van a llevar a cabo son: \\
+		Las tareas desarrolladas en la SQA deberán reflejar los estándares a seguir, los procedimientos correctos en la elaboración de los productos, los elementos a revisar e informar de los fallos encontrados y realizar un seguimiento de los mismos hasta su corrección. Así, las actividades que se van a llevar a cabo son: \\
 
 			\begin{enumerate}
 				\item Realización de Revisiones Técnicas Formales (RTF).
-				\item Revisión de cada producto. % ¿Qué es un producto?
+				\item Revisión de cada documento generado.
 				\item Asegurar que los fallos de los productos y sus respectivas modificaciones son documentadas.
 				\item Revisión de los productos que se ajustan al proceso \software.
 			\end{enumerate}
 
 		\subsection{Ciclo de vida del software} % Etapas más importantes del software que cubre el plan
-			Las etapas más importantes que cubre este plan son el análisis, la especificación de los requisitos y la gestión de riesgos. De la calidad de éstas depende la intensidad con la que se tendrán que realizar las revisiones de calidad. % ¿Qué?
+			Las etapas más importantes que cubre este plan son la \textit{fase inicial} y la \textit{fase de elaboración}, puesto que son las etapas en las que se desarrollan y se solidifican los requisitos y el resto de documentos del proyecto. Es por esto que es la base de las \textit{fases de construcción y transición}, puesto que un error en las dos primeras desencadenarán fallos muy graves en estas y generarán grandes costes por malas construcciones y malos diseños.
  \\
 
 			Productos que tendrán revisión de calidad: \\
@@ -141,7 +137,8 @@ pdfinfo={
 	\section{Documentación} % Natalia
 		\subsection{Propósito}
 			% Dice IEEE: esta sección va de identificar la documentación que regula las diferentes fases del proyecto y enumerar los documentos que serán revisados. Para cada documento, identificar las revisiones que se llevarán a cabo y criterio para su validación (~ sección 6).
-			El propósito de la documentación generada por las revisiones del proyecto es proporcionar una consistencia y calidad a éste.\\ % ¿Sólo una?
+			%N: Más o menos así?
+			El propósito de la documentación generada por las revisiones del proyecto es sobre todo proporcionar una consistencia y calidad a éste. Además, se identificarán los documentos regulados en las diferentes fases del proyecto y se indicarán los que necesiten una revisión.\\ %¿Sólo una?N:No se me ocurre más!
 			El criterio de supervisión será organizar a los analistas y supervisores para que realicen las modificaciones necesarias. Además se elaborarán reuniones para que miembros de otros proyectos junto con el cliente den su punto de vista sobre los errores y modificaciones que se deberían hacer para así elaborar una documentación consistente.\\
 
 			La documentación generada en el proceso de desarrollo será: \\
@@ -149,6 +146,9 @@ pdfinfo={
 			
 		\subsection{Requisitos mínimos de documentación}
 			% Dice IEEE: enumeración de la documentación requerida como mínimo. Como SRS, especificación de diseño, plan de verificación y validación, resultados de la validación y verificación, documentación de usuario, plan GCS (algunos no proceden).
+			%N:así Corregido?
+			La documentación mínima requerida para el proyecto que se está desarrollando es: SRS, especificación de diseño, plan de proyecto, plan de verificación y validación y el documento con dichos resultados, plan de Gestión de Calidad y documentación de usuario.\\
+			
 			Para asegurarse de que la documentación cumpla los requisitos técnicos especificados, realizaremos las revisiones nombradas
 anteriormente. Esto es necesario dado que la futura implementación también deberá cumplir dichos requisitos, y esta está basada en esta documentación generada.\\
 
@@ -160,7 +160,7 @@ coherente en todos los documentos generados y que no haya por tanto partes contr
 		
 		\subsection{Otra documentación}
 			% Dice IEEE: plan de proyecto, descripción de los estándares de desarrollo, descripción de métodos procedimientos o herramientas, plan de mantenimiento... (algunos no proceden). 
-			
+			%N: Añadidos dos más
 			Otros documentos que influyen directamente en la calidad del software a desarrollar son:
 
 			\begin{itemize}
@@ -170,6 +170,8 @@ coherente en todos los documentos generados y que no haya por tanto partes contr
 					\subitem Plan de Gestión de Riesgos.
 				\item Estándares y manuales para generar la documentación.
 				\item Plan de Gestión de Configuración del Software.
+				\item Descripción de métodos, procedimientos o herramientas
+				\item Plan de mantenimiento del Software
 			\end{itemize}
 			
 	\section{Estándares, prácticas, convenciones y métricas} % Sandra
@@ -204,16 +206,22 @@ Para los distintos documentos se han creado plantillas en {\rmfamily\LaTeX{}}, a
 
 		\subsection{Propósito}
 			% Dice IEEE: la sección va de definir las revisiones de software que se van a llevar a cabo. Enumerar el calendario de revisiones relacionándolo con el calendario del proyecto. Determinar como se han de efectuar la revisiones y qué otras acciones serán necesarias.
-			Detallar las revisiones y auditorías que se realizarán y especificar cómo se van a llevar a cabo.
+			%Corregido creo.
+			Detallar las revisiones y auditorías que se realizarán y especificar cómo se van a llevar a cabo. Además, se establecerá un calendario de reuniones acorde con la planificación realizada en el \textit{Plan de Proyecto}. \\
+			
+			En esta sección, también se deberá determinar como se han realizado las revisiones y qué técnicas se han utilizado para seguirlas. Por último, se indicarán todas las acciones que hayan sido necesarias para gestionar la calidad del Software.
 
 		\subsection{Requisitos mínimos}
+			La documentación mínima para revisar deberá ser: SRS, gestión de riesgos, diseño de la arquitectura, plan de validación y verificación, revisión funcional, correspondencia entre el código y el diseño y el plan de GCS (Nótese que muchos de estos documentos no están generados aún, pero que su revisión de calidad se realizará más tarde y será incluída en este documento).
 			% Dice IEEE: como mínimo se ha revisar SRS, diseño de la arquitectura, plan de validación y verificación, revisión funcional (no procede)..., correspondencia código-diseño, plan CGS...
+			%N: modificado
 			\subsubsection{Revisiones de Requisitos}
 				Antes de pasar a la fase de diseño del producto software, se realizarán revisiones para asegurar que se cumplieron los requisitos establecidos por el cliente. Estas revisiones servirán para tener una buena base de Requisitos del Sistema y poder diseñar el producto desde una estructura sólida.
  Además servirán para poder establecer una \gls{linea_base} entre el cliente y los desarrolladores. 
 				
 			\subsubsection{Revisiones de Gestión}
 				% Dice IEEE: esta sección debe incluir todas las pruebas no incluidas en el plan de verificación y validación del software (todas) y los métodos que serán usados. Si existe un plan externo se ha de hacer referencia a él.
+				%no entiendo ni papa. Rubén, alguna idea más please?
 			Algunas personas ajenas a nuestro proyecto han revisado los documentos realizados hasta la fecha. Para ello se ha elaborado la siguiente planificación de reuniones: \\
 			
 			\begin{center}
@@ -301,6 +309,7 @@ Para los distintos documentos se han creado plantillas en {\rmfamily\LaTeX{}}, a
 	\section{Formación} % Natalia
 		Las actividades de formación necesarias que tienen que tener los desarrolladores del proyecto  para satisfacer y realizar correctamente el Plan de Calidad son:
 		% La formación no es sólo para realizar el plan de calidad o aplicar sus métodos, es para asegurar el cumplimiento de los objetivos fijados por el plan de calidad, lo cual da mucho más juego.
+		%he añadido debajo de los items enumerados, a ver si te parece bien
 
 		\begin{enumerate}
 			\item Comprender el proceso de desarrollo del producto y saber identificar las desviaciones surgidas en la documentación.
@@ -308,8 +317,7 @@ Para los distintos documentos se han creado plantillas en {\rmfamily\LaTeX{}}, a
 			\item Comunicación a través de auditorías con el Cliente para conocer a fondo sus necesidades y saber establecer correctamente
 los requisitos.
 		\end{enumerate}
-
-		% ¿Algo más concreto?
+	Por otro lado, existirán otras actividades de formación que tengan una finalidad correctora a la hora de determinar si se cumplen los objetivos fijados por el Plan de Calidad. Estas actividades se basarán en reuniones que tengan como objetivo comparar los requisitos detallados por el Cliente y comprobar que se encuentran y se verifican en la documentación generada para que posteriormente, la fase de construcción y transición, cumpla lo acordado en la \textit{Línea Base }de todos estos \textit{Requisitos del Software}.
 		
 	\section{Gestión del riesgo}
 		Véase el documento de \textit{Plan de Proyecto}.
