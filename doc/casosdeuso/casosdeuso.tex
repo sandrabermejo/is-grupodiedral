@@ -16,6 +16,7 @@
 
 % Nombre del documento (para futuras referencias)
 \newcommand*{\doctitle}{Casos de uso}
+\newcommand*{\docversion}{3.0}
 
 %%% Configuraciones %%%
 \marginsize{2cm}{2cm}{2cm}{2cm}
@@ -38,7 +39,7 @@
 \hypersetup{
 pdfinfo={
 	Author={Grupo Diedral},
-	Title={\doctitle},
+	Title={\doctitle{} \docversion},
 	Subject={Airline Common Environment},
 	Keywords={Casos de uso;Airline Common Environment;Ingeniería del Software}
 }
@@ -59,7 +60,7 @@ pdfinfo={
 	\fijacitainicial{Los ordenadores son inútiles. Sólo pueden darte respuestas}{Pablo Ruiz Picasso}
 
 	% Página de título
-	\portadaace{\doctitle}{2.0}
+	\portadaace{\doctitle}{\docversion}
 
 	% Índice
 	\tableofcontents
@@ -92,14 +93,21 @@ pdfinfo={
 
 	\ifpdf
 	\begin{sidewaysfigure}	% LaTex lo coloca donde le parece (como debe hacer)
-		\hspace*{-.8cm}\includegraphics[scale=.8]{diagramas/gestioninterna1.pdf}
-		\caption{Diagrama de gestión interna (administrativo)}
+		\hspace*{0cm}\includegraphics[scale=.9]{diagramas/gicorriente.pdf}
+		\caption{Diagrama de gestión interna (gestión corriente)}
 	\end{sidewaysfigure}
 	\fi
 
 	\ifpdf
 	\begin{sidewaysfigure}
-		\hspace*{0cm}\includegraphics[scale=.9]{diagramas/gestioninterna2.pdf}
+		\hspace*{-.4cm}\includegraphics[scale=.82]{diagramas/gilaboral.pdf}
+		\caption{Diagrama de gestión interna (laboral y económico)}
+	\end{sidewaysfigure}
+	\fi
+
+	\ifpdf
+	\begin{sidewaysfigure}
+		\hspace*{-.2cm}\includegraphics[scale=.82]{diagramas/giespecificos.pdf}
 		\caption{Diagrama de gestión interna (mecánico y personal de a bordo)}
 	\end{sidewaysfigure}
 	\fi
@@ -137,7 +145,7 @@ pdfinfo={
 
 	\ifpdf
 	\begin{sidewaysfigure}
-		\includegraphics[scale=.85]{diagramas/gestionexterna.pdf}
+		\includegraphics[scale=.92]{diagramas/gestionexterna.pdf}
 		\caption{Diagrama de gestión externa}
 	\end{sidewaysfigure}
 	\fi

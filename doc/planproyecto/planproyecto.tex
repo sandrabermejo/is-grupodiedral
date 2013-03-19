@@ -9,7 +9,6 @@
 \usepackage{lmodern}
 \usepackage{anysize}
 \usepackage[none]{hyphenat}
-\usepackage{multicol}
 \usepackage{amsmath}
 \usepackage[colorlinks, linkcolor=red]{hyperref}
 \usepackage[doc=planproyecto]{isdiedral}
@@ -18,7 +17,7 @@
 
 % Nombre del documento (para futuras referencias)
 \newcommand*{\doctitle}{Plan de proyecto}
-\newcommand*{\docversion}{2.0}
+\newcommand*{\docversion}{3.0}
 
 %%% Configuraciones %%%
 \marginsize{2.5cm}{2cm}{2cm}{2cm}
@@ -336,14 +335,7 @@ pdfinfo={
 			\item[\bfseries 2.0] $\{$CCUU 2.0, Diagramas CCUU 1.0, SRS 2.0, Plan de Proyecto 2.0 (EDT 2.0, Riesgos 2.0, Estimación 2.0, Planificación 2.0) $\}$
 		\end{itemize}
 		
-	\newpage
-	\part*{Apéndices}
-		\appendix
-		\section{Actividad del repositorio}
-			\input{anexo_repo.tex}
-		
 		\newpage
-		\normalsize
 		\nocite{PSMAN}
 		\bibliography{planproyecto}
 		\bibliographystyle{apalike}

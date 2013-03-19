@@ -8,6 +8,7 @@
 \usepackage[spanish]{babel}
 \usepackage{lmodern}
 \usepackage{anysize}
+\usepackage{multicol}
 \usepackage[none]{hyphenat}
 \usepackage[colorlinks, linkcolor=red]{hyperref}
 \usepackage{glossaries}
@@ -21,7 +22,7 @@
 % Nombre del documento (para futuras referencias)
 % Obs: el nombre del encabezado no usa \doctitle
 \newcommand*{\doctitle}{Plan de gestión de configuración del software}
-\newcommand*{\docversion}{2.0}
+\newcommand*{\docversion}{3.0}
 
 
 %%% Configuraciones %%%
@@ -265,6 +266,12 @@ pdfinfo={
 
 	\section{Glosario}
 		\printglossaries
+
+	\newpage
+	\part*{Apéndices}
+		\appendix
+		\section{Actividad del repositorio}
+			\input{anexo_repo.tex}
 
 	\newpage
 	\bibliography{gcs}
