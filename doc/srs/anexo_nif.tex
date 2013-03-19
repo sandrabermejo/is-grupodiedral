@@ -1,0 +1,81 @@
+%
+% Anexo sobre el formato NIF
+%
+
+	Secuencia de identificación para las personas físicas y jurídicas en España. El uso de dicho identificador está regulado por el Real Decreto 1065/2007. El formato para personas jurídicas está regulado por la orden EHA/451/2008 de Ministerio de Economía y Hacienda (BOE 26 de febrero de 2008)\footnote{Para una especificación simple pero incompleta, véase \url{www.juntadeandalucia.es/servicios/madeja/contenido/recurso/677} - Marco de Desarrollo de la Junta de Andalucía}.\\
+
+	El NIF admite diferentes formatos:
+
+\begin{itemize}
+	\item \verb|00000000A| (8 números + dígito de control) para españoles con \gls{DNI}. El dígito de control es un carácter alfabético.
+	\item \verb|A0000000A| (letra inicial + 7 números + dígito de control) para personas físicas salvo las del apartado anterior. La letra inicial indica diferentes clasificaciones de personas físicas. Las letras disponibles son \verb|K| (españoles menores de 14 años sin DNI); \verb|L|; \verb|M| y; \verb|X| , \verb|Y| y \verb|Z| (extranjeros identificados residentes en España, denominado \gls{NIE}).
+	\item \verb|X00000000A| (\verb|X| + 8 números + dígito de control) con el mismo significado que el correspondiente de 7 dígitos, mantenido por razones históricas. 
+	\item \verb:A0000000(A|0): (letra inicial + 7 números + dígito de control) para personas jurídicas. La letra inicial es una de las siguientes $\{ \verb|A|, \verb|B|, \verb|C|, \verb|D|, \verb|E|, \verb|F|, \verb|G|, \verb|H|, \verb|J|, \verb|P|, \verb|Q|, \verb|R|, \verb|S|, \verb|U|, \verb|V|, \verb|N|, \verb|W| \}$ que determina la naturaleza jurídica de la persona. El dígito de control puede ser letra o número dependiendo de la letra inicial.\\
+ \end{itemize}
+
+	Existen reglas de correspondencia para determinar el dígito de control:
+\begin{itemize}
+	\item {\itshape DNI y NIE}: sea $n$ el número que aparece en NIF.
+
+		\begin{equation*}
+			\text{Siendo } s := \sum_{i=1}^8 \left( \frac{n}{10^{i-1}} \mod 10 \right) \text{ la suma de las cifras}
+		\end{equation*}
+
+		\begin{equation*}
+			\text{Se define } m := 
+			\begin{cases}
+				s & \text{si es DNI o NIE-{\texttt X}}\\
+				s + 1 & \text{si es NIE-{\texttt Y}}\\
+				s + 2 & \text{si es NIE-{\texttt Z}}\\
+			\end{cases}
+		\end{equation*}
+
+		Entonces el dígito de control es la letra que corresponde al número obtenido $m \mod 23$ en la siguiente tabla\footnote{La definición oficial no es la misma pero es equivalente.}: 
+
+		{\small
+		\begin{equation*}
+			\setcounter{MaxMatrixCols}{12}
+			\begin{pmatrix}
+				0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11\\
+				T & R & W & A & G & M & Y & F & P & D & X  & B  \\
+				\\
+				12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 &\\
+				N  & J  & Z  & S  & Q  & V  & H  & L  & C  & K  & E &\\ 
+			\end{pmatrix}
+		\end{equation*}
+		}
+
+	\item {\itshape Otros NIF}: sea $n$ el número del NIF (correspondiente a los 7 primeros caracteres numéricos). Se procede de la siguiente forma:	
+		% Fuente Wikipedia.
+		\begin{enumerate}
+			\item Se suman las dígitos de las posiciones pares (se considera que la posición de las unidades es impar\footnote{Téngase en cuenta que así, las posiciones pares son las que están multiplicadas por una potencia de 10 impar.}).
+				\begin{equation*}
+					a_1 := \sum_{i=0}^3 \left( \frac{n}{10^{2i + 1}} \mod 10 \right)
+				\end{equation*}
+			\item Para cada uno de los dígitos de la posiciones impares, se multiplica el dígito por dos y se suman las cifras obtenidas. Se acumulan todas las sumas anteriores.
+				\begin{equation*}
+					a_2 := \sum_{i=0}^3 \left( \left( 2 \left( \frac{n}{10^{2i}} \mod 10\right) \right) \mod 10 + \frac{ 2 \left( n / 10^{2i} \mod 10 \right)}{10} \right)
+				\end{equation*}
+
+			\item Se suman los resultados de los epígrafes anteriores.
+				\begin{equation*}
+					a_3 := a_1 + a_2
+				\end{equation*}
+			\item Se resta a 10 el dígito de las unidades del número obtenido en el apartado anterior si es mayor que 0.
+				\begin{equation*}
+					a_4 := (10 - a_3 \mod 10) \mod 10
+				\end{equation*}
+		\end{enumerate}
+
+
+	El resultado del último apartado es el dígito de control si éste ha de ser un número. En caso contrario es una de las siguientes letras según la siguiente correspondencia:
+		{\small
+		\begin{equation*}
+			\setcounter{MaxMatrixCols}{10}
+			\begin{pmatrix}
+				1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 0 \\
+				A & B & C & D & E & F & G & H & I & J
+			\end{pmatrix}
+		\end{equation*}
+		}
+\end{itemize}
