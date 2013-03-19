@@ -2,7 +2,7 @@
 %	Documento de especificación de requisitos software (SRS).
 %
 
-%Revisado 12/03/2013
+% Revisado 12/03/2013
 
 \documentclass[11pt, a4paper, twoside, titlepage]{article}
 \usepackage[utf8x]{inputenc}
@@ -22,7 +22,7 @@
 
 % Nombre del documento (para futuras referencias)
 \newcommand*{\doctitle}{Especificación de requisitos software}
-\newcommand*{\docversion}{2.0}
+\newcommand*{\docversion}{3.0}
 
 %%% Configuraciones %%%
 \marginsize{2.5cm}{2cm}{2cm}{2cm}
@@ -147,7 +147,7 @@ pdfinfo={
 				\item \textit{Personal administrativo}: es en general un usuario versátil, es decir, puede cambiar de ocupación con cierta facilidad. El nivel educativo usualmente será \gls{CNED_3}.
 				\item \textit{Personal de a bordo}: la formación y requisitos del personal de a bordo no sólo está definida por la compañía, sino que está regulada por organismos internacionales y nacionales de los países donde la compañía ofrece sus servicios. Los pilotos \glsunset{PTLA} (\gls{PTLA}) están sometidos a una serie de requisitos como edad mínima de 21 años, haber conseguido una licencia mediante examen oficial regulado y disponer de un mínimo de experiencia de vuelo. El nivel educativo será \gls{CNED_3}.
 				\item \textit{Personal de mantenimiento}: la formación del personal de mantenimiento en tierra suele ser \gls{CNED_3}. En las exigencias de acceso de algunos empleados se habrá solicitado \gls{CNED_5}.
-				\item \textit{Directivos}: el perfil de los directivos presume cierta formación y experiencia en la gestión empresarial y conocimiento de la actividad de la empresa. El nivel educativo usual es \gls{CNED_3} o \gls{CNED_5}.
+				\item \textit{Directivos}: el perfil de los directivos presume cierta formación y experiencia en la gestión em-\break{}presarial y conocimiento de la actividad de la empresa. El nivel educativo usual es \gls{CNED_3} o \gls{CNED_5}.
 			\end{itemize}
 
 			Con generalidad, la \textit{alfabetización informática} de los usuarios será suficiente para hacer uso eficiente de la aplicación.
@@ -155,7 +155,7 @@ pdfinfo={
 		\subsection{Restricciones}
 			% Descripción general de cualquier ¿otro? elemento que pueda limitar las opciones de los desarrolladores. En la primera versión incluimos -erróneamente- estas opciones.
 
-			La aplicación de la interfaz interna debe poder estar disponible para al menos los siguientes plataformas: \gls{Linux} (32 y 64 bits); \gls{Microsoft Windows} \textit{XP},  \textit{Vista} y \textit{7} (32 y 64 bits). Se considerará la disponibilidad para \textit{Apple Mac OS X 10.X} y \textit{Solaris}. Será necesario que el diseño de la aplicación cumpla unos mínimos de reutilización y facilidad de adaptación, por lo cual deberá ser codificado de acuerdo a los estándares reconocidos y los componentes no estándar o con riesgo de obsolescencia a corto plazo habrán de estar debidamente aislados del resto. El programa a su vez debe proporcionar los mecanismos necesarios para la realización de auditorías y controles de su funcionamiento, así como de su uso, a la par que garantizar el secreto de los datos manipulados, protegiendo el sistema frente a intentos de acceso externo o espionaje industrial y respetando las regulaciones que protegen los datos de carácter personal.\\
+			La aplicación de la interfaz interna debe poder estar disponible para al menos los siguientes\break plataformas: \gls{Linux} (32 y 64 bits); \gls{Microsoft Windows} \textit{XP},  \textit{Vista} y \textit{7} (32 y 64 bits). Se considerará la disponibilidad para \textit{Apple Mac OS X 10.X} y \textit{Solaris}. Será necesario que el diseño de la aplicación cumpla unos mínimos de reutilización y facilidad de adaptación, por lo cual deberá ser codificado de acuerdo a los estándares reconocidos y los componentes no estándar o con riesgo de obsolescencia a corto plazo habrán de estar debidamente aislados del resto. El programa a su vez debe proporcionar los mecanismos necesarios para la realización de auditorías y controles de su funcionamiento, así como de su uso, a la par que garantizar el secreto de los datos manipulados, protegiendo el sistema frente a intentos de acceso externo o espionaje industrial y respetando las regulaciones que protegen los datos de carácter personal.\\
 
 			El sistema \software central debe asegurar la posibilidad de realizar operaciones en paralelo hasta un máximo establecido. La fiabilidad de los componentes críticos debe ser verificable y deben incluir mecanismos de autodiagnóstico.\\
 
@@ -436,7 +436,7 @@ pdfinfo={
 					\item Procesador \textit{Pentium} o equivalente a un mínimo de 233 MHz.
 					\item 128 Mb de memoria RAM con velocidad de transferencia de más de 250 MHz.
 					\item 10 GB disponibles en el disco duro a una tasa de transferencia superior a 10 MBit/s.
-					\item Adaptador de vídeo igual o superior a \textit{Nvidia GeForce 256} o equivalente.
+					\item Adaptador de vídeo igual o superior a \textit{Nvidea GeForce 256} o equivalente.
 				\end{itemize}
 
 			Bastará con una intensidad media de conexión a Internet para la \textit{Gestión Externa} de la compañía.\\
@@ -454,17 +454,18 @@ pdfinfo={
 
 		\subsection{Restricciones de diseño}
 			El diseño de este producto está condicionado por la naturaleza y los usos del cliente, de lo que se derivan algunas limitaciones. La existencia previa de un parque de equipos informáticos distribuidos en las instalaciones de la compañía que el cliente quiere conservar imponen la necesidad de acomodar el \software a las posibilidades que ofrecen dichas máquinas. Este en particular, no plantea grandes problemas, ya que la aplicación cliente para la gestión interna --que será instalada en esos equipos-- no exige atributos que no estén presentes en la mayoría de las máquinas; si bien la obsolescencia de algunos equipos puede dejar sin efecto los requisitos de rendimiento indicados en el texto. Por otro lado, el amplio uso de ordenadores compartidos en ciertos sectores de la compañía ha impuesto limitar el almacenamiento local de información. Así mismo, la expansión internacional del cliente y las diferentes legislaciones sobre tratamiento de datos de carácter personal restringen posibles características del producto.
-			\subsubsection{Cumplimiento de estándares} %Mejorar este apartado, aportar y reestructurar ideas
+			\subsubsection{Cumplimiento de estándares} % Mejorar este apartado, aportar y reestructurar ideas
 				Este producto ha sido diseñado de acuerdo a ciertos estándares sobre materias diversas.\\
 				
-				Se especifican a lo largo del documento tanto en apartados especificos como en sus correspondientes funciones los estándares que cumple el producto, especificando de éste modo todo lo referente a unidades de medida usadas, codificación alfabetica, moneda, códigos de identificación, formato de fechas, formato de campos, criterios.
+				Se especifican a lo largo del documento tanto en apartados específicos como en sus correspondientes funciones los estándares que cumple el producto, especificando de este modo todo lo referente a unidades de medida usadas, codificación alfabética, moneda, códigos de identificación, formato de fechas, formato de campos, criterios.
+
 		\subsection{Atributos del sistema software}
 			El diseño del sistema se ha basado en características como:
 			\begin{itemize}
 				\item \textit{Seguridad}: implementando sistemas para evitar fraude, sistemas seguros y de encriptado para cobro, procesos de identificación de empleados basados en niveles de acceso y secciones.
 				\item \textit{Estabilidad}: es fundamental la protección del sistema frente a errores, manteniendo en todo momento copias de seguridad de las bases de datos y registrando accesos y modificaciones.
 				\item \textit{\gls{Usabilidad}}: pone al alcance del usuario una interfaz gráfica relativamente sencilla e intuitiva pero a la vez completa.
-				\item \textit{Escalabilidad}: se desarrolla el sistema facilitando el mantenimiento del mismo así como la posibilidad de ampliaciones y nuevas funcionalidades futuras.
+				\item \textit{Escalabilidad}: se desarrolla el sistema facilitando el mantenimiento del mismo así como la\break posibilidad de ampliaciones y nuevas funcionalidades futuras.
 			\end{itemize}
 	
 	% Apéndice
