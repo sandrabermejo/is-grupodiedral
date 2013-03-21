@@ -12,8 +12,10 @@
 \usepackage{amsmath}
 \usepackage[colorlinks, linkcolor=red]{hyperref}
 \usepackage[doc=planproyecto]{isdiedral}
-\usepackage{lscape}
 \usepackage{float}
+\usepackage{lscape}
+% Rota las páginas apaisadas en el pdf
+\usepackage{pdflscape}
 
 % Nombre del documento (para futuras referencias)
 \newcommand*{\doctitle}{Plan de proyecto}
@@ -44,14 +46,15 @@ pdfinfo={
 	Author={Grupo Diedral},
 	Title={\doctitle{} \docversion},
 	Subject={Airline Common Environment},
-	Keywords={Plan de proyecto;Airline Common Environment;Ingeniería del Software}
+	Keywords={Plan de proyecto, Airline Common Environment, Ingeniería del Software}
 }
 }
 
 \begin{document}
 	% Tabla de cambios
 	\begin{tablacambios}
-		2.0 & 28 de febrero de 2013 & CAF, NAH, SBC, JCP, RRC & Segunda entrega
+		2.0 & 28 de febrero de 2013 & CAF, NAH, SBC, JCP, RRC & Segunda entrega \\ \hline
+		3.0 & 21 de marzo de 2013 & CAF, JCP, RRC & Tercera entrega
 	\end{tablacambios}
 
 	% Fija la cita inicial

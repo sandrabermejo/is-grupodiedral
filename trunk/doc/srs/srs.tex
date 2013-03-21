@@ -60,7 +60,7 @@ pdfinfo={
 	Author={Grupo Diedral},
 	Title={\doctitle{} \docversion},
 	Subject={Airline Common Environment},
-	Keywords={SRS;Airline Common Environment;Ingeniería del Software}
+	Keywords={SRS, Airline Common Environment, Ingeniería del Software}
 }
 }
 
@@ -71,10 +71,11 @@ pdfinfo={
 \begin{document}
 	% Tabla de cambios
 	\begin{tablacambios}
-		0.2 & 15 de diciembre de 2012 & CAF, NAH, SBC, JAP, RRC & Primera versión incompleta\\ \hline
-		0.3 & 18 de diciembre de 2012 & CAF, NAH, SBC, JAP, RRC & Primera versión completa\\ \hline
-		1.0 & 20 de diciembre de 2012 & CAF, NAH, SBC, JAP, RRC & Primera entrega\\ \hline
-		2.0 & 28 de febrero de 2013 & CAF, NAH, SBC, JAP, RRC & Segunda entrega
+		0.2 & 15 de diciembre de 2012 & CAF, NAH, SBC, JAP, RRC & Primera versión incompleta	\\ \hline
+		0.3 & 18 de diciembre de 2012 & CAF, NAH, SBC, JAP, RRC & Primera versión completa	\\ \hline
+		1.0 & 20 de diciembre de 2012 & CAF, NAH, SBC, JAP, RRC & Primera entrega	\\ \hline
+		2.0 & 28 de febrero de 2013 & CAF, NAH, SBC, JAP, RRC & Segunda entrega	\\ \hline
+		3.0 & 21 de marzo de 2013 & CAF, JCP, RRC & Tercera entrega
 	\end{tablacambios}
 
 	% Cita inicial
@@ -84,6 +85,10 @@ pdfinfo={
 	\portadaace{\doctitle}{\docversion}
 
 	\tableofcontents
+	\newpage
+
+	% Lista de figuras
+	\listoffigures
 	\newpage
 
 	\iniciarnumeraciondiedral
@@ -404,9 +409,6 @@ pdfinfo={
 	% Subíndice de funciones
 	\newpage
 	\printcontents[tocfunciones]{}{2}{\section{Lista de funciones}\setcounter{tocdepth}{4}}
-
-	\newpage
-	\listoffigures
 
 	\newpage
 	\section[Especificación detallada de formatos referidos]{Especificación detallada de formatos referidos en este documento}
