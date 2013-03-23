@@ -1,4 +1,4 @@
-\ProvidesPackage{isdiedral}[2013/03/01 v2.0 macros para el proyecto de Ingeniería del Software]
+\ProvidesPackage{isdiedral}[2013/04/21 v2.2 macros para el proyecto de Ingeniería del Software]
 \typeout{ISDiedral}
 
 % isdiedral.sty
@@ -13,12 +13,12 @@
 \RequirePackage{ifthen}
 \RequirePackage{environ}
 \RequirePackage{multirow}
-\RequirePackage{supertabular}
 \RequirePackage{fancyhdr}
 \RequirePackage{ifpdf}
 \RequirePackage{tikz}
 \RequirePackage{colortbl}
 \RequirePackage{longtable}
+\RequirePackage{supertabular}
 \RequirePackage{tabu}
 \RequirePackage{localloc}
 
@@ -44,7 +44,7 @@
 %% Comandos de sección de nivel 4
 % Utilizado en las SRS con el nombre srsfuncion
 \newcounter{subsubsubsection}[subsubsection]	% Crea el contador
-\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}	% Define el formato de numeración
+\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}	% @ el formato de numeración
 \def\subsubsubsectionmark#1{}	% Por si acaso
 
 \makeatletter
@@ -107,7 +107,7 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 %% Comando de casos de uso, requiere una lista de claves-valor con ciertos
 % parámetros y dos tablas que representan secuencias.
 \newcommand{\casodeuso}[3]{
-	% Otorga valores iniciales a las variables (xkeyval también lo puede hacer).
+	% Otorga valores iniciales a las variables.
 	% Se utiliza def porque es altamente improbable que exista otro símbolo
 	% con el mismo nombre (salvo el creado anteriormente)
 	\def\casosdeusoNombre{\bfseries \color{red} <<Falta nombre>>}
@@ -204,17 +204,13 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 \newcounter{nriesgos}
 \setcounter{nriesgos}{1}
 
-% Configura supertabular para notificar el salto de línea
-\tabletail{\hline \multicolumn{3}{r}{\emph{Continúa en la página siguiente...}}\\}
-\tablelasttail{}
-
 %% Comando de hojas de riesgos, requiere una lista de claves-valor con ciertos
 % parámetros.
 \newcommand{\hojariesgo}[2]{
 	% Otorga valores iniciales a las variables (xkeyval también lo puede hacer).
 	% Se utiliza def porque es altamente improbable que exista otro símbolo	
 	% con el mismo nombre (salvo el creado anteriormente)
-	\def\riesgosID{\bfseries \color{red} <<Falta ID>>}
+	\def\riesgosID{\bfseries {\color{red} <<Falta ID>>}}
 	\def\riesgosIdentificador{}
 	\def\riesgosFecha{\bfseries {\color{red} <<Falta fecha>>}}
 	\def\riesgosDescripcion{\bfseries {\color{red} <<Falta descripción>>}}
@@ -224,7 +220,7 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 	\def\riesgosProbabilidad{\bfseries {\color{red} ?}}
 	\def\riesgosPeriodo{\bfseries {\color{red} ?}}
 	\def\riesgosEstrategia{\bfseries {\color{red} <<Falta estrategia>>}}
-	\def\riesgosContingencia{\bfseries {\color{red} <<Falta plan de contigencia>>}}
+	\def\riesgosContingencia{\bfseries {\color{red} <<Falta plan de contingencia>>}}
 	\def\riesgosGrupo{}
 
 	% Procesa el segundo parámetro
@@ -233,51 +229,66 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 	\subsubsection{#1}
 
 	% Tabla principal
-	\label{Riesgos:\riesgosID} \begin{supertabular}{| p{.1\linewidth} | p{.5\linewidth} | p{.3\linewidth} |}
+
+	% Tamaño de la tabla
+	\def\anchuratblr{.92\linewidth}
+	\begin{center}
+	\label{Riesgos:\riesgosID} \begin{longtabu} to \anchuratblr {| X[1, l] | X[5, l] | X[3, l] |}
+		% Definición de encabezados y demás
+		%\hline
+		\multicolumn{3}{r}{\itshape Continúa en la página siguiente\ldots} \endfoot
+		\endlastfoot
+		\hline \endhead
+		\endfirsthead
+
+		% Contenido de la tabla
 		\hline
 		\multicolumn{3}{|c|}{\bfseries Formulario de descripción de riesgo} \\
 		\hline
-		\multicolumn{2}{|l|}{\textbf{Identificado por:} \riesgosIdentificador} & \textbf{Fecha:} \riesgosFecha \\
+		\multicolumn{2}{|l|}{\textbf{Identificado por:} \small \riesgosIdentificador} & \textbf{Fecha:} {\small \riesgosFecha} \\
 		\hline
-		\multicolumn{2}{|l|}{} & \textbf{ID:} \riesgosID \\
+		\multicolumn{2}{|l|}{} & \textbf{ID:} \riesgosID \\ \hline
+		\multicolumn{3}{|p{\anchuratblr}|}{\textbf{Descripción de riesgo (con contexto):} \strut \riesgosDescripcion \strut} \\
 		\hline
-		\multicolumn{3}{|p{\linewidth}|}{\textbf{Descripción de riesgo (con contexto):} \riesgosDescripcion} \\
+		\riesgosInfluye & \scriptsize Influye en (\textbf{c}oste, calendario (\textbf{s}), \textbf{r}endimiento, calidad (\textbf{q})) & Impacto del riesgo: \riesgosImpacto\\ 
 		\hline
-		\riesgosInfluye & \scriptsize Influye en (\textbf{c}oste, calendario (\textbf{s}), \textbf{r}endimiento, calidad (\textbf{q})) & Impacto del riesgo: \riesgosImpacto\\
-		\hline
-		\riesgosConsecuencia & \scriptsize Consecuencia (\textbf{C}atastrófico, \textbf{c}rítico, \textbf{s}erio, \textbf{m}enor, \textbf{i}nsignificante) & \multirow{3}{*}{}\\
+		\riesgosConsecuencia & \scriptsize Consecuencia {\tiny (\textbf{C}atastrófico, \textbf{c}rítico, \textbf{s}erio, \textbf{m}enor, \textbf{i}nsignificante)} & \multirow{3}{*}{}\\
 		\cline{1-2}
-		\riesgosProbabilidad & \scriptsize Probabilidad (\textbf{f}recuente, \textbf{p}robable, \textbf{o}casional, \textbf{r}emota, \textbf{i}mprobable) & \\
+		\riesgosProbabilidad & \scriptsize Probabilidad {\tiny (\textbf{f}recuente, \textbf{p}robable, \textbf{o}casional, \textbf{r}emota, \textbf{i}mprobable)} & \\
 		\cline{1-2}
 		\riesgosPeriodo & \scriptsize Periodo (\textbf{c}orto plazo, \textbf{l}argo plazo) &\\
 		\hline
-		\multicolumn{3}{|p{\linewidth}|}{\textbf{Estrategia de mitigación:} \riesgosEstrategia} \\
+		\multicolumn{3}{|p{\anchuratblr}|}{\textbf{Estrategia de mitigación:} \strut \riesgosEstrategia \strut} \\
 		\hline
-		\multicolumn{3}{|p{\linewidth}|}{\textbf{Detonantes y acción de contigencia:} \riesgosContingencia} \\
+		\multicolumn{3}{|p{\anchuratblr}|}{\textbf{Detonantes y acción de contingencia:} \strut \riesgosContingencia \strut} \\
 		\hline
-		\multicolumn{3}{|l|}{\textbf{Grupo:} \riesgosGrupo} \\
+		\multicolumn{3}{|p{\anchuratblr}|}{\textbf{Grupo:} \riesgosGrupo} \\
 		\hline
-	\end{supertabular}\\
+		\tabuphantomline
+	\end{longtabu}
+	\end{center}
 
 	\addtocounter{nriesgos}{1}
 }
 
 %% Tabla sumario de riesgos
 \NewEnviron{tablariesgos}{
-	% Primera cabecera de tabla
-	\tablefirsthead{\hline
-		\multicolumn{7}{|c|}{\bfseries Resumen de riesgos} \\ \hline
-		\itshape ID & \itshape Denominación & \itshape Duración & \itshape Ámbito & \itshape Probab. & \itshape Consec. & \itshape Impac. \\ \hline
-	}
-
-	% Cabecera de tabla para páginas subsiguientes
-	\tablehead{\hline \itshape ID & \itshape Denominación & \itshape Duración & \itshape Ámbito & \itshape Probab. & \itshape Consec. & \itshape Impac. \\}
-
+	\tabulinesep = 1mm
 	\begin{center}
-	\begin{supertabular}{| l | p{.35\linewidth} | c | c | c | c | c |} \hline
+	\begin{longtabu} to \linewidth {| X[2, c] | X[12, l] | X[3, c] | X[3, c] | X[2, c] | X[2, c] | X[2, c] |} \hline
+		% Definición de encabezados y demás
+		% Encabezado inicial
+		\multicolumn{7}{|c|}{\bfseries Resumen de riesgos} \\ \hline
+		\itshape ID & \itshape Denominación & \itshape Duración & \itshape Ámbito & \itshape Prob & \itshape Cons & \itshape Impac \\ 			\hline \endfirsthead
+		% Encabezado de las páginas siguientes
+		\hline \itshape ID & \itshape Denominación & \itshape Duración & \itshape Ámbito & \itshape Prob & \itshape Cons & \itshape Impac \endhead
+		% Pie de tabla (salvo en el último trozo)
+		\multicolumn{7}{r}{\itshape Continúa en la página siguiente\ldots} \endfoot
+		\endlastfoot
+	
 		% Escribe el cuerpo de la tabla
 		\BODY\\\hline
-	\end{supertabular}
+	\end{longtabu}
 	\end{center}
 
 	% Reinicia las configuraciones de "supertabular"
