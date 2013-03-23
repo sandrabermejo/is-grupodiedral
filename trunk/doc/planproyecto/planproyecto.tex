@@ -255,17 +255,23 @@ pdfinfo={
 		\subsection{Estudio de los riesgos}
 			Una vez identificados los riesgos, procedemos a la priorización. Para ello, calculamos la exposición al riesgo multiplicando probabilidad por consecuencias. A continuación, trataremos el estudio de los riesgos más graves, incluyendo una estrategia de prevención y el plan de contingencia ante el acontecimiento.
 
+			% El orden de los riesgos responde a su encaje en la maquetación
+			% Sin embargo, en primer lugar aparecen los riesgos intolerables
+			\input{riesgos/faltacomunicacion}
+			\input{riesgos/repositorioinoperativo}
 			\input{riesgos/ambiguedadespecificacion}
 			\input{riesgos/cambiorequisitos}
 			\input{riesgos/desconocimientotecnologias}
-			\input{riesgos/erroresdocumentacion}			
+			\kern.2cm
+			\input{riesgos/erroresdocumentacion}
+			\kern.2cm
 			\input{riesgos/erroresdiseno}
-			\input{riesgos/faltacomunicacion}
-			\input{riesgos/inactividadprolongada}			
+			\input{riesgos/inactividadprolongada}
 			\input{riesgos/incumplimientofecha}
+			\kern.5cm
 			\input{riesgos/planificacionpocorealista}
+			\kern.5cm
 			\input{riesgos/problemasensamblar}
-			\input{riesgos/repositorioinoperativo}
 
 		\subsection{Plan de gestión de riesgo}
 			Remítase a los planes de prevención y contingencia del apartado anterior.
