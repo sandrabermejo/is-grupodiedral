@@ -5,16 +5,19 @@ GCS_TEX=gcs#		# Nombre del archivo del documento
 LATEX_CMD=pdflatex#	# Comando Latex (preferiblemente pdflatex)
 LATEXC=latex
 DVIPDF=dvipdf
+TEXIN=TEXINPUTS=..//common:$$TEXINPUTS#	# Carpetas de entrada LaTeX
+# En Windows (tal vez): set TEXINPUTS=..//common:$$TEXINPUTS &&
+
 
 # De forma grosera
 make:
-	pdflatex $(GCS_TEX)
+	$(TEXIN) pdflatex $(GCS_TEX)
 	makeindex -s $(GCS_TEX).ist -t $(GCS_TEX).glg -o $(GCS_TEX).gls $(GCS_TEX).glo
 	bibtex $(GCS_TEX)
-	pdflatex $(GCS_TEX)
+	$(TEXIN) pdflatex $(GCS_TEX)
 
 latex+pdf:
-	$(LATEXC) casosdeuso
+	$(TEXIN) $(LATEXC) casosdeuso
 	$(DVIPDF) casosdeuso.dvi
 	$(RM) casosdeuso.dvi
 
