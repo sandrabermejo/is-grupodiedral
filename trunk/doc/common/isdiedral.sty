@@ -499,6 +499,8 @@ ex minus -.2ex}{1.5ex plus .2ex}{\normalfont \itshape \bfseries}}	% Define el co
 	Grupo Diedral, 2013\\
 
 	Impreso en Madrid
+	% Imprime el MD5 del código fuente si está disponible
+	\ifpdf \IfFileExists{\jobname.tex}{\\ \indent{\ttfamily \scriptsize \MakeLowercase{\pdfmdfivesum{\jobname.tex}}}}{}  \fi
 	\newpage
 }
 
