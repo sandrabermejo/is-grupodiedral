@@ -1,0 +1,70 @@
+\documentclass[11pt, a4paper, twoside]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{anysize}
+\usepackage{tabu}
+\usepackage{pdfpages}
+\usepackage{fancyhdr}
+
+% Penaliza los guiones a final de línea
+\hyphenpenalty = 9999
+
+\marginsize{3cm}{2cm}{2cm}{2cm}
+
+% Indicador completo en lugar de página
+\fancyhead[LR]{}
+\fancyfoot[C]{{\ttfamily RTF NL:CU \quad \thepage}}
+
+\renewcommand*{\headrulewidth}{0pt}
+\pagestyle{fancy}
+
+\renewcommand*{\appendix}{\setcounter{section}{0}\setcounter{subsection}{0}\renewcommand*{\thesection}{Anexo \Alph{section}}}
+
+% Comando para indicar los problemas
+\newcommand{\problema}[2]{\begin{description} \item[Exposición] #1 \item[Resolución] #2 \end{description}}
+
+\begin{document}
+
+	% Título
+	\begin{center}
+		\scshape \large Acta de la Revisión Técnica Formal \textit{Casos de uso} - NAMELESS
+	\end{center}
+
+	Reunidos de una parte Aitor Alonso Lorenzo y Asier Cardoso Sánchez en representación de NAMELESS en calidad de autores del documento y de la otra Cristina Alonso Fernández y Natalia Angulo Herrera de la parte revisora, el \textsc{Grupo Diedral}, se procede a la puesta en común de la Revisión Técnica Formal del documento \textsc{Casos de uso} perteneciente a NAMELESS. \\
+
+	El equipo revisor presenta un documento, anexo al presente, con sus conclusiones previas. NAMELESS defiende su documento y el \textsc{Grupo Diedral} expone los problemas encontrados, citados en dicho documento. Por lo cual el equipo revisor concluye:
+
+\begin{quotation} \itshape
+	El documento presenta una estructura general correcta, con pequeños problemas de formato como la repetición de las descripciones de los casos de uso o la falta de un índice. En la reunión realizada se acuerda la división de la funcionalidad de la aplicación en gestión interna y externa para facilitar su entendimiento, así como la omisión de diversos términos relativos a la implementación que no son adecuados en este documento. Se señala también la ausencia total o parcial de información en algunos apartados de ciertos casos de uso, fácilmente subsanable.
+\end{quotation}
+
+\noindent
+En virtud de lo anterior, el documento se declara \textsc{aceptado}.\\
+
+	Ambas partes expresan su conformidad con lo referido en este acta en Madrid, a \today.
+
+\begin{flushleft}
+	Los asistentes,
+\end{flushleft}
+
+\vspace{1cm}
+
+	% Espacio para firmar
+	\begin{tabu} to .9\linewidth {X[1,c] X[1, c]}
+		Aitor Alonso Lorenzo & Asier Cardoso Sánchez
+	\end{tabu}
+
+	\vfill
+
+	\begin{tabu} to .9\linewidth {X[1,c] X[1, c]}
+		Cristina Alonso Fernández & Natalia Angulo Herrera
+	\end{tabu}
+	
+	\vfill
+	{\itshape A continuación se incluye el anexo previo elaborado por el equipo revisor: }
+
+	% Incluye el anexo del otro grupo
+	\includepdf[pages=1-2, pagecommand={}]{casosdeuso_nameless_anexo.pdf}
+\end{document}
