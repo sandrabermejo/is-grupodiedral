@@ -1,0 +1,11 @@
+window_sizes 1280 672 320 950 398 176
+diagrams
+  active  classdiagram_ref 128021 // Gestion Interna
+    950 398 100 4 0 0
+end
+show_stereotypes
+selected classview_ref 128021 // Diagrama de paquete
+open
+  class_ref 128149 // Usuario
+end
+end
