@@ -1,0 +1,38 @@
+format 76
+
+classcanvas 128023 class_ref 128007 // UsuarioWeb
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 18 160 2000
+end
+classcanvas 128151 class_ref 128791 // :CModificarContraseña
+  class_drawing_mode control show_context_mode default show_stereotype_properties default
+  xyz 180 171 2000
+end
+textcanvas 128279 "1: enviarLink(clave)"
+  xyzwh 89 160 2006 146 22
+classcanvas 128535 class_ref 128919 // :ModificarDatosPrivados
+  class_drawing_mode control show_context_mode default show_stereotype_properties default
+  xyz 457 174 2000
+end
+textcanvas 128791 "2: confirmarContraseñaOk(clave)"
+  xyzwh 288 170 2006 258 20
+classcanvas 128919 class_ref 129671 // :Usuarios
+  class_drawing_mode entity show_context_mode default show_stereotype_properties default
+  xyz 672 177 2000
+end
+relationcanvas 128407 relation_ref 128919 // <generalisation>
+  from ref 128023 z 2001 to ref 128151
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128663 relation_ref 129047 // <generalisation>
+  from ref 128151 z 2001 to ref 128535
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129047 relation_ref 129175 // <generalisation>
+  from ref 128535 z 2001 to ref 128919
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end
