@@ -1,0 +1,38 @@
+format 76
+
+classcanvas 128007 class_ref 128007 // UsuarioWeb
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 33 80 2000
+end
+classcanvas 128135 class_ref 129415 // :PáginaRegistro
+  class_drawing_mode boundary show_context_mode default show_stereotype_properties default
+  xyz 179 90 2000
+end
+classcanvas 128263 class_ref 129543 // :CComprobarDatos
+  class_drawing_mode control show_context_mode default show_stereotype_properties default
+  xyz 348 88 2000
+end
+classcanvas 128391 class_ref 129671 // :Usuarios
+  class_drawing_mode entity show_context_mode default show_stereotype_properties default
+  xyz 569 91 2000
+end
+textcanvas 128903 "1: registrar(usuario)"
+  xyzwh 261 70 2005 146 19
+textcanvas 129031 "2: guardar(usuario)"
+  xyzwh 467 75 2006 142 19
+relationcanvas 128519 relation_ref 129287 // <generalisation>
+  from ref 128007 z 2001 to ref 128135
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128647 relation_ref 129415 // <generalisation>
+  from ref 128135 z 2001 to ref 128263
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128775 relation_ref 129543 // <generalisation>
+  from ref 128263 z 2001 to ref 128391
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end
