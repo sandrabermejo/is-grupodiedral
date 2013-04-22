@@ -1,7 +1,7 @@
-format 74
+format 76
 "ace"
-  revision 1
-  modified_by 21 "21"
+  revision 2
+  modified_by 18 "hlocal"
 
 
   
@@ -14,7 +14,7 @@ format 74
   //sequence diagram settings
   show_full_operations_definition no write_horizontally yes class_drawing_mode natural drawing_language uml draw_all_relations yes shadow yes show_stereotype_properties no show_class_context_mode no show_msg_context_mode no
   //collaboration diagram settings
-  show_full_operations_definition no show_hierarchical_rank no write_horizontally yes drawing_language uml package_name_in_tab no show_context no show_msg_context no draw_all_relations yes shadow yes show_stereotype_properties no
+  show_full_operations_definition no show_hierarchical_rank no write_horizontally yes class_drawing_mode natural drawing_language uml package_name_in_tab no show_context no show_msg_context no draw_all_relations yes shadow yes show_stereotype_properties no
   //object diagram settings
    write_horizontally yes package_name_in_tab no show_context no auto_label_position yes draw_all_relations yes shadow yes show_stereotype_properties no
   //component diagram settings
@@ -34,7 +34,825 @@ format 74
   font_size 13
   diagram_format A4
 
+  image_root_dir ""
+
   mark_for_import
   
   package_ref 128021 // Gestion Interna
+
+  classview 128018 "Diagrama de Dominio"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    classdiagram 128018 "Dominio"
+      draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    class 128018 "Empleado"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128786 // <association>
+	relation_ref 128658 // <association>
+      end
+
+      classrelation 128914 // <aggregation>
+	relation 128786 o---
+	  a role_name "" private
+	    classrelation_ref 128914 // <aggregation>
+	  b role_name "" private
+	    classrelation_ref 129042 // <aggregation>
+      end
+    end
+
+    class 128146 "PersonalAdministrativo"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128018 // <generalisation>
+	relation 128018 ---|>
+	  a public
+	    classrelation_ref 128018 // <generalisation>
+	  b parent class_ref 128018 // Empleado
+      end
+    end
+
+    class 128274 "PersonalEnTierra"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128146 // <generalisation>
+	relation 128146 ---|>
+	  a public
+	    classrelation_ref 128146 // <generalisation>
+	  b parent class_ref 128018 // Empleado
+      end
+    end
+
+    class 128402 "EmpleadoDeMantenimiento"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128274 // <generalisation>
+	relation 128274 ---|>
+	  a public
+	    classrelation_ref 128274 // <generalisation>
+	  b parent class_ref 128018 // Empleado
+      end
+    end
+
+    class 128530 "EmpleadoDeAbordo"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128402 // <generalisation>
+	relation 128402 ---|>
+	  a public
+	    classrelation_ref 128402 // <generalisation>
+	  b parent class_ref 128018 // Empleado
+      end
+    end
+
+    class 128658 "Directivo"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128530 // <generalisation>
+	relation 128530 ---|>
+	  a public
+	    classrelation_ref 128530 // <generalisation>
+	  b parent class_ref 128018 // Empleado
+      end
+    end
+
+    class 128786 "Horario"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128658 // <association>
+	relation 128658 ----
+	  a role_name "" private
+	    classrelation_ref 128658 // <association>
+	  b role_name "" private
+	    classrelation_ref 128786 // <association>
+      end
+
+      classrelation 135314 // <association>
+	relation 132370 ----
+	  a role_name "" private
+	    classrelation_ref 135314 // <association>
+	  b role_name "" private
+	    classrelation_ref 135442 // <association>
+      end
+
+      classrelation 136594 // <association>
+	relation 133010 ----
+	  a role_name "" private
+	    classrelation_ref 136594 // <association>
+	  b role_name "" private
+	    classrelation_ref 136722 // <association>
+      end
+    end
+
+    class 128914 "Nómina"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 129042 // <aggregation>
+	relation_ref 128786 // <aggregation>
+      end
+
+      classrelation 134674 // <association>
+	relation_ref 131986 // <association>
+      end
+
+      classrelation 138514 // <association>
+	relation_ref 133906 // <association>
+      end
+    end
+
+    class 129042 "Vuelo"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 129298 // <aggregation>
+	relation_ref 128914 // <aggregation>
+      end
+
+      classrelation 129554 // <aggregation>
+	relation 129170 o---
+	  a role_name "" private
+	    classrelation_ref 129554 // <aggregation>
+	  b role_name "" private
+	    classrelation_ref 129682 // <aggregation>
+      end
+
+      classrelation 129938 // <aggregation>
+	relation_ref 129298 // <aggregation>
+      end
+
+      classrelation 130066 // <association>
+	relation 129426 ----
+	  a role_name "" private
+	    classrelation_ref 130066 // <association>
+	  b role_name "" private
+	    classrelation_ref 130194 // <association>
+      end
+
+      classrelation 131602 // <aggregation>
+	relation 130194 o---
+	  a role_name "" private
+	    classrelation_ref 131602 // <aggregation>
+	  b role_name "" private
+	    classrelation_ref 131730 // <aggregation>
+      end
+
+      classrelation 135058 // <association>
+	relation 132242 ----
+	  a role_name "" private
+	    classrelation_ref 135058 // <association>
+	  b role_name "" private
+	    classrelation_ref 135186 // <association>
+      end
+
+      classrelation 135570 // <association>
+	relation 132498 ----
+	  a role_name "" private
+	    classrelation_ref 135570 // <association>
+	  b role_name "" private
+	    classrelation_ref 135698 // <association>
+      end
+
+      classrelation 135826 // <association>
+	relation 132626 ----
+	  a role_name "" private
+	    classrelation_ref 135826 // <association>
+	  b role_name "" private
+	    classrelation_ref 135954 // <association>
+      end
+
+      classrelation 137490 // <association>
+	relation_ref 133394 // <association>
+      end
+    end
+
+    class 129170 "Oferta"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 129170 // <aggregation>
+	relation 128914 o---
+	  a role_name "" private
+	    classrelation_ref 129170 // <aggregation>
+	  b role_name "" private
+	    classrelation_ref 129298 // <aggregation>
+      end
+
+      classrelation 129426 // <directional aggregation>
+	relation 129042 o-->
+	  a role_name "" private
+	    classrelation_ref 129426 // <directional aggregation>
+	  b parent class_ref 129042 // Vuelo
+      end
+
+      classrelation 129682 // <aggregation>
+	relation_ref 129170 // <aggregation>
+      end
+
+      classrelation 129810 // <aggregation>
+	relation 129298 o---
+	  a role_name "" private
+	    classrelation_ref 129810 // <aggregation>
+	  b role_name "" private
+	    classrelation_ref 129938 // <aggregation>
+      end
+
+      classrelation 134802 // <association>
+	relation 132114 ----
+	  a role_name "" private
+	    classrelation_ref 134802 // <association>
+	  b role_name "" private
+	    classrelation_ref 134930 // <association>
+      end
+
+      classrelation 137874 // <association>
+	relation 133650 ----
+	  a role_name "" private
+	    classrelation_ref 137874 // <association>
+	  b role_name "" private
+	    classrelation_ref 138002 // <association>
+      end
+    end
+
+    class 129298 "Aeropuerto"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 131090 // <association>
+	relation 129938 ----
+	  a role_name "" private
+	    classrelation_ref 131090 // <association>
+	  b role_name "" private
+	    classrelation_ref 131218 // <association>
+      end
+    end
+
+    class 129426 "Cliente"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 130834 // <association>
+	relation 129810 ----
+	  a role_name "" private
+	    classrelation_ref 130834 // <association>
+	  b role_name "" private
+	    classrelation_ref 130962 // <association>
+      end
+
+      classrelation 136338 // <association>
+	relation 132882 ----
+	  a role_name "" private
+	    classrelation_ref 136338 // <association>
+	  b role_name "" private
+	    classrelation_ref 136466 // <association>
+      end
+
+      classrelation 136850 // <association>
+	relation 133138 ----
+	  a role_name "" private
+	    classrelation_ref 136850 // <association>
+	  b role_name "" private
+	    classrelation_ref 136978 // <association>
+      end
+    end
+
+    class 129554 "PlanDeVuelo"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 131218 // <association>
+	relation_ref 129938 // <association>
+      end
+
+      classrelation 131730 // <aggregation>
+	relation_ref 130194 // <aggregation>
+      end
+
+      classrelation 135186 // <association>
+	relation_ref 132242 // <association>
+      end
+
+      classrelation 136082 // <association>
+	relation 132754 ----
+	  a role_name "" private
+	    classrelation_ref 136082 // <association>
+	  b role_name "" private
+	    classrelation_ref 136210 // <association>
+      end
+
+      classrelation 137106 // <association>
+	relation 133266 ----
+	  a role_name "" private
+	    classrelation_ref 137106 // <association>
+	  b role_name "" private
+	    classrelation_ref 137234 // <association>
+      end
+    end
+
+    class 129682 "BilleteDeVuelo"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 130194 // <association>
+	relation_ref 129426 // <association>
+      end
+
+      classrelation 130322 // <association>
+	relation 129554 ----
+	  a role_name "" private
+	    classrelation_ref 130322 // <association>
+	  b role_name "" private
+	    classrelation_ref 130450 // <association>
+      end
+
+      classrelation 131474 // <association>
+	relation_ref 130066 // <association>
+      end
+    end
+
+    class 129810 "Embarque"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 130962 // <association>
+	relation_ref 129810 // <association>
+      end
+
+      classrelation 131346 // <association>
+	relation 130066 ----
+	  a role_name "" private
+	    classrelation_ref 131346 // <association>
+	  b role_name "" private
+	    classrelation_ref 131474 // <association>
+      end
+    end
+
+    class 129938 "Equipaje"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 130578 // <association>
+	relation 129682 ----
+	  a role_name "" private
+	    classrelation_ref 130578 // <association>
+	  b role_name "" private
+	    classrelation_ref 130706 // <association>
+      end
+
+      classrelation 137618 // <association>
+	relation 133522 ----
+	  a role_name "" private
+	    classrelation_ref 137618 // <association>
+	  b role_name "" private
+	    classrelation_ref 137746 // <association>
+      end
+    end
+
+    class 130066 "Facturación"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 130450 // <association>
+	relation_ref 129554 // <association>
+      end
+
+      classrelation 130706 // <association>
+	relation_ref 129682 // <association>
+      end
+
+      classrelation 137746 // <association>
+	relation_ref 133522 // <association>
+      end
+    end
+
+    class 130194 "Vehículo"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 132626 // <generalisation>
+	relation 130834 ---|>
+	  a public
+	    classrelation_ref 132626 // <generalisation>
+	  b parent class_ref 130450 // Item
+      end
+
+      classrelation 138130 // <association>
+	relation 133778 ----
+	  a role_name "" private
+	    classrelation_ref 138130 // <association>
+	  b role_name "" private
+	    classrelation_ref 138258 // <association>
+      end
+
+      classrelation 138258 // <association>
+	relation_ref 133778 // <association>
+      end
+    end
+
+    class 130322 "Inventario"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 131986 // <aggregation>
+	relation 130450 o---
+	  a role_name "" private
+	    classrelation_ref 131986 // <aggregation>
+	  b role_name "" private
+	    classrelation_ref 132114 // <aggregation>
+      end
+
+      classrelation 132242 // <association>
+	relation 130578 ----
+	  a role_name "" private
+	    classrelation_ref 132242 // <association>
+	  b role_name "" private
+	    classrelation_ref 132370 // <association>
+      end
+
+      classrelation 133778 // <association>
+	relation 131602 ----
+	  a role_name "" private
+	    classrelation_ref 133778 // <association>
+	  b role_name "" private
+	    classrelation_ref 133906 // <association>
+      end
+
+      classrelation 134034 // <association>
+	relation 131730 ----
+	  a role_name "" private
+	    classrelation_ref 134034 // <association>
+	  b role_name "" private
+	    classrelation_ref 134162 // <association>
+      end
+    end
+
+    class 130450 "Item"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 132114 // <aggregation>
+	relation_ref 130450 // <aggregation>
+      end
+
+      classrelation 133266 // <association>
+	relation 131346 ----
+	  a role_name "" private
+	    classrelation_ref 133266 // <association>
+	  b role_name "" private
+	    classrelation_ref 133394 // <association>
+      end
+    end
+
+    class 130578 "Avión"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 132498 // <generalisation>
+	relation 130706 ---|>
+	  a public
+	    classrelation_ref 132498 // <generalisation>
+	  b parent class_ref 130194 // Vehículo
+      end
+    end
+
+    class 130706 "InformaciónEconóminca"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 133522 // <association>
+	relation 131474 ----
+	  a role_name "" private
+	    classrelation_ref 133522 // <association>
+	  b role_name "" private
+	    classrelation_ref 133650 // <association>
+      end
+    end
+
+    class 130834 "OrganizaciónLaboral"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 130962 "Sugerencia"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 131090 "OperaciónMantenimiento"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 132370 // <association>
+	relation_ref 130578 // <association>
+      end
+
+      classrelation 133138 // <association>
+	relation_ref 131218 // <association>
+      end
+    end
+
+    class 131218 "Consulta"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 133650 // <association>
+	relation_ref 131474 // <association>
+      end
+
+      classrelation 133906 // <association>
+	relation_ref 131602 // <association>
+      end
+
+      classrelation 134162 // <association>
+	relation_ref 131730 // <association>
+      end
+
+      classrelation 136722 // <association>
+	relation_ref 133010 // <association>
+      end
+
+      classrelation 136978 // <association>
+	relation_ref 133138 // <association>
+      end
+
+      classrelation 137234 // <association>
+	relation_ref 133266 // <association>
+      end
+
+      classrelation 137362 // <association>
+	relation 133394 ----
+	  a role_name "" private
+	    classrelation_ref 137362 // <association>
+	  b role_name "" private
+	    classrelation_ref 137490 // <association>
+      end
+
+      classrelation 138002 // <association>
+	relation_ref 133650 // <association>
+      end
+
+      classrelation 138386 // <association>
+	relation 133906 ----
+	  a role_name "" private
+	    classrelation_ref 138386 // <association>
+	  b role_name "" private
+	    classrelation_ref 138514 // <association>
+      end
+    end
+
+    class 131346 "Registro"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 133010 // <association>
+	relation 131218 ----
+	  a role_name "" private
+	    classrelation_ref 133010 // <association>
+	  b role_name "" private
+	    classrelation_ref 133138 // <association>
+      end
+
+      classrelation 133394 // <association>
+	relation_ref 131346 // <association>
+      end
+
+      classrelation 134290 // <association>
+	relation 131858 ----
+	  a role_name "" private
+	    classrelation_ref 134290 // <association>
+	  b role_name "" private
+	    classrelation_ref 134418 // <association>
+      end
+
+      classrelation 134418 // <association>
+	relation_ref 131858 // <association>
+      end
+
+      classrelation 134546 // <association>
+	relation 131986 ----
+	  a role_name "" private
+	    classrelation_ref 134546 // <association>
+	  b role_name "" private
+	    classrelation_ref 134674 // <association>
+      end
+
+      classrelation 134930 // <association>
+	relation_ref 132114 // <association>
+      end
+
+      classrelation 135442 // <association>
+	relation_ref 132370 // <association>
+      end
+
+      classrelation 135698 // <association>
+	relation_ref 132498 // <association>
+      end
+
+      classrelation 135954 // <association>
+	relation_ref 132626 // <association>
+      end
+
+      classrelation 136210 // <association>
+	relation_ref 132754 // <association>
+      end
+
+      classrelation 136466 // <association>
+	relation_ref 132882 // <association>
+      end
+    end
+
+    class 131602 "Recuperación"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 132754 // <generalisation>
+	relation 130962 ---|>
+	  a public
+	    classrelation_ref 132754 // <generalisation>
+	  b parent class_ref 131090 // OperaciónMantenimiento
+      end
+    end
+
+    class 131730 "Revisión"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 132882 // <generalisation>
+	relation 131090 ---|>
+	  a public
+	    classrelation_ref 132882 // <generalisation>
+	  b parent class_ref 131090 // OperaciónMantenimiento
+      end
+    end
+  end
 end
