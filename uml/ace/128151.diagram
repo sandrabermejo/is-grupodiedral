@@ -1,0 +1,59 @@
+format 76
+
+classcanvas 128023 class_ref 128007 // UsuarioWeb
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 91 88 2000
+end
+classcanvas 128151 class_ref 128407 // :PáginaVuelos
+  class_drawing_mode boundary show_context_mode default show_stereotype_properties default
+  xyz 235 103 2000
+end
+classcanvas 128407 class_ref 128535 // :CCargarVuelos
+  class_drawing_mode control show_context_mode default show_stereotype_properties default
+  xyz 449 102 2000
+end
+textcanvas 128535 "1: mostrarVuelos()"
+  xyzwh 322.5 99.5 2006 146 22
+classcanvas 128791 class_ref 129799 // :PáginaVueloSeleccionado
+  class_drawing_mode boundary show_context_mode default show_stereotype_properties default
+  xyz 143 263 2006
+end
+textcanvas 129175 "2: seleccionarVuelo(clave)"
+  xyzwh 175 188 2006 202 17
+classcanvas 129431 class_ref 128663 // :CCargarInfoVuelo
+  class_drawing_mode control show_context_mode default show_stereotype_properties default
+  xyz 473 260 2000
+end
+classcanvas 129687 class_ref 129671 // :Usuarios
+  class_drawing_mode entity show_context_mode default show_stereotype_properties default
+  xyz 659 265 2000
+end
+textcanvas 129943 "3: mostrarInformaciónVuelo(clave)"
+  xyzwh 275 252 2006 260 26
+relationcanvas 128279 relation_ref 128279 // <generalisation>
+  from ref 128023 z 2001 to ref 128151
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128663 relation_ref 128407 // <generalisation>
+  from ref 128151 z 2001 to ref 128407
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129047 relation_ref 128535 // <generalisation>
+  decenter_end 526
+  from ref 128407 z 2007 to ref 128791
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129559 relation_ref 128663 // <generalisation>
+  from ref 128791 z 2007 to ref 129431
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129815 relation_ref 128791 // <generalisation>
+  from ref 129431 z 2001 to ref 129687
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

@@ -1,0 +1,36 @@
+format 76
+
+classcanvas 128279 class_ref 128023 // :CargarDatosOferta
+  class_drawing_mode control show_context_mode default show_stereotype_properties default
+  xyz 410 148 2000
+end
+classcanvas 128407 class_ref 128007 // UsuarioWeb
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 34 137 2000
+end
+classcanvas 128535 class_ref 128647 // :PáginaOfertas
+  class_drawing_mode boundary show_context_mode default show_stereotype_properties default
+  xyz 161 148 2006
+end
+classcanvas 129047 class_ref 128903 // :Ofertas
+  class_drawing_mode entity show_context_mode default show_stereotype_properties default
+  xyz 605 155 2000
+end
+textcanvas 129303 "1: SeleccionarOferta(clave)"
+  xyzwh 236.5 136.5 2006 226 21
+relationcanvas 128663 relation_ref 128519 // <generalisation>
+  from ref 128407 z 2007 to ref 128535
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128791 relation_ref 128023 // <generalisation>
+  from ref 128535 z 2007 to ref 128279
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129175 relation_ref 128151 // <generalisation>
+  from ref 128279 z 2001 to ref 129047
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

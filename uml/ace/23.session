@@ -1,0 +1,11 @@
+window_sizes 1366 706 368 992 511 80
+diagrams
+  active  usecasediagram_ref 128279 // RestablecerContraseñaCliente
+    789 436 100 4 0 0
+end
+show_stereotypes
+selected class_ref 129671 // :Usuarios
+open
+  usecaseview_ref 128007 // Use case
+end
+end
