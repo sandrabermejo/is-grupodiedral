@@ -1,0 +1,22 @@
+window_sizes 1280 962 300 900 682 82
+diagrams
+  usecasediagram_ref 128007 // ComprarBillete
+    775 639 100 4 0 0
+  usecasediagram_ref 128263 // PagoTarjeta
+    778 319 99 4 0 0
+  active  usecasediagram_ref 128135 // MostrarOfertas
+    847 640 100 4 0 0
+  usecasediagram_ref 128391 // Registrarse
+    775 639 100 4 0 0
+  usecasediagram_ref 128519 // EditarDatosPersonales
+    775 639 100 4 0 0
+  usecasediagram_ref 128647 // VerInformacionVueloContratado
+    775 639 100 4 0 0
+  usecasediagram_ref 128775 // PresentarReclamación
+    775 639 100 4 0 0
+end
+show_stereotypes
+selected usecaseview_ref 128007 // Use case
+open
+end
+end
