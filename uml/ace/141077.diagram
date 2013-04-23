@@ -1,0 +1,67 @@
+format 76
+
+classinstance 128021 class_ref 128007 // UsuarioWeb
+ name ""  xyz 27 169 2000
+classinstance 128149 class_ref 142229 // PáginaSelecciónVuelo
+ name ""  xyz 164 168 2000
+classinstance 128277 class_ref 142357 // CElaborarInfoVuelo
+ name ""  xyz 395 164 2000
+classinstance 128405 class_ref 128917 // RegistroVuelos
+ name ""  xyz 410 22 2000
+classinstance 128533 class_ref 142485 // PáginaConfirmaciónVuelo
+ name ""  xyz 584 56 2000
+classinstance 128661 class_ref 142613 // CConfeccionarBillete
+ name ""  xyz 510 271 2000
+classinstance 128789 class_ref 142741 // IMetodoPago
+ name ""  xyz 177 335 2005
+classinstance 128917 class_ref 142869 // Billete
+ name ""  xyz 734 339 2000
+linkcanvas 129045
+  from ref 128021 z 2001 to ref 128149
+linkcanvas 129173
+  from ref 128149 z 2001 to ref 128277
+dirscanvas 129301 z 1000 linkcanvas_ref 129173
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "1 vuelo seleccionado" xyz 286 149 3000
+linkcanvas 129429
+  from ref 128277 z 2001 to ref 128405
+dirscanvas 129557 z 1000 linkcanvas_ref 129429
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "2 obtenerVuelo" xyz 339 104 3000
+linkcanvas 129813
+  from ref 128277 z 2001 to ref 128533
+dirscanvas 129941 z 1000 linkcanvas_ref 129813
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "3 mostrarConfirmación" xyz 593 128 3000
+linkcanvas 130069
+  from ref 128277 z 2001 to ref 128661
+dirscanvas 130197 z 1000 linkcanvas_ref 130069
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "4 generaBillete" xyz 560 218 3000
+linkcanvas 130325
+  from ref 128661 z 2001 to ref 128917
+linkcanvas 130453
+  from ref 128661 z 2006 to ref 128789
+dirscanvas 130581 z 1000 linkcanvas_ref 130453
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "5 continuarPago" xyz 338 347 3000
+msgs
+  explicitmsg "vuelo seleccionado"
+    forward ranks 1 "1" dirscanvas_ref 129301
+    msgs
+      explicitmsg "obtenerVuelo"
+	forward ranks 2 "1.1" dirscanvas_ref 129557
+	no_msg
+      explicitmsg "mostrarConfirmación"
+	forward ranks 3 "1.2" dirscanvas_ref 129941
+	no_msg
+      explicitmsg "generaBillete"
+	forward ranks 4 "1.3" dirscanvas_ref 130197
+	msgs
+	  explicitmsg "continuarPago"
+	    forward ranks 5 "1.3.1" dirscanvas_ref 130581
+	    no_msg
+	msgsend
+    msgsend
+msgsend
+end
