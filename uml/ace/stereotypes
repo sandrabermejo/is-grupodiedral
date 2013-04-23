@@ -1,5 +1,5 @@
 
-  package_stereotypes  6 "facade" "framework" "model library" "stub" "toplevel" "profile"
+  package_stereotypes  7 "facade" "framework" "model" "library" "stub" "toplevel" "profile"
     -_-> 3 "access" "import" "from"
   end
   
@@ -50,7 +50,7 @@
   classdiagram_stereotypes  0
   seqdiagram_stereotypes  0
   msg_stereotypes  0
-  coldiagram_stereotypes  0
+  coldiagram_stereotypes  3 "boundary," "entity," "control"
   usecasediagram_stereotypes  0
   statediagram_stereotypes  0
   activitydiagram_stereotypes  0
