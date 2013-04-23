@@ -13,7 +13,7 @@ classcanvas 128407 class_ref 128535 // :CCargarVuelos
   xyz 449 102 2000
 end
 textcanvas 128535 "1: mostrarVuelos()"
-  xyzwh 322.5 99.5 2006 146 22
+  xyzwh 314 46 2006 146 22
 classcanvas 128791 class_ref 129799 // :PáginaVueloSeleccionado
   class_drawing_mode boundary show_context_mode default show_stereotype_properties default
   xyz 143 263 2006
@@ -36,7 +36,8 @@ relationcanvas 128279 relation_ref 128279 // <generalisation>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 128663 relation_ref 128407 // <generalisation>
-  from ref 128151 z 2001 to ref 128407
+  from ref 128151 z 2001 to point 398 128
+  line 128021 z 2001 to ref 128407
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
