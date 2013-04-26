@@ -1,6 +1,8 @@
-window_sizes 1280 962 459 815 803 78
+window_sizes 1280 962 376 898 803 78
 show_stereotypes
+selected classview_ref 128018 // Diagrama de Dominio
 open
+  classview_ref 128018 // Diagrama de Dominio
   classview_ref 128021 // Diagrama de paquete
   usecaseview_ref 128007 // Casos de uso (análisis)
 end
