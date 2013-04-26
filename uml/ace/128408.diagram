@@ -1,0 +1,32 @@
+format 76
+
+classinstance 128152 class_ref 129048 // PáginaPagoTarjeta
+ name ""  xyz 209 104 2000
+classinstance 128408 class_ref 142741 // IMetodoPago
+ name ""  xyz 48 104 2000
+classinstance 128792 class_ref 129304 // CComprobarDatos
+ name ""  xyz 476 102 2000
+classinstance 129176 class_ref 129432 // IEntidadFinanciera
+ name ""  xyz 670 108 2000
+linkcanvas 128536
+  from ref 128408 z 2001 to ref 128152
+linkcanvas 128920
+  from ref 128152 z 2001 to ref 128792
+dirscanvas 129048 z 1000 linkcanvas_ref 128920
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "1 introducir(datos)" xyz 349 86 3000
+linkcanvas 129304
+  from ref 128792 z 2001 to ref 129176
+dirscanvas 129432 z 1000 linkcanvas_ref 129304
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "2 realizar(pago)" xyz 587 87 3000
+msgs
+  explicitmsg "introducir(datos)"
+    forward ranks 1 "1" dirscanvas_ref 129048
+    msgs
+      explicitmsg "realizar(pago)"
+	forward ranks 2 "1.1" dirscanvas_ref 129432
+	no_msg
+    msgsend
+msgsend
+end

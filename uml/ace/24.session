@@ -1,0 +1,7 @@
+window_sizes 1280 962 459 815 803 78
+show_stereotypes
+open
+  classview_ref 128021 // Diagrama de paquete
+  usecaseview_ref 128007 // Casos de uso (análisis)
+end
+end
