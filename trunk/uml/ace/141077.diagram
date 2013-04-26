@@ -1,7 +1,7 @@
 format 76
 
-classinstance 128021 class_ref 128007 // UsuarioWeb
- name ""  xyz 27 169 2000
+classinstance 128024 class_ref 129176 // IIniciarPago
+ name ""  xyz 25 165 2005
 classinstance 128149 class_ref 142229 // PáginaSelecciónVuelo
  name ""  xyz 164 168 2000
 classinstance 128277 class_ref 142357 // CElaborarInfoVuelo
@@ -16,8 +16,8 @@ classinstance 128789 class_ref 142741 // IMetodoPago
  name ""  xyz 177 335 2005
 classinstance 128917 class_ref 142869 // Billete
  name ""  xyz 734 339 2000
-linkcanvas 129045
-  from ref 128021 z 2001 to ref 128149
+linkcanvas 128152
+  from ref 128024 z 2006 to ref 128149
 linkcanvas 129173
   from ref 128149 z 2001 to ref 128277
 dirscanvas 129301 z 1000 linkcanvas_ref 129173
