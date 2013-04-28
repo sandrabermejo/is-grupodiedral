@@ -6,6 +6,7 @@ then
 	echo "Usando '`inkscape --version`'"
 else
 	echo "Inkscape no está instalado o no es accesible. Finalizado." > 2
+	exit 1
 fi
 
 # Obtiene la lista de archivos .svg del directorio
@@ -26,7 +27,7 @@ do
 	# Comprueba que el .svg sea más reciente que el .pdf
 	if [ `stat -c %Y $archivoPdf` -lt `stat -c %Y $archivo` ]
 	then
-		inkscape --export-pdf="`basename $archivo .svg`.pdf" $archivo
+		inkscape --export-pdf="$archivoPdf" $archivo
 
 		# Comprueba que Inskacape ha terminado correctamente
 		if [ $? = 0 ]
