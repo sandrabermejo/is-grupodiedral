@@ -1,7 +1,7 @@
 format 76
 "ace"
-  revision 7
-  modified_by 21 "21"
+  revision 10
+  modified_by 11 "Bermejo"
 
 
   
@@ -68,20 +68,32 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 128786 // <association>
-	relation_ref 128658 // <association>
+      classrelation 128779 // <association>
+	relation_ref 128651 // <association>
       end
 
-      classrelation 128914 // <aggregation>
-	relation 128786 o---
-	  a role_name "" private
-	    classrelation_ref 128914 // <aggregation>
-	  b role_name "" private
-	    classrelation_ref 129042 // <aggregation>
+      classrelation 129035 // 1 (<association>)
+	relation_ref 128779 // <association>
+      end
+
+      classrelation 129163 // 1...n (<aggregation>)
+	relation 128907 o---
+	  a role_name "1...n" private
+	    classrelation_ref 129163 // 1...n (<aggregation>)
+	  b role_name "1" private
+	    classrelation_ref 129291 // 1 (<aggregation>)
+      end
+
+      classrelation 136331 // <association>
+	relation_ref 132747 // <association>
+      end
+
+      classrelation 139147 // <association>
+	relation_ref 134155 // <association>
       end
     end
 
-    class 128146 "PersonalAdministrativo"
+    class 128011 "PersonalAdministrativo"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -90,15 +102,15 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 128018 // <generalisation>
-	relation 128018 ---|>
+      classrelation 128011 // <generalisation>
+	relation 128011 ---|>
 	  a public
-	    classrelation_ref 128018 // <generalisation>
+	    classrelation_ref 128011 // <generalisation>
 	  b parent class_ref 128018 // Empleado
       end
     end
 
-    class 128274 "PersonalEnTierra"
+    class 128139 "PersonalEnTierra"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -107,15 +119,15 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 128146 // <generalisation>
-	relation 128146 ---|>
+      classrelation 128139 // <generalisation>
+	relation 128139 ---|>
 	  a public
-	    classrelation_ref 128146 // <generalisation>
+	    classrelation_ref 128139 // <generalisation>
 	  b parent class_ref 128018 // Empleado
       end
     end
 
-    class 128402 "EmpleadoDeMantenimiento"
+    class 128267 "EmpleadoDeMantenimiento"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -124,15 +136,15 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 128274 // <generalisation>
-	relation 128274 ---|>
+      classrelation 128267 // <generalisation>
+	relation 128267 ---|>
 	  a public
-	    classrelation_ref 128274 // <generalisation>
+	    classrelation_ref 128267 // <generalisation>
 	  b parent class_ref 128018 // Empleado
       end
     end
 
-    class 128530 "EmpleadoDeAbordo"
+    class 128395 "EmpleadoDeAbordo"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -141,15 +153,15 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 128402 // <generalisation>
-	relation 128402 ---|>
+      classrelation 128395 // <generalisation>
+	relation 128395 ---|>
 	  a public
-	    classrelation_ref 128402 // <generalisation>
+	    classrelation_ref 128395 // <generalisation>
 	  b parent class_ref 128018 // Empleado
       end
     end
 
-    class 128658 "Directivo"
+    class 128523 "Directivo"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -158,15 +170,15 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 128530 // <generalisation>
-	relation 128530 ---|>
+      classrelation 128523 // <generalisation>
+	relation 128523 ---|>
 	  a public
-	    classrelation_ref 128530 // <generalisation>
+	    classrelation_ref 128523 // <generalisation>
 	  b parent class_ref 128018 // Empleado
       end
     end
 
-    class 128786 "Horario"
+    class 128651 "Horario"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -175,32 +187,40 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 128658 // <association>
-	relation 128658 ----
+      classrelation 128651 // <association>
+	relation 128651 ----
 	  a role_name "" private
-	    classrelation_ref 128658 // <association>
+	    classrelation_ref 128651 // <association>
 	  b role_name "" private
-	    classrelation_ref 128786 // <association>
+	    classrelation_ref 128779 // <association>
       end
 
-      classrelation 135314 // <association>
-	relation 132370 ----
-	  a role_name "" private
-	    classrelation_ref 135314 // <association>
-	  b role_name "" private
-	    classrelation_ref 135442 // <association>
+      classrelation 128907 // 1...n (<association>)
+	relation 128779 ----
+	  a role_name "1...n" private
+	    classrelation_ref 128907 // 1...n (<association>)
+	  b role_name "1" private
+	    classrelation_ref 129035 // 1 (<association>)
       end
 
-      classrelation 136594 // <association>
-	relation 133010 ----
+      classrelation 135051 // <association>
+	relation_ref 132107 // <association>
+      end
+
+      classrelation 137099 // <association>
+	relation_ref 133131 // <association>
+      end
+
+      classrelation 137739 // <association>
+	relation 133515 ----
 	  a role_name "" private
-	    classrelation_ref 136594 // <association>
+	    classrelation_ref 137739 // <association>
 	  b role_name "" private
-	    classrelation_ref 136722 // <association>
+	    classrelation_ref 137867 // <association>
       end
     end
 
-    class 128914 "Nómina"
+    class 128779 "Nómina"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -209,20 +229,24 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 129042 // <aggregation>
-	relation_ref 128786 // <aggregation>
+      classrelation 129291 // 1 (<aggregation>)
+	relation_ref 128907 // <aggregation>
       end
 
-      classrelation 134674 // <association>
-	relation_ref 131986 // <association>
+      classrelation 135819 // <association>
+	relation_ref 132491 // <association>
       end
 
-      classrelation 138514 // <association>
-	relation_ref 133906 // <association>
+      classrelation 136587 // <association>
+	relation_ref 132875 // <association>
+      end
+
+      classrelation 138635 // <association>
+	relation_ref 133899 // <association>
       end
     end
 
-    class 129042 "Vuelo"
+    class 128907 "Vuelo"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -231,68 +255,60 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 129298 // <aggregation>
-	relation_ref 128914 // <aggregation>
-      end
-
-      classrelation 129554 // <aggregation>
-	relation 129170 o---
+      classrelation 129419 // <aggregation>
+	relation 129035 o---
 	  a role_name "" private
-	    classrelation_ref 129554 // <aggregation>
+	    classrelation_ref 129419 // <aggregation>
 	  b role_name "" private
-	    classrelation_ref 129682 // <aggregation>
+	    classrelation_ref 129547 // <aggregation>
       end
 
-      classrelation 129938 // <aggregation>
-	relation_ref 129298 // <aggregation>
+      classrelation 129803 // <aggregation>
+	relation_ref 129163 // <aggregation>
       end
 
-      classrelation 130066 // <association>
-	relation 129426 ----
+      classrelation 130059 // <aggregation>
+	relation_ref 129291 // <aggregation>
+      end
+
+      classrelation 130571 // <aggregation>
+	relation_ref 129547 // <aggregation>
+      end
+
+      classrelation 130699 // <aggregation>
+	relation 129675 o---
 	  a role_name "" private
-	    classrelation_ref 130066 // <association>
+	    classrelation_ref 130699 // <aggregation>
 	  b role_name "" private
-	    classrelation_ref 130194 // <association>
+	    classrelation_ref 130827 // <aggregation>
       end
 
-      classrelation 131602 // <aggregation>
-	relation 130194 o---
+      classrelation 130955 // <association>
+	relation 129803 ----
 	  a role_name "" private
-	    classrelation_ref 131602 // <aggregation>
+	    classrelation_ref 130955 // <association>
 	  b role_name "" private
-	    classrelation_ref 131730 // <aggregation>
+	    classrelation_ref 131083 // <association>
       end
 
-      classrelation 135058 // <association>
-	relation 132242 ----
+      classrelation 135307 // <association>
+	relation_ref 132235 // <association>
+      end
+
+      classrelation 137611 // <association>
+	relation_ref 133387 // <association>
+      end
+
+      classrelation 138251 // <association>
+	relation 133771 ----
 	  a role_name "" private
-	    classrelation_ref 135058 // <association>
+	    classrelation_ref 138251 // <association>
 	  b role_name "" private
-	    classrelation_ref 135186 // <association>
-      end
-
-      classrelation 135570 // <association>
-	relation 132498 ----
-	  a role_name "" private
-	    classrelation_ref 135570 // <association>
-	  b role_name "" private
-	    classrelation_ref 135698 // <association>
-      end
-
-      classrelation 135826 // <association>
-	relation 132626 ----
-	  a role_name "" private
-	    classrelation_ref 135826 // <association>
-	  b role_name "" private
-	    classrelation_ref 135954 // <association>
-      end
-
-      classrelation 137490 // <association>
-	relation_ref 133394 // <association>
+	    classrelation_ref 138379 // <association>
       end
     end
 
-    class 129170 "Oferta"
+    class 129035 "Oferta"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -301,51 +317,36 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 129170 // <aggregation>
-	relation 128914 o---
+      classrelation 129547 // <aggregation>
+	relation_ref 129035 // <aggregation>
+      end
+
+      classrelation 129675 // <aggregation>
+	relation 129163 o---
 	  a role_name "" private
-	    classrelation_ref 129170 // <aggregation>
+	    classrelation_ref 129675 // <aggregation>
 	  b role_name "" private
-	    classrelation_ref 129298 // <aggregation>
+	    classrelation_ref 129803 // <aggregation>
       end
 
-      classrelation 129426 // <directional aggregation>
-	relation 129042 o-->
-	  a role_name "" private
-	    classrelation_ref 129426 // <directional aggregation>
-	  b parent class_ref 129042 // Vuelo
-      end
-
-      classrelation 129682 // <aggregation>
-	relation_ref 129170 // <aggregation>
-      end
-
-      classrelation 129810 // <aggregation>
-	relation 129298 o---
-	  a role_name "" private
-	    classrelation_ref 129810 // <aggregation>
+      classrelation 129931 // 1...n (<aggregation>)
+	relation 129291 o---
+	  a role_name "1...n" private
+	    classrelation_ref 129931 // 1...n (<aggregation>)
 	  b role_name "" private
-	    classrelation_ref 129938 // <aggregation>
+	    classrelation_ref 130059 // <aggregation>
       end
 
-      classrelation 134802 // <association>
-	relation 132114 ----
-	  a role_name "" private
-	    classrelation_ref 134802 // <association>
-	  b role_name "" private
-	    classrelation_ref 134930 // <association>
+      classrelation 136075 // <association>
+	relation_ref 132619 // <association>
       end
 
-      classrelation 137874 // <association>
-	relation 133650 ----
-	  a role_name "" private
-	    classrelation_ref 137874 // <association>
-	  b role_name "" private
-	    classrelation_ref 138002 // <association>
+      classrelation 138891 // <association>
+	relation_ref 134027 // <association>
       end
     end
 
-    class 129298 "Aeropuerto"
+    class 129163 "Aeropuerto"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -354,16 +355,16 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 131090 // <association>
-	relation 129938 ----
+      classrelation 130187 // <association>
+	relation 129419 ----
 	  a role_name "" private
-	    classrelation_ref 131090 // <association>
+	    classrelation_ref 130187 // <association>
 	  b role_name "" private
-	    classrelation_ref 131218 // <association>
+	    classrelation_ref 130315 // <association>
       end
     end
 
-    class 129426 "Cliente"
+    class 129291 "PlanDeVuelo"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -372,32 +373,32 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 130834 // <association>
-	relation 129810 ----
-	  a role_name "" private
-	    classrelation_ref 130834 // <association>
-	  b role_name "" private
-	    classrelation_ref 130962 // <association>
+      classrelation 130315 // <association>
+	relation_ref 129419 // <association>
       end
 
-      classrelation 136338 // <association>
-	relation 132882 ----
+      classrelation 130443 // <aggregation>
+	relation 129547 o---
 	  a role_name "" private
-	    classrelation_ref 136338 // <association>
+	    classrelation_ref 130443 // <aggregation>
 	  b role_name "" private
-	    classrelation_ref 136466 // <association>
+	    classrelation_ref 130571 // <aggregation>
       end
 
-      classrelation 136850 // <association>
-	relation 133138 ----
-	  a role_name "" private
-	    classrelation_ref 136850 // <association>
-	  b role_name "" private
-	    classrelation_ref 136978 // <association>
+      classrelation 130827 // <aggregation>
+	relation_ref 129675 // <aggregation>
+      end
+
+      classrelation 135563 // <association>
+	relation_ref 132363 // <association>
+      end
+
+      classrelation 138123 // <association>
+	relation_ref 133643 // <association>
       end
     end
 
-    class 129554 "PlanDeVuelo"
+    class 129419 "BilleteDeVuelo"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -406,36 +407,24 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 131218 // <association>
-	relation_ref 129938 // <association>
+      classrelation 131083 // <association>
+	relation_ref 129803 // <association>
       end
 
-      classrelation 131730 // <aggregation>
-	relation_ref 130194 // <aggregation>
+      classrelation 131595 // <association>
+	relation_ref 130059 // <association>
       end
 
-      classrelation 135186 // <association>
-	relation_ref 132242 // <association>
-      end
-
-      classrelation 136082 // <association>
-	relation 132754 ----
+      classrelation 131979 // <association>
+	relation 130315 ----
 	  a role_name "" private
-	    classrelation_ref 136082 // <association>
+	    classrelation_ref 131979 // <association>
 	  b role_name "" private
-	    classrelation_ref 136210 // <association>
-      end
-
-      classrelation 137106 // <association>
-	relation 133266 ----
-	  a role_name "" private
-	    classrelation_ref 137106 // <association>
-	  b role_name "" private
-	    classrelation_ref 137234 // <association>
+	    classrelation_ref 132107 // <association>
       end
     end
 
-    class 129682 "BilleteDeVuelo"
+    class 129547 "Cliente"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -444,24 +433,36 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 130194 // <association>
-	relation_ref 129426 // <association>
-      end
-
-      classrelation 130322 // <association>
-	relation 129554 ----
+      classrelation 131211 // <association>
+	relation 129931 ----
 	  a role_name "" private
-	    classrelation_ref 130322 // <association>
+	    classrelation_ref 131211 // <association>
 	  b role_name "" private
-	    classrelation_ref 130450 // <association>
+	    classrelation_ref 131339 // <association>
       end
 
-      classrelation 131474 // <association>
-	relation_ref 130066 // <association>
+      classrelation 134795 // <association>
+	relation_ref 131979 // <association>
+      end
+
+      classrelation 136843 // <association>
+	relation_ref 133003 // <association>
+      end
+
+      classrelation 137227 // <association>
+	relation 133259 ----
+	  a role_name "" private
+	    classrelation_ref 137227 // <association>
+	  b role_name "" private
+	    classrelation_ref 137355 // <association>
+      end
+
+      classrelation 137355 // <association>
+	relation_ref 133259 // <association>
       end
     end
 
-    class 129810 "Embarque"
+    class 129675 "Embarque"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -470,20 +471,20 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 130962 // <association>
-	relation_ref 129810 // <association>
+      classrelation 131339 // <association>
+	relation_ref 129931 // <association>
       end
 
-      classrelation 131346 // <association>
-	relation 130066 ----
+      classrelation 131467 // <association>
+	relation 130059 ----
 	  a role_name "" private
-	    classrelation_ref 131346 // <association>
+	    classrelation_ref 131467 // <association>
 	  b role_name "" private
-	    classrelation_ref 131474 // <association>
+	    classrelation_ref 131595 // <association>
       end
     end
 
-    class 129938 "Equipaje"
+    class 129803 "Equipaje"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -492,24 +493,16 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 130578 // <association>
-	relation 129682 ----
-	  a role_name "" private
-	    classrelation_ref 130578 // <association>
-	  b role_name "" private
-	    classrelation_ref 130706 // <association>
-      end
-
-      classrelation 137618 // <association>
-	relation 133522 ----
-	  a role_name "" private
-	    classrelation_ref 137618 // <association>
-	  b role_name "" private
-	    classrelation_ref 137746 // <association>
+      classrelation 131723 // 1 (<association>)
+	relation 130187 ----
+	  a role_name "1" private
+	    classrelation_ref 131723 // 1 (<association>)
+	  b role_name "1" private
+	    classrelation_ref 131851 // 1 (<association>)
       end
     end
 
-    class 130066 "Facturación"
+    class 129931 "Facturación"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -518,20 +511,16 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 130450 // <association>
-	relation_ref 129554 // <association>
+      classrelation 131851 // 1 (<association>)
+	relation_ref 130187 // <association>
       end
 
-      classrelation 130706 // <association>
-	relation_ref 129682 // <association>
-      end
-
-      classrelation 137746 // <association>
-	relation_ref 133522 // <association>
+      classrelation 132107 // <association>
+	relation_ref 130315 // <association>
       end
     end
 
-    class 130194 "Vehículo"
+    class 130059 "Inventario"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -540,27 +529,93 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 132626 // <generalisation>
-	relation 130834 ---|>
+      classrelation 132235 // <aggregation>
+	relation 130443 o---
+	  a role_name "" private
+	    classrelation_ref 132235 // <aggregation>
+	  b role_name "" private
+	    classrelation_ref 132363 // <aggregation>
+      end
+
+      classrelation 132491 // <association>
+	relation 130571 ----
+	  a role_name "" private
+	    classrelation_ref 132491 // <association>
+	  b role_name "" private
+	    classrelation_ref 132619 // <association>
+      end
+
+      classrelation 132619 // <association>
+	relation_ref 130571 // <association>
+      end
+
+      classrelation 132747 // <association>
+	relation 130699 ----
+	  a role_name "" private
+	    classrelation_ref 132747 // <association>
+	  b role_name "" private
+	    classrelation_ref 132875 // <association>
+      end
+
+      classrelation 134539 // <association>
+	relation_ref 131851 // <association>
+      end
+    end
+
+    class 130187 "Item"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 132363 // <aggregation>
+	relation_ref 130443 // <aggregation>
+      end
+
+      classrelation 133771 // <association>
+	relation_ref 131467 // <association>
+      end
+    end
+
+    class 130315 "OperaciónMantenimiento"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 132875 // <association>
+	relation_ref 130699 // <association>
+      end
+
+      classrelation 134027 // <association>
+	relation_ref 131595 // <association>
+      end
+    end
+
+    class 130443 "Revisión"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 133003 // <generalisation>
+	relation 130827 ---|>
 	  a public
-	    classrelation_ref 132626 // <generalisation>
-	  b parent class_ref 130450 // Item
-      end
-
-      classrelation 138130 // <association>
-	relation 133778 ----
-	  a role_name "" private
-	    classrelation_ref 138130 // <association>
-	  b role_name "" private
-	    classrelation_ref 138258 // <association>
-      end
-
-      classrelation 138258 // <association>
-	relation_ref 133778 // <association>
+	    classrelation_ref 133003 // <generalisation>
+	  b parent class_ref 130315 // OperaciónMantenimiento
       end
     end
 
-    class 130322 "Inventario"
+    class 130571 "Reparación"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -569,79 +624,15 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 131986 // <aggregation>
-	relation 130450 o---
-	  a role_name "" private
-	    classrelation_ref 131986 // <aggregation>
-	  b role_name "" private
-	    classrelation_ref 132114 // <aggregation>
-      end
-
-      classrelation 132242 // <association>
-	relation 130578 ----
-	  a role_name "" private
-	    classrelation_ref 132242 // <association>
-	  b role_name "" private
-	    classrelation_ref 132370 // <association>
-      end
-
-      classrelation 133778 // <association>
-	relation 131602 ----
-	  a role_name "" private
-	    classrelation_ref 133778 // <association>
-	  b role_name "" private
-	    classrelation_ref 133906 // <association>
-      end
-
-      classrelation 134034 // <association>
-	relation 131730 ----
-	  a role_name "" private
-	    classrelation_ref 134034 // <association>
-	  b role_name "" private
-	    classrelation_ref 134162 // <association>
-      end
-    end
-
-    class 130450 "Item"
-      visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      classrelation 132114 // <aggregation>
-	relation_ref 130450 // <aggregation>
-      end
-
-      classrelation 133266 // <association>
-	relation 131346 ----
-	  a role_name "" private
-	    classrelation_ref 133266 // <association>
-	  b role_name "" private
-	    classrelation_ref 133394 // <association>
-      end
-    end
-
-    class 130578 "Avión"
-      visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      classrelation 132498 // <generalisation>
-	relation 130706 ---|>
+      classrelation 133131 // <generalisation>
+	relation 130955 ---|>
 	  a public
-	    classrelation_ref 132498 // <generalisation>
-	  b parent class_ref 130194 // Vehículo
+	    classrelation_ref 133131 // <generalisation>
+	  b parent class_ref 130315 // OperaciónMantenimiento
       end
     end
 
-    class 130706 "InformaciónEconóminca"
+    class 130699 "Vehículo"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -650,193 +641,22 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 133522 // <association>
-	relation 131474 ----
-	  a role_name "" private
-	    classrelation_ref 133522 // <association>
-	  b role_name "" private
-	    classrelation_ref 133650 // <association>
-      end
-    end
-
-    class 130834 "OrganizaciónLaboral"
-      visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-    end
-
-    class 130962 "Sugerencia"
-      visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-    end
-
-    class 131090 "OperaciónMantenimiento"
-      visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      classrelation 132370 // <association>
-	relation_ref 130578 // <association>
-      end
-
-      classrelation 133138 // <association>
-	relation_ref 131218 // <association>
-      end
-    end
-
-    class 131218 "Consulta"
-      visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      classrelation 133650 // <association>
-	relation_ref 131474 // <association>
-      end
-
-      classrelation 133906 // <association>
-	relation_ref 131602 // <association>
-      end
-
-      classrelation 134162 // <association>
-	relation_ref 131730 // <association>
-      end
-
-      classrelation 136722 // <association>
-	relation_ref 133010 // <association>
-      end
-
-      classrelation 136978 // <association>
-	relation_ref 133138 // <association>
-      end
-
-      classrelation 137234 // <association>
-	relation_ref 133266 // <association>
-      end
-
-      classrelation 137362 // <association>
-	relation 133394 ----
-	  a role_name "" private
-	    classrelation_ref 137362 // <association>
-	  b role_name "" private
-	    classrelation_ref 137490 // <association>
-      end
-
-      classrelation 138002 // <association>
-	relation_ref 133650 // <association>
-      end
-
-      classrelation 138386 // <association>
-	relation 133906 ----
-	  a role_name "" private
-	    classrelation_ref 138386 // <association>
-	  b role_name "" private
-	    classrelation_ref 138514 // <association>
-      end
-    end
-
-    class 131346 "Registro"
-      visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      classrelation 133010 // <association>
-	relation 131218 ----
-	  a role_name "" private
-	    classrelation_ref 133010 // <association>
-	  b role_name "" private
-	    classrelation_ref 133138 // <association>
-      end
-
-      classrelation 133394 // <association>
-	relation_ref 131346 // <association>
-      end
-
-      classrelation 134290 // <association>
-	relation 131858 ----
-	  a role_name "" private
-	    classrelation_ref 134290 // <association>
-	  b role_name "" private
-	    classrelation_ref 134418 // <association>
-      end
-
-      classrelation 134418 // <association>
-	relation_ref 131858 // <association>
-      end
-
-      classrelation 134546 // <association>
-	relation 131986 ----
-	  a role_name "" private
-	    classrelation_ref 134546 // <association>
-	  b role_name "" private
-	    classrelation_ref 134674 // <association>
-      end
-
-      classrelation 134930 // <association>
-	relation_ref 132114 // <association>
-      end
-
-      classrelation 135442 // <association>
-	relation_ref 132370 // <association>
-      end
-
-      classrelation 135698 // <association>
-	relation_ref 132498 // <association>
-      end
-
-      classrelation 135954 // <association>
-	relation_ref 132626 // <association>
-      end
-
-      classrelation 136210 // <association>
-	relation_ref 132754 // <association>
-      end
-
-      classrelation 136466 // <association>
-	relation_ref 132882 // <association>
-      end
-    end
-
-    class 131602 "Recuperación"
-      visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      classrelation 132754 // <generalisation>
-	relation 130962 ---|>
+      classrelation 133259 // <generalisation>
+	relation 131083 ---|>
 	  a public
-	    classrelation_ref 132754 // <generalisation>
-	  b parent class_ref 131090 // OperaciónMantenimiento
+	    classrelation_ref 133259 // <generalisation>
+	  b parent class_ref 130315 // OperaciónMantenimiento
+      end
+
+      classrelation 133387 // <generalisation>
+	relation 131211 ---|>
+	  a public
+	    classrelation_ref 133387 // <generalisation>
+	  b parent class_ref 130187 // Item
       end
     end
 
-    class 131730 "Revisión"
+    class 130827 "Avión"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -845,11 +665,227 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 132882 // <generalisation>
-	relation 131090 ---|>
+      classrelation 133515 // <generalisation>
+	relation 131339 ---|>
 	  a public
-	    classrelation_ref 132882 // <generalisation>
-	  b parent class_ref 131090 // OperaciónMantenimiento
+	    classrelation_ref 133515 // <generalisation>
+	  b parent class_ref 130699 // Vehículo
+      end
+    end
+
+    class 130955 "InformaciónEconómica"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 134283 // <association>
+	relation_ref 131723 // <association>
+      end
+    end
+
+    class 131083 "OrganizaciónLaboral"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 131211 "Sugerencia"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 131339 "Registro"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 133643 // <association>
+	relation 131467 ----
+	  a role_name "" private
+	    classrelation_ref 133643 // <association>
+	  b role_name "" private
+	    classrelation_ref 133771 // <association>
+      end
+
+      classrelation 133899 // <association>
+	relation 131595 ----
+	  a role_name "" private
+	    classrelation_ref 133899 // <association>
+	  b role_name "" private
+	    classrelation_ref 134027 // <association>
+      end
+
+      classrelation 136715 // <association>
+	relation 133003 ----
+	  a role_name "" private
+	    classrelation_ref 136715 // <association>
+	  b role_name "" private
+	    classrelation_ref 136843 // <association>
+      end
+
+      classrelation 136971 // <association>
+	relation 133131 ----
+	  a role_name "" private
+	    classrelation_ref 136971 // <association>
+	  b role_name "" private
+	    classrelation_ref 137099 // <association>
+      end
+
+      classrelation 137483 // <association>
+	relation 133387 ----
+	  a role_name "" private
+	    classrelation_ref 137483 // <association>
+	  b role_name "" private
+	    classrelation_ref 137611 // <association>
+      end
+
+      classrelation 137867 // <association>
+	relation_ref 133515 // <association>
+      end
+
+      classrelation 137995 // <association>
+	relation 133643 ----
+	  a role_name "" private
+	    classrelation_ref 137995 // <association>
+	  b role_name "" private
+	    classrelation_ref 138123 // <association>
+      end
+
+      classrelation 138379 // <association>
+	relation_ref 133771 // <association>
+      end
+
+      classrelation 138507 // <association>
+	relation 133899 ----
+	  a role_name "" private
+	    classrelation_ref 138507 // <association>
+	  b role_name "" private
+	    classrelation_ref 138635 // <association>
+      end
+
+      classrelation 138763 // <association>
+	relation 134027 ----
+	  a role_name "" private
+	    classrelation_ref 138763 // <association>
+	  b role_name "" private
+	    classrelation_ref 138891 // <association>
+      end
+
+      classrelation 139019 // <association>
+	relation 134155 ----
+	  a role_name "" private
+	    classrelation_ref 139019 // <association>
+	  b role_name "" private
+	    classrelation_ref 139147 // <association>
+      end
+    end
+
+    class 131467 "Consulta"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 134155 // <association>
+	relation 131723 ----
+	  a role_name "" private
+	    classrelation_ref 134155 // <association>
+	  b role_name "" private
+	    classrelation_ref 134283 // <association>
+      end
+
+      classrelation 134411 // <association>
+	relation 131851 ----
+	  a role_name "" private
+	    classrelation_ref 134411 // <association>
+	  b role_name "" private
+	    classrelation_ref 134539 // <association>
+      end
+
+      classrelation 134667 // <association>
+	relation 131979 ----
+	  a role_name "" private
+	    classrelation_ref 134667 // <association>
+	  b role_name "" private
+	    classrelation_ref 134795 // <association>
+      end
+
+      classrelation 134923 // <association>
+	relation 132107 ----
+	  a role_name "" private
+	    classrelation_ref 134923 // <association>
+	  b role_name "" private
+	    classrelation_ref 135051 // <association>
+      end
+
+      classrelation 135179 // <association>
+	relation 132235 ----
+	  a role_name "" private
+	    classrelation_ref 135179 // <association>
+	  b role_name "" private
+	    classrelation_ref 135307 // <association>
+      end
+
+      classrelation 135435 // <association>
+	relation 132363 ----
+	  a role_name "" private
+	    classrelation_ref 135435 // <association>
+	  b role_name "" private
+	    classrelation_ref 135563 // <association>
+      end
+
+      classrelation 135691 // <association>
+	relation 132491 ----
+	  a role_name "" private
+	    classrelation_ref 135691 // <association>
+	  b role_name "" private
+	    classrelation_ref 135819 // <association>
+      end
+
+      classrelation 135947 // <association>
+	relation 132619 ----
+	  a role_name "" private
+	    classrelation_ref 135947 // <association>
+	  b role_name "" private
+	    classrelation_ref 136075 // <association>
+      end
+
+      classrelation 136203 // <association>
+	relation 132747 ----
+	  a role_name "" private
+	    classrelation_ref 136203 // <association>
+	  b role_name "" private
+	    classrelation_ref 136331 // <association>
+      end
+
+      classrelation 136459 // <association>
+	relation 132875 ----
+	  a role_name "" private
+	    classrelation_ref 136459 // <association>
+	  b role_name "" private
+	    classrelation_ref 136587 // <association>
       end
     end
   end
