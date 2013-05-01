@@ -1,7 +1,7 @@
 format 76
 "Gestion Interna" // Gestion Interna
-  revision 9
-  modified_by 24 "hlocal"
+  revision 10
+  modified_by 21 "portatil"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -43,6 +43,11 @@ format 76
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default show_stereotype_properties default
     classdiagram 128021 "Gestion Interna"
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
+    classdiagram 147605 "Sitio web"
       draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
       size A4
     end
@@ -138,6 +143,10 @@ format 76
       classrelation 129173 // <aggregation>
 	relation_ref 128661 // <aggregation>
       end
+
+      classrelation 138773 // <association>
+	relation_ref 136853 // <association>
+      end
     end
 
     class 128661 "Oferta"
@@ -199,6 +208,13 @@ format 76
       idl_decl ""
       explicit_switch_type ""
       
+      classrelation 138645 // <association>
+	relation 136853 ----
+	  a role_name "" multiplicity "1" private
+	    classrelation_ref 138645 // <association>
+	  b role_name "" multiplicity "1" private
+	    classrelation_ref 138773 // <association>
+      end
     end
 
     class 136600 "Sugerencia"
@@ -274,6 +290,41 @@ ${members}};
 "
 	explicit_switch_type ""
 	
+	classrelation 135701 // <association>
+	  relation 135189 ----
+	    a role_name "" private
+	      classrelation_ref 135701 // <association>
+	    b role_name "" private
+	      classrelation_ref 135829 // <association>
+	end
+
+	classrelation 135829 // <association>
+	  relation_ref 135189 // <association>
+	end
+
+	classrelation 135957 // <association>
+	  relation 135317 ----
+	    a role_name "" private
+	      classrelation_ref 135957 // <association>
+	    b role_name "" private
+	      classrelation_ref 136085 // <association>
+	end
+
+	classrelation 136213 // <association>
+	  relation 135445 ----
+	    a role_name "" private
+	      classrelation_ref 136213 // <association>
+	    b role_name "" private
+	      classrelation_ref 136341 // <association>
+	end
+
+	classrelation 136469 // <association>
+	  relation 135573 ----
+	    a role_name "" private
+	      classrelation_ref 136469 // <association>
+	    b role_name "" private
+	      classrelation_ref 136597 // <association>
+	end
       end
 
       class 135573 "CComprobarUsuario"
@@ -332,6 +383,32 @@ ${members}};
 "
 	explicit_switch_type ""
 	
+	classrelation 136853 // <unidirectional association>
+	  relation 135829 --->
+	    a role_name "" private
+	      classrelation_ref 136853 // <unidirectional association>
+	    b parent class_ref 128664 // PáginaVueloSeleccionado
+	end
+
+	classrelation 137237 // <association>
+	  relation_ref 136085 // <association>
+	end
+
+	classrelation 137365 // <association>
+	  relation 136213 ----
+	    a role_name "" private
+	      classrelation_ref 137365 // <association>
+	    b role_name "" private
+	      classrelation_ref 137493 // <association>
+	end
+
+	classrelation 137621 // <association>
+	  relation 136341 ----
+	    a role_name "" private
+	      classrelation_ref 137621 // <association>
+	    b role_name "" private
+	      classrelation_ref 137749 // <association>
+	end
       end
 
       class 142357 "CElaborarInfoVuelo"
@@ -356,6 +433,17 @@ ${members}};
 "
 	explicit_switch_type ""
 	
+	classrelation 138005 // <association>
+	  relation_ref 136469 // <association>
+	end
+
+	classrelation 138133 // <association>
+	  relation 136597 ----
+	    a role_name "" private
+	      classrelation_ref 138133 // <association>
+	    b role_name "" private
+	      classrelation_ref 138261 // <association>
+	end
       end
 
       class 142613 "CConfeccionarBillete"
@@ -416,6 +504,17 @@ ${members}};
 "
 	explicit_switch_type ""
 	
+	classrelation 138261 // <association>
+	  relation_ref 136597 // <association>
+	end
+
+	classrelation 138389 // <association>
+	  relation 136725 ----
+	    a role_name "" private
+	      classrelation_ref 138389 // <association>
+	    b role_name "" private
+	      classrelation_ref 138517 // <association>
+	end
       end
 
       class 128152 "CComprobarDatos"
@@ -487,6 +586,20 @@ ${members}};
 "
 	explicit_switch_type ""
 	
+	classrelation 136725 // <unidirectional association>
+	  relation 135701 --->
+	    a role_name "" private
+	      classrelation_ref 136725 // <unidirectional association>
+	    b parent class_ref 142229 // PáginaSelecciónVuelo
+	end
+
+	classrelation 137109 // <association>
+	  relation 136085 ----
+	    a role_name "" private
+	      classrelation_ref 137109 // <association>
+	    b role_name "" private
+	      classrelation_ref 137237 // <association>
+	end
       end
 
       class 128536 "CCargarVuelos"
@@ -511,6 +624,28 @@ ${members}};
 "
 	explicit_switch_type ""
 	
+	classrelation 136981 // <unidirectional association>
+	  relation 135957 --->
+	    a role_name "" private
+	      classrelation_ref 136981 // <unidirectional association>
+	    b parent class_ref 142485 // PáginaConfirmaciónVuelo
+	end
+
+	classrelation 137493 // <association>
+	  relation_ref 136213 // <association>
+	end
+
+	classrelation 137749 // <association>
+	  relation_ref 136341 // <association>
+	end
+
+	classrelation 137877 // <association>
+	  relation 136469 ----
+	    a role_name "" private
+	      classrelation_ref 137877 // <association>
+	    b role_name "" private
+	      classrelation_ref 138005 // <association>
+	end
       end
 
       class 128792 "CCargarInfoVuelo"
@@ -594,6 +729,9 @@ ${members}};
 "
 	explicit_switch_type ""
 	
+	classrelation 138517 // <association>
+	  relation_ref 136725 // <association>
+	end
       end
 
       class 129304 "CComprobarDatos"
@@ -782,6 +920,9 @@ ${members}};
 "
 	explicit_switch_type ""
 	
+	classrelation 136085 // <association>
+	  relation_ref 135317 // <association>
+	end
       end
 
       class 136856 "CCargarDatosUsuario"
@@ -829,6 +970,9 @@ ${members}};
 "
 	explicit_switch_type ""
 	
+	classrelation 136597 // <association>
+	  relation_ref 135573 // <association>
+	end
       end
     end
 
@@ -865,6 +1009,9 @@ ${members}};
 "
 	explicit_switch_type ""
 	
+	classrelation 136341 // <association>
+	  relation_ref 135445 // <association>
+	end
       end
 
       class 137240 "CComprobarContraseña"

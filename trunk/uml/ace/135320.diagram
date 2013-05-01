@@ -7,7 +7,7 @@ classinstance 128152 class_ref 136728 // PáginaEditarUsuario
 classinstance 128408 class_ref 136856 // CCargarDatosUsuario
  name ""  xyz 492 81 2000
 classinstance 129304 class_ref 128405 // RegistroUsuarios
- name ""  xyz 511 200 2000
+ name ""  xyz 510 200 2000
 linkcanvas 128280
   from ref 128024 z 2001 to ref 128152
 linkcanvas 128792

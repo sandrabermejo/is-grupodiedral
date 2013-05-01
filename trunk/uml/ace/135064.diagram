@@ -7,7 +7,7 @@ classinstance 128152 class_ref 135960 // PáginaOfertas
 classinstance 128536 class_ref 136216 // CCargarDatosOferta
  name ""  xyz 443 106 2000
 classinstance 128920 class_ref 128661 // Oferta
- name ""  xyz 495 222 2000
+ name ""  xyz 496 222 2000
 linkcanvas 128280
   from ref 128024 z 2001 to ref 128152
 linkcanvas 128664
