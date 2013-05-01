@@ -7,7 +7,7 @@ classinstance 128152 class_ref 136984 // PáginaRegistro
 classinstance 128408 class_ref 128152 // CComprobarDatos
  name ""  xyz 390 85 2000
 classinstance 128792 class_ref 128405 // RegistroUsuarios
- name ""  xyz 396 218 2000
+ name ""  xyz 395 218 2000
 classinstance 129176 class_ref 128149 // Usuario
  name ""  xyz 642 87 2000
 linkcanvas 128280
@@ -21,7 +21,7 @@ linkcanvas 128920
   from ref 128408 z 2001 to ref 128792
 dirscanvas 129048 z 1000 linkcanvas_ref 128920
   show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
-  forward_label "2 registrar(usuario)" xyz 482 165 3000
+  forward_label "2 registrar(usuario)" xyz 480 166 3000
 linkcanvas 129432
   from ref 128408 z 2001 to ref 129176
 msgs

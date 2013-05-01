@@ -7,7 +7,7 @@ classinstance 128152 class_ref 128664 // PáginaVueloSeleccionado
 classinstance 128408 class_ref 128792 // CCargarInfoVuelo
  name ""  xyz 467 77 2000
 classinstance 128792 class_ref 128920 // PáginaInfoVueloContratado
- name ""  xyz 431 219 2000
+ name ""  xyz 429 219 2000
 classinstance 129048 class_ref 128533 // Vuelo
  name ""  xyz 328 219 2000
 linkcanvas 128280
@@ -21,7 +21,7 @@ linkcanvas 128920 decenter_end 507
   from ref 128408 z 2001 to ref 128792
 dirscanvas 129304 z 1000 linkcanvas_ref 128920
   show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
-  forward_label "2 mostrarInfoVuelo" xyz 553 162 3000
+  forward_label "2 mostrarInfoVuelo" xyz 554 162 3000
 linkcanvas 129176
   from ref 129048 z 2001 to ref 128792
 msgs
