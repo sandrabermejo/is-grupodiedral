@@ -1,0 +1,13 @@
+window_sizes 1366 706 320 960 512 82
+diagrams
+  active  classdiagram_ref 128018 // Dominio
+    1040 543 100 4 0 0
+  classdiagram_ref 128021 // Gestion Interna
+    828 434 100 4 0 0
+end
+show_stereotypes
+selected classdiagram_ref 128018 // Dominio
+open
+  classview_ref 128018 // Diagrama de Dominio
+end
+end
