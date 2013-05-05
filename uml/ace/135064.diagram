@@ -4,27 +4,28 @@ classinstance 128024 class_ref 128007 // UsuarioWeb
  name ""  xyz 45 110 2000
 classinstance 128152 class_ref 135960 // PáginaOfertas
  name ""  xyz 197 109 2000
+classinstance 128407 class_ref 128151 // CMostrarOferta
+ name ""  xyz 461 226 2000
 classinstance 128536 class_ref 136216 // CCargarDatosOferta
  name ""  xyz 443 106 2000
 classinstance 128920 class_ref 128661 // Oferta
- name ""  xyz 496 222 2000
-linkcanvas 128280
-  from ref 128024 z 2001 to ref 128152
-linkcanvas 128664
+ name ""  xyz 653 228 2000
+linkcanvas 128023
   from ref 128152 z 2001 to ref 128536
-dirscanvas 128792 z 1000 linkcanvas_ref 128664
+dirscanvas 128151 z 1000 linkcanvas_ref 128023
   show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
   forward_label "1 seleccionar(oferta)" xyz 300 90 3000
-  backward_label "2 mostrar(oferta)" xyz 313 150 3000
-linkcanvas 129048
-  from ref 128536 z 2001 to ref 128920
+linkcanvas 128280
+  from ref 128024 z 2001 to ref 128152
+linkcanvas 128535
+  from ref 128536 z 2001 to ref 128407
+dirscanvas 128663 z 1000 linkcanvas_ref 128535
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+linkcanvas 128791
+  from ref 128407 z 2001 to ref 128920
 msgs
   explicitmsg "seleccionar(oferta)"
-    forward ranks 1 "1" dirscanvas_ref 128792
-    msgs
-      explicitmsg "mostrar(oferta)"
-	backward ranks 2 "1.1" dirscanvas_ref 128792
-	no_msg
-    msgsend
+    forward ranks 1 "1" dirscanvas_ref 128151
+    no_msg
 msgsend
 end
