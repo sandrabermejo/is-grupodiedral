@@ -1,8 +1,0 @@
-window_sizes 1366 706 320 960 512 82
-show_stereotypes
-selected usecase_ref 135064 // Consultar oferta
-open
-  classview_ref 128018 // Diagrama de Dominio
-  usecaseview_ref 128007 // Casos de uso (análisis)
-end
-end
