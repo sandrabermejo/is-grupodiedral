@@ -24,8 +24,18 @@ do
 	# Genera el nombre del archivo .pdf
 	archivoPdf="`basename $archivo .svg`.pdf"
 
+	# Especificación de la necesidad de conversión
+	function necesitaConversion {
+		if [ -f $archivoPdf ]
+		then
+			[ `stat -c %Y $archivoPdf` -lt `stat -c %Y $archivo` ]
+		else
+			return 0
+		fi
+	}
+
 	# Comprueba que el .svg sea más reciente que el .pdf
-	if [ `stat -c %Y $archivoPdf` -lt `stat -c %Y $archivo` ]
+	if necesitaConversion
 	then
 		inkscape --export-pdf="$archivoPdf" $archivo
 
