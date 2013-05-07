@@ -1,7 +1,7 @@
 format 76
 
 classinstance 128024 class_ref 129176 // IIniciarPago
- name ""  xyz 25 165 2005
+ name ""  xyz 24 165 2005
 classinstance 128149 class_ref 142229 // PáginaSelecciónVuelo
  name ""  xyz 164 168 2000
 classinstance 128277 class_ref 142357 // CElaborarInfoVuelo

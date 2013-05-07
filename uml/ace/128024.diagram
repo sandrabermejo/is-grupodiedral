@@ -9,9 +9,14 @@ classinstance 128664 class_ref 128152 // CComprobarDatos
 classinstance 129048 class_ref 128280 // CGenerarBillete
  name ""  xyz 424 115 2000
 classinstance 129688 class_ref 142869 // Billete
- name ""  xyz 629 117 2000
+ name ""  xyz 676 117 2000
 classinstance 129944 class_ref 129176 // IIniciarPago
- name ""  xyz 724 116 2000
+ name ""  xyz 439 385 2000
+linkcanvas 128023 decenter_end 488
+  from ref 128664 z 2001 to ref 129944
+dirscanvas 128279 z 1000 linkcanvas_ref 128023
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "3 iniciarPago(datos)" xyz 503 323 3000
 linkcanvas 128280
   from ref 128024 z 2001 to ref 128152
 dirscanvas 128408 z 1000 linkcanvas_ref 128280
@@ -28,15 +33,17 @@ dirscanvas 129560 z 1000 linkcanvas_ref 129304
   forward_label "2 comprobar(datos)" xyz 504 188 3000
 linkcanvas 129816
   from ref 129048 z 2001 to ref 129688
-linkcanvas 130072
-  from ref 129688 z 2001 to ref 129944
 msgs
   explicitmsg "introducir(datos)"
     forward ranks 1 "1" dirscanvas_ref 129432
     msgs
       explicitmsg "comprobar(datos)"
 	forward ranks 2 "1.1" dirscanvas_ref 129560
-	no_msg
+	msgs
+	  explicitmsg "iniciarPago(datos)"
+	    forward ranks 3 "1.1.1" dirscanvas_ref 128279
+	    no_msg
+	msgsend
     msgsend
 msgsend
 end
