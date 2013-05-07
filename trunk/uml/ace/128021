@@ -1,7 +1,7 @@
 format 76
 "Gestion Interna" // Gestion Interna
   revision 14
-  modified_by 21 "21"
+  modified_by 23 "hlocal"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -48,7 +48,7 @@ format 76
     end
 
     classdiagram 147605 "Sitio web"
-      draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
       size A4
     end
 
@@ -372,7 +372,57 @@ ${members}};
 	size A4
       end
 
-      class 142485 "PáginaConfirmaciónCompra"
+      class 142229 "PáginaSelecciónVuelo"
+	visibility package stereotype "boundary"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+	explicit_switch_type ""
+	
+	classrelation 136853 // <unidirectional association>
+	  relation 135829 --->
+	    a role_name "" private
+	      classrelation_ref 136853 // <unidirectional association>
+	    b parent class_ref 128664 // PáginaVueloSeleccionado
+	end
+
+	classrelation 137237 // <association>
+	  relation_ref 136085 // <association>
+	end
+
+	classrelation 137365 // <association>
+	  relation 136213 ----
+	    a role_name "" private
+	      classrelation_ref 137365 // <association>
+	    b role_name "" private
+	      classrelation_ref 137493 // <association>
+	end
+
+	classrelation 137621 // <association>
+	  relation 136341 ----
+	    a role_name "" private
+	      classrelation_ref 137621 // <association>
+	    b role_name "" private
+	      classrelation_ref 137749 // <association>
+	end
+      end
+
+      class 142357 "CElaborarInfoVuelo"
+	visibility package stereotype "control"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	
+      end
+
+      class 142485 "PáginaConfirmaciónVuelo"
 	visibility package stereotype "boundary"
 	cpp_decl ""
 	java_decl ""
@@ -405,18 +455,6 @@ ${members}};
 	idl_decl ""
 	explicit_switch_type ""
 	
-	operation 128149 "confeccionarBillete"
-	  public explicit_return_type ""
-	  nparams 1
-	    param in name "billete" type class_ref 142869 // Billete
-	  multiplicity "1"
-	      defaultvalue "billete"
-	  
-	  
-	  
-	  
-	  
-	end
       end
 
       class 142741 "IMetodoPago"
@@ -512,17 +550,19 @@ ${members}};
 "
 	explicit_switch_type ""
 	
-	operation 128021 "iniciarPago"
-	  public explicit_return_type ""
-	  nparams 1
-	    param in name "billete" type class_ref 142869 // Billete
-	  multiplicity "1"
-	  
-	  
-	  
-	  
-	  
-	end
+      end
+
+      class 141591 "IComprarBillete"
+	visibility package stereotype "boundary"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+	explicit_switch_type ""
+	
       end
     end
 
@@ -559,6 +599,20 @@ ${members}};
 "
 	explicit_switch_type ""
 	
+	classrelation 136725 // <unidirectional association>
+	  relation 135701 --->
+	    a role_name "" private
+	      classrelation_ref 136725 // <unidirectional association>
+	    b parent class_ref 142229 // PáginaSelecciónVuelo
+	end
+
+	classrelation 137109 // <association>
+	  relation 136085 ----
+	    a role_name "" private
+	      classrelation_ref 137109 // <association>
+	    b role_name "" private
+	      classrelation_ref 137237 // <association>
+	end
       end
 
       class 128536 "CCargarVuelos"
@@ -587,7 +641,15 @@ ${members}};
 	  relation 135957 --->
 	    a role_name "" private
 	      classrelation_ref 136981 // <unidirectional association>
-	    b parent class_ref 142485 // PáginaConfirmaciónCompra
+	    b parent class_ref 142485 // PáginaConfirmaciónVuelo
+	end
+
+	classrelation 137493 // <association>
+	  relation_ref 136213 // <association>
+	end
+
+	classrelation 137749 // <association>
+	  relation_ref 136341 // <association>
 	end
 
 	classrelation 137877 // <association>
@@ -610,15 +672,24 @@ ${members}};
 	
       end
 
-      class 149397 "IConectorComprarBillete"
-	visibility package stereotype "boundary"
+      class 141335 "CMostrarVuelos"
+	visibility package stereotype "control"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
 	python_2_2 python_decl ""
-	idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
-${members}};
-"
+	idl_decl ""
+	explicit_switch_type ""
+	
+      end
+
+      class 141463 "CMostrarVuelo"
+	visibility package stereotype "control"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
 	explicit_switch_type ""
 	
       end

@@ -1,63 +1,82 @@
 format 76
 
-classinstance 128021 class_ref 149397 // IConectorComprarBillete
- name ""  xyz 103 359 2000
 classinstance 128024 class_ref 128007 // UsuarioWeb
- name ""  xyz 39 67 2000
+ name ""  xyz 37 67 2000
+classinstance 128151 class_ref 141335 // CMostrarVuelos
+ name ""  xyz 193 343 2000
 classinstance 128152 class_ref 128408 // PáginaVuelos
- name ""  xyz 203 68 2000
+ name ""  xyz 199 68 2000
 classinstance 128536 class_ref 128536 // CCargarVuelos
- name ""  xyz 537 65 2000
+ name ""  xyz 194 192 2000
 classinstance 128920 class_ref 128664 // PáginaVueloSeleccionado
- name ""  xyz 157 209 2000
+ name ""  xyz 498 345 2000
+classinstance 129047 class_ref 141463 // CMostrarVuelo
+ name ""  xyz 539 63 2000
+classinstance 129431 class_ref 141591 // IComprarBillete
+ name ""  xyz 702 68 2000
 classinstance 129560 class_ref 128792 // CCargarInfoVuelo
- name ""  xyz 534 207 2000
+ name ""  xyz 526 180 2000
 classinstance 129944 class_ref 128533 // Vuelo
- name ""  xyz 756 210 2000
-linkcanvas 128149
-  from ref 128920 z 2001 to ref 128021
-dirscanvas 128405 z 1000 linkcanvas_ref 128149
-  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
-  forward_label "5 comprarBillete(vuelo) [opcional]" xyz 251 299 3000
+ name ""  xyz 400 175 2000
 linkcanvas 128280
   from ref 128024 z 2001 to ref 128152
 dirscanvas 128408 z 1000 linkcanvas_ref 128280
   show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+linkcanvas 128535
+  from ref 128536 z 2001 to ref 128151
+dirscanvas 128663 z 1000 linkcanvas_ref 128535
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "2 mostrar(vuelos)" xyz 272 281 3000
 linkcanvas 128664
   from ref 128152 z 2001 to ref 128536
 dirscanvas 128792 z 1000 linkcanvas_ref 128664
   show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
-  forward_label "1 generarInfoVuelos" xyz 350 49 3000
-  backward_label "2 mostrar(vuelos)" xyz 360 109 3000
-linkcanvas 129304
-  from ref 128152 z 2001 to ref 128920
-dirscanvas 129432 z 1000 linkcanvas_ref 129304
+  forward_label "1 cargar(vuelos)" xyz 274 141 3000
+linkcanvas 128791
+  from ref 128920 z 2001 to ref 128151
+dirscanvas 128919 z 1000 linkcanvas_ref 128791
   show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
-  forward_label "3 seleccionar(vuelo)" xyz 273 150 3000
+  backward_label "3 seleccionar(vuelo)" xyz 334 327 3000
+linkcanvas 129175
+  from ref 129560 z 2001 to ref 129047
+dirscanvas 129303 z 1000 linkcanvas_ref 129175
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "5 mostrar(vuelo)" xyz 458 134 3000
+linkcanvas 129559
+  from ref 129047 z 2001 to ref 129431
+dirscanvas 129687 z 1000 linkcanvas_ref 129559
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "6 comprar(datosVuelo)" xyz 595 47 3000
 linkcanvas 129688
   from ref 128920 z 2001 to ref 129560
 dirscanvas 129816 z 1000 linkcanvas_ref 129688
   show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
-  forward_label "4 generarInfoVuelo" xyz 375 191 3000
-linkcanvas 130072
+  forward_label "4 cargar(vuelo)" xyz 466 275 3000
+linkcanvas 130072 decenter_end 560
   from ref 129560 z 2001 to ref 129944
 msgs
-  explicitmsg "generarInfoVuelos"
+  explicitmsg "cargar(vuelos)"
     forward ranks 1 "1" dirscanvas_ref 128792
     msgs
       explicitmsg "mostrar(vuelos)"
-	backward ranks 2 "1.1" dirscanvas_ref 128792
-	no_msg
-    msgsend
-  explicitmsg "seleccionar(vuelo)"
-    forward ranks 3 "2" dirscanvas_ref 129432
-    msgs
-      explicitmsg "generarInfoVuelo"
-	forward ranks 4 "2.1" dirscanvas_ref 129816
-	no_msg
-      explicitmsg "comprarBillete(vuelo) [opcional]"
-	forward ranks 5 "2.2" dirscanvas_ref 128405
-	no_msg
+	forward ranks 2 "1.1" dirscanvas_ref 128663
+	msgs
+	  explicitmsg "seleccionar(vuelo)"
+	    backward ranks 3 "1.1.1" dirscanvas_ref 128919
+	    msgs
+	      explicitmsg "cargar(vuelo)"
+		forward ranks 4 "1.1.1.1" dirscanvas_ref 129816
+		msgs
+		  explicitmsg "mostrar(vuelo)"
+		    forward ranks 5 "1.1.1.1.1" dirscanvas_ref 129303
+		    msgs
+		      explicitmsg "comprar(datosVuelo)"
+			forward ranks 6 "1.1.1.1.1.1" dirscanvas_ref 129687
+			no_msg
+		    msgsend
+		msgsend
+	    msgsend
+	msgsend
     msgsend
 msgsend
 end
