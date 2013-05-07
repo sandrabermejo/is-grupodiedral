@@ -1,9 +1,0 @@
-window_sizes 1280 962 376 898 803 78
-show_stereotypes
-selected collaborationdiagram_ref 135064 // Diagrama de comunicación
-open
-  classview_ref 128018 // Diagrama de Dominio
-  classview_ref 128021 // Diagrama de paquete
-  usecase_ref 135064 // Consultar oferta
-end
-end
