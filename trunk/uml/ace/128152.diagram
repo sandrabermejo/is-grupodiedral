@@ -1,5 +1,7 @@
 format 76
 
+classinstance 128021 class_ref 149397 // IConectorComprarBillete
+ name ""  xyz 103 359 2000
 classinstance 128024 class_ref 128007 // UsuarioWeb
  name ""  xyz 39 67 2000
 classinstance 128152 class_ref 128408 // PáginaVuelos
@@ -12,6 +14,11 @@ classinstance 129560 class_ref 128792 // CCargarInfoVuelo
  name ""  xyz 534 207 2000
 classinstance 129944 class_ref 128533 // Vuelo
  name ""  xyz 756 210 2000
+linkcanvas 128149
+  from ref 128920 z 2001 to ref 128021
+dirscanvas 128405 z 1000 linkcanvas_ref 128149
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "5 comprarBillete(vuelo) [opcional]" xyz 251 299 3000
 linkcanvas 128280
   from ref 128024 z 2001 to ref 128152
 dirscanvas 128408 z 1000 linkcanvas_ref 128280
@@ -47,6 +54,9 @@ msgs
     msgs
       explicitmsg "generarInfoVuelo"
 	forward ranks 4 "2.1" dirscanvas_ref 129816
+	no_msg
+      explicitmsg "comprarBillete(vuelo) [opcional]"
+	forward ranks 5 "2.2" dirscanvas_ref 128405
 	no_msg
     msgsend
 msgsend
