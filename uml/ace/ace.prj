@@ -1,7 +1,7 @@
 format 76
 "ace"
-  revision 11
-  modified_by 21 "21"
+  revision 10
+  modified_by 11 "Bermejo"
 
 
   
@@ -72,7 +72,7 @@ format 76
 	relation_ref 128651 // <association>
       end
 
-      classrelation 129035 // <association>
+      classrelation 129035 // 1 (<association>)
 	relation_ref 128779 // <association>
       end
 
@@ -200,7 +200,7 @@ format 76
 	  a role_name "1...n" private
 	    classrelation_ref 128907 // 1...n (<association>)
 	  b role_name "1" private
-	    classrelation_ref 129035 // <association>
+	    classrelation_ref 129035 // 1 (<association>)
       end
 
       classrelation 135051 // <association>
@@ -891,5 +891,4 @@ format 76
   end
 
   package_ref 128021 // Gestion Interna
-
 end

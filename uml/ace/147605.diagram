@@ -4,7 +4,11 @@ classcanvas 128021 class_ref 135445 // PáginaAcceso
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
   xyz 34 29 2000
 end
-classcanvas 128277 class_ref 142485 // PáginaConfirmaciónCompra
+classcanvas 128149 class_ref 142229 // PáginaSelecciónVuelo
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 255 309 2000
+end
+classcanvas 128277 class_ref 142485 // PáginaConfirmaciónVuelo
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
   xyz 398 481 2000
 end
@@ -63,6 +67,16 @@ relationcanvas 130325 relation_ref 135573 // <association>
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
+relationcanvas 130837 relation_ref 136085 // <association>
+  from ref 128533 z 2001 to ref 128149
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131221 relation_ref 136341 // <association>
+  from ref 128149 z 2001 to ref 128661
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
 relationcanvas 131349 relation_ref 136469 // <association>
   from ref 128661 z 2001 to ref 128277
   no_role_a no_role_b
@@ -75,11 +89,6 @@ relationcanvas 131477 relation_ref 136597 // <association>
 end
 relationcanvas 131605 relation_ref 136725 // <association>
   from ref 128405 z 2001 to ref 128917
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
-end
-relationcanvas 131733 relation_ref 135957 // <unidirectional association>
-  from ref 128661 z 2001 to ref 128277
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
