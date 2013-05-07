@@ -3,33 +3,43 @@ format 76
 classinstance 128024 class_ref 128007 // UsuarioWeb
  name ""  xyz 35 77 2000
 classinstance 128152 class_ref 128664 // PáginaVueloSeleccionado
- name ""  xyz 184 79 2000
+ name ""  xyz 480 78 2000
+classinstance 128267 class_ref 137995 // InformaciónUsuario
+ name ""  xyz 221 77 2006
 classinstance 128408 class_ref 128792 // CCargarInfoVuelo
- name ""  xyz 467 77 2000
+ name ""  xyz 509 188 2000
 classinstance 128792 class_ref 128920 // PáginaInfoVueloContratado
- name ""  xyz 429 219 2000
+ name ""  xyz 473 335 2000
 classinstance 129048 class_ref 128533 // Vuelo
- name ""  xyz 328 219 2000
-linkcanvas 128280
-  from ref 128024 z 2001 to ref 128152
+ name ""  xyz 376 334 2000
+linkcanvas 128523
+  from ref 128024 z 2007 to ref 128267
 linkcanvas 128536
   from ref 128152 z 2001 to ref 128408
 dirscanvas 128664 z 1000 linkcanvas_ref 128536
   show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
-  forward_label "1 cargarInfoVuelo" xyz 359 61 3000
+  forward_label "2 cargarInfoVuelo" xyz 598 144 3000
 linkcanvas 128920 decenter_end 507
   from ref 128408 z 2001 to ref 128792
 dirscanvas 129304 z 1000 linkcanvas_ref 128920
   show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
-  forward_label "2 mostrarInfoVuelo" xyz 554 162 3000
+  forward_label "3 mostrarInfoVuelo" xyz 594 275 3000
+linkcanvas 129035 decenter_end 488
+  from ref 128267 z 2007 to ref 128152
+dirscanvas 129163 z 1000 linkcanvas_ref 129035
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "1 verVuelosContratados" xyz 339 59 3000
 linkcanvas 129176
   from ref 129048 z 2001 to ref 128792
 msgs
+  explicitmsg "verVuelosContratados"
+    forward ranks 1 "1" dirscanvas_ref 129163
+    no_msg
   explicitmsg "cargarInfoVuelo"
-    forward ranks 1 "1" dirscanvas_ref 128664
+    forward ranks 2 "2" dirscanvas_ref 128664
     msgs
       explicitmsg "mostrarInfoVuelo"
-	forward ranks 2 "1.1" dirscanvas_ref 129304
+	forward ranks 3 "2.1" dirscanvas_ref 129304
 	no_msg
     msgsend
 msgsend
