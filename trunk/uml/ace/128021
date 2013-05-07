@@ -1,6 +1,6 @@
 format 76
 "Gestion Interna" // Gestion Interna
-  revision 14
+  revision 15
   modified_by 23 "hlocal"
   // class settings
   //class diagram settings
@@ -906,6 +906,19 @@ ${members}};
 	php_decl ""
 	python_2_2 python_decl ""
 	idl_decl ""
+	explicit_switch_type ""
+	
+      end
+
+      class 148119 "PáginaOferta"
+	visibility package stereotype "boundary"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
 	explicit_switch_type ""
 	
       end
