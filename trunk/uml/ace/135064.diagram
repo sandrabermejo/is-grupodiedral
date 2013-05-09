@@ -1,28 +1,32 @@
 format 76
 
 classinstance 128407 class_ref 128151 // CMostrarOferta
- name ""  xyz 524 116 2000
+ name ""  xyz 374 248 2000
 classinstance 128536 class_ref 136216 // CCargarDatosOferta
- name ""  xyz 268 116 2000
+ name ""  xyz 356 115 2000
 classinstance 128919 class_ref 134679 // IConsultarOferta
- name ""  xyz 51 119 2000
+ name ""  xyz -2 115 2000
 classinstance 128920 class_ref 128661 // Oferta
- name ""  xyz 321 241 2000
+ name ""  xyz 609 116 2000
+classinstance 129815 class_ref 141335 // PáginaOferta
+ name ""  xyz 197 114 2005
 linkcanvas 128535
   from ref 128536 z 2001 to ref 128407
 dirscanvas 128663 z 1000 linkcanvas_ref 128535
   show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
-  forward_label "2 mostrar(oferta)" xyz 413 100 3000
-linkcanvas 129431
-  from ref 128919 z 2001 to ref 128536
-dirscanvas 129559 z 1000 linkcanvas_ref 129431
-  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
-  forward_label "1 cargar(oferta)" xyz 165 100 3000
+  forward_label "2 mostrar(oferta)" xyz 453 195 3000
 linkcanvas 129687
   from ref 128536 z 2001 to ref 128920
+linkcanvas 129943
+  from ref 128919 z 2006 to ref 129815
+linkcanvas 130071
+  from ref 129815 z 2006 to ref 128536
+dirscanvas 130199 z 1000 linkcanvas_ref 130071
+  show_full_operations_definition default show_hierarchical_rank default drawing_language default show_msg_context default
+  forward_label "1 cargar(oferta)" xyz 271 96 3000
 msgs
   explicitmsg "cargar(oferta)"
-    forward ranks 1 "1" dirscanvas_ref 129559
+    forward ranks 1 "2" dirscanvas_ref 130199
     no_msg
   explicitmsg "mostrar(oferta)"
     forward ranks 2 "2" dirscanvas_ref 128663
