@@ -1,27 +1,23 @@
 format 76
 
-classcanvas 128007 class_ref 128007 // UsuarioWeb
-  class_drawing_mode default show_context_mode default show_stereotype_properties default
-  xyz 78 119 2000
+packagecanvas 128007 
+  package_ref 128021 // Gestión Externa
+    xyzwh 9 40 2000 305 259
 end
-classcanvas 128135 class_ref 128135 // :PáginaCompraBillete
-  class_drawing_mode boundary show_context_mode default show_stereotype_properties default
-  xyz 253 129 2000
+packagecanvas 128135 
+  package_ref 128007 // Gestión Interna
+    xyzwh 333 40 2000 445 259
 end
-classcanvas 128263 class_ref 128263 // :PáginaInicioPago
-  class_drawing_mode boundary show_context_mode default show_stereotype_properties default
-  xyz 485 129 2000
+packagecanvas 128519 
+  package_ref 128135 // Personal
+    xyzwh 348 119 2005 129 127
 end
-textcanvas 129159 "1: redireccionar()"
-  xyzwh 386 123 2006 129 19
-relationcanvas 128903 relation_ref 128007 // <generalisation>
-  from ref 128007 z 2001 to ref 128135
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+packagecanvas 128647 
+  package_ref 128263 // Ventas
+    xyzwh 491 118 2005 127 127
 end
-relationcanvas 129031 relation_ref 128135 // <generalisation>
-  from ref 128135 z 2001 to ref 128263
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+packagecanvas 128775 
+  package_ref 128391 // Mantenimiento
+    xyzwh 628 124 2005 137 121
 end
 end
