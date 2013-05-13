@@ -25,7 +25,7 @@ do
 	archivoPdf="`basename $archivo .svg`.pdf"
 
 	# Especificación de la necesidad de conversión
-	function necesitaConversion {
+	necesitaConversion () {
 		if [ -f $archivoPdf ]
 		then
 			[ `stat -c %Y $archivoPdf` -lt `stat -c %Y $archivo` ]
