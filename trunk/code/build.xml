@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="build" name="ACExterna">
+	<property name="target" value="1.7"/>
+	<property name="source" value="1.7"/>
+	<property name="debuglevel" value="source,lines,vars"/>
+
+	<!-- Classpath -->
+	<path id="ACExterna.classpath">
+		<pathelement location="bin"/>
+	</path>
+
+	<!-- Carpeta de código -->
+	<path id="ACExterna.sourcepath">
+		<pathelement location="src"/>
+	</path>
+
+	<!-- Inicio: copia los archivos que no son código fuente -->
+	<target name="init">
+		<mkdir dir="bin"/>
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- Elimina los archivos generados -->
+	<target name="clean">
+		<delete dir="bin"/>
+	</target>
+
+	<!-- Compila el proyecto -->
+	<target depends="init" name="build">
+		<echo message="${ant.project.name}: ${ant.file}"/>
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+			<src path="src"/>
+			<classpath refid="ACExterna.classpath"/>
+		</javac>
+	</target>
+
+	<!-- Crea un archivo Jar -->
+	<target depends="build" name="jar">
+	<jar destfile="acex.jar">
+		<fileset dir="bin" includes="**/*.class" />
+		<manifest>
+			<attribute name="Main-Class" Value="diedral.acexterna.Main" />
+		</manifest>
+	</jar>
+	</target>
+
+	<!-- Genera la documentación -->
+	<target name="doc">
+		<javadoc charset="utf8" destdir="doc">
+			<sourcepath refid="ACExterna.sourcepath" />
+		</javadoc>
+	</target>
+</project>
+
