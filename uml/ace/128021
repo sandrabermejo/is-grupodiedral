@@ -1,6 +1,6 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 17
+  revision 18
   modified_by 21 "portatil"
   // class settings
   //class diagram settings
@@ -1069,6 +1069,20 @@ ${members}};
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default show_stereotype_properties default
+    class 163477 "Date"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Tipo de fecha en Java."
+    end
+
     class 155925 "Sugerencia"
       visibility package 
       cpp_decl ""
@@ -1094,6 +1108,813 @@ ${members}};
 	
       end
     end
+
+    class 162709 "Aeropuerto"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 141333 "dameCodigoIATA"
+	force_body_gen const cpp_inline public explicit_return_type "int"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _codigoIATA;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 128021 // _codigoIATA
+      end
+
+      operation 141461 "dameNombre"
+	force_body_gen const cpp_inline public explicit_return_type "string"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _nombre;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 128149 // _nombre
+      end
+
+      operation 141589 "dameCiudad"
+	force_body_gen const cpp_inline public explicit_return_type "string"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _ciudad;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 128277 // _ciudad
+      end
+
+      operation 141717 "Aeropuerto"
+	public explicit_return_type ""
+	nparams 3
+	  param in name "nombre" explicit_type "string"
+	multiplicity "1"
+	  param in name "codigoIATA" explicit_type "string"
+	multiplicity "1"
+	  param in name "ciudad" explicit_type "string"
+	multiplicity "1"
+	
+	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws} {
+  ${body}}
+"
+	
+	
+	
+      end
+
+      attribute 128021 "_codigoIATA"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 141333 // dameCodigoIATA
+      end
+
+      attribute 128149 "_nombre"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 141461 // dameNombre
+      end
+
+      attribute 128277 "_ciudad"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 141589 // dameCiudad
+      end
+    end
+
+    class 163093 "Avion"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 141845 "Avion"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "nombre" explicit_type "string"
+	multiplicity "1"
+	  param in name "npasajeros" explicit_type "int"
+	multiplicity "1"
+	
+	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws} {
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 141973 "dameNombre"
+	force_body_gen const cpp_inline public explicit_return_type "string"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _nombre;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 128917 // _nombre
+      end
+
+      operation 142101 "damePasajeros"
+	force_body_gen const cpp_inline public explicit_return_type "int"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _pasajeros;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 129045 // _pasajeros
+      end
+
+      attribute 128917 "_nombre"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 141973 // dameNombre
+      end
+
+      attribute 129045 "_pasajeros"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 142101 // damePasajeros
+      end
+    end
+
+    class 163221 "Escala"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 142229 "Escala"
+	force_body_gen public explicit_return_type ""
+	nparams 2
+	  param in name "aeropuerto" type class_ref 129163 // Aeropuerto
+	multiplicity "1"
+	  param in name "tiempo" explicit_type "int"
+	multiplicity "1"
+	
+	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws} {
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 142357 "dameAeropuerto"
+	force_body_gen const cpp_inline public return_type class_ref 129163 // Aeropuerto
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _aeropuerto;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 129301 // _aeropuerto
+      end
+
+      operation 142485 "dameEspera"
+	force_body_gen const cpp_inline public explicit_return_type "int"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _espera;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 129429 // _espera
+      end
+
+      attribute 129301 "_aeropuerto"
+	private type class_ref 129163 // Aeropuerto
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 142357 // dameAeropuerto
+      end
+
+      attribute 129429 "_espera"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 142485 // dameEspera
+      end
+    end
+
+    class 162965 "Vuelo"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 142613 "Vuelo"
+	public explicit_return_type ""
+	nparams 3
+	  param in name "codigo" explicit_type "int"
+	multiplicity "1"
+	  param in name "origen" type class_ref 129163 // Aeropuerto
+	multiplicity "1"
+	  param in name "destino" type class_ref 129163 // Aeropuerto
+	multiplicity "1"
+	
+	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws} {
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 142741 "dameOrigen"
+	force_body_gen const cpp_inline public return_type class_ref 129163 // Aeropuerto
+	multiplicity "1"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _origen;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 128405 // _origen
+      end
+
+      operation 142869 "fijaOrigen"
+	force_body_gen public explicit_return_type "void"
+	multiplicity "1"
+	nparams 1
+	  param in name "value" type class_ref 129163 // Aeropuerto
+	
+	cpp_name_spec "set_${name}"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  _origen = ${p0};
+}
+"
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 128405 // _origen
+      end
+
+      operation 142997 "dameDestino"
+	force_body_gen const cpp_inline public return_type class_ref 129163 // Aeropuerto
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _destino;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 128533 // _destino
+      end
+
+      operation 143125 "fijaDestino"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" type class_ref 129163 // Aeropuerto
+	
+	cpp_name_spec "set_${name}"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  _destino = ${p0};
+}
+"
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 128533 // _destino
+      end
+
+      operation 143253 "dameFechaSalida"
+	force_body_gen const cpp_inline public explicit_return_type "Date"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _fechaSalida;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 128661 // _fechaSalida
+      end
+
+      operation 143381 "fijaFechaSalida"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" explicit_type "Date"
+	
+	cpp_name_spec "set_${name}"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  _fechaSalida = ${p0};
+}
+"
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 128661 // _fechaSalida
+      end
+
+      operation 143509 "dameFechaLlegada"
+	force_body_gen const cpp_inline public explicit_return_type "Date"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _fechaLlegada;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 128789 // _fechaLlegada
+      end
+
+      operation 143637 "fijaFechaLlegada"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" explicit_type "Date"
+	
+	cpp_name_spec "set_${name}"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  _fechaLlegada = ${p0};
+}
+"
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 128789 // _fechaLlegada
+      end
+
+      operation 143893 "fijaAvion"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" type class_ref 163093 // Avion
+	
+	cpp_name_spec "set_${name}"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  _avion = ${p0};
+}
+"
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 129173 // _avion
+      end
+
+      operation 143765 "dameAvion"
+	force_body_gen const cpp_inline public return_type class_ref 163093 // Avion
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _avion;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 129173 // _avion
+      end
+
+      operation 144021 "dameCodigo"
+	force_body_gen const cpp_inline public explicit_return_type "int"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _codigo;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 129685 // _codigo
+      end
+
+      operation 144149 "fijaCodigo"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" explicit_type "int"
+	
+	cpp_name_spec "set_${name}"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  _codigo = ${p0};
+}
+"
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 129685 // _codigo
+      end
+
+      operation 144277 "dameEscalas"
+	stereotype "list"
+	force_body_gen const cpp_inline public return_type class_ref 163221 // Escala
+	multiplicity "1..*"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${stereotype}<${type}> ${name}${(}${)}${throws}${staticnl}{
+  return _escalas;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 129557 // _escalas
+      end
+
+      operation 144405 "fijaEscalas"
+	stereotype "list"
+	force_body_gen public explicit_return_type "void"
+	multiplicity "1..*"
+	nparams 1
+	  param in name "value" type class_ref 163221 // Escala
+	
+	cpp_name_spec "set_${name}"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${stereotype}<${t0}> ${p0}${)}${throws}${staticnl}{
+  _escalas = ${p0};
+}
+"
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 129557 // _escalas
+      end
+
+      operation 144533 "esValido"
+	public explicit_return_type "bool"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      attribute 128405 "_origen"
+	private type class_ref 129163 // Aeropuerto
+	multiplicity "1"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 142741 // dameOrigen
+	set_oper operation_ref 142869 // fijaOrigen
+      end
+
+      attribute 128533 "_destino"
+	private type class_ref 129163 // Aeropuerto
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 142997 // dameDestino
+	set_oper operation_ref 143125 // fijaDestino
+      end
+
+      attribute 128661 "_fechaSalida"
+	private explicit_type "Date"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 143253 // dameFechaSalida
+	set_oper operation_ref 143381 // fijaFechaSalida
+      end
+
+      attribute 128789 "_fechaLlegada"
+	private explicit_type "Date"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 143509 // dameFechaLlegada
+	set_oper operation_ref 143637 // fijaFechaLlegada
+      end
+
+      attribute 129173 "_avion"
+	private type class_ref 163093 // Avion
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 143765 // dameAvion
+	set_oper operation_ref 143893 // fijaAvion
+      end
+
+      attribute 129557 "_escalas"
+	private type class_ref 163221 // Escala
+	multiplicity "1..*"
+	stereotype "list"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 144277 // dameEscalas
+	set_oper operation_ref 144405 // fijaEscalas
+      end
+
+      attribute 129685 "_codigo"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	get_oper operation_ref 144021 // dameCodigo
+	set_oper operation_ref 144149 // fijaCodigo
+      end
+
+    end
+
+    class 163349 "GestorVuelos"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 144661 "vuelosDesde"
+	public return_type class_ref 128907 // Vuelo
+	multiplicity "*"
+	nparams 3
+	  param in name "aeropuerto" type class_ref 129163 // Aeropuerto
+	multiplicity "1"
+	  param in name "desde" explicit_type "Date"
+	multiplicity "1"
+	  param in name "hasta" explicit_type "Date"
+	multiplicity "1"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 144789 "vuelosA"
+	public return_type class_ref 128907 // Vuelo
+	multiplicity "*"
+	nparams 3
+	  param in name "aeropuerto" type class_ref 129163 // Aeropuerto
+	multiplicity "1"
+	  param in name "desde" explicit_type "Date"
+	multiplicity "1"
+	  param in name "hasta" explicit_type "Date"
+	multiplicity "1"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 144917 "vuelosDesde"
+	public return_type class_ref 128907 // Vuelo
+	multiplicity "*"
+	nparams 3
+	  param in name "ciudad" explicit_type "string"
+	multiplicity "1"
+	  param in name "desde" explicit_type "Date"
+	multiplicity "1"
+	  param in name "hasta" explicit_type "Date"
+	multiplicity "1"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 145045 "vuelosA"
+	public return_type class_ref 128907 // Vuelo
+	multiplicity "*"
+	nparams 3
+	  param in name "ciudad" explicit_type "string"
+	multiplicity "1"
+	  param in name "desde" explicit_type "Date"
+	multiplicity "1"
+	  param in name "hasta" explicit_type "Date"
+	multiplicity "1"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      attribute 129941 "_vuelos"
+	private type class_ref 128907 // Vuelo
+	multiplicity "1..*"
+	stereotype "list"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+    end
+
   end
 
   usecaseview 128021 "Casos de uso (diseño)"
@@ -1172,6 +1993,42 @@ ${members}}
       sequencediagram 154133 "Presentar reclamación (DS)"
 	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
 	overlapping_bars size A4
+      end
+    end
+
+    usecase 147605 "Consultar vuelos"
+      //use case diagram settings
+      package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+      //sequence diagram settings
+      show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+      //collaboration diagram settings
+      show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+      //class diagram settings
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      //object diagram settings
+       write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+      //state diagram settings
+      package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+      show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+      //activity diagram settings
+      package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+      show_infonote default drawing_language default show_stereotype_properties default
+      sequencediagram 160661 "Consultar Vuelos (DS)"
+	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+	overlapping_bars size A4
+      end
+
+      class 162837 "PantallaConsultaVuelos"
+	visibility package 
+	cpp_decl ""
+	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	
       end
     end
   end
