@@ -41,11 +41,12 @@ public class PantallaInicio extends Pantalla {
 	
 	@Override
 	public void alMostrar() {
+		_hebraAv = new HebraAvisos();
 		_hebraAv.start();
 	}
 	
 	public boolean alCerrar() {
-		_hebraAv.interrupt();
+		//_hebraAv.interrupt();
 		
 		return true;
 	}
@@ -71,7 +72,7 @@ public class PantallaInicio extends Pantalla {
 		 * Construye una hebra de avisos.
 		 */
 		public HebraAvisos(){
-			setName("hebra-avisos");
+			this.setName("hebra-avisos");
 		}
 		
 		public void run() {
@@ -108,7 +109,7 @@ public class PantallaInicio extends Pantalla {
 	/**
 	 * Hebra de avisos
 	 */
-	HebraAvisos _hebraAv = new HebraAvisos();
+	HebraAvisos _hebraAv;
 	
 	/**
 	 * Texto de muestra
