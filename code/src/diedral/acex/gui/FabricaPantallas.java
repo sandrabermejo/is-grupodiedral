@@ -20,7 +20,14 @@ public class FabricaPantallas {
 	/**
 	 * Obtiene una pantalla de inicio.
 	 */
-	public Pantalla damePantallaInicio(){
+	public Pantalla damePantallaInicio(){		
 		return new PantallaInicio();
+	}
+	
+	/**
+	 * Obtiene una pantalla de consulta de vuelos.
+	 */
+	public Pantalla damePantallaConsultaVuelos(){
+		return new PantallaConsultaVuelos();
 	}
 }

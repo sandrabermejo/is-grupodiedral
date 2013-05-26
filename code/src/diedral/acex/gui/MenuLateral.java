@@ -38,7 +38,7 @@ class MenuLateral extends javax.swing.JPanel {
 	 * @return Dicho panel de botones.
 	 */
 	private JPanel creaBotones() {
-		JPanel botones = new JPanel(new GridLayout(2, 1));
+		JPanel botones = new JPanel(new GridLayout(3, 1));
 		
 		// Variable de botón temporal
 		JButton t_btn;
@@ -49,6 +49,18 @@ class MenuLateral extends javax.swing.JPanel {
 		t_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				_mnj.cambiaA(_fabr.damePantallaInicio());				
+			}
+		});
+		
+		botones.add(t_btn);
+		
+		
+		// Añade los botones al panel
+		t_btn = new JButton("Vuelos");
+		
+		t_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				_mnj.cambiaA(_fabr.damePantallaConsultaVuelos());				
 			}
 		});
 		
