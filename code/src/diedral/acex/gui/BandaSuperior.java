@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 /**
@@ -13,13 +14,34 @@ class BandaSuperior extends javax.swing.JPanel {
 	public BandaSuperior(){		
 		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		
+		// Crea el botón de registro
+		_registro = new JButton("Registrarse");
+		_registro.setForeground(Color.RED);
+		
+		
+		// Crea el botón de retroceso a la página anterior 
+		_btnanterior = new JButton();
+		
+		_btnanterior.setIcon(new ImageIcon(
+				this.getClass().getResource("iconos/go-previous.png")));
+		
+		_btnanterior.setEnabled(false);
+		
+		// Crea el botón de página siguiente
+		_btnsiguiente = new JButton();
+		
+		_btnsiguiente.setIcon(new ImageIcon(
+				this.getClass().getResource("iconos/go-next.png")));
+		
+		_btnsiguiente.setEnabled(false);
+		
+		add(_btnanterior);
+		
+		add(_btnsiguiente);
+		
 		add(Box.createHorizontalGlue());
 		
-		_registro = new JButton("Registrarse");
-		
-		_registro.setForeground(Color.RED);
-
-		add(_registro);		
+		add(_registro);
 	}
 	
 	
@@ -29,6 +51,16 @@ class BandaSuperior extends javax.swing.JPanel {
 	 * Botón de registro
 	 */
 	private JButton _registro;
+	
+	/**
+	 * Botón de 'Anterior'
+	 */
+	private JButton _btnanterior;
+	
+	/**
+	 * Botón de 'Siguiente'
+	 */
+	private JButton _btnsiguiente;
 	
 	/**
 	 * Serial UID

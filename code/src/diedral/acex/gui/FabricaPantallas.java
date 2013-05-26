@@ -13,7 +13,14 @@ public class FabricaPantallas {
 	/**
 	 * Obtiene una pantalla de sugerencias.
 	 */
-	public Pantalla dameSugerencias(){
+	public Pantalla damePantallaSugerencias(){
 		return new PantallaSugerencias();
+	}
+	
+	/**
+	 * Obtiene una pantalla de inicio.
+	 */
+	public Pantalla damePantallaInicio(){
+		return new PantallaInicio();
 	}
 }

@@ -1,7 +1,13 @@
 package diedral.acex.gui;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 
 /**
  * Menú lateral para dar acceso a los diferentes servicios de la aplicación.
@@ -9,14 +15,71 @@ import javax.swing.JButton;
 class MenuLateral extends javax.swing.JPanel {
 	/**
 	 * Crea el menú lateral por defecto.
+	 * 
+	 * @param mnj El manejador de pantallas sobre el que pueden
+	 * actuar los elementos del menú.
+	 * @param fabr Fábrica de pantallas
 	 */
-	public MenuLateral(){		
-		setLayout(new GridLayout(2, 1));
-
-		add(new JButton("Consutar vuelos"));
-		add(new JButton("Sugerencias"));
+	public MenuLateral(ManejadorPantallas mnj, FabricaPantallas fabr){		
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
+		// Guarda los parámetros
+		_mnj = mnj;
+		_fabr = fabr;	
+		
+		// Añade el panel de botones al panel general
+		add (creaBotones());
+		add(Box.createVerticalGlue());
 	}
 	
+	/**
+	 * Crea el panel de botones.
+	 * 
+	 * @return Dicho panel de botones.
+	 */
+	private JPanel creaBotones() {
+		JPanel botones = new JPanel(new GridLayout(2, 1));
+		
+		// Variable de botón temporal
+		JButton t_btn;
+
+		// Añade los botones al panel
+		t_btn = new JButton("Inicio");
+		
+		t_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				_mnj.cambiaA(_fabr.damePantallaInicio());				
+			}
+		});
+		
+		botones.add(t_btn);
+		
+		
+		t_btn = new JButton("Sugerencias");
+		
+		t_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				_mnj.cambiaA(_fabr.damePantallaSugerencias());				
+			}
+		});
+		
+		botones.add(t_btn);
+		
+		return botones;
+	}
+	
+	
+	// ATRIBUTOS PRIVADOS
+	
+	/**
+	 * Manejador de pantallas.
+	 */
+	private ManejadorPantallas _mnj;
+	
+	/**
+	 * Fábrica de pantallas
+	 */
+	private FabricaPantallas _fabr;
 	/**
 	 * Serial UID
 	 */

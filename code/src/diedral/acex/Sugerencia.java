@@ -28,7 +28,7 @@ public class Sugerencia implements java.io.Serializable {
 	public Sugerencia(String mensaje, String nombre, String contacto)
 		throws CampoRequeridoException, FormatoIncorrectoException {
 
-		if (mensaje == null)
+		if (mensaje == null || mensaje.isEmpty())
 			throw new CampoRequeridoException("Falta el mensaje para la sugerencia");
 
 		_mensaje = mensaje;
