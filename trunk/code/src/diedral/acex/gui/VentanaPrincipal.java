@@ -39,14 +39,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 
 		setSize(800, 600);
 
-		add(new MenuLateral(), BorderLayout.WEST);
+		// Ubica los paneles superior y lateral
+		add(new MenuLateral(this, _fabrica), BorderLayout.WEST);
 		add(new BandaSuperior(), BorderLayout.NORTH);
 
 		setJMenuBar(fabricaBarraMenus());
 
-		FabricaPantallas fabrica = new FabricaPantallas();
-
-		cambiaA(fabrica.dameSugerencias());
+		// Al inicio carga la pantalla de inicio
+		cambiaA(_fabrica.damePantallaInicio());
 	}
 
 	/**
@@ -56,23 +56,28 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	 * @param pt Pantalla a la que cambiar.
 	 */
 	public void cambiaA(Pantalla pt) {
-		// Elimina la pantalla actual
-		if (!_pantal.isEmpty()){
-			Pantalla cima = _pantal.element();
+		// Elimina la pantalla actual si existe
+		if (!_pantallas.isEmpty()){
+			Pantalla cima = _pantallas.element();
 
 			if (!cima.alCerrar())
 				return;
-			else
-				_pantal.remove();
+			else {
+				remove(cima);
+				_pantallas.remove();
+			}
 		}
 
 		// Y añade la nueva
 		add(pt, BorderLayout.CENTER);
+		validate();
 
 		pt.alMostrar();
 
 		if (pt.dameNombre() != null)
 			setTitle("ACE - Gestión interna - " + pt.dameNombre());
+		
+		_pantallas.add(pt);
 	}
 
 	/**
@@ -83,8 +88,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	 */
 	public void muestra(Pantalla pt) {
 		// Elimina la pantalla actual
-		if (!_pantal.isEmpty()){
-			Pantalla cima = _pantal.element();
+		if (!_pantallas.isEmpty()){
+			Pantalla cima = _pantallas.element();
 
 			if (!cima.alOcultar())
 				return;
@@ -101,20 +106,20 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	 */
 	public void cierraPantallaActual() {
 		// Elimina la pantalla actual
-		if (!_pantal.isEmpty()){
-			Pantalla cima = _pantal.element();
+		if (!_pantallas.isEmpty()){
+			Pantalla cima = _pantallas.element();
 
 			if (!cima.alCerrar())
 				return;
 
-			_pantal.remove();
+			_pantallas.remove();
 
 
 			// Carga la pantalla anterior
-			if (!_pantal.isEmpty()){
-				add(_pantal.element(), BorderLayout.CENTER);
+			if (!_pantallas.isEmpty()){
+				add(_pantallas.element(), BorderLayout.CENTER);
 
-				_pantal.element().alMostrar();
+				_pantallas.element().alMostrar();
 			}
 		}
 
@@ -160,7 +165,12 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	/**
 	 * Pila de pantallas
 	 */
-	private Queue<Pantalla> _pantal = new ArrayDeque<>();
+	private Queue<Pantalla> _pantallas = new ArrayDeque<>();
+	
+	/**
+	 * Fábrica de pantallas
+	 */
+	private FabricaPantallas _fabrica = new FabricaPantallas();
 	
 	/**
 	 * Serial UID 

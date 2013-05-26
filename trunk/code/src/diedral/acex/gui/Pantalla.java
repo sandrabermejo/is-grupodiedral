@@ -36,8 +36,11 @@ public class Pantalla extends javax.swing.JPanel {
 
 	/**
 	 * Establece un manejador de pantallas con el que comunicarse.
+	 * 
+	 * @param manejador Manejador de pantallas.
+	 * @param fabrica Fábrica de pantallas. 
 	 */
-	public void estableceManejador(ManejadorPantallas manejador) {}
+	public void estableceContexto(ManejadorPantallas manejador, FabricaPantallas fabrica) {}
 	
 	/**
 	 * Serial UID
