@@ -11,8 +11,15 @@ import diedral.acex.excepciones.PagoIncorrectoException;
  *
  */
 public class GestorCompras {
-	public GestorCompras(){
-	}
+	/**
+	 * Este metodo efectua una compra realizando primero el pago y después actualiza 
+	 * el número de pasajeros de cada vuelo.
+	 * Lanza excepción si el pago ha sido incorrecto.
+	 * @param billetes
+	 * @param precioCompra
+	 * @param pago
+	 * @throws PagoIncorrectoException
+	 */
 	public static void efectuarCompra(List<Billete> billetes, double precioCompra, Pago pago) throws PagoIncorrectoException{
 		try{
 			pago.realizarPago(precioCompra); //lanza una excepción si el pago no se ha podido realizar correctamente
