@@ -96,13 +96,13 @@ public class PantallaInicio extends Pantalla {
 		public final static int RETARDO = 10000;
 		
 		/**
-		 * Índice de la muestra de noticias
+		 * indice de la muestra de noticias
 		 */
 		private int _ind = 0;
 	}
 
 	/**
-	 * Área de avisos
+	 * area de avisos
 	 */
 	JLabel _avisos;
 	
