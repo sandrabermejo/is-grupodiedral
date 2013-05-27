@@ -7,18 +7,30 @@ package diedral.acex;
 import java.io.Serializable;
 
 /**
- * Esta clase representa el DNI de una persona. Contiene los campos:
- * _numero: entero con el número de DNI.
- * _letra: char con la letra del DNI.
+ * Esta clase representa el DNI de una persona.
+ *
  */
 public class Dni implements Serializable, Comparable<Dni> {
-	public Dni(int numero, char letra){
-		_numero = numero;
-		_letra = letra;
-	}
 	/**
-	 * Obtiene el numero de un DNI
-	 * @return numero de un DNI
+	 * Crea un nuevo DNI con un número y una letra dados.
+	 * 
+	 * @param numero Número del DNI
+	 * @param letra Letra del DNI
+	 */
+	public Dni(int numero, char letra){
+		if (numero < 0 || numero > 99_999_999)
+			; // Manejar el error
+		
+		if (letra == calculaLetra(numero))
+			; // Manejar el error
+		
+		_numero = numero;
+	}
+	
+	/**
+	 * Obtiene el numero de un DNI.
+	 * 
+	 * @return numero de un DNI.
 	 */
 	public int dameNumero(){
 		return _numero;
@@ -28,8 +40,44 @@ public class Dni implements Serializable, Comparable<Dni> {
 	 * @return letra de un DNI
 	 */
 	public char dameLetra(){
-		return _letra;
+		return calculaLetra(_numero);
 	}
+	
+	/**
+	 * Calcula la letra correspondiente al número de DNI dado.
+	 * 
+	 * @param num Número de DNI (se supone en formato correcto).
+	 */
+	public static char calculaLetra(int num){		
+		return _lcontrol[num % 23];
+	}
+	
+	/**
+	 * Obtiene un DNI desde una cadena de texto.
+	 * 
+	 * @param dni Representación textual de un DNI.
+	 */
+	public static Dni obtenDni(String dni){
+		// TODO: será la función que más se use
+		
+		return null;
+	}
+	
+	/**
+	 * Obtiene la representación textual del DNI.
+	 * 
+	 * @return Lo dicho.
+	 */
+	public String toString() {
+		StringBuilder stb = new StringBuilder();
+		
+		// Contruye dicha representación
+		stb.append(_numero);
+		stb.append(calculaLetra(_numero));
+		
+		return stb.toString();
+	}
+	
 	
 	// ATRIBUTOS PRIVADOS
 	
@@ -37,11 +85,13 @@ public class Dni implements Serializable, Comparable<Dni> {
 	 * Numero del DNI
 	 */
 	private int _numero;
-
+	
 	/**
-	 * Letra del DNI
+	 * Secuencia de letras control
 	 */
-	private char _letra;
+	private final static char[] _lcontrol = 
+		{ 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B',
+		'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
 
 	@Override
 	public int compareTo(Dni dni) {
