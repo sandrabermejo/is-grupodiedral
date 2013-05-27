@@ -5,19 +5,26 @@
 package diedral.acex;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
 import diedral.acex.excepciones.VueloIncorrectoException;
 
+/**
+ * Esta clase representa un vuelo.
+ */
 public class Vuelo implements java.io.Serializable {
 	
-	
-	public Vuelo(Aeropuerto origen, Aeropuerto destino, Date salida, Date llegada, Avion avion, int pasajeros, int sobrecoste, ArrayList<Escala> escalas) 
+
+	/**
+	 * Construye un vuelo a partir de los datos aportados.
+	 */	
+	public Vuelo(Aeropuerto origen, Aeropuerto destino, GregorianCalendar salida,
+		GregorianCalendar llegada, Avion avion, int pasajeros,
+		int sobrecoste, List<Escala> escalas)
 			throws VueloIncorrectoException {
 		
-		if (origen == destino)
+		if (origen.equals(destino))
 			throw new VueloIncorrectoException(
 					"El aeropuerto de origen y destino no pueden ser iguales");
 		
@@ -42,27 +49,27 @@ public class Vuelo implements java.io.Serializable {
 	
 	/**
 	 * Mete al pasajero en la lista de pasajeros del vuelo
-	 * Comprobando que no esté ya
+	 * Comprobando que no estÃ© ya
 	 * 
-	 * @param pasajero que añadir a la lista
+	 * @param pasajero que aÃ±adir a la lista
 	 */
 	public void metePasajero(Pasajero pasajero){
 		if (!_pasajeros.contains(pasajero)) {
-			pos = posPasajero(pasajero.dameDNI());
+			int pos = posPasajero(pasajero.dameDNI());
 			_pasajeros.add(pos, pasajero);
 		}
 	}
 	
 	/**
-	 * Devuelve la posición en la que debe ir un pasajero
-	 * Según su DNI
+	 * Devuelve la posiciÃ³n en la que debe ir un pasajero
+	 * SegÃºn su DNI
 	 * 
-	 * @param DNI del pasajero
-	 * @return La posición en la que debe ir el pasajero
+	 * @param Dni del pasajero
+	 * @return La posiciÃ³n en la que debe ir el pasajero
 	 */
-	public int posPasajero(DNI dni) {
+	public int posPasajero(Dni dni) {
 		int pos = 0;
-		while ((pos < _pasajeros.size()) && (dni <_pasajeros.get(pos).dameDNI().dameNumero()))
+		while ((pos < _pasajeros.size()) && (dni.dameNumero() <_pasajeros.get(pos).dameDNI().dameNumero()))
 			pos++;
 		return pos;
 	}
@@ -100,7 +107,7 @@ public class Vuelo implements java.io.Serializable {
 	 * 
 	 * @return La fecha de salida
 	 */
-	public Date dameFechaSalida() {
+	public GregorianCalendar dameFechaSalida() {
 		return _fsalida;
 	}
 	
@@ -109,23 +116,23 @@ public class Vuelo implements java.io.Serializable {
 	 * 
 	 * @return La fecha de llegada
 	 */
-	public Date dameFechaLlegada() {
+	public GregorianCalendar dameFechaLlegada() {
 		return _fllegada;
 	}
 	
 	/**
-	 * Obtiene el avión encargado del vuelo
+	 * Obtiene el aviÃ³n encargado del vuelo
 	 * 
-	 * @return El avión
+	 * @return El aviÃ³n
 	 */
 	public Avion dameAvion() {
 		return _avion;
 	}
 	
 	/**
-	 * Obtiene el número máximo de pasajeros del vuelo
+	 * Obtiene el nÃºmero mÃ¡ximo de pasajeros del vuelo
 	 * 
-	 * @return El número de pasajeros
+	 * @return El nÃºmero de pasajeros
 	 */
 	public int dameNumPasajeros() {
 		return _npasajeros;
@@ -157,6 +164,7 @@ public class Vuelo implements java.io.Serializable {
 	public List<Escala> dameEscalas () {
 		return _escalas;
 	}
+
 	
 	// ATRIBUTOS PRIVADOS
 	
@@ -173,20 +181,20 @@ public class Vuelo implements java.io.Serializable {
 	/**
 	 * Fecha de salida
 	 */
-	private Date _fsalida;
+	private GregorianCalendar _fsalida;
 	
 	/**
 	 * Fecha de llegada
 	 */
-	private Date _fllegada;
+	private GregorianCalendar _fllegada;
 	
 	/**
-	 * Avión encargado del vuelo
+	 * AviÃ³n encargado del vuelo
 	 */
 	private Avion _avion;
 	
 	/**
-	 * Número máximo de pasajeros
+	 * NÃºmero mÃ¡ximo de pasajeros
 	 */
 	private int _npasajeros;
 	
@@ -203,12 +211,11 @@ public class Vuelo implements java.io.Serializable {
 	/**
 	 * Lista de escalas
 	 */
-	private ArrayList<Escala> _escalas;
+	private List<Escala> _escalas;
 	
 	/**
 	 * Serial UID
 	 */
 	private static final long serialVersionUID = 1L;
-	
 
 }

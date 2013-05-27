@@ -1,24 +1,41 @@
+/*
+ * Usuario.java - ACE Gestión Externa - Grupo diedral 2013
+ */
+
 package diedral.acex;
 
-import java.awt.List;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
+/**
+ * Usuario de la aplicación.
+ */
 public class Usuario implements Serializable {
-	
-	public Usuario (String nombre, String apellido1, String apellido2, String contrasena, String correo) {
+	/**
+	 *
+	 */
+	public Usuario (String nombre, String apellido1, String apellido2,
+			String contrasena, String correo) {
 		_nombre = nombre;
 		_apellido1 = apellido1;
 		_apellido2 = apellido2;
 		_contrasena = contrasena;
 		_correo = correo;
-		_ofertas = new List<Oferta>();
+		_ofertas = new ArrayList<Oferta>();
 	}
 	
+	/**
+	 *
+	 */
 	public void meteOferta(Oferta oferta) {
 		if (!_ofertas.contains(oferta))
 			_ofertas.add(oferta);
 	}
 	
+	/**
+	 *
+	 */
 	public void borraOferta(Oferta oferta) {
 		if (_ofertas.contains(oferta))
 			_ofertas.remove(oferta);
@@ -52,9 +69,9 @@ public class Usuario implements Serializable {
 	}
 
 	/**
-	 * Obtiene la contrase�a del usuario
+	 * Obtiene la contraseña del usuario
 	 * 
-	 * @return La contrase�a
+	 * @return La contraseña
 	 */
 	public String dameContrasena() {
 		return _contrasena;
@@ -74,10 +91,11 @@ public class Usuario implements Serializable {
 	 * 
 	 * @return
 	 */
-	public Lista<Oferta> dameOfertas() {
+	public List<Oferta> dameOfertas() {
 		return _ofertas;
 	}
 	
+
 	// ATRIBUTOS PRIVADOS
 	
 	/**
@@ -96,23 +114,22 @@ public class Usuario implements Serializable {
 	private String _apellido2;
 	
 	/**
-	 * Contrase�a del usuario
+	 * Contraseña del usuario
 	 */
 	private String _contrasena;
 	
 	/**
-	 * Correo electr�nico del usuario
+	 * Correo electrónico del usuario
 	 */
 	private String _correo;
 	
 	/**
 	 * Lista de ofertas del usuario
 	 */
-	private Lista<Oferta> _ofertas;
+	private List<Oferta> _ofertas;
 	
 	/**
 	 * Serial UID
 	 */
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = -1004802057165749142L;
 }
