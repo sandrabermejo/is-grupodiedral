@@ -4,9 +4,10 @@
 
 package diedral.acex;
 
-import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import diedral.acex.excepciones.VueloIncorrectoException;
 
@@ -43,7 +44,7 @@ public class Vuelo implements java.io.Serializable {
 		_avion = avion;
 		_npasajeros = pasajeros;
 		_sobrecoste = sobrecoste;
-		_pasajeros = new ArrayList<Pasajero>();
+		_pasajeros = new TreeSet<>();
 		_escalas = escalas;
 	}
 	
@@ -54,24 +55,7 @@ public class Vuelo implements java.io.Serializable {
 	 * @param pasajero que añadir a la lista
 	 */
 	public void metePasajero(Pasajero pasajero){
-		if (!_pasajeros.contains(pasajero)) {
-			int pos = posPasajero(pasajero.dameDNI());
-			_pasajeros.add(pos, pasajero);
-		}
-	}
-	
-	/**
-	 * Devuelve la posición en la que debe ir un pasajero
-	 * Según su DNI
-	 * 
-	 * @param Dni del pasajero
-	 * @return La posición en la que debe ir el pasajero
-	 */
-	public int posPasajero(Dni dni) {
-		int pos = 0;
-		while ((pos < _pasajeros.size()) && (dni.dameNumero() <_pasajeros.get(pos).dameDNI().dameNumero()))
-			pos++;
-		return pos;
+		_pasajeros.add(pasajero);
 	}
 	
 	/**
@@ -152,7 +136,7 @@ public class Vuelo implements java.io.Serializable {
 	 * 
 	 * @return La lista de pasajeros
 	 */
-	public List<Pasajero> damePasajeros () {
+	public SortedSet<Pasajero> damePasajeros () {
 		return _pasajeros;
 	}
 	
@@ -206,7 +190,7 @@ public class Vuelo implements java.io.Serializable {
 	/**
 	 * Lista de pasajeros (ordenada por DNI)
 	 */
-	private ArrayList<Pasajero> _pasajeros;
+	private SortedSet<Pasajero> _pasajeros;
 	
 	/**
 	 * Lista de escalas
@@ -217,5 +201,4 @@ public class Vuelo implements java.io.Serializable {
 	 * Serial UID
 	 */
 	private static final long serialVersionUID = 1L;
-
 }
