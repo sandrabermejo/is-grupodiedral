@@ -4,7 +4,12 @@ import java.util.Iterator;
 import java.util.List;
 
 import diedral.acex.excepciones.PagoIncorrectoException;
-
+/**
+ * Gestiona el proceso de compra y todo lo que se realiza para finalizar
+ * el proceso de compra.
+ * @author Natalia
+ *
+ */
 public class GestorCompras {
 	public GestorCompras(){
 	}
