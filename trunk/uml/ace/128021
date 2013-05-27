@@ -1,6 +1,6 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 19
+  revision 20
   modified_by 7 "wachino"
   // class settings
   //class diagram settings
@@ -1999,6 +1999,8 @@ ${members}}
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+	get_oper operation_ref 136455 // dameBultos
+	set_oper operation_ref 136327 // fijarBultos
       end
 
       attribute 128263 "_peso"
@@ -2050,6 +2052,45 @@ ${members}}
 	
 	idl_name_spec "get_${name}"
 	get_of_attribute attribute_ref 128263 // _peso
+      end
+
+      operation 136327 "fijarBultos"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" explicit_type "int"
+	
+	cpp_name_spec "set_${name}"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  _noBultos = ${p0};
+}
+"
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 128135 // _noBultos
+      end
+
+      operation 136455 "dameBultos"
+	force_body_gen const cpp_inline public explicit_return_type "int"
+	nparams 0
+	
+	cpp_name_spec "get_${name}"
+	final java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  return _noBultos;
+}
+"
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 128135 // _noBultos
       end
     end
 
