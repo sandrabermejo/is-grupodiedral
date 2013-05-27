@@ -15,7 +15,11 @@ import java.util.GregorianCalendar;
  */
 public class Pasajero implements Serializable {
 	/**
-	 * Contruye un nuevo pasajero.
+	 * Contruye un nuevo pasajero que tiene un usuario.
+	 * @param usuario
+	 * @param nacionalidad
+	 * @param fechaNacimiento
+	 * @param DNI
 	 */
 	public Pasajero(Usuario usuario, String nacionalidad, GregorianCalendar fechaNacimiento, Dni DNI){
 		_usuario = usuario; 
@@ -25,6 +29,24 @@ public class Pasajero implements Serializable {
 		_nombre = usuario.dameNombre();
 		_apellido1 = usuario.dameApellido1();
 		_apellido2 = usuario.dameApellido2();
+	}
+	/**
+	 * Construye un usuario que no tiene un usuario registrado dado:
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param nacionalidad
+	 * @param fechaNacimiento
+	 * @param DNI
+	 */
+	public Pasajero(String nombre, String apellido1, String apellido2, String nacionalidad, GregorianCalendar fechaNacimiento, Dni DNI){
+		_nacionalidad = nacionalidad;
+		_fechaNacimiento = fechaNacimiento;
+		_DNI = DNI;
+		_nombre = nombre;
+		_apellido1 = apellido1;
+		_apellido2 = apellido2;
+		_usuario = null;
 	}
 	/**
 	 * Obtiene el usuario asociado a un pasajero
