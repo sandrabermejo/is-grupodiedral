@@ -29,7 +29,7 @@ reflexivemsg 128919 synchronous
 msg 130199 synchronous
   from durationcanvas_ref 128791
   to durationcanvas_ref 130071
-  yz 140 2015 msg operation_ref 136727 // "validar() : bool"
+  yz 140 2015 msg operation_ref 136727 // "validar(in nombre : string, in apellido1 : string, in apellido2 : string, in correo : string) : bool"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "nombre, apellido1, apellido2, correo"
   label_xy 196 122
@@ -42,14 +42,14 @@ msg 130327 return
 msg 130711 asynchronous
   from durationcanvas_ref 128791
   to durationcanvas_ref 130583
-  yz 210 2015 msg operation_ref 136855 // "modificarDatos()"
+  yz 210 2015 msg operation_ref 136855 // "modificarDatos(in nombre : string, in apellido1 : string, in apellido2 : string, in correo : string)"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "nombre, apellido1, apellido2, correo"
   label_xy 210 191
 msg 131223 synchronous
   from durationcanvas_ref 130583
   to durationcanvas_ref 131095
-  yz 239 2015 msg operation_ref 136983 // "meterUsuario()"
+  yz 239 2015 msg operation_ref 136983 // "meterUsuario(in usuario : Usuario)"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "_usuario"
   label_xy 532 221
