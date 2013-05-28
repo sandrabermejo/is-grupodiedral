@@ -1,0 +1,35 @@
+format 76
+
+classinstance 128024 class_ref 143768 // PantallaAcceso
+  name ""   xyz 92 4 2000 life_line_z 2000
+classinstance 128408 class_ref 144024 // GestorUsuario
+  name ""   xyz 265 4 2000 life_line_z 2000
+classinstance 129176 class_ref 144152 // Usuario
+  name ""   xyz 463 4 2000 life_line_z 2000
+durationcanvas 128152 classinstance_ref 128024 // :PantallaAcceso
+  xyzwh 151 74 2010 11 217
+end
+durationcanvas 128920 classinstance_ref 128408 // :GestorUsuario
+  xyzwh 320 124 2010 11 187
+end
+durationcanvas 129304 classinstance_ref 129176 // :Usuario
+  xyzwh 494 138 2010 11 143
+end
+reflexivemsg 128280 asynchronous
+  to durationcanvas_ref 128152
+  yz 81 2015 msg operation_ref 129304 // "introducirDatos()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 189 76
+msg 129048 asynchronous
+  from durationcanvas_ref 128152
+  to durationcanvas_ref 128920
+  yz 133 2015 msg operation_ref 129432 // "busca(datos)()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 194 114
+msg 129432 asynchronous
+  from durationcanvas_ref 128920
+  to durationcanvas_ref 129304
+  yz 140 2020 msg operation_ref 129560 // "comprobar(usuario)()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 339 119
+end
