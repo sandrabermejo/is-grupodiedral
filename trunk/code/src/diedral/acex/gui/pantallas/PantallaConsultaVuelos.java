@@ -5,6 +5,7 @@ package diedral.acex.gui.pantallas;
 
 import java.awt.BorderLayout;
 import java.text.ParseException;
+import java.util.Vector;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -17,6 +18,7 @@ import javax.swing.JTable;
 import javax.swing.text.MaskFormatter;
 
 import diedral.acex.Aeropuerto;
+import diedral.acex.GestorVuelos;
 import diedral.acex.gui.Pantalla;
 
 /**
@@ -46,10 +48,10 @@ public class PantallaConsultaVuelos extends Pantalla {
 		public PanelBusqueda() {
 			setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 			
-			_origen = new JComboBox();
+			_origen = new JComboBox<>(new Vector<>(GestorVuelos.dameInstancia().dameAeropuertos()));
 			add(_origen);
 			
-			_destino = new JComboBox();
+			_destino = new JComboBox<>(new Vector<>(GestorVuelos.dameInstancia().dameAeropuertos()));
 			add(_destino);
 			
 			MaskFormatter msk = null;
