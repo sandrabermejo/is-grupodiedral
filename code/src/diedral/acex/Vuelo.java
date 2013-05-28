@@ -44,7 +44,7 @@ public class Vuelo implements java.io.Serializable {
 		_avion = avion;
 		_npasajeros = pasajeros;
 		_sobrecoste = sobrecoste;
-		_pasajeros = new TreeSet<>();
+		_pasajeros = new TreeSet();
 		_escalas = escalas;
 	}
 	

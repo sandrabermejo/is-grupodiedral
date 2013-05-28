@@ -46,10 +46,10 @@ public class PantallaConsultaVuelos extends Pantalla {
 		public PanelBusqueda() {
 			setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 			
-			_origen = new JComboBox<>();
+			_origen = new JComboBox();
 			add(_origen);
 			
-			_destino = new JComboBox<>();
+			_destino = new JComboBox();
 			add(_destino);
 			
 			MaskFormatter msk = null;
