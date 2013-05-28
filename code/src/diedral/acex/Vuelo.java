@@ -4,6 +4,7 @@
 
 package diedral.acex;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.SortedSet;
@@ -16,6 +17,25 @@ import diedral.acex.excepciones.VueloIncorrectoException;
  */
 public class Vuelo implements java.io.Serializable {
 	
+	/**
+	 * Construye un vuelo a partir de los datos aportados.
+	 */
+	public Vuelo(Aeropuerto origen, Aeropuerto destino) 
+			throws VueloIncorrectoException {
+		if (origen.equals(destino))
+			throw new VueloIncorrectoException(
+					"El aeropuerto de origen y destino no pueden ser iguales");
+					
+		_origen = origen;
+		_destino = destino;
+		_fsalida = null;
+		_fllegada = null;
+		_avion = null;
+		_npasajeros = 0;
+		_sobrecoste = 0;
+		_pasajeros = new TreeSet();		
+		_escalas = new ArrayList();
+	}
 
 	/**
 	 * Construye un vuelo a partir de los datos aportados.
@@ -64,8 +84,26 @@ public class Vuelo implements java.io.Serializable {
 	 * @param pasajero a borrar de la lista
 	 */
 	public void borraPasajero(Pasajero pasajero) {
-		if (_pasajeros.contains(pasajero))
-			_pasajeros.remove(pasajero);
+		_pasajeros.remove(pasajero);
+	}
+	
+	/**
+	 * Mete una escala en el vuelo
+	 * 
+	 * @param escala
+	 */
+	public void meteEscala(Escala escala) {
+		if (!_escalas.contains(escala))
+			_escalas.add(escala);
+	}
+	
+	/**
+	* Borra una escala del vuelo
+	*
+	* @param escala
+	*/
+	public void borraEscala(Escala escala) {
+		_escalas.remove(escala);
 	}
 	
 	/**
@@ -149,9 +187,48 @@ public class Vuelo implements java.io.Serializable {
 		return _escalas;
 	}
 
-	
+	/**
+	 * Modifica la fecha de salida del vuelo
+	 * 
+	 * @param fsalida fecha de salida
+	 */
+	public void ponFechasalida(GregorianCalendar salida) {
+		_fsalida = salida;
+	}
+
+	/**
+	 * Modifica la fecha de llegada del vuelo
+	 * 
+	 * @param fllegada fecha de llegada
+	 */
+	public void ponFechaLlegada(GregorianCalendar llegada) {
+		_fllegada = llegada;
+	}
+
+	/**
+	 * Modifica el avion encargado del vuelo
+	 * 
+	 * @param avion
+	 */
+	public void set_avion(Avion avion) {
+		_avion = avion;
+	}
+
+	/**
+	 * Modifica el número de pasajeros admitidos en el vuelo
+	 * 
+	 * @param npasajeros
+	 */
+	public void set_npasajeros(int pasajeros) {
+		_npasajeros = pasajeros;
+	}
+
+	public void set_sobrecoste(int sobrecoste) {
+		_sobrecoste = sobrecoste;
+	}
+
 	// ATRIBUTOS PRIVADOS
-	
+
 	/**
 	 * Aeropuerto de origen
 	 */
