@@ -1,0 +1,56 @@
+format 76
+
+classinstance 128663 class_ref 154647 // PáginaEditarUsuario
+  name ""   xyz 65 18 2000 life_line_z 2000
+classinstance 129047 class_ref 144024 // GestorUsuarios
+  name ""   xyz 466 19 2000 life_line_z 2000
+classinstance 130455 class_ref 144152 // Usuario
+  name ""   xyz 675 18 2000 life_line_z 2000
+fragment 130967 "loop"
+  form "datosValidos" xyzwh 46 64 3005 528 124
+end
+durationcanvas 128791 classinstance_ref 128663 // :PáginaEditarUsuario
+  xyzwh 143 110 2010 11 121
+end
+durationcanvas 130071 classinstance_ref 129047 // :GestorUsuarios
+  xyzwh 525 140 2010 11 41
+end
+durationcanvas 130583 classinstance_ref 130455 // :Usuario
+  xyzwh 706 210 2010 11 61
+end
+durationcanvas 131095 classinstance_ref 129047 // :GestorUsuarios
+  xyzwh 525 239 2010 11 25
+end
+reflexivemsg 128919 synchronous
+  to durationcanvas_ref 128791
+  yz 110 2015 msg operation_ref 136471 // "introducirDatos()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 102 91
+msg 130199 synchronous
+  from durationcanvas_ref 128791
+  to durationcanvas_ref 130071
+  yz 140 2015 msg operation_ref 136727 // "validar() : bool"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "nombre, apellido1, apellido2, correo"
+  label_xy 196 122
+msg 130327 return
+  from durationcanvas_ref 130071
+  to durationcanvas_ref 128791
+  yz 163 2015 explicitmsg "datosValidos"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 293 144
+msg 130711 asynchronous
+  from durationcanvas_ref 128791
+  to durationcanvas_ref 130583
+  yz 210 2015 msg operation_ref 136855 // "modificarDatos()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "nombre, apellido1, apellido2, correo"
+  label_xy 210 191
+msg 131223 synchronous
+  from durationcanvas_ref 130583
+  to durationcanvas_ref 131095
+  yz 239 2015 msg operation_ref 136983 // "meterUsuario()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "_usuario"
+  label_xy 532 221
+end
