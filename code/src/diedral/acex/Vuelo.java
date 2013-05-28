@@ -70,9 +70,9 @@ public class Vuelo implements java.io.Serializable {
 	
 	/**
 	 * Mete al pasajero en la lista de pasajeros del vuelo
-	 * Comprobando que no esté ya
+	 * Comprobando que no estÃ© ya
 	 * 
-	 * @param pasajero que añadir a la lista
+	 * @param pasajero que aÃ±adir a la lista
 	 */
 	public void metePasajero(Pasajero pasajero){
 		_pasajeros.add(pasajero);
@@ -143,18 +143,18 @@ public class Vuelo implements java.io.Serializable {
 	}
 	
 	/**
-	 * Obtiene el avión encargado del vuelo
+	 * Obtiene el aviÃ³n encargado del vuelo
 	 * 
-	 * @return El avión
+	 * @return El aviÃ³n
 	 */
 	public Avion dameAvion() {
 		return _avion;
 	}
 	
 	/**
-	 * Obtiene el número máximo de pasajeros del vuelo
+	 * Obtiene el nÃºmero mÃ¡ximo de pasajeros del vuelo
 	 * 
-	 * @return El número de pasajeros
+	 * @return El nÃºmero de pasajeros
 	 */
 	public int dameNumPasajeros() {
 		return _npasajeros;
@@ -215,7 +215,7 @@ public class Vuelo implements java.io.Serializable {
 	}
 
 	/**
-	 * Modifica el n�mero de pasajeros admitidos en el vuelo
+	 * Modifica el número de pasajeros admitidos en el vuelo
 	 * 
 	 * @param npasajeros
 	 */
@@ -250,12 +250,12 @@ public class Vuelo implements java.io.Serializable {
 	private GregorianCalendar _fllegada;
 	
 	/**
-	 * Avión encargado del vuelo
+	 * AviÃ³n encargado del vuelo
 	 */
 	private Avion _avion;
 	
 	/**
-	 * Número máximo de pasajeros
+	 * NÃºmero mÃ¡ximo de pasajeros
 	 */
 	private int _npasajeros;
 	

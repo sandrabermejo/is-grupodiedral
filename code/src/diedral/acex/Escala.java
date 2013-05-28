@@ -3,7 +3,8 @@
  */
 package diedral.acex;
 
-import java.util.Date;
+import java.util.GregorianCalendar;
+
 
 /**
  * Esta clase representa una escala aeroportuaria.
@@ -16,8 +17,10 @@ public class Escala {
 	 * @param aeropuerto Aeropuerto donde se transborda.
 	 * @param espera Duración de la espera.
 	 */
-	public Escala(Aeropuerto aeropuerto, Date espera){
+	public Escala(Aeropuerto aeropuerto, GregorianCalendar espera){
+		_aeropuerto = aeropuerto;
 		
+		_espera = espera;
 	}
 
 	/**
@@ -25,7 +28,7 @@ public class Escala {
 	 * 
 	 * @return Dicho aeropuerto.
 	 */
-	public Escala dameAropuerto() {
+	public Aeropuerto dameAropuerto() {
 		return _aeropuerto;
 	}
 
@@ -34,7 +37,7 @@ public class Escala {
 	 * 
 	 * @return El tiempo de espera.
 	 */
-	public Date get_espera() {
+	public GregorianCalendar get_espera() {
 		return _espera;
 	}
 	
@@ -44,10 +47,10 @@ public class Escala {
 	/**
 	 * Aeropuerto 
 	 */
-	public Escala _aeropuerto;
+	private Aeropuerto _aeropuerto;
 
 	/**
 	 * Tiempo de espera
 	 */
-	public Date _espera;
+	private GregorianCalendar _espera;
 }
