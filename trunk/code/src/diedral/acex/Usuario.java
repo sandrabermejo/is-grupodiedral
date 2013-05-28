@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public class Usuario implements Serializable {
 	/**
-	 *
+	 * Constructor
 	 */
 	public Usuario (String nombre, String apellido1, String apellido2,
 			String contrasena, String correo) {
@@ -22,23 +22,24 @@ public class Usuario implements Serializable {
 		_apellido2 = apellido2;
 		_contrasena = contrasena;
 		_correo = correo;
-		_ofertas = new ArrayList<Oferta>();
+		_ofertasGenerales = new ArrayList<Oferta>();
+		_ofertasPersonales = new ArrayList<Oferta>();
 	}
 	
 	/**
 	 *
 	 */
-	public void meteOferta(Oferta oferta) {
-		if (!_ofertas.contains(oferta))
-			_ofertas.add(oferta);
+	public void meteOfertaGeneral(Oferta oferta) {
+		if (!_ofertasGenerales.contains(oferta))
+			_ofertasGenerales.add(oferta);
 	}
 	
 	/**
 	 *
 	 */
-	public void borraOferta(Oferta oferta) {
-		if (_ofertas.contains(oferta))
-			_ofertas.remove(oferta);
+	public void borraOfertaPersonal(Oferta oferta) {
+		if (_ofertasPersonales.contains(oferta))
+			_ofertasPersonales.remove(oferta);
 	}
 	
 	/**
@@ -87,12 +88,21 @@ public class Usuario implements Serializable {
 	}
 
 	/**
-	 * Obtiene la lista de ofertas del usuario
+	 * Obtiene la lista de ofertas generales del usuario
 	 * 
 	 * @return
 	 */
-	public List<Oferta> dameOfertas() {
-		return _ofertas;
+	public List<Oferta> dameOfertasGenerales() {
+		return _ofertasGenerales;
+	}
+	
+	/**
+	 * Obtiene la lista de ofertas personalizdas del usuario
+	 * 
+	 * @return
+	 */
+	public List<Oferta> dameOfertasPersonales() {
+		return _ofertasPersonales;
 	}
 	
 
@@ -124,9 +134,14 @@ public class Usuario implements Serializable {
 	private String _correo;
 	
 	/**
-	 * Lista de ofertas del usuario
+	 * Lista de ofertas generales del usuario
 	 */
-	private List<Oferta> _ofertas;
+	private List<Oferta> _ofertasGenerales;
+	
+	/**
+	 * Lista de ofertas personalizadas del usuario
+	 */
+	private List<Oferta> _ofertasPersonales;
 	
 	/**
 	 * Serial UID
