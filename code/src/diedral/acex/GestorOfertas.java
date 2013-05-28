@@ -69,7 +69,7 @@ public class GestorOfertas implements Serializable{
 	* Crea un gestor de Ofertas vacio.
 	*/
 	private GestorOfertas(){
-		ofertas = new HashMap();
+		ofertas = new HashMap<>();
 	}
 	
 	 // ATRIBUTOS PRIVADOS

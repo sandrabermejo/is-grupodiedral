@@ -8,7 +8,7 @@ package diedral.acex;
 /**
  * Esta clase representa un pago con tarjeta.
  *
- * <p>Contiene el importe, el titular, el n�mero de tarjeta
+ * <p>Contiene el importe, el titular, el número de tarjeta
  * y los metodos para calcular el sobrecoste asociado.
  */
 public class PagoTarjeta implements Pago {
@@ -18,11 +18,11 @@ public class PagoTarjeta implements Pago {
 	* Crea un Pago de Tarjeta con los datos aportados.
 	*
 	* @param titular Titular que figura en la tarjeta.
-	* @param numeroTarjeta Numeraci�n de la tarjeta.
+	* @param numeroTarjeta Numeración de la tarjeta.
 	* @param importe El importe del pago, este puede ser establecido a posteriori.
 	*/
 	public PagoTarjeta(String titular, String numeroTarjeta, double importe){
-		_titular = titular; //Controlar correcci�n de datos o lanzar excepciones ?
+		_titular = titular; //Controlar corrección de datos o lanzar excepciones ?
 		_numeroTarjeta = numeroTarjeta;
 		_importe = importe;
 	}
@@ -40,7 +40,7 @@ public class PagoTarjeta implements Pago {
 	}
 	
 	/**
-	* Calcula la comisi�n asociada a la operaci�n.
+	* Calcula la comisión asociada a la operación.
 	* @return El sobre coste por el pago.
 	*/
 	public double obtenerSobrecoste(){

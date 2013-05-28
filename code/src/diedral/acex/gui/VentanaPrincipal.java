@@ -4,6 +4,7 @@
 package diedral.acex.gui;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -12,11 +13,14 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
+import javax.swing.BorderFactory;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.UIManager;
+import javax.swing.border.TitledBorder;
 
 /**
  * Ventana principal de la interfaz de gestión externa de ACE.
@@ -158,6 +162,34 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		mb.add(nav);
 
 		return mb;
+	}
+	
+	/**
+	 * Panel central de la ventana.
+	 */
+	private class PanelCentral extends JPanel {
+		public PanelCentral(){
+			// Crea el borde de la pantalla
+			_tb = new TitledBorder("");
+			
+			setBorder(BorderFactory.createCompoundBorder(_tb,
+				BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+			
+			setLayout(new CardLayout());
+		}
+		
+		/**
+		 * Establece el título del panel central.
+		 * 
+		 * <p>Temporal.
+		 * 
+		 * @param titulo
+		 */
+		public void embebePantalla(Pantalla pt){
+			_tb.setTitle(pt.getName());
+		}
+		
+		private TitledBorder _tb;
 	}
 
 	// PRIVATE FIELDS

@@ -7,7 +7,7 @@ package diedral.acex.gui;
  * Una pantalla o página representa un elemento de la interacción con el usuario
  * mediante la interfaz gráfica.
  */
-public class Pantalla extends javax.swing.JPanel {
+public abstract class Pantalla extends javax.swing.JPanel {
 	/**
 	 * Manejador del evento de puesta en funcionamiento.
 	 */
@@ -32,7 +32,7 @@ public class Pantalla extends javax.swing.JPanel {
 	/**
 	 * Obtiene el nombre de la pantalla.
 	 */
-	public String dameNombre() { return null; };
+	public abstract String dameNombre();
 
 	/**
 	 * Establece un manejador de pantallas con el que comunicarse.

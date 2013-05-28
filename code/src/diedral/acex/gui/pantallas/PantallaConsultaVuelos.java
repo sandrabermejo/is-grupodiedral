@@ -25,17 +25,16 @@ import diedral.acex.gui.Pantalla;
  */
 public class PantallaConsultaVuelos extends Pantalla {
 
-	public PantallaConsultaVuelos(){
-		// Crea el borde de la pantalla
-		setBorder(BorderFactory.createCompoundBorder(
-    			BorderFactory.createTitledBorder("Consulta de vuelos"),
-			BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-		
+	public PantallaConsultaVuelos(){		
 		setLayout(new BorderLayout());
 		
 		add(new PanelBusqueda(), BorderLayout.NORTH);
 		
 		add(new JScrollPane(new JTable()));
+	}
+	
+	public String dameNombre() {
+		return "Consulta de vuelos";
 	}
 	
 	/**
