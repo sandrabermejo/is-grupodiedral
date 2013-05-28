@@ -26,6 +26,7 @@ public class GestorCompras {
 	 * Almacena la instancia única del gestor
 	 */
 	private static GestorCompras _instancia;
+	
 	/**
 	 * Almacena la lista de compras de la compañía.
 	 */
