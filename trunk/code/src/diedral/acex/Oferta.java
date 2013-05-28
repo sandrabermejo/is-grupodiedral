@@ -4,7 +4,6 @@
 package diedral.acex;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -19,11 +18,12 @@ public class Oferta implements Serializable {
 	 * @param intervaloEdad
 	 * @param descuento
 	 */
-	public Oferta(Set<Vuelo> vuelos, String destino, int[] intervaloEdad, int descuento) {
+	public Oferta(Set<Vuelo> vuelos, String destino, int[] intervaloEdad, int descuento, String nombre) {
 		_vuelos = vuelos;
 		_destino = destino;
 		_intervaloEdad = intervaloEdad;
 		_descuento = descuento;
+		_nombre = nombre;
 	}
 	
 	/**
@@ -31,6 +31,7 @@ public class Oferta implements Serializable {
 	 * @return el nombre de la oferta
 	 */
 	public String dameNombre() {
+		return _nombre;
 	}
 	
 	/**
@@ -94,6 +95,8 @@ public class Oferta implements Serializable {
 	 * Descuento
 	 */
 	private int _descuento;
+	
+	private String _nombre;
 
 	/**
 	 * Serial UID

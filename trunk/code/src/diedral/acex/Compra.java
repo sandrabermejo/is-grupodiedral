@@ -16,7 +16,8 @@ public class Compra {
 	 * @throws PagoIncorrectoException
 	 */
 	public void efectuarCompra(List<Billete> billetes, double precioCompra, Pago pago) throws PagoIncorrectoException{
-		pago.realizarPago(precioCompra); //lanza una excepción si el pago no se ha podido realizar correctamente
+		pago.establecerImporte(precioCompra);
+		pago.efectuar(); //lanza una excepción si el pago no se ha podido realizar correctamente
 		//ahora nos disponemos a cambiar el número de pasajeros de cada vuelo
 		for(Billete billete: billetes){
 			Vuelo vuelo = billete.dameVuelo();
@@ -31,9 +32,6 @@ public class Compra {
 	 * @return oferta del vuelo dado. Devuelve null si no hay oferta para ese vuelo.
 	 */
 	private Oferta buscaOferta(List<Oferta> ofertas, Vuelo vuelo){
-		int i = 0; 
-		boolean encontrado = false;
-		Oferta oferta = null;
 		for(Oferta oferta: ofertas){
 			Set<Vuelo> vuelos = oferta.dameVuelos();
 			if(vuelos.contains(vuelo)) //si los vuelos son iguales hemos encontrado una 
@@ -41,7 +39,7 @@ public class Compra {
 				return oferta; //TODO MODIFICAR BERME
 		}
 		
-	return oferta;
+	return null;
 	}
 	/**
 	 * Dada una lista de billetes a comprar y una lista de ofertas de un usuario,

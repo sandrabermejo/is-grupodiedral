@@ -1,5 +1,5 @@
 /*
- * Pago.java - ACE Gestión Externa - Grupo diedral 2013
+ * Pago.java - ACE Gestiï¿½n Externa - Grupo diedral 2013
  */
 
 package diedral.acex;
@@ -10,41 +10,27 @@ package diedral.acex;
  *
  * <p>Contiene el importe.
  */
-public abstract class Aeropuerto implements java.io.Serializable {
-	
+public interface Pago extends java.io.Serializable {
 
-	 // METODOS PÚBLICOS
+	// METODOS Pï¿½BLICOS
 	/**
 	 * Establece el importe del pago.
 	 * 
 	 * @param importe El importe del pago.
 	 */
-	public void establecerImporte(double importe) {
-		_importe = importe;
-	}
+	public void establecerImporte(double importe);
 
-	//	MÉTODOS ABSTRACTOS
+	//	Mï¿½TODOS ABSTRACTOS
 	
 	/**
 	* Hace efectivo el pago.
 	*/
-	public bool efectuar();
+	public boolean efectuar();
 	
 	/*
-	* Calcula la comisión asociada a la operación.
+	* Calcula la comisiï¿½n asociada a la operaciï¿½n.
 	* @return El sobre coste por el pago.
 	*/
 	public double obtenerSobrecoste();
-
-	// ATRIBUTOS PRIVADOS
 	
-	/**
-	 * Importe del pago
-	 */
-	public double _importe;
-	
-	/**
-	 * Serial UID
-	 */
-	private static final long serialVersionUID = -22637338922237783687L;
 }
