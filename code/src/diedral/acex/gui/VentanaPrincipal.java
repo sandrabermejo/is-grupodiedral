@@ -9,6 +9,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -22,6 +27,9 @@ import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 
+import diedral.acex.GestorOfertas;
+import diedral.acex.GestorSugerencias;
+import diedral.acex.GestorUsuarios;
 import diedral.acex.GestorVuelos;
 
 /**
@@ -42,7 +50,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		 catch (Exception e){
 			 
 		 }
-
+		 
 		setSize(800, 600);
 
 		// Ubica los paneles superior y lateral
@@ -131,11 +139,19 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		JMenu depr = new JMenu("Depuración");
 		
 		// JMenuItem 
-		JMenuItem arOferta = new JMenuItem("Archivar vuelos");
+		JMenuItem arOferta = new JMenuItem("Archivar ofertas");
 		
 		arOferta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(GestorVuelos.sincronizaDatos());
+				try {					
+					ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream("data/vuelos.dat"));
+					
+					salida.writeObject(GestorVuelos.dameInstancia());
+
+					salida.close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		

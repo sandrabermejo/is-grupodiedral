@@ -36,7 +36,28 @@ public class FabricaPantallas {
 	public Pantalla damePantallaConsultaVuelos(){
 		return new PantallaConsultaVuelos();
 	}
-
+	/**
+	 * Obtiene una pantalla donde un usuario edita sus datos personales.
+	 * @return
+	 */
+	public Pantalla damePantallaEditarDatosPersonales(){
+		if(_pEditarDatosPersonales == null)
+			_pEditarDatosPersonales = new PantallaEditarDatosPersonales();
+		return _pEditarDatosPersonales;
+	}
+	/**
+	 * Obtiene una pantalla de consulta de ofertas.
+	 */
+	public Pantalla damePantallaConsultaOfertas(){
+		return new PantallaConsultaOfertas();
+	}
+	/**
+	 * Obtiene una pantalla de realizar pago con tarjeta.
+	 * @return
+	 */
+	public Pantalla damePantallaEditarPagoTarjeta(){
+		return new PantallaEditarPagoTarjeta();
+	}
 	
 	// ATRIBUTOS PRIVADOS
 	
@@ -49,11 +70,8 @@ public class FabricaPantallas {
 	 * Pantalla de sugerencias.
 	 */
 	private Pantalla _pSugerencias = null;
-	
 	/**
-	 * Obtiene una pantalla de consulta de ofertas.
+	 * Pantalla de edición de datos personales de un usuario.
 	 */
-	public Pantalla damePantallaConsultaOfertas(){
-		return new PantallaConsultaOfertas();
-	}
+	private Pantalla _pEditarDatosPersonales = null;
 }

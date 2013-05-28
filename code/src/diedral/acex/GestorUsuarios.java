@@ -22,6 +22,20 @@ public class GestorUsuarios implements Serializable {
 		
 		return _instancia;
 	}
+	
+	/**
+	 * Dado un correo de un usuario, mira a ver si ese usuario está. Si ya existe una cuenta vinculada con ese 
+	 * correo, no es válido modificar el correo actual a la dirección nueva dada por parámetro.
+	 * @param correo
+	 * @return true si no existe un usuario con ese correo, false si sí existe.
+	 */
+	public boolean validar(String correoModificado){
+		for(Usuario usuario: _usuarios){
+			if(usuario.dameContrasena().equals(correoModificado))
+				return false;
+		}
+		return true;
+	}
 
 	/**
 	 * Copia de la instancia
@@ -32,10 +46,9 @@ public class GestorUsuarios implements Serializable {
 	/**
 	 * Almacén de usuario
 	 */
-	Set<Usuario> _oferta = new TreeSet<Usuario>();
+	Set<Usuario> _usuarios = new TreeSet<Usuario>();
 	
-	/**
-	 * Serial UID
+	 /**Serial UID
 	 */
 	private static final long serialVersionUID = -5908205608136658471L;
 }

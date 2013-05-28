@@ -7,7 +7,7 @@ classinstance 129047 class_ref 144024 // GestorUsuarios
 classinstance 130455 class_ref 144152 // Usuario
   name ""   xyz 675 18 2000 life_line_z 2000
 fragment 130967 "loop"
-  form "datosValidos" xyzwh 46 64 3005 528 124
+  form "datosValidos" xyzwh 47 63 3005 543 122
 end
 durationcanvas 128791 classinstance_ref 128663 // :PáginaEditarUsuario
   xyzwh 143 110 2010 11 121

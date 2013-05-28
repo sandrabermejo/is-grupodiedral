@@ -87,6 +87,16 @@ class MenuLateral extends javax.swing.JPanel {
 		
 		botones.add(t_btn);
 		
+		t_btn = new JButton("Editar datos cliente");
+		
+		t_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				_mnj.cambiaA(_fabr.damePantallaEditarDatosPersonales());				
+			}
+		});
+		
+		botones.add(t_btn);
+		
 		return botones;
 	}
 	
