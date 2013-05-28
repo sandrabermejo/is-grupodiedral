@@ -1,0 +1,30 @@
+format 76
+
+classinstance 128024 class_ref 151064 // PantallaVueloContratado
+  name ""   xyz 51 6 2000 life_line_z 2000
+classinstance 128152 class_ref 162965 // Vuelo
+  name ""   xyz 369 4 2000 life_line_z 2000
+durationcanvas 129560 classinstance_ref 128024 // :PantallaVueloContratado
+  xyzwh 143 72 2010 11 143
+end
+durationcanvas 129816 classinstance_ref 128152 // :Vuelo
+  xyzwh 392 89 2010 11 64
+end
+reflexivemsg 129688 asynchronous
+  to durationcanvas_ref 129560
+  yz 167 2015 explicitmsg "mostrar(vuelo)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 212 162
+msg 129944 asynchronous
+  from durationcanvas_ref 129560
+  to durationcanvas_ref 129816
+  yz 89 2015 explicitmsg "dameDatos()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 226 70
+msg 130072 return
+  from durationcanvas_ref 129816
+  to durationcanvas_ref 129560
+  yz 129 2015 explicitmsg "datos"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 254 110
+end
