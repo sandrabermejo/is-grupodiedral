@@ -245,7 +245,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	/**
 	 * Marco central
 	 */
-	private MarcoCentral _marco;
+	private Queue<Pantalla> _pantallas = new ArrayDeque();
 	
 	/**
 	 * Fábrica de pantallas

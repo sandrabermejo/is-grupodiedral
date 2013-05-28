@@ -4,6 +4,7 @@
 package diedral.acex;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,18 +15,26 @@ import java.util.Map;
  */
 public class GestorOfertas implements Serializable {
 	
-	// MÉTODOS PÚBLICOS
+	// MÃ‰TODOS PÃšBLICOS
 
 	/**
 	 * Obtiene la instancia del gestor de ofertas.
 	 * 
 	 * @return Un {@code GestorOfertas} válido.
 	 */
-	public static GestorVuelos dameInstancia(){
+	public static GestorOfertas dameInstancia(){
 		if (_instancia == null)
-			_instancia = new GestorVuelos();
+			_instancia = new GestorOfertas();
 		
 		return _instancia;
+	}
+	
+	/**
+	* Devuelve la lista de ofertas contenidas en ese momento en el gestor.
+	* @return una lista de ofertas.
+	*/
+	public ArrayList<Oferta> dameOfertas(){
+		return new ArrayList(ofertas.values());
 	}
 	
 	/**
@@ -64,20 +73,28 @@ public class GestorOfertas implements Serializable {
 		ofertas.remove(oferta.dameNombre());
 	}
 	
-	// MÉTODOS PRIVADOS
+	/*
+	* Consulta la cantidad de ofertas disponibles.
+	* @return El número de ofertas.
+	*/
+	public int dimeCuantasOfertas(){
+		return ofertas.size();
+	}
+	
+	// Mï¿½TODOS PRIVADOS
 
 	/**
 	* Crea un gestor de Ofertas vacio.
 	*/
 	private GestorOfertas(){
-		ofertas = new HashMap<>();
+		ofertas = new HashMap();
 	}
 	
 	 // ATRIBUTOS PRIVADOS
 	/**
 	 * Copia de la instancia
 	 */
-	private static GestorVuelos _instancia;
+	private static GestorOfertas _instancia;
 	
 	/**
 	* Listado de ofertas.
