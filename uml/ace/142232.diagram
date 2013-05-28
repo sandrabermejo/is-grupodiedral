@@ -1,0 +1,73 @@
+format 76
+
+classinstance 128024 class_ref 144280 // PantallaCompra
+  name ""   xyz 55 8 2000 life_line_z 2000
+fragment 128152 "loop"
+  refer sequencediagram_ref 142232 // Comprar billete (DS)
+  form "!datosValidos" xyzwh 35 53 2000 621 219
+end
+classinstance 128280 class_ref 148119 // GestorCompras
+  name ""   xyz 241 4 2000 life_line_z 2000
+classinstance 129304 class_ref 144408 // GestorClientes
+  name ""   xyz 408 6 2000 life_line_z 2000
+classinstance 130712 class_ref 135175 // Billete
+  name ""   xyz 556 4 2000 life_line_z 2000
+durationcanvas 128792 classinstance_ref 128024 // :PantallaCompra
+  xyzwh 115 112 2010 11 318
+end
+durationcanvas 129048 classinstance_ref 128280 // :GestorCompras
+  xyzwh 301 162 2010 11 292
+end
+durationcanvas 129432 classinstance_ref 129304 // :GestorClientes
+  xyzwh 464 176 2010 11 84
+end
+durationcanvas 130840 classinstance_ref 130712 // :Billete
+  xyzwh 580 306 2010 11 95
+end
+reflexivemsg 128920 asynchronous
+  to durationcanvas_ref 128792
+  yz 131 2015 explicitmsg "introducirDatos()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 158 128
+msg 129176 asynchronous
+  from durationcanvas_ref 128792
+  to durationcanvas_ref 129048
+  yz 186 2015 explicitmsg "datos"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 205 164
+msg 129560 asynchronous
+  from durationcanvas_ref 129048
+  to durationcanvas_ref 129432
+  yz 184 2020 msg operation_ref 129944 // "valida(datos)()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 342 165
+msg 129944 return
+  from durationcanvas_ref 129432
+  to durationcanvas_ref 129048
+  yz 233 2015 explicitmsg "datosValidos"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 348 214
+msg 130072 return
+  from durationcanvas_ref 129048
+  to durationcanvas_ref 128792
+  yz 237 2020 explicitmsg "datosValidos"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 179 218
+msg 130584 return
+  from durationcanvas_ref 128792
+  to durationcanvas_ref 129048
+  yz 308 2015 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 130968 asynchronous
+  from durationcanvas_ref 129048
+  to durationcanvas_ref 130840
+  yz 308 2015 explicitmsg "Billete(vuelo, pasajero, clase, precio)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 320 287
+msg 131096 return
+  from durationcanvas_ref 130840
+  to durationcanvas_ref 129048
+  yz 356 2015 explicitmsg "billete"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 422 333
+end
