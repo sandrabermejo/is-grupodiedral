@@ -47,7 +47,7 @@ public class Oferta implements Serializable {
 	 * @return las condiciones para poder disfrutar de la oferta
 	 */
 	public String dameCondiciones() {
-		return _destino;
+		return "Para acceder a esta oferta es necesario tener una edad comprendida entre " + _intervaloEdad[0] + _intervaloEdad[1];
 	}
 	
 	/**

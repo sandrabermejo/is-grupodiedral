@@ -24,6 +24,7 @@ public class Compra {
 			vuelo.metePasajero(billete.damePasajero());
 		}
 	}
+	
 	/**
 	 * Método auxiliar que dada una lista de ofertas y un vuelo, busca
 	 * si ese vuelo tiene una oferta concreta en esa lista.
@@ -36,11 +37,40 @@ public class Compra {
 			Set<Vuelo> vuelos = oferta.dameVuelos();
 			if(vuelos.contains(vuelo)) //si los vuelos son iguales hemos encontrado una 
 				//oferta para él.
-				return oferta; //TODO MODIFICAR BERME
+				return oferta;
+		}		
+		return null;
+	}
+	
+	/**
+	 * Dada las listas de ofertas generales y personales y un vuelo, devuelve la mejor oferta del vuelo dado
+	 * 
+	 * @param ofertasGenerales
+	 * @param ofertasPersonales
+	 * @param vuelo
+	 * @return la mejor oferta, null si no hay oferta asociada a ese vuelo
+	 */
+	private Oferta buscaMejorOferta(List<Oferta> ofertasGenerales, List<Oferta> ofertasPersonales, Vuelo vuelo) {
+		Oferta ofertaGeneral = buscaOferta(ofertasGenerales, vuelo);
+		Oferta ofertaPersonal = buscaOferta(ofertasPersonales, vuelo);
+		
+		if (ofertaGeneral != null && ofertaPersonal != null) { // Estan los dos tipos de ofertas
+			// Devolvemos la oferta que aporta mayor descuento
+			if (ofertaGeneral.dameDescuento() >= ofertaPersonal.dameDescuento())
+				return ofertaGeneral;
+			return ofertaPersonal;
 		}
 		
-	return null;
-	}
+		// Alguna de las dos ofertas o las dos no estan
+		if (ofertaGeneral != null) // Solo hay oferta general
+			return ofertaGeneral;
+			
+		if (ofertaPersonal != null) // Solo hay oferta personal
+			return ofertaPersonal;
+		// No hay ofertas para ese vuelo
+		return null;
+	}	
+	
 	/**
 	 * Dada una lista de billetes a comprar y una lista de ofertas de un usuario,
 	 * calcula el precio de esos billetes.
@@ -51,12 +81,10 @@ public class Compra {
 		double precioTotal = 0;
 		for(Billete billete: _billetes) {
 			double precioBillete = billete.damePrecio();
-			Oferta ofertaBillete = buscaOferta(_usuario.dameOfertas(), billete.dameVuelo());
+			Oferta ofertaBillete = buscaMejorOferta(_usuario.dameOfertasGenerales(), _usuario.dameOfertasPersonales(), billete.dameVuelo());
 			if(ofertaBillete != null) //si hay oferta que aplicar a ese billete, le restamos 
 				//el valor del descuento al precio del billete
 				precioBillete -= ofertaBillete.dameDescuento();
-			
-			
 			
 			precioTotal += precioBillete;
 		}
