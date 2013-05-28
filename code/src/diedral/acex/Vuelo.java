@@ -148,13 +148,6 @@ public class Vuelo implements java.io.Serializable {
 	public List<Escala> dameEscalas () {
 		return _escalas;
 	}
-	/**
-	 * Modifica el numero de pasajeros de un vuelo.
-	 * @param pasajeros
-	 */
-	public void meteNumPasajeros(int pasajeros){
-		_npasajeros = pasajeros;
-	}
 
 	
 	// ATRIBUTOS PRIVADOS
