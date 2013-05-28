@@ -119,6 +119,10 @@ pdfinfo={
 					\includegraphics[scale=.75]{diagramas/accederweb.pdf}
 				\end{figure}
 
+				A través de la interfaz {\itshape PáginaAcceso} el usuario introduce sus datos de identificación personal (a saber, su nombre de usuario y contraseña). El sistema busca en la base de datos de usuarios registrados (representada en {\itshape RegistroUsuarios}) un usuario que se corresponda con los datos aportados. Si fuese necesario se cargarían las preferencias personales del usuario. Al finalizar la secuencia el usuario tiene una sesión activa que le da acceso a otras características de la aplicación.
+
+				La entidad {\itshape Usuario} representa a un usuario registrado de la página web, que no es necesariamente un cliente. La entidad lo representa por medio de unos datos personales básicos como puede ser un identificador único, una clave secreta y una dirección de contacto.
+
 			\subsubsection{Comprar billete}
 				\begin{figure}[H]\centering
 					\includegraphics[scale=.72]{diagramas/comprarbillete.pdf}
@@ -145,12 +149,14 @@ pdfinfo={
 					\includegraphics[scale=.76]{diagramas/iniciarpagobilletes.pdf}
 				\end{figure}
 
+					El caso de uso {\itshape Iniciar Pago de Billetes} recibe los datos de un billete de vuelo (en el diseño se ha generalizado a una asociación de billetes denominada {\itshape compra}) y tras mostrar una página de confirmación al usuario de las condiciones de la misma, se procede a la confección del billete y a la selección del método de pago\footnote{Realmente sólo se ha desarrollado un método de pago (\nameref{ana:tarjeta}) por lo que la selección del método se hace automáticamente.}. Finalmente el caso de uso se comunica con el método de pago seleccionado (a través de una interfaz conveniente) para continuar la operación.
+
 			\subsubsection{Mostrar ofertas}
 				\begin{figure}[H]\centering
 					\includegraphics[scale=.72]{diagramas/mostrarofertas.pdf}
 				\end{figure}
 
-			\subsubsection{Realizar pago con tarjeta}
+			\subsubsection{Realizar pago con tarjeta} \label{ana:tarjeta}
 				\begin{figure}[H]\centering
 					\includegraphics[scale=.7]{diagramas/pagotarjeta.pdf}
 				\end{figure}
