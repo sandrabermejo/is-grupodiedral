@@ -14,14 +14,20 @@ public class FabricaPantallas {
 	 * Obtiene una pantalla de sugerencias.
 	 */
 	public Pantalla damePantallaSugerencias(){
-		return new PantallaSugerencias();
+		if (_pSugerencias == null)
+			_pSugerencias = new PantallaSugerencias();
+		
+		return _pSugerencias;
 	}
 	
 	/**
 	 * Obtiene una pantalla de inicio.
 	 */
-	public Pantalla damePantallaInicio(){		
-		return new PantallaInicio();
+	public Pantalla damePantallaInicio(){
+		if (_pInicio == null)
+			_pInicio = new PantallaInicio();
+		
+		return _pInicio;
 	}
 	
 	/**
@@ -30,11 +36,24 @@ public class FabricaPantallas {
 	public Pantalla damePantallaConsultaVuelos(){
 		return new PantallaConsultaVuelos();
 	}
+
+	
+	// ATRIBUTOS PRIVADOS
+	
+	/**
+	 * Pantalla de inicio.
+	 */
+	private Pantalla _pInicio = null;
+	
+	/**
+	 * Pantalla de sugerencias.
+	 */
+	private Pantalla _pSugerencias = null;
 	
 	/**
 	 * Obtiene una pantalla de consulta de ofertas.
 	 */
 	public Pantalla damePantallaConsultaOfertas(){
 		return new PantallaConsultaOfertas();
-	}	
+	}
 }

@@ -1,4 +1,10 @@
-package diedral.acex;
+package diedral.acex;	
+
+import java.awt.EventQueue;
+import java.lang.reflect.InvocationTargetException;
+
+import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
 
 import diedral.acex.gui.VentanaPrincipal;
 
@@ -7,9 +13,14 @@ import diedral.acex.gui.VentanaPrincipal;
  */
 public class Main {
 	public static void main(String[] args){
-		VentanaPrincipal mw = new VentanaPrincipal();
-		mw.setDefaultCloseOperation(VentanaPrincipal.EXIT_ON_CLOSE);
-
-		mw.setVisible(true);
+		EventQueue.invokeLater(new Runnable () {
+			public void run(){
+				VentanaPrincipal principal = new VentanaPrincipal();
+				
+				//principal.setDefaultCloseOperation();
+				
+				principal.setVisible(true);
+			}
+		});
 	}
 }

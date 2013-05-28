@@ -3,7 +3,6 @@
  */
 package diedral.acex.gui.pantallas;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -18,12 +17,7 @@ public class PantallaInicio extends Pantalla {
 	/**
 	 * Crea una pantalla de inicio.
 	 */
-	public PantallaInicio(){
-		// Crea el borde de la pantalla
-		setBorder(BorderFactory.createCompoundBorder(
-    			BorderFactory.createTitledBorder("Página de inicio"),
-			BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-		
+	public PantallaInicio(){		
 		// Establece la distribución
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		

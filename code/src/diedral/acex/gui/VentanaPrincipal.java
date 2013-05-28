@@ -9,6 +9,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
@@ -21,6 +26,11 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
+
+import diedral.acex.GestorOfertas;
+import diedral.acex.GestorSugerencias;
+import diedral.acex.GestorUsuarios;
+import diedral.acex.GestorVuelos;
 
 /**
  * Ventana principal de la interfaz de gestión externa de ACE.
@@ -46,6 +56,9 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		// Ubica los paneles superior y lateral
 		add(new MenuLateral(this, _fabrica), BorderLayout.WEST);
 		add(new BandaSuperior(), BorderLayout.NORTH);
+		
+		_marco = new MarcoCentral();
+		add(_marco, BorderLayout.CENTER);
 
 		setJMenuBar(fabricaBarraMenus());
 
@@ -60,28 +73,17 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	 * @param pt Pantalla a la que cambiar.
 	 */
 	public void cambiaA(Pantalla pt) {
-		// Elimina la pantalla actual si existe
-		if (!_pantallas.isEmpty()){
-			Pantalla cima = _pantallas.element();
-
-			if (!cima.alCerrar())
-				return;
-			else {
-				remove(cima);
-				_pantallas.remove();
-			}
-		}
+		// Descarta las pantallas anteriores
+		_marco.descartaPantallas();
 
 		// Y añade la nueva
-		add(pt, BorderLayout.CENTER);
-		validate();
+		_marco.apilaPantalla(pt);
+		_marco.validate();
 
 		pt.alMostrar();
 
 		if (pt.dameNombre() != null)
 			setTitle("ACE - Gestión interna - " + pt.dameNombre());
-		
-		_pantallas.add(pt);
 	}
 
 	/**
@@ -92,15 +94,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	 */
 	public void muestra(Pantalla pt) {
 		// Elimina la pantalla actual
-		if (!_pantallas.isEmpty()){
-			Pantalla cima = _pantallas.element();
-
-			if (!cima.alOcultar())
-				return;
-		}
-
-		// Añade la nueva
-		add(pt, BorderLayout.CENTER);
+		_marco.apilaPantalla(pt);
 
 		pt.alMostrar();
 	}
@@ -110,24 +104,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	 */
 	public void cierraPantallaActual() {
 		// Elimina la pantalla actual
-		if (!_pantallas.isEmpty()){
-			Pantalla cima = _pantallas.element();
-
-			if (!cima.alCerrar())
-				return;
-
-			_pantallas.remove();
-
-
-			// Carga la pantalla anterior
-			if (!_pantallas.isEmpty()){
-				add(_pantallas.element(), BorderLayout.CENTER);
-
-				_pantallas.element().alMostrar();
-			}
-		}
-
-		
+		_marco.cierraCima();		
 	}
 
 
@@ -155,49 +132,120 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		});
 
 		nav.add(salir);
+		
+		
+		// Temporal para depuración
+		
+		JMenu depr = new JMenu("Depuración");
+		
+		// JMenuItem 
+		JMenuItem arOferta = new JMenuItem("Archivar ofertas");
+		
+		arOferta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {					
+					ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream("data/vuelos.dat"));
+					
+					salida.writeObject(GestorVuelos.dameInstancia());
+
+					salida.close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		depr.add(arOferta);
 
 		// Crea la barra de menús
 		JMenuBar mb = new JMenuBar();
 
 		mb.add(nav);
+		mb.add(depr);
 
 		return mb;
 	}
 	
 	/**
-	 * Panel central de la ventana.
+	 * Panel central de la ventana.	
 	 */
-	private class PanelCentral extends JPanel {
-		public PanelCentral(){
+	private class MarcoCentral extends JPanel {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 7132566251439458651L;
+
+		public MarcoCentral(){
 			// Crea el borde de la pantalla
-			_tb = new TitledBorder("");
+			_tb = BorderFactory.createTitledBorder("AA");
 			
-			setBorder(BorderFactory.createCompoundBorder(_tb,
+			setBorder(BorderFactory.createCompoundBorder(
+				_tb,
 				BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 			
 			setLayout(new CardLayout());
 		}
 		
 		/**
-		 * Establece el título del panel central.
+		 * Apila una nueva pantalla en el marco de pantallas.
 		 * 
-		 * <p>Temporal.
-		 * 
-		 * @param titulo
+		 * @param pt Pantalla.
 		 */
-		public void embebePantalla(Pantalla pt){
-			_tb.setTitle(pt.getName());
+		public void apilaPantalla(Pantalla pt){
+			_tb.setTitle(pt.dameNombre());
+			
+			add(pt, pt.toString());
+			updateUI();
+			
+			_pantallas.add(pt);
 		}
 		
+		/**
+		 * Cierra la pantalla que se encuentra en primer plano
+		 * en la pila de pantallas.
+		 * 
+		 */
+		public void cierraCima(){
+			if (!_pantallas.isEmpty())
+				remove(_pantallas.remove());
+		}
+		
+		/**
+		 * Descarta todas las pantallas del marco principal: las que
+		 * están en primer plano y en segundo plano.
+		 * 
+		 */
+		public void descartaPantallas(){
+			removeAll();
+			
+			_pantallas.clear();
+		}
+		
+		
+		// ATRIBUTOS PRIVADOS (de Ventana Principal)
+		
+		/**
+		 * Pila de pantallas
+		 */
+		private Queue<Pantalla> _pantallas = new ArrayDeque<>();
+		
+		/**
+		 * Card Layout
+		 */
+		//private CardLayout _clayout;
+		
+		/**
+		 * Borde con título del marco
+		 */
 		private TitledBorder _tb;
 	}
 
 	// PRIVATE FIELDS
-
+	
 	/**
-	 * Pila de pantallas
+	 * Marco central
 	 */
-	private Queue<Pantalla> _pantallas = new ArrayDeque<>();
+	private MarcoCentral _marco;
 	
 	/**
 	 * Fábrica de pantallas

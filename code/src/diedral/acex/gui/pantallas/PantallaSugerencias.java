@@ -8,7 +8,6 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -32,11 +31,6 @@ public class PantallaSugerencias extends diedral.acex.gui.Pantalla {
 	 * Contruye una pantalla de sugerencias.
 	 */
 	public PantallaSugerencias(){
-		// Crea el borde de la pantalla
-		setBorder(BorderFactory.createCompoundBorder(
-    			BorderFactory.createTitledBorder("Sugerencias"),
-			BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-
 		// Añade un distribuidor 'caja'
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		

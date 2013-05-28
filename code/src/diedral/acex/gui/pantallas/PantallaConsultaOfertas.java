@@ -25,12 +25,7 @@ import diedral.acex.gui.Pantalla;
  */
 public class PantallaConsultaOfertas extends Pantalla {
 
-	public PantallaConsultaOfertas(){
-		// Crea el borde de la pantalla
-		setBorder(BorderFactory.createCompoundBorder(
-    			BorderFactory.createTitledBorder("Consulta de ofertas"),
-			BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-		
+	public PantallaConsultaOfertas(){		
 		setLayout(new BorderLayout());
 		
 		add(new JScrollPane(new PanelOfertas()), BorderLayout.NORTH);

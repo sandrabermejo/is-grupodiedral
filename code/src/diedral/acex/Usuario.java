@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * Usuario de la aplicación.
  */
-public class Usuario implements Serializable {
+public class Usuario implements Serializable, Comparable<Usuario> {
 	/**
 	 * Constructor
 	 */
@@ -147,4 +147,15 @@ public class Usuario implements Serializable {
 	 * Serial UID
 	 */
 	private static final long serialVersionUID = -1004802057165749142L;
+
+	/**
+	 * Compara dos usuarios por sus apellidos.
+	 * 
+	 * @param otro Otro usuario con el que comparar.
+	 */
+	@Override
+	public int compareTo(Usuario otro) {
+		return String.format("%1 %2", _apellido1, _apellido2).compareToIgnoreCase(
+				String.format("%1 %2", otro._apellido1, otro._apellido2));
+	}
 }
