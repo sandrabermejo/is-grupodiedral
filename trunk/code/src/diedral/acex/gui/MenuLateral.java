@@ -66,6 +66,16 @@ class MenuLateral extends javax.swing.JPanel {
 		
 		botones.add(t_btn);
 		
+		// Añade los botones al panel
+		t_btn = new JButton("Ofertas");
+		
+		t_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				_mnj.cambiaA(_fabr.damePantallaConsultaOfertas());				
+			}
+		});
+		
+		botones.add(t_btn);		
 		
 		t_btn = new JButton("Sugerencias");
 		
