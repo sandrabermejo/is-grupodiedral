@@ -1,7 +1,7 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 25
-  modified_by 24 "Cristina"
+  revision 23
+  modified_by 23 "Natalia"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -2089,16 +2089,107 @@ ${members}}
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+	set_oper operation_ref 144151 // establecerTitular
       end
 
-      attribute 128519 "_numeroTarjeta"
-	private explicit_type ""
+      attribute 135703 "_importe"
+	private explicit_type "double"
 	cpp_decl ""
 	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
 "
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+	set_oper operation_ref 144023 // establecerImporte
+      end
+
+      attribute 128519 "_numeroTarjeta"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	set_oper operation_ref 144279 // establecerNumeroTarjeta
+      end
+
+      operation 143639 "efectuar"
+	public explicit_return_type ""
+	nparams 0
+	nexceptions 1
+	  exception class_ref 161303 // PagoIncorrectoException
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 143767 "obtenerSobrecoste"
+	public explicit_return_type ""
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 143895 "establecerImporte"
+	public explicit_return_type ""
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 144151 "establecerTitular"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" explicit_type "string"
+	
+	cpp_name_spec "set_${name}"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  _titular = ${p0};
+}
+"
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 128391 // _titular
+      end
+
+      operation 144279 "establecerNumeroTarjeta"
+	force_body_gen public explicit_return_type "void"
+	nparams 1
+	  param in name "value" explicit_type "string"
+	
+	cpp_name_spec "set_${name}"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  _numeroTarjeta = ${p0};
+}
+"
+	java_name_spec "set${Name}"
+	
+	php_name_spec "set${Name}"
+	
+	python_name_spec "set${Name}"
+	
+	idl_name_spec "set_${name}"
+	set_of_attribute attribute_ref 128519 // _numeroTarjeta
       end
     end
 
@@ -2286,18 +2377,6 @@ ${members}}
 	  param in name "nombre" type class_ref 129035 // Oferta
 	
 	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-      end
-
-      operation 129688 "dimeCuantasOfertas"
-	public explicit_return_type "int"
-	nparams 0
-	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
   ${body}}
 "
 	
@@ -2674,6 +2753,35 @@ ${members}}
 	
 	
       end
+
+      operation 136727 "validar"
+	public explicit_return_type "bool"
+	nparams 4
+	  param in name "nombre" explicit_type "string"
+	  param in name "apellido1" explicit_type "string"
+	  param in name "apellido2" explicit_type "string"
+	  param in name "correo" explicit_type "string"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 136983 "meterUsuario"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "usuario" type class_ref 144152 // Usuario
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
     end
 
     class 144152 "Usuario"
@@ -2904,9 +3012,25 @@ ${members}}
 	
 	
       end
+
+      operation 136855 "modificarDatos"
+	public explicit_return_type ""
+	nparams 4
+	  param in name "nombre" explicit_type "string"
+	  param in name "apellido1" explicit_type "string"
+	  param in name "apellido2" explicit_type "string"
+	  param in name "correo" explicit_type "string"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
     end
 
-    class 144408 "GestorClientes"
+    class 161303 "PagoIncorrectoException"
       visibility package 
       cpp_decl ""
       java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
@@ -2917,66 +3041,24 @@ ${members}}
       idl_decl ""
       explicit_switch_type ""
       
-      attribute 129048 "_instancia"
-	class_attribute private explicit_type ""
-	cpp_decl ""
-	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
-"
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      operation 129944 "valida(datos)"
+      operation 144407 "PagoIncorrectoException"
 	public explicit_return_type ""
 	nparams 0
 	
-	
+	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${)}${throws} {
+  ${body}}
+"
 	
 	
 	
       end
-    end
 
-    class 144536 "Compra"
-      visibility package 
-      cpp_decl ""
-      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
-${members}}
-"
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      attribute 129176 "_usuario"
-	private type class_ref 128149 // Usuario
-	cpp_decl ""
-	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
-"
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      attribute 129304 "_billetes"
-	private explicit_type "list<Billete>"
-	cpp_decl ""
-	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
-"
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      operation 130072 "efectuarCompra"
+      operation 144535 "PagoIncorrectoException"
 	public explicit_return_type ""
-	nparams 3
-	  param in name "billetes" explicit_type "list<billete>"
-	  param in name "precioCompra" explicit_type "double"
-	  param in name "pago" type class_ref 134535 // Pago
+	nparams 1
+	  param in name "mensaje" explicit_type "string"
 	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${t0} ${p0}${)}${throws} {
   ${body}}
 "
 	
@@ -2984,13 +3066,12 @@ ${members}}
 	
       end
 
-      operation 130200 "buscaOferta"
-	public return_type class_ref 129035 // Oferta
-	nparams 2
-	  param in name "ofertas" explicit_type "list<oferta>"
-	  param in name "vuelo" type class_ref 128907 // Vuelo
+      operation 144663 "PagoIncorrectoException"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "causa" explicit_type "Throwable"
 	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${t0} ${p0}${)}${throws} {
   ${body}}
 "
 	
@@ -2998,38 +3079,11 @@ ${members}}
 	
       end
 
-      operation 130328 "buscaMejorOferta"
-	public return_type class_ref 129035 // Oferta
-	nparams 3
-	  param in name "ofertasGenerales" explicit_type "list<oferta>"
-	  param in name "ofertasPersonales" explicit_type "list<oferta>"
-	  param in name "vuelo" type class_ref 128907 // Vuelo
-	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-      end
-
-      operation 130456 "calculaPrecio"
-	public explicit_return_type "double"
-	nparams 0
-	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-      end
-
-      operation 136984 "Compra"
+      operation 144791 "PagoIncorrectoException"
 	public explicit_return_type ""
 	nparams 2
-	  param in name "billete" explicit_type "list<billete>"
-	  param in name "usuario" type class_ref 128149 // Usuario
+	  param in name "causa" explicit_type "Throwable"
+	  param in name "mensaje" explicit_type "string"
 	
 	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws} {
   ${body}}
@@ -3078,6 +3132,30 @@ ${members}}
       sequencediagram 128535 "Editar Datos Personales (DS)"
 	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
 	overlapping_bars size A4
+      end
+
+      class 154647 "PáginaEditarUsuario"
+	visibility package 
+	cpp_decl ""
+	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	
+	operation 136471 "introducirDatos"
+	  public explicit_return_type ""
+	  nparams 0
+	  
+	  java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	end
       end
     end
 
@@ -3272,6 +3350,40 @@ ${members}}
 	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
 	overlapping_bars size A4
       end
+
+      class 161175 "PantallaPagoTarjeta"
+	visibility package 
+	cpp_decl ""
+	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	
+	operation 143511 "introducirDatos"
+	  public explicit_return_type ""
+	  nparams 0
+	  
+	  java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	end
+
+	attribute 135831 "_pago"
+	  private type class_ref 134535 // Pago
+	  cpp_decl ""
+	  java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	end
+      end
     end
 
     usecase 142104 "Acceder web"
@@ -3318,78 +3430,6 @@ ${members}}
 	  
 	  
 	end
-      end
-    end
-
-    usecase 142232 "Comprar billete"
-      //use case diagram settings
-      package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
-      //sequence diagram settings
-      show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
-      //collaboration diagram settings
-      show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
-      //class diagram settings
-      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-      //object diagram settings
-       write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
-      //state diagram settings
-      package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
-      show_activities default region_horizontally default drawing_language default show_stereotype_properties default
-      //activity diagram settings
-      package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
-      show_infonote default drawing_language default show_stereotype_properties default
-      sequencediagram 142232 "Comprar billete (DS)"
-	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
-	overlapping_bars size A4
-      end
-
-      class 144280 "PantallaCompra"
-	visibility package 
-	cpp_decl ""
-	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
-${members}}
-"
-	php_decl ""
-	python_2_2 python_decl ""
-	idl_decl ""
-	explicit_switch_type ""
-	
-      end
-    end
-
-    usecase 148760 "Ver info vuelo contratado"
-      //use case diagram settings
-      package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
-      //sequence diagram settings
-      show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
-      //collaboration diagram settings
-      show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
-      //class diagram settings
-      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-      //object diagram settings
-       write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
-      //state diagram settings
-      package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
-      show_activities default region_horizontally default drawing_language default show_stereotype_properties default
-      //activity diagram settings
-      package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
-      show_infonote default drawing_language default show_stereotype_properties default
-      sequencediagram 148760 "Ver info vuelo contratado (DS)"
-	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
-	overlapping_bars size A4
-      end
-
-      class 151064 "PantallaVueloContratado"
-	visibility package 
-	cpp_decl ""
-	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
-${members}}
-"
-	php_decl ""
-	python_2_2 python_decl ""
-	idl_decl ""
-	explicit_switch_type ""
-	
       end
     end
   end
