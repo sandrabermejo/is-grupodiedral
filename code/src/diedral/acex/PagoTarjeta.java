@@ -33,11 +33,17 @@ public class PagoTarjeta implements Pago {
 
 	
 	//METODOS PUBLICOS
-	
+	/**
+	 * Establece el titular de este pago.
+	 * @param titular
+	 */
 	public void establecerTitular(String titular){
 		_titular = titular;
 	}
-	
+	/**
+	 * Establece el numero de tarjeta para realizar este pago.
+	 * @param numeroTarjeta
+	 */
 	public void establecerNumeroTarjeta(String numeroTarjeta){
 		_numeroTarjeta = numeroTarjeta;
 	}
@@ -46,7 +52,7 @@ public class PagoTarjeta implements Pago {
 	* Hace efectivo el pago.
 	*/
 	
-	public boolean efectuar(){
+	public boolean efectuar(){ //tira excepcion si efectuar el pago no se ha terminado correctamente.
 		return false;
 		//TODO no se que hacer aqui...
 	}
