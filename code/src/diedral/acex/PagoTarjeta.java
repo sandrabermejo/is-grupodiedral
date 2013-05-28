@@ -1,5 +1,5 @@
 /*
- * PagoTarjeta.java - ACE Gestión Externa - Grupo diedral 2013
+ * PagoTarjeta.java - ACE GestiÃ³n Externa - Grupo diedral 2013
  */
 
 package diedral.acex;
@@ -8,44 +8,51 @@ package diedral.acex;
 /**
  * Esta clase representa un pago con tarjeta.
  *
- * <p>Contiene el importe, el titular, el número de tarjeta
+ * <p>Contiene el importe, el titular, el nï¿½mero de tarjeta
  * y los metodos para calcular el sobrecoste asociado.
  */
-public abstract class PagoTarjeta extends Pago implements java.io.Serializable {
-	
+public class PagoTarjeta implements Pago {
 	// CONSTRUCTOR
 	
 	/**
 	* Crea un Pago de Tarjeta con los datos aportados.
 	*
 	* @param titular Titular que figura en la tarjeta.
-	* @param numeroTarjeta Numeración de la tarjeta.
+	* @param numeroTarjeta Numeraciï¿½n de la tarjeta.
 	* @param importe El importe del pago, este puede ser establecido a posteriori.
 	*/
-	public PagoTarjeta(String titular, String numeroTarjeta, double importe = 0){
-		_titular = titular; //Controlar corrección de datos o lanzar excepciones ?
+	public PagoTarjeta(String titular, String numeroTarjeta, double importe){
+		_titular = titular; //Controlar correcciï¿½n de datos o lanzar excepciones ?
 		_numeroTarjeta = numeroTarjeta;
-		_ importe = importe;
+		_importe = importe;
 	}
 
 	
-	//	MÉTODOS PÚBLICOS
+	//METODOS PUBLICOS
 	
 	/**
 	* Hace efectivo el pago.
 	*/
-	@override
-	public bool efectuar(){
+	
+	public boolean efectuar(){
+		return false;
 		//TODO no se que hacer aqui...
 	}
 	
 	/**
-	* Calcula la comisión asociada a la operación.
+	* Calcula la comisiï¿½n asociada a la operaciï¿½n.
 	* @return El sobre coste por el pago.
 	*/
-	@
 	public double obtenerSobrecoste(){
+		return _importe;
 	 //TODO  mismo comentario que en  funcion anterior
+	}
+
+
+	@Override
+	public void establecerImporte(double importe) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	// ATRIBUTOS PRIVADOS
@@ -53,15 +60,15 @@ public abstract class PagoTarjeta extends Pago implements java.io.Serializable {
 	/**
 	 * Importe del pago.
 	 */
-	public String _titular;
+	private String _titular;
 	
 	/**
 	* Numero de la tarjeta.
 	*/
-	public String _numeroTarjeta;
+	private String _numeroTarjeta;
 	
-	/**
-	 * Serial UID
-	 */
-	private static final long serialVersionUID = -32452338237467732823L;
+	private double _importe;
+	
+	private static final long serialVersionUID = 4218885255299801434L;
+
 }

@@ -1,5 +1,5 @@
 /*
- * Billete.java - ACE Gestión Externa - Grupo diedral 2013
+ * Billete.java - ACE Gestiï¿½n Externa - Grupo diedral 2013
  */
 
 package diedral.acex;
@@ -21,16 +21,19 @@ public class Billete implements java.io.Serializable {
 	 * @param pasajero El pasajero del vuelo.
 	 * @param clase Clase asociada al vuelo.
 	 */
-	public Aeropuerto(Vuelo vuelo, Pasajero pasajero, Clase clase){
+	public Billete (Vuelo vuelo, Pasajero pasajero, Clase clase, double precio){
 		
 		// Almacena los datos
-		__vuelo = vuelo;
+		_vuelo = vuelo;
 		_pasajero = pasajero;
 		_clase = clase;
+		_precio = precio;
 	}
 	
-	// MÉTODOS PÚBLICOS
-	
+	// Mï¿½TODOS Pï¿½BLICOS
+	public double damePrecio() {
+		return _precio;
+	}
 	/**
 	 * Obtiene el vuelo asociado al billete.
 	 * 
@@ -58,7 +61,7 @@ public class Billete implements java.io.Serializable {
 		return _clase;
 	}
 	
-	// ? Sobreescribir método toString?
+	// ? Sobreescribir mï¿½todo toString?
 	
 	// ENUM AUXILIAR
 	
@@ -71,22 +74,24 @@ public class Billete implements java.io.Serializable {
 	/**
 	 * Vuelo del billete.
 	 */
-	public Vuelo _vuelo;
+	private Vuelo _vuelo;
 
 	/**
 	 * Pasajero.
 	 */
 	private Pasajero _pasajero;
 	
+	private double _precio;
+	
+	
 	/**
 	 * Clase
-	 *
+	 */
 	private Clase _clase;
-	
-	
 	
 	/**
 	 * Serial UID
 	 */
 	private static final long serialVersionUID = -3799473743222382953L;
+
 }
