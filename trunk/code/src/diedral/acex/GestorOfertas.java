@@ -1,5 +1,5 @@
 /*
- * GestorOfertas.java - ACE Gesti�n Externa - Grupo diedral 2013
+ * GestorOfertas.java - ACE Gestión Externa - Grupo diedral 2013
  */
 package diedral.acex;
 
@@ -9,16 +9,17 @@ import java.util.Map;
 
 /**
  * Gestor de ofertas.
- * Sigue el patr�n Singleton.
+ * 
+ * Sigue el patrón Singleton.
  */
-public class GestorOfertas implements Serializable{
+public class GestorOfertas implements Serializable {
 	
 	// MÉTODOS PÚBLICOS
-	
+
 	/**
 	 * Obtiene la instancia del gestor de ofertas.
 	 * 
-	 * @return Un {@code GestorOfertas} v�lido.
+	 * @return Un {@code GestorOfertas} válido.
 	 */
 	public static GestorVuelos dameInstancia(){
 		if (_instancia == null)
@@ -37,8 +38,8 @@ public class GestorOfertas implements Serializable{
 	}
 	
 	/*
-	* Almacena una oferta, el identificador de la misma ha de ser �nico,
-	* en caso de existir otra oferta con el mismo identificador ser� sobreescrita.
+	* Almacena una oferta, el identificador de la misma ha de ser único,
+	* en caso de existir otra oferta con el mismo identificador será sobreescrita.
 	* @param oferta La nueva oferta.
 	*/
 	public void insertarOferta(Oferta oferta){
@@ -63,7 +64,7 @@ public class GestorOfertas implements Serializable{
 		ofertas.remove(oferta.dameNombre());
 	}
 	
-	// M�TODOS PRIVADOS
+	// MÉTODOS PRIVADOS
 
 	/**
 	* Crea un gestor de Ofertas vacio.
@@ -86,5 +87,5 @@ public class GestorOfertas implements Serializable{
 	/**
 	 * Serial UID
 	 */
-	private static final long serialVersionUID = -8705693435085327942L;
+	private static final long serialVersionUID = -1700785123944334817L;
 }

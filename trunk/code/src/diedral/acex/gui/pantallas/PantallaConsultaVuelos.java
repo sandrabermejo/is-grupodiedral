@@ -6,7 +6,6 @@ package diedral.acex.gui.pantallas;
 import java.awt.BorderLayout;
 import java.text.ParseException;
 
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;

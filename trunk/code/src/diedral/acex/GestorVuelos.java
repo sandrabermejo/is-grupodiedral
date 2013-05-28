@@ -3,11 +3,14 @@
  */
 package diedral.acex;
 
+import java.io.Serializable;
+import java.util.Set;
+import java.util.TreeSet;
+
 /**
  * Gestor de vuelos.
  */
-public class GestorVuelos {
-	
+public class GestorVuelos implements Serializable {
 	/**
 	 * Obtiene la instancia del gestor de vuelos.
 	 * 
@@ -24,4 +27,14 @@ public class GestorVuelos {
 	 * Copia de la instancia
 	 */
 	private static GestorVuelos _instancia;
+
+	/**
+	 * Almacén del vuelos
+	 */
+	Set<Vuelo> _vuelos = new TreeSet<Vuelo>();
+	
+	/**
+	 * Serial UID
+	 */
+	private static final long serialVersionUID = -6922329606269600313L;
 }
