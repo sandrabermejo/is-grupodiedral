@@ -1,0 +1,54 @@
+format 76
+
+classinstance 128023 class_ref 161175 // PantallaPagoTarjeta
+  name ""   xyz 38 4 2000 life_line_z 2000
+classinstance 128407 class_ref 135047 // PagoTarjeta
+  name ""   xyz 379 8 2000 life_line_z 2000
+durationcanvas 128151 classinstance_ref 128023 // :PantallaPagoTarjeta
+  xyzwh 113 95 2010 11 184
+end
+durationcanvas 129047 classinstance_ref 128407 // :PagoTarjeta
+  xyzwh 425 129 2010 11 150
+  overlappingdurationcanvas 129431
+    xyzwh 431 181 2020 11 25
+  end
+  overlappingdurationcanvas 129815
+    xyzwh 431 244 2020 11 25
+  end
+end
+reflexivemsg 128279 synchronous
+  to durationcanvas_ref 128151
+  yz 95 2015 msg operation_ref 143511 // "introducirDatos()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 72 76
+msg 129175 synchronous
+  from durationcanvas_ref 128151
+  to durationcanvas_ref 129047
+  yz 130 2015 msg operation_ref 144151 // "establecerTitular(in value : string) : void"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "titular"
+  label_xy 169 111
+msg 129303 return
+  from durationcanvas_ref 129047
+  to durationcanvas_ref 128151
+  yz 143 2020 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 129559 synchronous
+  from durationcanvas_ref 128151
+  to durationcanvas_ref 129431
+  yz 181 2025 msg operation_ref 144279 // "establecerNumeroTarjeta(in value : string) : void"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "numeroTarjeta"
+  label_xy 109 162
+msg 129687 return
+  from durationcanvas_ref 129047
+  to durationcanvas_ref 128151
+  yz 221 2015 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
+msg 129943 synchronous
+  from durationcanvas_ref 128151
+  to durationcanvas_ref 129815
+  yz 244 2025 msg operation_ref 143639 // "efectuar()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 241 225
+end
