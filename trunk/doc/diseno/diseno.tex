@@ -90,7 +90,7 @@ pdfinfo={
 
 			\subsubsection{Acceder web}
 				\begin{figure}[H]\centering
-%					\includegraphics[scale=.7]{diagramas/accederweb.pdf}
+					\includegraphics[scale=.7]{diagramas/accederweb.pdf}
 				\end{figure}
 
 			\subsubsection{Comprar billete}
@@ -105,34 +105,40 @@ pdfinfo={
 
 			\subsubsection{Consultar vuelos}
 				\begin{figure}[H]\centering
-%					\includegraphics[scale=.7]{diagramas/consultarvuelos.pdf}
+					\includegraphics[scale=.7]{diagramas/consultarvuelos.pdf}
 				\end{figure}
+
+				La pantalla {\itshape PantallaConsultaVuelos} permite al usuario buscar vuelos por diferentes criterios (aeropuerto de salida, aeropuerto de llegada, fecha de salida, fecha de llegada, \ldots) y muestra los resultados de las búsquedas con la información básica que les corresponde. El usuario puede seleccionar una de las apariciones para ver una vista detallada del vuelo, con la información completa y poder desde allí acceder a la compra del billete.
+
+				{\itshape GestorVuelos} representa un administrador de vuelos que permite obtener listas filtradas de entre los disponibles por medio de los criterios especificados.
 			
 			\subsubsection{Editar datos personales}
 				\begin{figure}[H]\centering
-%					\includegraphics[scale=.7]{diagramas/editardatospersonales.pdf}
+					\includegraphics[scale=.7]{diagramas/editardatospersonales.pdf}
 				\end{figure}
 
 
 			\subsubsection{Iniciar pago billetes}
 				\begin{figure}[H]\centering
-%					\includegraphics[scale=.7]{diagramas/iniciarpagobilletes.pdf}
+					\includegraphics[scale=.7]{diagramas/iniciarpagobilletes.pdf}
 				\end{figure}
 
 			\subsubsection{Mostrar ofertas}
 				\begin{figure}[H]\centering
-%					\includegraphics[scale=.7]{diagramas/mostrarofertas.pdf}
+					\includegraphics[scale=.7]{diagramas/mostrarofertas.pdf}
 				\end{figure}
 
 			\subsubsection{Realizar pago con tarjeta}
 				\begin{figure}[H]\centering
-%					\includegraphics[scale=.7]{diagramas/pagotarjeta.pdf}
+					\includegraphics[scale=.7]{diagramas/pagotarjeta.pdf}
 				\end{figure}
 
 			\subsubsection{Presentar reclamación}
 				\begin{figure}[H]\centering
-%					\includegraphics[scale=.7]{diagramas/presentarreclamacion.pdf}
+					\includegraphics[scale=.7]{diagramas/presentarreclamacion.pdf}
 				\end{figure}
+
+				Por medio de la pantalla {\itshape PantallaSugerencias} el usuario expone su sugerencia, incluyendo con ella --de forma opcional-- su nombre y una dirección de contacto donde recibir respuesta. {\itshape PantallaSugerencias} construye una sugerencia ({\itshape recl}) con los datos aportados. La operación de construcción de {\itshape Sugerencia} puede dar lugar a errores si el mensaje de sugerencia es vacío o la dirección de correo electrónico de contacto no se ajusta al formato. Si no se producen esos hechos habrá construida una {\itshape Sugerencia} válida que será enviada a la compañía por medio de la clase {\itshape GestorSugerencias} que devolverá un número identificativo del registro que deberá ser mostrado al usuario para futuras alegaciones.
 
 			\subsubsection{Registrarse}
 				\begin{figure}[H]\centering
