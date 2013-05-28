@@ -18,7 +18,7 @@ public class Dni implements Serializable, Comparable<Dni> {
 	 * @param letra Letra del DNI
 	 */
 	public Dni(int numero, char letra){
-		if (numero < 0 || numero > 999)
+		if (numero < 0 || numero > 99_999_999)
 			; // Manejar el error
 		
 		if (letra == calculaLetra(numero))
