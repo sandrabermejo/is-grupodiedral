@@ -13,6 +13,10 @@ package diedral.acex;
  */
 public class PagoTarjeta implements Pago {
 	// CONSTRUCTOR
+	/**
+	 * Crea un pago con Tarjeta sin ningún dato especificado.
+	 */
+	public PagoTarjeta(){}
 	
 	/**
 	* Crea un Pago de Tarjeta con los datos aportados.
@@ -29,6 +33,14 @@ public class PagoTarjeta implements Pago {
 
 	
 	//METODOS PUBLICOS
+	
+	public void establecerTitular(String titular){
+		_titular = titular;
+	}
+	
+	public void establecerNumeroTarjeta(String numeroTarjeta){
+		_numeroTarjeta = numeroTarjeta;
+	}
 	
 	/**
 	* Hace efectivo el pago.
@@ -48,11 +60,9 @@ public class PagoTarjeta implements Pago {
 	 //TODO  mismo comentario que en  funcion anterior
 	}
 
-
 	@Override
 	public void establecerImporte(double importe) {
-		// TODO Auto-generated method stub
-		
+		_importe = importe;
 	}
 
 	// ATRIBUTOS PRIVADOS
