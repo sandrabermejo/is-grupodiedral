@@ -30,4 +30,11 @@ public class FabricaPantallas {
 	public Pantalla damePantallaConsultaVuelos(){
 		return new PantallaConsultaVuelos();
 	}
+	
+	/**
+	 * Obtiene una pantalla de consulta de ofertas.
+	 */
+	public Pantalla damePantallaConsultaOfertas(){
+		return new PantallaConsultaOfertas();
+	}	
 }
