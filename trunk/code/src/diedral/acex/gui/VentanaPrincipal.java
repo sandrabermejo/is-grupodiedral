@@ -23,12 +23,13 @@ import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 
 import diedral.acex.GestorVuelos;
+import diedral.acex.Usuario;
 
 /**
  * Ventana principal de la interfaz de gestión externa de ACE.
  *
  */
-public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPantallas {
+public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPantallas, ManejadorSesion{
 	/**
 	 * Construye una ventana principal inicialmente vacía.
 	 */
@@ -46,8 +47,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		setSize(800, 600);
 
 		// Ubica los paneles superior y lateral
-		add(new MenuLateral(this, _fabrica), BorderLayout.WEST);
-		add(new BandaSuperior(this, _fabrica), BorderLayout.NORTH);
+		add(new MenuLateral(this, _fabrica, this), BorderLayout.WEST);
+		add(new BandaSuperior(), BorderLayout.NORTH);
 		
 		_marco = new MarcoCentral();
 		add(_marco, BorderLayout.CENTER);
@@ -99,7 +100,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		_marco.cierraCima();		
 	}
 
-
+	@Override
+	public Usuario dameUsuarioSesion() {
+		return _usuario;
+	}
 	
 	// MÉTODOS PRIVADOS
 
@@ -214,7 +218,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		/**
 		 * Pila de pantallas
 		 */
-		private Queue<Pantalla> _pantallas = new ArrayDeque<Pantalla>();
+		private Queue<Pantalla> _pantallas = new ArrayDeque<>();
 		
 		/**
 		 * Card Layout
@@ -240,8 +244,11 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	 */
 	private FabricaPantallas _fabrica = new FabricaPantallas();
 	
+	private Usuario _usuario;
+	
 	/**
 	 * Serial UID 
 	 */
 	private static final long serialVersionUID = -1668893384096959140L;
+
 }

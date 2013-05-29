@@ -3,6 +3,8 @@ package diedral.acex.gui.pantallas;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -101,6 +103,12 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 		// Crea un cuadro de inserción de contraseña con su texto
 		JPanel panelBotonGuardarDatos = new JPanel(new GridLayout(1, 2));
 		_botonGuardar = new JButton("Guardar");
+		_botonGuardar.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				PantallaEditarDatosPersonales.this.introducirDatos();
+			}
+		});
 		panelBotonGuardarDatos.add(_botonGuardar);
 		
 		panel.add(_botonGuardar);	
@@ -121,12 +129,22 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 		if(correo != null) //si el correo ha sido modificado
 			datosValidos = GestorUsuarios.dameInstancia().validar(correo);
 		if(datosValidos){
+			//vemos los datos que no ha modificado el usuario
+			if(nombre == null)
+				nombre = _usuario.dameNombre();
+			if(apellido1 == null)
+				apellido1 = _usuario.dameApellido1();
+			if(apellido2 == null)
+				apellido2 = _usuario.dameApellido2();
+			if(correo == null)
+				correo = _usuario.dameCorreo();
+			
+			//creamos el nuevo usuario modificado y lo reemplazamos.
+			Usuario usuarioModificado = new Usuario(nombre, apellido1, apellido2, _usuario.dameContrasena(), correo);
+			GestorUsuarios.dameInstancia().reemplazarUsuario(usuarioModificado, _usuario.dameCorreo());
+			
 			
 		}
-			
-		//if(datosValidos)
-			//¿usuario?-> modificalosdatos. ¿Como lo hago? //TODO
-		
 	}
 	/**
 	 * UID Serial Version
@@ -164,4 +182,8 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 	 * Botón que al pulsarlo se guardan los datos modificados.
 	 */
 	private JButton _botonGuardar;
+	/**
+	 * Usuario que ha iniciado sesión.
+	 */
+	private Usuario _usuario;
 }
