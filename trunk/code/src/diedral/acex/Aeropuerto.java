@@ -75,7 +75,7 @@ public class Aeropuerto implements java.io.Serializable {
 	
 	@Override
 	public String toString() {
-		return _nombre + "(" + _codigoIATA + ")";
+		return _nombre + " (" + _codigoIATA + ")";
 	}
 	
 	// ATRIBUTOS PRIVADOS

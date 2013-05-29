@@ -122,10 +122,15 @@ public class PantallaSugerencias extends diedral.acex.gui.Pantalla {
 		if (JOptionPane.showConfirmDialog(this,
 				"Si abandona esta página perderá los datos introducidos.",
 				"ACE - Gestión Externa - Sugerencias",
-				JOptionPane.OK_CANCEL_OPTION) == JOptionPane.CANCEL_OPTION)
-				return false;
+				JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION){
+			
+			_mensaje.setText(""); _nombre.setText(""); _contacto.setText("");
+			
+			return true;
+		}
+			
 		
-		return true;
+		return false;
 	}	
 
 	/**
