@@ -4,7 +4,6 @@
 package diedral.acex.gui;
 
 import diedral.acex.Oferta;
-import diedral.acex.Usuario;
 import diedral.acex.Vuelo;
 import diedral.acex.gui.pantallas.*;
 
@@ -46,6 +45,16 @@ public class FabricaPantallas {
 	public Pantalla damePantallaConsultaVuelos(){
 		return new PantallaConsultaVuelos();
 	}
+	
+	/**
+	 * Obtiene una pantalla de detalle sobre un vuelo.
+	 * 
+	 * @param v Vuelo seleccionado.
+	 */
+	public Pantalla damePantallaDetalleVuelo(Vuelo v){
+		return new PantallaDetalleVuelo(v);
+	}
+	
 	/**
 	 * Obtiene una pantalla donde un usuario edita sus datos personales.
 	 * @return
@@ -58,8 +67,8 @@ public class FabricaPantallas {
 	/**
 	 * Obtiene una pantalla de consulta de ofertas.
 	 */
-	public Pantalla damePantallaConsultaOfertas(ManejadorPantallas mnj, FabricaPantallas fabrica){
-		return new PantallaConsultaOfertas(mnj, fabrica);
+	public Pantalla damePantallaConsultaOfertas(){
+		return new PantallaConsultaOfertas();
 	}
 	
 	/**

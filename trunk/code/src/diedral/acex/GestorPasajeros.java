@@ -11,7 +11,6 @@ import java.util.List;
  * Gestor de pasajeros.
  */
 public class GestorPasajeros implements Serializable {
-	
 	/**
 	 * Crea un nuevo gestor de pasajeros.
 	 */
@@ -26,8 +25,15 @@ public class GestorPasajeros implements Serializable {
 	 * @return Un {@code GestorVuelos} valido.
 	 */
 	public static GestorPasajeros dameInstancia(){
-		if (_instancia == null)
-			_instancia = new GestorPasajeros();
+		if (_instancia == null){
+			// Intenta cargarlo de los datos almacenados
+			_instancia = (GestorPasajeros) AyudantePersistencia.dameInstancia().recuperayVigila(
+					versionTID);
+			
+			// Si no ha funcionado
+			if (_instancia == null)
+				_instancia = new GestorPasajeros();
+		}
 		
 		return _instancia;
 	}
@@ -43,7 +49,12 @@ public class GestorPasajeros implements Serializable {
 	private List<Pasajero> _pasajeros;
  
 	/**
-	 * Serial UID
+	 * Serial UID 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -4584109842989367604L;
+	
+	/**
+	 * Serial TID
+	 */
+	private static final String versionTID = AyudantePersistencia.generaTID(serialVersionUID);
 }
