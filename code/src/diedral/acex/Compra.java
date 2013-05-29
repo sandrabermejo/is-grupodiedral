@@ -1,11 +1,21 @@
 package diedral.acex;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import diedral.acex.excepciones.PagoIncorrectoException;
 
 public class Compra {
+	/**
+	 * Crea una compra dado el usuario
+	 * @param usuario que efectua la compra
+	 */
+	public Compra(Usuario usuario) {
+		_usuario = usuario;
+		_billetes = new ArrayList();
+		_pagada = false;
+	}
 	/**
 	 * Este metodo efectua una compra realizando primero el pago y después actualiza 
 	 * el número de pasajeros de cada vuelo.
@@ -90,7 +100,20 @@ public class Compra {
 		}
 		return precioTotal;
 	}
+	/**
+	 * Marca la compra como pagada.
+	 */
+	public void marcarPagada(){
+		_pagada = true;
+	}
+	/**
+	 * Marca la compra como no pagada.
+	 */
+	public void desmarcarPagada(){
+		_pagada = false;
+	}
 	
 	private List<Billete> _billetes;
 	private Usuario _usuario;
+	private boolean _pagada;
 }

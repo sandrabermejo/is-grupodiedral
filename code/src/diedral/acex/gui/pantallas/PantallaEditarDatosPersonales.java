@@ -9,7 +9,9 @@ import java.awt.event.ActionListener;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -146,6 +148,11 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 			Usuario usuarioModificado = new Usuario(nombre, apellido1, apellido2, _usuario.dameContrasena(), correo);
 			GestorUsuarios.dameInstancia().reemplazarUsuario(usuarioModificado, _usuario.dameCorreo());
 			
+			//pantalla de información éxito.
+			JOptionPane pane = new JOptionPane("¡Datos modificados con éxito!");
+			JDialog dialog = pane.createDialog("Datos modificados");
+			dialog.setLocationRelativeTo(getRootPane()); //centra la pantalla
+			dialog.setVisible(true);
 		}
 	}
 	/**

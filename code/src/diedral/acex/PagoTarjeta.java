@@ -25,7 +25,7 @@ public class PagoTarjeta implements Pago {
 	* @param numeroTarjeta Numeración de la tarjeta.
 	* @param importe El importe del pago, este puede ser establecido a posteriori.
 	*/
-	public PagoTarjeta(String titular, String numeroTarjeta, double importe){
+	public PagoTarjeta(Compra compra, String titular, String numeroTarjeta, double importe){
 		_titular = titular; //Controlar corrección de datos o lanzar excepciones ?
 		_numeroTarjeta = numeroTarjeta;
 		_importe = importe;
@@ -48,13 +48,17 @@ public class PagoTarjeta implements Pago {
 		_numeroTarjeta = numeroTarjeta;
 	}
 	
+	public void establecerCompra(Compra compra){
+		_compra = compra;
+	}
+	
 	/**
 	* Hace efectivo el pago.
 	*/
 	
-	public boolean efectuar(){ //tira excepcion si efectuar el pago no se ha terminado correctamente.
-		return false;
-		//TODO no se que hacer aqui...
+	public boolean efectuar(){
+		_compra.marcarPagada();
+		return true;
 	}
 	
 	/**
@@ -62,8 +66,7 @@ public class PagoTarjeta implements Pago {
 	* @return El sobre coste por el pago.
 	*/
 	public double obtenerSobrecoste(){
-		return _importe;
-	 //TODO  mismo comentario que en  funcion anterior
+		return _importe * 0.03;
 	}
 
 	@Override
@@ -84,6 +87,8 @@ public class PagoTarjeta implements Pago {
 	private String _numeroTarjeta;
 	
 	private double _importe;
+	
+	private Compra _compra;
 	
 	private static final long serialVersionUID = 4218885255299801434L;
 
