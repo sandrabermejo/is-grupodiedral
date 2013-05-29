@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Clase como apoyo para manejar la persistencia de los datos basada
@@ -19,14 +21,13 @@ import java.io.Serializable;
  */
 public class AyudantePersistencia implements Serializable {
 	
-	
 	/**
 	 * Almacena el objeto dado de acuerdo a su identificador.
 	 * 
 	 * @param obj Objeto serializable.
 	 * @param id Identificar único representativo del objeto.
 	 */
-	public static boolean almacena(Serializable obj, String id) {
+	public boolean almacena(Serializable obj, String id) {
 		// Comprueba que existe la carpeta "data"
 		File dirData = new File("data");
 		
@@ -59,7 +60,7 @@ public class AyudantePersistencia implements Serializable {
 	 * 
 	 * @return El objeto recurerado. {@code null} si no ha sido posible.
 	 */
-	public static Object recupera(String id){
+	public Object recupera(String id){
 		Object obj = null;
 		
 		try {
@@ -79,11 +80,76 @@ public class AyudantePersistencia implements Serializable {
 		return obj;
 	}
 	
+	/**
+	 * Recupera un objeto almacenado de acuerdo a su identificador y
+	 * guarda una referencia a él para guardarlo cuando el ayudante
+	 * reciba una notificación a tal efecto.
+	 * 
+	 * @param Identificador único el objeto.
+	 * 
+	 * @return El objeto recurerado. {@code null} si no ha sido posible.
+	 */
+	public Object recuperayVigila(String id){
+		Object obj = recupera(id);
+		
+		// Lo añade a la lista (tabla) de vigilados
+		_vigilados.put((Serializable) obj, id);
+		
+		return obj;
+	}
+	
+	/**
+	 * Almacena todos los objetos vigilados.
+	 *
+	 */
+	public boolean almacenaTodos(){
+		for (Serializable obj : _vigilados.keySet())
+			if (!almacena(obj, _vigilados.get(obj)))
+				return false;
+		
+		return true;
+	}
 	
 	// ATRIBUTOS PRIVADOS
+	
+	/**
+	 * Conjunto de objetos vigilados para ser guardados
+	 * cuando corresponda.
+	 */
+	private Map<Serializable, String> _vigilados = new HashMap<>();
 
 	/**
 	 * Serial UID
 	 */
 	private static final long serialVersionUID = 8617860719777255822L;
+	
+	
+	// PARTE ESTÁTICA
+	
+	/**
+	 * Genera un identificador textual a partir de un indentificador
+	 * de serialización.
+	 * 
+	 * @param suid Serial UID.
+	 */
+	public static String generaTID(long suid){
+		return String.format("%s%s", (suid < 0 ? "N" : ""),
+				new Long(Math.abs(suid)).toString());
+	}
+	
+	/**
+	 * Obtiene la instancia del ayudante de persistencia.
+	 * 
+	 * @return Un {@code AyudantePersistencia} válido.
+	 */
+	public static AyudantePersistencia dameInstancia(){
+		if (_instancia == null)
+			_instancia = new AyudantePersistencia();
+		return _instancia;
+	}
+	
+	/**
+	 * Instancia del ayudante de persistencia
+	 */
+	private static AyudantePersistencia _instancia;
 }

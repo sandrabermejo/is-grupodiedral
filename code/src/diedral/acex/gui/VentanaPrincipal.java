@@ -22,6 +22,7 @@ import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 
+import diedral.acex.AyudantePersistencia;
 import diedral.acex.GestorVuelos;
 import diedral.acex.Usuario;
 
@@ -48,7 +49,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 
 		// Ubica los paneles superior y lateral
 		add(new MenuLateral(this, _fabrica, this), BorderLayout.WEST);
-		add(new BandaSuperior(), BorderLayout.NORTH);
+		add(new BandaSuperior(this, _fabrica), BorderLayout.NORTH);
 		
 		_marco = new MarcoCentral();
 		add(_marco, BorderLayout.CENTER);
@@ -135,11 +136,11 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		JMenu depr = new JMenu("Depuración");
 		
 		// JMenuItem 
-		JMenuItem arOferta = new JMenuItem("Archivar vuelos");
+		JMenuItem arOferta = new JMenuItem("Archivar todo");
 		
 		arOferta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(GestorVuelos.sincronizaDatos());
+				System.out.println(AyudantePersistencia.dameInstancia().almacenaTodos());
 			}
 		});
 		

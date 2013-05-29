@@ -39,7 +39,7 @@ class MenuLateral extends javax.swing.JPanel {
 	 * @return Dicho panel de botones.
 	 */
 	private JPanel creaBotones() {
-		JPanel botones = new JPanel(new GridLayout(4, 1));
+		JPanel botones = new JPanel(new GridLayout(5, 1));
 		
 		// Variable de botón temporal
 		JButton t_btn;
@@ -88,7 +88,7 @@ class MenuLateral extends javax.swing.JPanel {
 		
 		botones.add(t_btn);
 		
-		t_btn = new JButton("Editar datos cliente");
+		t_btn = new JButton("Datos cliente [dbg]");
 		
 		t_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
