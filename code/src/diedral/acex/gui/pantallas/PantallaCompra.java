@@ -30,19 +30,17 @@ import diedral.acex.excepciones.CampoRequeridoException;
 import diedral.acex.excepciones.FormatoIncorrectoException;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
-import diedral.acex.gui.ManejadorSesion;
 import diedral.acex.gui.Pantalla;
 
 public class PantallaCompra extends Pantalla {
 
-	public PantallaCompra(ManejadorPantallas mnj, ManejadorSesion mnjSesion, FabricaPantallas fabrica, Vuelo vuelo, int numBilletes) {
+	public PantallaCompra(ManejadorPantallas mnj, FabricaPantallas fabrica, Vuelo vuelo, int numBilletes) {
 		_mnj = mnj;
-		_mnjSesion = mnjSesion;
 		_fabrica = fabrica;
 		_vuelo = vuelo;
 		_numBilletes = numBilletes;
 		_numPasajerosAnadidos = 0;
-		_compra = new Compra(_mnjSesion.dameUsuarioSesion());
+	//	_compra = new Compra(_mnjSesion.dameUsuarioSesion());
 		
 		//Características ventana
 		setLayout(new BorderLayout());
@@ -186,11 +184,11 @@ public class PantallaCompra extends Pantalla {
 				Billete.Clase clase = (Billete.Clase) _clase.getSelectedItem();
 				
 				Pasajero pasajero = new Pasajero(nombre, apellido1, apellido2, nacionalidad, fecha, dni);
-				_compra.anadeBillete(new Billete(_vuelo, pasajero, clase, _vuelo.damePrecio()));
+		//		_compra.anadeBillete(new Billete(_vuelo, pasajero, clase, _vuelo.damePrecio()));
 				_numPasajerosAnadidos++;
 				
 				if (_numPasajerosAnadidos == _numBilletes)
-					_mnj.cambiaA(_fabrica.damePantallaPago(_compra));
+;//					_mnj.cambiaA(_fabrica.damePantallaPago(_compra));
 				
 			} catch(Exception exc){
 				JOptionPane.showMessageDialog(PantallaCompra.this,
@@ -260,11 +258,6 @@ public class PantallaCompra extends Pantalla {
 	 * Manejador de pantallas
 	 */
 	private ManejadorPantallas _mnj;
-		
-	/**
-	 * Manejador sesion
-	 */
-	private ManejadorSesion _mnjSesion;	
 	
 	/**
 	 * Fabrica de pantallas
