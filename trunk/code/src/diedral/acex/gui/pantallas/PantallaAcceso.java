@@ -16,14 +16,11 @@ import javax.swing.JTextField;
 
 import diedral.acex.GestorUsuarios;
 import diedral.acex.Usuario;
-import diedral.acex.gui.ManejadorSesion;
 import diedral.acex.gui.Pantalla;
 
 public class PantallaAcceso extends Pantalla {
 
-	public PantallaAcceso(ManejadorSesion mnj) {
-		
-		_mnj = mnj;
+	public PantallaAcceso() {
 		
 		//Características ventana
 		setLayout(new BorderLayout());
@@ -83,16 +80,11 @@ public class PantallaAcceso extends Pantalla {
 						"ACE Gestión Externa - Acceso",
 						JOptionPane.ERROR_MESSAGE);
 			else
-				_mnj.tomaUsuario(usuario);
+				;//_mnj.tomaUsuario(usuario);
 								
 		}
 		
 	}
-	
-	/**
-	 * Manejador sesion
-	 */
-	private ManejadorSesion _mnj;
 	
 	/**
 	 * Correo

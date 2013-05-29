@@ -4,8 +4,8 @@
 package diedral.acex.gui;
 
 import diedral.acex.Usuario;
+import diedral.acex.Vuelo;
 import diedral.acex.gui.pantallas.*;
-import.diedral.acex.Vuelo;
 
 /**
  * Fábrica de pantallas.
@@ -57,15 +57,18 @@ public class FabricaPantallas {
 	/**
 	 * Obtiene una pantalla de acceso.
 	 */
-	public Pantalla damePantallaAcceso(ManejadorSesion mnj){
-		return new PantallaAcceso(mnj);
+	public Pantalla damePantallaAcceso(){
+		return new PantallaAcceso();
 	}
 	
 	/**
 	 * Obtiene una pantalla de compra
+	 * 
+	 * <p>No puede haber tantos parámetros (encapsularlos o algo)
+	 * 
 	 */
-	public Pantalla damePantallaCompra(ManejadorPantallas mnj, ManejadorSesion mnjSesion, Vuelo vuelo, int numBilletes){
-		return new PantallaCompra(mnj, mnjSesion, this, vuelo, numBilletes);
+	public Pantalla damePantallaCompra(ManejadorPantallas mnj, Vuelo vuelo, int numBilletes){
+		return new PantallaCompra(mnj, this, vuelo, numBilletes);
 	}
 	
 	/**
