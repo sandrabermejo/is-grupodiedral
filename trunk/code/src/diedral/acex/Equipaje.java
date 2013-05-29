@@ -1,5 +1,5 @@
 /*
- * Equipaje.java - ACE Gesti�n Externa - Grupo diedral 2013
+ * Equipaje.java - ACE Gestión Externa - Grupo diedral 2013
  */
 
 package diedral.acex;
@@ -8,7 +8,6 @@ package diedral.acex;
 /**
  * Esta clase representa un equipaje.
  *
- * <p>Contiene el peso y el n�mero de bultos
  */
 public abstract class Equipaje implements java.io.Serializable {
 	// CONSTRUCTOR
@@ -17,7 +16,7 @@ public abstract class Equipaje implements java.io.Serializable {
 	* Crea un Equipaje con los datos asociados.
 	*
 	* @param peso El peso del equipaje.
-	* @param noBultos el n�mero de bultos.
+	* @param noBultos el número de bultos.
 	*/
 	public Equipaje(double peso, int noBultos){ //Valores no negativos.
 		_peso = peso; 
@@ -25,7 +24,7 @@ public abstract class Equipaje implements java.io.Serializable {
 	}
 
 	
-	//	M�TODOS P�BLICOS
+	//	MÉTODOS PÚBLICOS
 	
 	/**
 	* Establece el peso del equipaje.
@@ -44,15 +43,15 @@ public abstract class Equipaje implements java.io.Serializable {
 	}
 
 	/**
-	* Establece el n�mero de bultos del equipaje.
-	* @param noBultos El n�mero de bultos.
+	* Establece el número de bultos del equipaje.
+	* @param noBultos El número de bultos.
 	*/
 	public void	fijarBultos(int noBultos){
 		_noBultos = noBultos;
 	}
 	
 	/**
-	* Obtiene el n�mero de bultos del equipaje.
+	* Obtiene el número de bultos del equipaje.
 	* @return La cantidad de bultos.
 	*/
 	public int dameBultos(){
@@ -69,5 +68,9 @@ public abstract class Equipaje implements java.io.Serializable {
 	* Cantidad de bultos del equipaje.
 	*/
 	private int _noBultos;
+
+	/**
+	 * Serial UID
+	 */
 	private static final long serialVersionUID = 1337693133758363391L;
 }
