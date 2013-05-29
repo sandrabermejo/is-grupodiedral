@@ -1,7 +1,6 @@
 package diedral.acex.gui;
 
 import java.awt.Color;
-import java.awt.PopupMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -67,6 +66,23 @@ class BandaSuperior extends JPanel implements OyenteCambios<Sesion> {
 		add(_registro);
 	}
 	
+	/**
+	 * Registra un oyente de acción del botón 'Anterior'
+	 * 
+	 * @param oyente Oyente.
+	 */
+	public void registraOyenteAnterior(ActionListener oyente){
+		_btnanterior.addActionListener(oyente);
+	}
+	
+	/**
+	 * Registra un oyente de acción del botón 'Siguiente'
+	 * 
+	 * @param oyente Oyente.
+	 */
+	public void registraOyenteSiguiente(ActionListener oyente){
+		_btnsiguiente.addActionListener(oyente);
+	}	
 	
 	@Override
 	public void haCambiado(Sesion arg) {

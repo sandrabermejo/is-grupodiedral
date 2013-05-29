@@ -1,61 +1,40 @@
 /*
- * PaginaConsultaOfertas.java - ACE Gesti�n Externa - Grupo diedral 2013
+ * PaginaConsultaOfertas.java - ACE Gestión Externa - Grupo diedral 2013
  */
 package diedral.acex.gui.pantallas;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 import diedral.acex.GestorOfertas;
 import diedral.acex.Oferta;
-import diedral.acex.gui.FabricaPantallas;
-import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
 
 /**
- * Página de consulta de vuelos.
+ * PÃ¡gina de consulta de vuelos.
  */
 public class PantallaConsultaOfertas extends Pantalla {
 
-	public PantallaConsultaOfertas(ManejadorPantallas mnj, FabricaPantallas fabrica){	
-		
-		_mnj = mnj;
-		_fabrica = fabrica;
-		_tabla = new JTable(new PanelOfertas());
-		
+	public PantallaConsultaOfertas(){		
 		setLayout(new BorderLayout());
 		
-		JButton verInfoOferta = new JButton("Ver detalles..."); 
-		add(verInfoOferta);
-		
-		verInfoOferta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent ae) {
-				if (_ofertas != null && _ofertas.size() != 0)
-					_mnj.cambiaA(_fabrica.damePantallaOferta(_ofertas.get(_tabla.getSelectedRow())));		
-			}
-		});
-		add(new JScrollPane(_tabla), BorderLayout.NORTH);
+		add(new JScrollPane(new JTable(new PanelOfertas())), BorderLayout.NORTH);
 	
-	}	
-	
+	}
 	
 	public String dameNombre() {
 		return "Consulta ofertas";
 	}
-	
 	/**
-	 * Panel de ofertas
+	 * Panel de búsqueda
 	 */
 	private class PanelOfertas extends AbstractTableModel {
 
 		public PanelOfertas(){
-			_ofertas = (GestorOfertas.dameInstancia()).dameOfertas();
+			_ofertas = new ArrayList<>(GestorOfertas.dameInstancia().dameOfertas());
 		}
 		
 		@Override
@@ -78,17 +57,19 @@ public class PantallaConsultaOfertas extends Pantalla {
 		
 		public boolean isCellEditable(int row, int col){
 			return false;
-		}			
-	
+		}
+		
+		
+		private ArrayList<Oferta> _ofertas;
+		
+		/**
+		 * Serial UID (para PanelBusqueda)
+		 */
+		private static final long serialVersionUID = -194473111700140658L;		
 	}
 	
-	private ArrayList<Oferta> _ofertas;		
-	private ManejadorPantallas _mnj;
-	private FabricaPantallas _fabrica;
-	private JTable _tabla;
-	
 	/**
-	 * Serial UID (para PanelBusqueda)
+	 * Serial UID
 	 */
-	private static final long serialVersionUID = -194473111700140658L;		
+	private static final long serialVersionUID = -4868535547311346409L;
 }

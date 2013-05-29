@@ -4,7 +4,7 @@
 package diedral.acex;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
@@ -16,7 +16,7 @@ import java.util.TreeSet;
  */
 public class GestorOfertas implements Serializable {
 	
-	// MÃ‰TODOS PÃšBLICOS
+	// MÉTODOS PÚBLICOS
 
 	/**
 	 * Obtiene la instancia del gestor de ofertas.
@@ -24,8 +24,15 @@ public class GestorOfertas implements Serializable {
 	 * @return Un {@code GestorOfertas} válido.
 	 */
 	public static GestorOfertas dameInstancia(){
-		if (_instancia == null)
-			_instancia = new GestorOfertas();
+		if (_instancia == null){
+			// Intenta cargarlo de los datos almacenados
+			_instancia = (GestorOfertas) AyudantePersistencia.dameInstancia().recuperayVigila(
+					versionTID);
+			
+			// Si no ha funcionado
+			if (_instancia == null)
+				_instancia = new GestorOfertas();
+		}
 		
 		return _instancia;
 	}
@@ -34,8 +41,8 @@ public class GestorOfertas implements Serializable {
 	* Devuelve la lista de ofertas contenidas en ese momento en el gestor.
 	* @return una lista de ofertas.
 	*/
-	public ArrayList<Oferta> dameOfertas(){
-		return new ArrayList(ofertas.values());
+	public Collection<Oferta> dameOfertas(){
+		return ofertas.values();
 	}
 	
 	/**
@@ -88,7 +95,7 @@ public class GestorOfertas implements Serializable {
 	* Crea un gestor de Ofertas vacio.
 	*/
 	private GestorOfertas(){
-		ofertas = new HashMap();
+		ofertas = new HashMap<>();
 		// Oferta a modo de ejemplo
 		int[] v= {18, 25};	
 		Oferta nuestroOferton = new Oferta(new TreeSet<Vuelo>(), "Valencia", v, 30, "Oferton Diedral");
@@ -110,4 +117,9 @@ public class GestorOfertas implements Serializable {
 	 * Serial UID
 	 */
 	private static final long serialVersionUID = -1700785123944334817L;
+	
+	/**
+	 * Version TID
+	 */
+	private static final String versionTID = AyudantePersistencia.generaTID(serialVersionUID);
 }

@@ -4,6 +4,7 @@
 
 package diedral.acex;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -15,25 +16,30 @@ import diedral.acex.excepciones.VueloIncorrectoException;
 /**
  * Esta clase representa un vuelo.
  */
-public class Vuelo implements java.io.Serializable {
+public class Vuelo implements Serializable {
 	
 	/**
 	 * Construye un vuelo a partir de los datos aportados.
+	 * 
+	 * @param nVuelo Número de vuelo
+	 * @param origen Aeropuerto de origen.
+	 * @param destino Aeropuerto de destino.
 	 */
-	public Vuelo(Aeropuerto origen, Aeropuerto destino) 
+	public Vuelo(int nVuelo, Aeropuerto origen, Aeropuerto destino) 
 			throws VueloIncorrectoException {
 		if (origen.equals(destino))
 			throw new VueloIncorrectoException(
 					"El aeropuerto de origen y destino no pueden ser iguales");
-					
+		
+		_numVuelo = nVuelo;
 		_origen = origen;
 		_destino = destino;
 		_fsalida = null;
 		_fllegada = null;
 		_avion = null;
 		_npasajeros = 0;
-		_pasajeros = new TreeSet();		
-		_escalas = new ArrayList();
+		_pasajeros = new TreeSet<>();		
+		_escalas = new ArrayList<>();
 	}
 
 	/**
@@ -61,7 +67,7 @@ public class Vuelo implements java.io.Serializable {
 		_fllegada = llegada;
 		_avion = avion;
 		_npasajeros = pasajeros;
-		_pasajeros = new TreeSet();
+		_pasajeros = new TreeSet<>();
 		_escalas = escalas;
 	}
 	
@@ -140,18 +146,18 @@ public class Vuelo implements java.io.Serializable {
 	}
 	
 	/**
-	 * Obtiene el aviÃ³n encargado del vuelo
+	 * Obtiene el avión encargado del vuelo
 	 * 
-	 * @return El aviÃ³n
+	 * @return El avión
 	 */
 	public Avion dameAvion() {
 		return _avion;
 	}
 	
 	/**
-	 * Obtiene el nÃºmero mÃ¡ximo de pasajeros del vuelo
+	 * Obtiene el número máximo de pasajeros del vuelo
 	 * 
-	 * @return El nÃºmero de pasajeros
+	 * @return El número de pasajeros
 	 */
 	public int dameNumPasajeros() {
 		return _npasajeros;
@@ -164,6 +170,15 @@ public class Vuelo implements java.io.Serializable {
 	 */
 	public double damePrecio() {
 		return _precio;
+	}
+	
+	/**
+	 * Obtiene el número de vuelo.
+	 * 
+	 * @retunr El número de vuelo.
+	 */
+	public int dameNumeroVuelo(){
+		return _numVuelo;
 	}
 	
 	/**
@@ -230,6 +245,11 @@ public class Vuelo implements java.io.Serializable {
 	}
 
 	// ATRIBUTOS PRIVADOS
+	
+	/**
+	 * Número de vuelo
+	 */
+	private int _numVuelo;
 
 	/**
 	 * Aeropuerto de origen
@@ -252,12 +272,12 @@ public class Vuelo implements java.io.Serializable {
 	private GregorianCalendar _fllegada;
 	
 	/**
-	 * AviÃ³n encargado del vuelo
+	 * Avión encargado del vuelo
 	 */
 	private Avion _avion;
 	
 	/**
-	 * NÃºmero mÃ¡ximo de pasajeros
+	 * Número máximo de pasajeros
 	 */
 	private int _npasajeros;
 	

@@ -7,11 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
-import diedral.acex.Usuario;
 
 /**
  * Menú lateral para dar acceso a los diferentes servicios de la aplicación.
@@ -75,7 +71,7 @@ setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		t_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				_mnj.cambiaA(_fabr.damePantallaConsultaOfertas(_mnj, _fabr));				
+				_mnj.cambiaA(_fabr.damePantallaConsultaOfertas());				
 			}
 		});
 		

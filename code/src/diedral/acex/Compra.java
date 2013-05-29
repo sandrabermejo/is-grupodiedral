@@ -13,7 +13,7 @@ public class Compra {
 	 */
 	public Compra(Usuario usuario) {
 		_usuario = usuario;
-		_billetes = new ArrayList();
+		_billetes = new ArrayList<>();
 		_pagada = false;
 	}
 	/**
@@ -115,5 +115,6 @@ public class Compra {
 	
 	private List<Billete> _billetes;
 	private Usuario _usuario;
+	
 	private boolean _pagada;
 }
