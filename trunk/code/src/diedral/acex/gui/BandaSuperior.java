@@ -1,6 +1,8 @@
 package diedral.acex.gui;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -11,13 +13,28 @@ import javax.swing.JButton;
  * Banda superior para el manejo de la aplicación.
  */
 class BandaSuperior extends javax.swing.JPanel {
-	public BandaSuperior(){		
+	public BandaSuperior(ManejadorPantallas mnj, FabricaPantallas fabrica){		
 		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+		
+		_mnj = mnj;
+		_fabrica = fabrica;
 		
 		// Crea el botón de registro
 		_registro = new JButton("Registrarse");
 		_registro.setForeground(Color.RED);
 		
+		// Crea el boton de acceder
+		_acceder = new JButton("Acceder");
+		_acceder.setForeground(Color.RED);
+		
+		_acceder.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				_mnj.cambiaA(_fabrica.damePantallaAcceso());
+			}
+			
+		});
 		
 		// Crea el botón de retroceso a la página anterior 
 		_btnanterior = new JButton();
@@ -41,6 +58,8 @@ class BandaSuperior extends javax.swing.JPanel {
 		
 		add(Box.createHorizontalGlue());
 		
+		add(_acceder);
+		
 		add(_registro);
 	}
 	
@@ -48,9 +67,24 @@ class BandaSuperior extends javax.swing.JPanel {
 	// ATRIBUTOS PRIVADOS
 
 	/**
+	 * Manejador de pantallas
+	 */
+	private ManejadorPantallas _mnj;
+	
+	/**
+	 * Fabrica de pantallas
+	 */
+	private FabricaPantallas _fabrica;
+	
+	/**
 	 * Botón de registro
 	 */
 	private JButton _registro;
+	
+	/**
+	 * Bot�n de acceder
+	 */
+	private JButton _acceder;
 	
 	/**
 	 * Botón de 'Anterior'

@@ -3,7 +3,6 @@
  */
 package diedral.acex.gui;
 
-import diedral.acex.Usuario;
 import diedral.acex.gui.pantallas.*;
 
 /**
@@ -41,17 +40,25 @@ public class FabricaPantallas {
 	 * Obtiene una pantalla donde un usuario edita sus datos personales.
 	 * @return
 	 */
-	public Pantalla damePantallaEditarDatosPersonales(Usuario usuario){
+/*	public Pantalla damePantallaEditarDatosPersonales(){
 		if(_pEditarDatosPersonales == null)
-			_pEditarDatosPersonales = new PantallaEditarDatosPersonales(usuario);
+			_pEditarDatosPersonales = new PantallaEditarDatosPersonales();
 		return _pEditarDatosPersonales;
-	}
+	}*/
+	
 	
 	/**
 	 * Obtiene una pantalla de consulta de ofertas.
 	 */
 	public Pantalla damePantallaConsultaOfertas(){
 		return new PantallaConsultaOfertas();
+	}
+	
+	/**
+	 * Obtiene una pantalla de acceso.
+	 */
+	public Pantalla damePantallaAcceso(){
+		return new PantallaAcceso();
 	}
 	/**
 	 * Obtiene una pantalla de realizar pago con tarjeta.
