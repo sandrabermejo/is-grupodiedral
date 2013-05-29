@@ -1,0 +1,73 @@
+format 76
+
+activitynodecanvas 128149 activitynode_ref 128533 // initial_node
+  xyz 88 130 2000
+end
+activityactioncanvas 128277 activityaction_ref 128405 // activity action Mostrar datos y condiciones
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 175 104 2000 142 72
+end
+activityactioncanvas 128405 activityaction_ref 128533 // activity action Requerir aceptación
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 399 110 2000 100 60
+end
+activitynodecanvas 128533 activitynode_ref 128661 // decision
+  xyz 602 120 2000
+end
+activitynodecanvas 129045 activitynode_ref 128789 // activity_final
+  xyz 602 43 2000
+end
+note 129173 "Final por anulación"
+  xyzwh 405 34 2000 179 43
+activityactioncanvas 129429 activityaction_ref 128661 // activity action Preparar billete para el pago
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 452 229 2000 140 61
+end
+activityactioncanvas 129813 activityaction_ref 128789 // activity action Conectar método de pago
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 209 216 2000 124 88
+end
+activitynodecanvas 130069 activitynode_ref 128917 // activity_final
+  xyz 89 246 2000
+end
+flowcanvas 128661 flow_ref 129557 // <flow>
+  
+  from ref 128149 z 2001 to ref 128277
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 128789 flow_ref 129685 // <flow>
+  
+  from ref 128277 z 2001 to ref 128405
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 128917 flow_ref 129813 // <flow>
+  
+  from ref 128405 z 2001 to ref 128533
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129301 flow_ref 129941 // <flow>
+  
+  from ref 128533 z 2001 label "[rechazo]" xyz 621 82 3000 to ref 129045
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129557 flow_ref 130069 // <flow>
+  
+  from ref 128533 z 2001 label "[aceptación]" xyz 517 183 3000 to point 611 256
+  line 129685 z 2001 to ref 129429
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129941 flow_ref 130197 // <flow>
+  
+  from ref 129429 z 2001 to ref 129813
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 130197 flow_ref 130325 // <flow>
+  
+  from ref 129813 z 2001 to ref 130069
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+end

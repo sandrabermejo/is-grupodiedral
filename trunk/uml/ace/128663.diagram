@@ -5,15 +5,15 @@ classinstance 128023 class_ref 161175 // PantallaPagoTarjeta
 classinstance 128407 class_ref 135047 // PagoTarjeta
   name ""   xyz 379 8 2000 life_line_z 2000
 durationcanvas 128151 classinstance_ref 128023 // :PantallaPagoTarjeta
-  xyzwh 113 95 2010 11 184
+  xyzwh 116 95 2010 11 184
 end
 durationcanvas 129047 classinstance_ref 128407 // :PagoTarjeta
-  xyzwh 425 129 2010 11 150
+  xyzwh 427 129 2010 11 150
   overlappingdurationcanvas 129431
-    xyzwh 431 181 2020 11 25
+    xyzwh 433 181 2020 11 25
   end
   overlappingdurationcanvas 129815
-    xyzwh 431 244 2020 11 25
+    xyzwh 433 244 2020 11 25
   end
 end
 reflexivemsg 128279 synchronous

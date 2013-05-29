@@ -5,22 +5,22 @@ classinstance 128007 class_ref 134791 // PantallaConfirmacionCompra
 classinstance 128135 class_ref 134535 // Pago
   name "pago"   xyz 348 58 2000 life_line_z 2000
 durationcanvas 128263 classinstance_ref 128007 // :PantallaConfirmacionCompra
-  xyzwh 153 137 2010 11 26
+  xyzwh 156 137 2010 11 26
 end
 durationcanvas 128391 classinstance_ref 128135 // pago:Pago
   xyzwh 388 136 2010 11 45
 end
 durationcanvas 129159 classinstance_ref 128007 // :PantallaConfirmacionCompra
-  xyzwh 153 210 2010 11 40
+  xyzwh 156 210 2010 11 40
 end
 durationcanvas 129287 classinstance_ref 128135 // pago:Pago
   xyzwh 388 211 2010 11 61
 end
 durationcanvas 129543 classinstance_ref 128007 // :PantallaConfirmacionCompra
-  xyzwh 153 257 2010 11 30
+  xyzwh 156 257 2010 11 30
 end
 durationcanvas 129799 classinstance_ref 128007 // :PantallaConfirmacionCompra
-  xyzwh 153 324 2010 11 44
+  xyzwh 156 324 2010 11 44
 end
 durationcanvas 129927 classinstance_ref 128135 // pago:Pago
   xyzwh 388 325 2010 11 43
@@ -28,7 +28,7 @@ end
 msg 128519 synchronous
   from durationcanvas_ref 128263
   to durationcanvas_ref 128391
-  yz 137 2015 msg operation_ref 128135 // "establecerImporte(in value : double) : void"
+  yz 137 2015 explicitmsg "establecerImporte"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 218 118
 msg 129415 asynchronous
