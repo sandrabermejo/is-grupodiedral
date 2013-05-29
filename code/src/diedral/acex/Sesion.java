@@ -51,6 +51,15 @@ public class Sesion implements Serializable {
 	}
 	
 	/**
+	 * Desvincula al usuario de la sesión actual.
+	 */
+	public void expropiarUsuario(){
+		_usuario = null;
+		
+		emitirEventoCambio();
+	}
+	
+	/**
 	 * ¿Está la sesión activa?
 	 * 
 	 * @return {@code true} en caso afirmativo.

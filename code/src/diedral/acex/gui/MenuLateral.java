@@ -91,25 +91,6 @@ setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		botones.add(t_btn);
 		
-/*		t_btn = new JButton("Datos cliente [dbg]");
-		
-		t_btn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent ae) {
-				Usuario usuario = _mnjSesion.dameUsuarioSesion();
-				if(usuario != null)
-					_mnj.cambiaA(_fabr.damePantallaEditarDatosPersonales(usuario));			
-				else {
-					JOptionPane pane = new JOptionPane("Para modificar tus datos debes iniciar sesión.");
-					JDialog dialog = pane.createDialog("Opción inválida");
-					dialog.setLocationRelativeTo(getRootPane()); //centra la pantalla
-					dialog.setVisible(true);
-				}
-			}
-		});
-		
-		botones.add(t_btn);
-	*/
-		
 		return botones;
 	}
 	

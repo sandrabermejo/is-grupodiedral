@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import diedral.acex.GestorUsuarios;
@@ -58,7 +59,7 @@ public class PantallaAcceso extends Pantalla {
 		// Crea un cuadro de inserción de primer apellido con su texto
 		JPanel panelContrasena = new JPanel(new GridLayout(1, 2));
 		panelContrasena.add(new JLabel("Contraseña"));
-		panelContrasena.add(_contrasena = new JTextField(""));
+		panelContrasena.add(_contrasena = new JPasswordField(""));
 		
 		// Acota el tamaño del cuadro de texto para que no quede raro
 		panelContrasena.setMaximumSize(dim);
@@ -128,7 +129,7 @@ public class PantallaAcceso extends Pantalla {
 	/**
 	 * Contraseña
 	 */
-	private JTextField _contrasena;
+	private JPasswordField _contrasena;
 	
 	/**
 	 * Valor por defecto del espacio vertical entre componentes
