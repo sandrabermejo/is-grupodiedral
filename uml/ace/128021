@@ -1,7 +1,7 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 27
-  modified_by 7 "hlocal"
+  revision 28
+  modified_by 21 "portatil"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -1659,6 +1659,19 @@ ${members}}
 	get_of_attribute attribute_ref 129685 // _codigo
       end
 
+      operation 158357 "damePrecio"
+	public explicit_return_type "double"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	comment "Aunque depende de la clase."
+      end
+
       operation 144149 "fijaCodigo"
 	force_body_gen public explicit_return_type "void"
 	nparams 1
@@ -1845,18 +1858,14 @@ ${members}}
       idl_decl ""
       explicit_switch_type ""
       
-      operation 144661 "vuelosDesde"
+      operation 144661 "buscaVuelo"
 	public return_type class_ref 128907 // Vuelo
 	multiplicity "*"
-	nparams 3
-	  param in name "aeropuerto" type class_ref 129163 // Aeropuerto
-	multiplicity "1"
-	  param in name "desde" explicit_type "Date"
-	multiplicity "1"
-	  param in name "hasta" explicit_type "Date"
+	nparams 1
+	  param in name "criterio" type class_ref 170005 // CriterioBusqueda
 	multiplicity "1"
 	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
   ${body}}
 "
 	
@@ -1931,6 +1940,47 @@ ${members}}
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+
+      class 170005 "CriterioBusqueda"
+	visibility public 
+	cpp_decl ""
+	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	
+	comment "Criterio de búsqueda de vuelos"
+	operation 158101 "conOrigen"
+	  public explicit_return_type ""
+	  nparams 1
+	    param in name "origen" type class_ref 129163 // Aeropuerto
+	  multiplicity "1"
+	  
+	  java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	end
+
+	operation 158229 "conDestino"
+	  public explicit_return_type ""
+	  nparams 1
+	    param in name "destino" type class_ref 129163 // Aeropuerto
+	  multiplicity "1"
+	  
+	  java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	end
       end
     end
 
@@ -3488,6 +3538,19 @@ ${members}}
       end
 
       class 162837 "PantallaConsultaVuelos"
+	visibility package 
+	cpp_decl ""
+	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	
+      end
+
+      class 170133 "PantallaDetalleVuelo"
 	visibility package 
 	cpp_decl ""
 	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
