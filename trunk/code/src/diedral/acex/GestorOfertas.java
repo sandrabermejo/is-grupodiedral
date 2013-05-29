@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeSet;
 
 /**
  * Gestor de ofertas.
@@ -88,6 +89,10 @@ public class GestorOfertas implements Serializable {
 	*/
 	private GestorOfertas(){
 		ofertas = new HashMap();
+		// Oferta a modo de ejemplo
+		int[] v= {18, 25};	
+		Oferta nuestroOferton = new Oferta(new TreeSet<Vuelo>(), "Valencia", v, 30, "Oferton Diedral");
+		insertarOferta(nuestroOferton);
 	}
 	
 	 // ATRIBUTOS PRIVADOS
