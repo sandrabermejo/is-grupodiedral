@@ -49,7 +49,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 
 		// Ubica los paneles superior y lateral
 		add(new MenuLateral(this, _fabrica, this), BorderLayout.WEST);
-		add(new BandaSuperior(this, _fabrica), BorderLayout.NORTH);
+		add(new BandaSuperior(this, _fabrica, this), BorderLayout.NORTH);
 		
 		_marco = new MarcoCentral();
 		add(_marco, BorderLayout.CENTER);
@@ -104,6 +104,11 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	@Override
 	public Usuario dameUsuarioSesion() {
 		return _usuario;
+	}
+	
+	@Override
+	public void tomaUsuario(Usuario usuario) {
+		_usuario = usuario;	
 	}
 	
 	// MÉTODOS PRIVADOS
@@ -219,7 +224,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		/**
 		 * Pila de pantallas
 		 */
-		private Queue<Pantalla> _pantallas = new ArrayDeque<>();
+		private Queue<Pantalla> _pantallas = new ArrayDeque();
 		
 		/**
 		 * Card Layout
@@ -251,5 +256,4 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	 * Serial UID 
 	 */
 	private static final long serialVersionUID = -1668893384096959140L;
-
 }

@@ -3,19 +3,27 @@ package diedral.acex.gui.pantallas;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import diedral.acex.GestorUsuarios;
+import diedral.acex.Usuario;
+import diedral.acex.gui.ManejadorSesion;
 import diedral.acex.gui.Pantalla;
 
 public class PantallaAcceso extends Pantalla {
 
-	public PantallaAcceso() {
+	public PantallaAcceso(ManejadorSesion mnj) {
+		
+		_mnj = mnj;
 		
 		//Características ventana
 		setLayout(new BorderLayout());
@@ -52,6 +60,7 @@ public class PantallaAcceso extends Pantalla {
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
 		JButton confirmar = new JButton("Iniciar sesion");
+		confirmar.addActionListener(new IniciarSesion());
 		panel.add(confirmar);
 		
 		this.add(panel);
@@ -60,6 +69,30 @@ public class PantallaAcceso extends Pantalla {
 	public String dameNombre() {
 		return "Acceso";
 	}
+	
+	private class IniciarSesion implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			Usuario usuario = GestorUsuarios.dameInstancia().buscaUsuario(_correo.getText());
+			
+			if (!usuario.dameContrasena().equals(_contrasena.getText()))
+				JOptionPane.showMessageDialog(PantallaAcceso.this,
+						"Contraseña incorrecta.",
+						"ACE Gestión Externa - Acceso",
+						JOptionPane.ERROR_MESSAGE);
+			else
+				_mnj.tomaUsuario(usuario);
+								
+		}
+		
+	}
+	
+	/**
+	 * Manejador sesion
+	 */
+	private ManejadorSesion _mnj;
 	
 	/**
 	 * Correo

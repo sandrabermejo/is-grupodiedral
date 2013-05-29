@@ -13,11 +13,12 @@ import javax.swing.JButton;
  * Banda superior para el manejo de la aplicación.
  */
 class BandaSuperior extends javax.swing.JPanel {
-	public BandaSuperior(ManejadorPantallas mnj, FabricaPantallas fabrica){		
+	public BandaSuperior(ManejadorPantallas mnj, FabricaPantallas fabrica, ManejadorSesion mnjSesion){		
 		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		
 		_mnj = mnj;
 		_fabrica = fabrica;
+		_mnjSesion = mnjSesion;
 		
 		// Crea el botón de registro
 		_registro = new JButton("Registrarse");
@@ -31,7 +32,7 @@ class BandaSuperior extends javax.swing.JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				_mnj.cambiaA(_fabrica.damePantallaAcceso());
+				_mnj.cambiaA(_fabrica.damePantallaAcceso(BandaSuperior.this._mnjSesion));
 			}
 			
 		});
@@ -75,6 +76,11 @@ class BandaSuperior extends javax.swing.JPanel {
 	 * Fabrica de pantallas
 	 */
 	private FabricaPantallas _fabrica;
+	
+	/**
+	 * Manejador de sesion
+	 */
+	private ManejadorSesion _mnjSesion;
 	
 	/**
 	 * Botón de registro

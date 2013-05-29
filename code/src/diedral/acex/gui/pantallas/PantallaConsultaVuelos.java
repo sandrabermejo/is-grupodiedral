@@ -77,7 +77,7 @@ public class PantallaConsultaVuelos extends Pantalla {
 			JPanel tpanel = new JPanel();
 			tpanel.setLayout(new BoxLayout(tpanel, BoxLayout.LINE_AXIS));
 			
-			_origen = new JComboBox<>(new Vector<>(GestorVuelos.dameInstancia().dameAeropuertos()));
+			_origen = new JComboBox(new Vector(GestorVuelos.dameInstancia().dameAeropuertos()));
 			_fechaSalida = new JFormattedTextField(msk);
 			
 			Dimension dim = _fechaSalida.getPreferredSize();
@@ -99,7 +99,7 @@ public class PantallaConsultaVuelos extends Pantalla {
 			tpanel = new JPanel();
 			tpanel.setLayout(new BoxLayout(tpanel, BoxLayout.LINE_AXIS));
 			
-			_destino = new JComboBox<>(new Vector<>(GestorVuelos.dameInstancia().dameAeropuertos()));
+			_destino = new JComboBox(new Vector(GestorVuelos.dameInstancia().dameAeropuertos()));
 			_fechaLlegada = new JFormattedTextField(msk);
 			
 			_fechaLlegada.setMaximumSize(dim);
@@ -133,7 +133,7 @@ public class PantallaConsultaVuelos extends Pantalla {
 					
 					Set<Vuelo> vuelos = GestorVuelos.dameInstancia().buscaVuelo(criterio);
 					
-					_tablaVuelos.ponVuelos(new Vector<>(vuelos));
+					_tablaVuelos.ponVuelos(new Vector(vuelos));
 					
 				}
 			});
@@ -247,7 +247,7 @@ public class PantallaConsultaVuelos extends Pantalla {
 		/**
 		 * Vector de vuelos mostrados.
 		 */
-		private Vector<Vuelo> _vuelos = new Vector<>();
+		private Vector<Vuelo> _vuelos = new Vector<Vuelo>();
 		
 		/**
 		 * Serial UID 
