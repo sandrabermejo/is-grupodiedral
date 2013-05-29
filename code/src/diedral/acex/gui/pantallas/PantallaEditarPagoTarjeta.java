@@ -54,7 +54,7 @@ public class PantallaEditarPagoTarjeta extends Pantalla{
 		panelNumeroTarjeta.add(_textNumeroTarjeta = new JTextField(""));
 		
 		// Acota el tamaño del cuadro de texto para que no quede raro
-		dim = panelNumeroTarjeta.getMaximumSize();
+		panelNumeroTarjeta.setMaximumSize(dim);
 		
 		panel.add(panelNumeroTarjeta);
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
@@ -68,12 +68,12 @@ public class PantallaEditarPagoTarjeta extends Pantalla{
 		panelValorCompra.add(_textValorCompra);
 		
 		// Acota el tamaño del cuadro de texto para que no quede raro
-		dim = panelValorCompra.getMaximumSize();
+		panelValorCompra.setMaximumSize(dim);
 		
 		panel.add(panelValorCompra);
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
-		JPanel panelServidores = new JPanel();
+		JPanel panelServidores = new JPanel(new GridLayout(1, 2));
 		_servidores = new Vector<String>();
 		_servidores.add("MasterCard");
 		_servidores.add("Visa");
@@ -81,17 +81,18 @@ public class PantallaEditarPagoTarjeta extends Pantalla{
 		_servidores.add("Discover");
 		_comboBoxServidores = new JComboBox<String>(_servidores);
 		panelServidores.add(_comboBoxServidores);
-	
-		panel.add(panelServidores);
 		
 		_finalizarPago = new JButton("Finalizar pago");
-		panel.add(_finalizarPago);
+		panelServidores.add(_finalizarPago);
 		_finalizarPago.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				introducirDatos();
 			}
 		});
+		
+		panel.add(panelServidores);
+		panelServidores.setMaximumSize(dim);
 		
 		//añadimos el panel a la ventana
 		add(panel);

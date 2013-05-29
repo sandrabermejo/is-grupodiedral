@@ -29,6 +29,7 @@ public class PagoTarjeta implements Pago {
 		_titular = titular; //Controlar corrección de datos o lanzar excepciones ?
 		_numeroTarjeta = numeroTarjeta;
 		_importe = importe;
+		_compra = compra;
 	}
 
 	
