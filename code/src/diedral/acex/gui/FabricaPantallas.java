@@ -40,11 +40,13 @@ public class FabricaPantallas {
 	 * Obtiene una pantalla donde un usuario edita sus datos personales.
 	 * @return
 	 */
-	public Pantalla damePantallaEditarDatosPersonales(){
+/*	public Pantalla damePantallaEditarDatosPersonales(){
 		if(_pEditarDatosPersonales == null)
 			_pEditarDatosPersonales = new PantallaEditarDatosPersonales();
 		return _pEditarDatosPersonales;
-	}
+	}*/
+	
+	
 	/**
 	 * Obtiene una pantalla de consulta de ofertas.
 	 */
@@ -55,9 +57,9 @@ public class FabricaPantallas {
 	 * Obtiene una pantalla de realizar pago con tarjeta.
 	 * @return
 	 */
-	public Pantalla damePantallaEditarPagoTarjeta(){
+	/*public Pantalla damePantallaEditarPagoTarjeta(){
 		return new PantallaEditarPagoTarjeta();
-	}
+	}*/
 	
 	// ATRIBUTOS PRIVADOS
 	
