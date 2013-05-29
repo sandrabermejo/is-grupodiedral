@@ -1,7 +1,7 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 24
-  modified_by 11 "Bermejo"
+  revision 26
+  modified_by 21 "portatil"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -1069,6 +1069,11 @@ ${members}};
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default show_stereotype_properties default
+    classdiagram 167189 "Diagrama de clases de diseño"
+      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      size A4
+    end
+
     class 163477 "Date"
       visibility package 
       cpp_decl ""
@@ -1226,6 +1231,10 @@ ${members}}
 	python_decl ""
 	idl_decl ""
 	get_oper operation_ref 141589 // dameCiudad
+      end
+
+      classrelation 145429 // <aggregation>
+	relation_ref 143381 // <aggregation>
       end
     end
 
@@ -1811,6 +1820,18 @@ ${members}}
 	get_oper operation_ref 144021 // dameCodigo
 	set_oper operation_ref 144149 // fijaCodigo
       end
+
+      classrelation 145301 // <aggregation>
+	relation 143381 o---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 145301 // <aggregation>
+	  b role_name "" multiplicity "2" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type}${multiplicity} ${name}${value};
+"
+	    classrelation_ref 145429 // <aggregation>
+      end
     end
 
     class 163349 "GestorVuelos"
@@ -1924,35 +1945,18 @@ ${members}}
       idl_decl ""
       explicit_switch_type ""
       
-      attribute 128007 "_importe"
-	public explicit_type "double"
-	cpp_decl ""
-	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
-"
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	set_oper operation_ref 128135 // establecerImporte
-      end
-
-      operation 128135 "establecerImporte"
-	force_body_gen public explicit_return_type "void"
+      operation 151573 "establecerImporte"
+	public explicit_return_type "void"
 	nparams 1
-	  param in name "value" explicit_type "double"
+	  param in name "importe" explicit_type "double"
+	multiplicity "1"
 	
-	cpp_name_spec "set_${name}"
 	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
-  _importe = ${p0};
-}
+  ${body}}
 "
-	java_name_spec "set${Name}"
 	
-	php_name_spec "set${Name}"
 	
-	python_name_spec "set${Name}"
 	
-	idl_name_spec "set_${name}"
-	set_of_attribute attribute_ref 128007 // _importe
       end
 
       operation 128263 "obtenerSobrecoste"
@@ -2055,9 +2059,6 @@ ${members}}
 
     class 135047 "PagoTarjeta"
       visibility public 
-      nformals 1
-      formal name "" type "class" explicit_default_value ""
-        extends class_ref 134535 // Pago
       cpp_decl ""
       java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
 ${members}}
@@ -2128,7 +2129,7 @@ ${members}}
       end
 
       operation 143767 "obtenerSobrecoste"
-	public explicit_return_type ""
+	public explicit_return_type "double"
 	nparams 0
 	
 	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
@@ -2189,6 +2190,14 @@ ${members}}
 	
 	idl_name_spec "set_${name}"
 	set_of_attribute attribute_ref 128519 // _numeroTarjeta
+      end
+
+      classrelation 145557 // <generalisation>
+	relation 143509 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 145557 // <generalisation>
+	  b parent class_ref 134535 // Pago
       end
     end
 
@@ -3301,7 +3310,6 @@ ${members}}
 	
 	
       end
-
     end
   end
 
@@ -3775,6 +3783,138 @@ ${members}}
 	  
 	  
 	end
+      end
+    end
+  end
+
+  usecaseview 134549 "Diagramas de actividad"
+    //use case diagram settings
+    package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    activity 128021 "Acceder web"
+      activitydiagram 173717 "Acceder web (DA)"
+	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations no shadow default
+	show_infonote default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      activitynode 128021 initial_node "Inicio"
+	flow 128021 "<flow>"
+	  on activityaction_ref 128021 // activity action Insertar identificación usuario
+	end
+      end
+
+      activityaction 128021 "Insertar identificación usuario"
+	opaque_action
+	flow 128277 "<flow>"
+	  on activitynode_ref 128277 // decision
+	end
+
+	flow 128917 "<flow>"
+	  on activityaction_ref 128149 // activity action Comprobar registro usuario
+	end
+      end
+
+      activitynode 128277 decision "Datos válidos"
+	flow 129173 "<flow>"
+	  on activityaction_ref 128021 // activity action Insertar identificación usuario
+	    uml_guard "nombre-clave no válido"
+	end
+
+	flow 129301 "<flow>"
+	  on activityaction_ref 128277 // activity action Conceder acceso
+	    uml_guard "usuario válido"
+	end
+      end
+
+      activityaction 128149 "Comprobar registro usuario"
+	opaque_action
+	flow 129045 "<flow>"
+	  on activitynode_ref 128277 // decision
+	end
+      end
+
+      activityaction 128277 "Conceder acceso"
+	opaque_action
+	flow 129429 "<flow>"
+	  on activitynode_ref 128405 // activity_final
+	end
+      end
+
+      activitynode 128405 activity_final "Final"
+      end
+    end
+
+    activity 128149 "Iniciar pago billetes"
+      activitydiagram 173845 "Iniciar pago billetes (DA)"
+	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+	show_infonote default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      activitynode 128533 initial_node "Inicio"
+	flow 129557 "<flow>"
+	  on activityaction_ref 128405 // activity action Mostrar datos y condiciones
+	end
+      end
+
+      activityaction 128405 "Mostrar datos y condiciones"
+	opaque_action
+	flow 129685 "<flow>"
+	  on activityaction_ref 128533 // activity action Requerir aceptación
+	end
+      end
+
+      activityaction 128533 "Requerir aceptación"
+	opaque_action
+	flow 129813 "<flow>"
+	  on activitynode_ref 128661 // decision
+	end
+      end
+
+      activitynode 128661 decision "Confirmación usuario"
+	flow 129941 "<flow>"
+	  on activitynode_ref 128789 // activity_final
+	    uml_guard "rechazo"
+	end
+
+	flow 130069 "<flow>"
+	  on activityaction_ref 128661 // activity action Preparar billete para el pago
+	    uml_guard "aceptación"
+	end
+      end
+
+      activitynode 128789 activity_final "Final por anulación"
+      end
+
+      activityaction 128661 "Preparar billete para el pago"
+	opaque_action
+	flow 130197 "<flow>"
+	  on activityaction_ref 128789 // activity action Conectar método de pago
+	end
+      end
+
+      activityaction 128789 "Conectar método de pago"
+	opaque_action
+	flow 130325 "<flow>"
+	  on activitynode_ref 128917 // activity_final
+	end
+      end
+
+      activitynode 128917 activity_final "Final"
       end
     end
   end
