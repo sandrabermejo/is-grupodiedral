@@ -1,0 +1,33 @@
+format 76
+
+classinstance 128011 class_ref 137995 // PantallaOferta
+  name ""   xyz 94 4 2000 life_line_z 2000
+classinstance 129035 class_ref 135303 // GestorOfertas
+  name ""   xyz 378 4 2000 life_line_z 2000
+durationcanvas 128779 classinstance_ref 128011 // :PantallaOferta
+  xyzwh 148 293 2010 11 42
+end
+durationcanvas 129163 classinstance_ref 128011 // :PantallaOferta
+  xyzwh 148 128 2010 11 167
+end
+durationcanvas 129291 classinstance_ref 129035 // :GestorOfertas
+  xyzwh 431 127 2010 11 81
+end
+reflexivemsg 128907 asynchronous
+  to durationcanvas_ref 128779
+  yz 293 2015 explicitmsg "mostrar(datosOferta)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 193 306
+msg 129419 asynchronous
+  from durationcanvas_ref 129163
+  to durationcanvas_ref 129291
+  yz 130 2015 msg operation_ref 129543 // "buscarOferta(in nombre : string) : Oferta"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 242 111
+msg 129547 return
+  from durationcanvas_ref 129291
+  to durationcanvas_ref 129163
+  yz 181 2015 explicitmsg "datosOferta"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 253 162
+end
