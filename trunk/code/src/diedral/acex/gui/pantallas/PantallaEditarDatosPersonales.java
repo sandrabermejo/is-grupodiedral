@@ -21,7 +21,7 @@ import diedral.acex.gui.Pantalla;
 
 public class PantallaEditarDatosPersonales extends Pantalla {
 	
-	public PantallaEditarDatosPersonales(Usuario usuario){
+	public PantallaEditarDatosPersonales(){
 		
 		//Características ventana
 		setLayout(new BorderLayout());

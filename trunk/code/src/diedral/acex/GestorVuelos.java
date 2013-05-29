@@ -197,6 +197,5 @@ public class GestorVuelos implements Serializable {
 	/**
 	 * Serial UID (modo texto)
 	 */
-	@SuppressWarnings("unused")
 	private static final String versionTID = AyudantePersistencia.generaTID(serialVersionUID);
 }

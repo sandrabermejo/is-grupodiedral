@@ -49,8 +49,8 @@ public class FabricaPantallas {
 	 * Obtiene una pantalla donde un usuario edita sus datos personales.
 	 * @return
 	 */
-	public Pantalla damePantallaEditarDatosPersonales(Usuario usuario){
-		return new PantallaEditarDatosPersonales(usuario);
+	public Pantalla damePantallaEditarDatosPersonales(){
+		return new PantallaEditarDatosPersonales();
 	}
 	
 	

@@ -5,9 +5,7 @@ package diedral.acex;
 
 import java.io.Serializable;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import diedral.acex.excepciones.UsuarioInvalidoException;
 
@@ -21,8 +19,22 @@ public class GestorUsuarios implements Serializable {
 	 * @return Un {@code GestorVuelos} válido.
 	 */
 	public static GestorUsuarios dameInstancia(){
-		if (_instancia == null)
-			_instancia = new GestorUsuarios();
+		if (_instancia == null) {
+			// Intenta cargarlo de los datos almacenados
+			_instancia = (GestorUsuarios) AyudantePersistencia.dameInstancia().recuperayVigila(
+					versionTID);
+			
+			if (_instancia == null)
+				_instancia = new GestorUsuarios();
+			
+			try { 
+				_instancia.meteUsuario(new Usuario("Karl", "Pearson", "", "chi", "kpearson@est.co.uk"));
+				_instancia.meteUsuario(new Usuario("Jearzy", "Neyman", "", "h0", "neyman@berkeley.edu"));
+			}
+			catch (Exception e ){
+				// Nada
+			}
+		}
 		
 		return _instancia;
 	}
@@ -33,13 +45,12 @@ public class GestorUsuarios implements Serializable {
 	 * @param usuario
 	 * @throws UsuarioInvalidoException
 	 */
-	public void meteUsuario(Usuario usuario) throws UsuarioInvalidoException{
+	public void meteUsuario(Usuario usuario) throws UsuarioInvalidoException {
 		if(usuario != null){
-			if(validar(usuario.dameCorreo())){
+			if(validar(usuario.dameCorreo()))
 				_usuarios.put(usuario.dameCorreo(), usuario);
-			} else {
+			else
 				throw new UsuarioInvalidoException("Un usuario existente ya tiene ese eMail asociado");
-			}
 		}
 	}
 	/**
@@ -57,10 +68,15 @@ public class GestorUsuarios implements Serializable {
 	/**
 	 * Dado un nuevo usuario y un mail de un usuario ya existente,
 	 * mete un nuevo usuario en el sistema.
+	 * 
 	 * @param usuario
 	 * @param mailAntiguo
 	 */
 	public void reemplazarUsuario(Usuario usuario, String mailAntiguo){
+		/*
+		 * El nombre no es muy afortunado.
+		 */
+		
 		if(_usuarios.containsKey(mailAntiguo)){
 			//borrar el usuario no modificado
 			_usuarios.remove(mailAntiguo);
@@ -88,9 +104,15 @@ public class GestorUsuarios implements Serializable {
 	/**
 	 * Almacén de usuario
 	 */
-	Map<String, Usuario> _usuarios = new TreeMap<String, Usuario>();
+	private Map<String, Usuario> _usuarios = new TreeMap<String, Usuario>();
 	
-	 /**Serial UID
+	/**
+	 * Serial UID
 	 */
 	private static final long serialVersionUID = -5908205608136658471L;
+	
+	/**
+	 * Serial UID (modo texto)
+	 */
+	private static final String versionTID = AyudantePersistencia.generaTID(serialVersionUID);
 }
