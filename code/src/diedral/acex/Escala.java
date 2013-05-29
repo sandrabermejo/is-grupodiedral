@@ -37,7 +37,7 @@ public class Escala {
 	 * 
 	 * @return El tiempo de espera.
 	 */
-	public GregorianCalendar get_espera() {
+	public GregorianCalendar dameEspera() {
 		return _espera;
 	}
 	

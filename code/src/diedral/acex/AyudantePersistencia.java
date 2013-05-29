@@ -110,6 +110,12 @@ public class AyudantePersistencia implements Serializable {
 		return true;
 	}
 	
+	
+	// CONSTRUCTOR PRIVADO
+	
+	private AyudantePersistencia() {}
+	
+	
 	// ATRIBUTOS PRIVADOS
 	
 	/**

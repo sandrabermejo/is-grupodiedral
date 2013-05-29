@@ -91,7 +91,7 @@ setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		botones.add(t_btn);
 		
-		t_btn = new JButton("Datos cliente [dbg]");
+/*		t_btn = new JButton("Datos cliente [dbg]");
 		
 		t_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
@@ -108,6 +108,7 @@ setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		});
 		
 		botones.add(t_btn);
+	*/
 		
 		return botones;
 	}

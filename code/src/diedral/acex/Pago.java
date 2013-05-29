@@ -26,9 +26,9 @@ public interface Pago extends java.io.Serializable {
 	*/
 	public boolean efectuar();
 	
-	/*
-	* Calcula la comisión asociada a la operación.
-	* @return El sobre coste por el pago.
-	*/
+	/**
+	 * Calcula la comisión asociada a la operación.
+	 * @return El sobrecoste por el pago.
+	 */
 	public double obtenerSobrecoste();	
 }

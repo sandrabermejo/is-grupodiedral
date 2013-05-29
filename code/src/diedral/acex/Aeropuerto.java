@@ -83,7 +83,7 @@ public class Aeropuerto implements java.io.Serializable {
 	/**
 	 * Nombre del aeropuerto
 	 */
-	public String _nombre;
+	private String _nombre;
 
 	/**
 	 * Código IATA

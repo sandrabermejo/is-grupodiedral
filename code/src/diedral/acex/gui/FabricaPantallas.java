@@ -10,8 +10,15 @@ import diedral.acex.gui.pantallas.*;
 /**
  * Fábrica de pantallas.
  *
+ * <p>Esta clase crea las diferentes pantallas de la aplicación, todas ellas
+ * herederas de la clase abstract {@link diredral.acex.gui.Pantalla}.
  */
 public class FabricaPantallas {
+	/**
+	 * Contruye una fábrica de pantallas.
+	 */
+	public FabricaPantallas() {}
+	
 	/**
 	 * Obtiene una pantalla de sugerencias.
 	 */
