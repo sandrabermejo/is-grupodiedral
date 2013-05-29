@@ -9,8 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
 import java.util.Set;
 import java.util.Vector;
 
@@ -230,11 +228,11 @@ public class PantallaConsultaVuelos extends Pantalla {
 				case 1 :
 					return vuelo.dameOrigen();
 				case 2 :
-					return formatoFecha.format(vuelo.dameFechaSalida().getGregorianChange());
+					return formatoFecha.format(vuelo.dameFechaSalida().getTime());
 				case 3 :
 					return vuelo.dameDestino();
 				case 4 :
-					return formatoFecha.format(vuelo.dameFechaLlegada().getGregorianChange());
+					return formatoFecha.format(vuelo.dameFechaLlegada().getTime());
 				default :
 					return "--";
 			}

@@ -20,7 +20,7 @@ public class GestorVuelos implements Serializable {
 	public static GestorVuelos dameInstancia(){
 		if (_instancia == null){
 			// Intenta cargarlo de los datos almacenados
-			_instancia = (GestorVuelos) AyudantePersistencia.recupera(versionTID);
+			_instancia = (GestorVuelos) AyudantePersistencia.dameInstancia().recuperayVigila(versionTID);
 			
 			// Si no ha funcionado
 			if (_instancia == null)
@@ -28,21 +28,7 @@ public class GestorVuelos implements Serializable {
 		}
 		
 		return _instancia;
-	}
-	
-	/**
-	 * Sincroniza el objeto con la base datos.
-	 * 
-	 * <p>Realmente lo guarda en un archivo.
-	 * 
-	 * @return {@code true} si todo fue bien. {@code false} en caso
-	 * contrario.
-	 */
-	public static boolean sincronizaDatos(){
-		return AyudantePersistencia.almacena(_instancia, 
-				versionTID);
-	}
-	
+	}	
 	
 	/**
 	 * Inserta un vuelo en el registro de la compañía.
@@ -212,6 +198,5 @@ public class GestorVuelos implements Serializable {
 	 * Serial UID (modo texto)
 	 */
 	@SuppressWarnings("unused")
-	private static final String versionTID = String.format("%s%s", (serialVersionUID < 0 ? "N" : ""),
-			new Long(Math.abs(serialVersionUID)).toString());
+	private static final String versionTID = AyudantePersistencia.generaTID(serialVersionUID);
 }
