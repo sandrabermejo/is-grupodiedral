@@ -25,6 +25,7 @@ import diedral.acex.Billete;
 import diedral.acex.Compra;
 import diedral.acex.Dni;
 import diedral.acex.Pasajero;
+import diedral.acex.Sesion;
 import diedral.acex.Vuelo;
 import diedral.acex.excepciones.CampoRequeridoException;
 import diedral.acex.excepciones.FormatoIncorrectoException;
@@ -33,10 +34,13 @@ import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
 
 public class PantallaCompra extends Pantalla {
-
-	public PantallaCompra(ManejadorPantallas mnj, FabricaPantallas fabrica, Vuelo vuelo, int numBilletes) {
-		_mnj = mnj;
-		_fabrica = fabrica;
+	/**
+	 * Crea una pantalla de compra dado un vuelo y un número de billetes.
+	 * 
+	 * @param vuelo Vuelo.
+	 * @param numBilletes Número de billetes.
+	 */
+	public PantallaCompra(Vuelo vuelo, int numBilletes) {
 		_vuelo = vuelo;
 		_numBilletes = numBilletes;
 		_numPasajerosAnadidos = 0;
@@ -145,6 +149,20 @@ public class PantallaCompra extends Pantalla {
 		return "Compra";
 	}
 	
+	/*
+	 * Almacena el contexto 
+	 */
+	@Override
+	public void estableceContexto(ManejadorPantallas manejador,
+			FabricaPantallas fabrica, Sesion sesion) {
+		_mnj = manejador;
+		_fabrica = fabrica;
+	}
+	
+	/**
+	 * Clase oyente para añadir pasajero.
+	 *
+	 */
 	private class AnadirPasajero implements ActionListener {
 
 		@Override

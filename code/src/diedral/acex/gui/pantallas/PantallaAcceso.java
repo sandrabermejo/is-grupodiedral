@@ -1,3 +1,7 @@
+/*
+ * PantallaAcceso.java - ACE Gestión Externa - Grupo diedral 2013
+ */
+
 package diedral.acex.gui.pantallas;
 
 import java.awt.BorderLayout;
@@ -15,11 +19,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import diedral.acex.GestorUsuarios;
+import diedral.acex.Sesion;
 import diedral.acex.Usuario;
+import diedral.acex.gui.FabricaPantallas;
+import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
 
 public class PantallaAcceso extends Pantalla {
 
+	/**
+	 * Crea una pantalla de acceso.
+	 * 
+	 */
 	public PantallaAcceso() {
 		
 		//Características ventana
@@ -67,6 +78,17 @@ public class PantallaAcceso extends Pantalla {
 		return "Acceso";
 	}
 	
+	@Override
+	public void estableceContexto(ManejadorPantallas manejador,
+			FabricaPantallas fabrica, Sesion sesion) {
+		_manejadorPantallas = manejador;
+		_sesion = sesion;
+	}
+	
+	/**
+	 * Clase oyente para iniciar sesión.
+	 *
+	 */
 	private class IniciarSesion implements ActionListener {
 
 		@Override
@@ -74,17 +96,29 @@ public class PantallaAcceso extends Pantalla {
 			
 			Usuario usuario = GestorUsuarios.dameInstancia().buscaUsuario(_correo.getText());
 			
-			if (!usuario.dameContrasena().equals(_contrasena.getText()))
+			if (usuario == null || !usuario.dameContrasena().equals(_contrasena.getText()))
 				JOptionPane.showMessageDialog(PantallaAcceso.this,
-						"Contraseña incorrecta.",
+						"ID o constraseña no válida.",
 						"ACE Gestión Externa - Acceso",
 						JOptionPane.ERROR_MESSAGE);
-			else
-				;//_mnj.tomaUsuario(usuario);
+			else {
+				_sesion.cargaUsuario(usuario);
+				_manejadorPantallas.cierraPantallaActual();
+			}
 								
 		}
 		
 	}
+	
+	/**
+	 * Manejador de pantallas
+	 */
+	private ManejadorPantallas _manejadorPantallas;
+	
+	/**
+	 * Sesión actual
+	 */
+	private Sesion _sesion;
 	
 	/**
 	 * Correo
