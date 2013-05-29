@@ -8,11 +8,22 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import diedral.acex.Sesion;
+import diedral.acex.eventos.OyenteCambios;
 
 /**
  * Banda superior para el manejo de la aplicación.
  */
-class BandaSuperior extends javax.swing.JPanel {
+class BandaSuperior extends JPanel implements OyenteCambios<Sesion> {
+	/**
+	 * Crea la banda superior de la aplicación.
+	 * 
+	 * @param mnj Manejador de pantallas.
+	 * @param fabrica Fábrica.
+	 * @param sesion Sesión.
+	 */
 	public BandaSuperior(ManejadorPantallas mnj, FabricaPantallas fabrica){		
 		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		
@@ -24,17 +35,8 @@ class BandaSuperior extends javax.swing.JPanel {
 		_registro.setForeground(Color.RED);
 		
 		// Crea el boton de acceder
-		_acceder = new JButton("Acceder");
+		_acceder = new BotonUsuario("Acceder");
 		_acceder.setForeground(Color.RED);
-		
-		_acceder.addActionListener(new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				_mnj.cambiaA(_fabrica.damePantallaAcceso());
-			}
-			
-		});
 		
 		// Crea el botón de retroceso a la página anterior 
 		_btnanterior = new JButton();
@@ -64,6 +66,31 @@ class BandaSuperior extends javax.swing.JPanel {
 	}
 	
 	
+	@Override
+	public void haCambiado(Sesion arg) {
+		_acceder.setText(arg.dameUsuario().dameCorreo());	
+	}
+	
+	
+	// OYENTE BOTÓN DE USUARIO
+	
+	private class BotonUsuario extends JButton {
+		BotonUsuario(String texto){
+			super(texto);
+			
+			addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					_mnj.cambiaA(_fabrica.damePantallaAcceso());
+				}
+			});
+		}
+		
+		/**
+		 * Serial UID
+		 */
+		private static final long serialVersionUID = 4417627566354659381L;
+	}
+	
 	// ATRIBUTOS PRIVADOS
 
 	/**
@@ -82,7 +109,7 @@ class BandaSuperior extends javax.swing.JPanel {
 	private JButton _registro;
 	
 	/**
-	 * Bot�n de acceder
+	 * Botón de acceder
 	 */
 	private JButton _acceder;
 	

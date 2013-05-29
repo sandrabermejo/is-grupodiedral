@@ -23,6 +23,7 @@ import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 
 import diedral.acex.AyudantePersistencia;
+import diedral.acex.Sesion;
 
 /**
  * Ventana principal de la interfaz de gestión externa de ACE.
@@ -72,6 +73,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		_marco.apilaPantalla(pt);
 		_marco.validate();
 
+		pt.estableceContexto(this, _fabrica, _sesion);
 		pt.alMostrar();
 
 		if (pt.dameNombre() != null)
@@ -232,6 +234,10 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	 */
 	private MarcoCentral _marco;
 	
+	/**
+	 * Sesión
+	 */
+	private Sesion _sesion = new Sesion();
 	
 	/**
 	 * Fábrica de pantallas

@@ -3,6 +3,8 @@
  */
 package diedral.acex.gui;
 
+import diedral.acex.Sesion;
+
 /**
  * Una pantalla o página representa un elemento de la interacción con el usuario
  * mediante la interfaz gráfica.
@@ -35,12 +37,14 @@ public abstract class Pantalla extends javax.swing.JPanel {
 	public abstract String dameNombre();
 
 	/**
-	 * Establece un manejador de pantallas con el que comunicarse.
+	 * Establece el contexto de la pantalla con la que comunicarse.
 	 * 
 	 * @param manejador Manejador de pantallas.
-	 * @param fabrica Fábrica de pantallas. 
+	 * @param fabrica Fábrica de pantallas.
+	 * @param sesion Sesión activa.
 	 */
-	public void estableceContexto(ManejadorPantallas manejador, FabricaPantallas fabrica) {}
+	public void estableceContexto(ManejadorPantallas manejador, FabricaPantallas fabrica,
+			Sesion sesion) {}
 	
 	/**
 	 * Serial UID

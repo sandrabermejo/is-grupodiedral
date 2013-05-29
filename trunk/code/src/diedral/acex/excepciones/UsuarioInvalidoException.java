@@ -1,6 +1,16 @@
+/*
+ * UsuarioInvalidoException.java - ACE Gestión Externa - Grupo Diedral 2013
+ */
+
 package diedral.acex.excepciones;
 
-public class UsuarioInvalidoException extends Exception{
+/**
+ * Excepción lanzada cuando un usuario no es válido.
+ * 
+ * TODO: explicar que es esta excepción
+ *
+ */
+public class UsuarioInvalidoException extends Exception {
 	/**
 	 * Contruye una excepción sin mensaje ni causa.
 	 */
@@ -40,4 +50,8 @@ public class UsuarioInvalidoException extends Exception{
 		super(mensaje, causa);
 	}
 
+	/**
+	 * Serial UID
+	 */
+	private static final long serialVersionUID = 7145573208484864358L;
 }

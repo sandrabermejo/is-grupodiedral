@@ -74,6 +74,8 @@ public class Oferta implements Serializable {
 		return _descuento;		
 	}
 	
+	
+	
 	// ATRIBUTOS PRIVADOS
 	
 	/**

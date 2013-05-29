@@ -64,11 +64,11 @@ public class FabricaPantallas {
 	/**
 	 * Obtiene una pantalla de compra
 	 * 
-	 * <p>No puede haber tantos parámetros (encapsularlos o algo)
+	 * TODO: documentar
 	 * 
 	 */
-	public Pantalla damePantallaCompra(ManejadorPantallas mnj, Vuelo vuelo, int numBilletes){
-		return new PantallaCompra(mnj, this, vuelo, numBilletes);
+	public Pantalla damePantallaCompra(Vuelo vuelo, int numBilletes){
+		return new PantallaCompra(vuelo, numBilletes);
 	}
 	
 	/**
