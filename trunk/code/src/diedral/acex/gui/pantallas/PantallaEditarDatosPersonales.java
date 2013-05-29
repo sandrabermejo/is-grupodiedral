@@ -6,16 +6,18 @@ import java.awt.GridLayout;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import diedral.acex.GestorUsuarios;
+import diedral.acex.Usuario;
 import diedral.acex.gui.Pantalla;
 
 public class PantallaEditarDatosPersonales extends Pantalla {
 	
-	public PantallaEditarDatosPersonales(){
+	public PantallaEditarDatosPersonales(Usuario usuario){
 		
 		//Características ventana
 		setLayout(new BorderLayout());
@@ -94,9 +96,16 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 			panelNIF.setMaximumSize(dim);
 
 		panel.add(panelNIF);
+		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
+		// Crea un cuadro de inserción de contraseña con su texto
+		JPanel panelBotonGuardarDatos = new JPanel(new GridLayout(1, 2));
+		_botonGuardar = new JButton("Guardar");
+		panelBotonGuardarDatos.add(_botonGuardar);
+		
+		panel.add(_botonGuardar);	
 			
-		add(panel); //añadimos el panel al centro.
+		add(panel, BorderLayout.CENTER); //añadimos el panel al centro.
 	}
 	@Override
 	public String dameNombre() {
@@ -111,6 +120,10 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 		boolean datosValidos = true;
 		if(correo != null) //si el correo ha sido modificado
 			datosValidos = GestorUsuarios.dameInstancia().validar(correo);
+		if(datosValidos){
+			
+		}
+			
 		//if(datosValidos)
 			//¿usuario?-> modificalosdatos. ¿Como lo hago? //TODO
 		
@@ -147,4 +160,8 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 	 * Campo de contraseña. No puede ser editado aquí.
 	 */
 	private JTextField _textContrasenya;
+	/**
+	 * Botón que al pulsarlo se guardan los datos modificados.
+	 */
+	private JButton _botonGuardar;
 }
