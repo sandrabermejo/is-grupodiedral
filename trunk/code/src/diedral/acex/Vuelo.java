@@ -32,7 +32,6 @@ public class Vuelo implements java.io.Serializable {
 		_fllegada = null;
 		_avion = null;
 		_npasajeros = 0;
-		_sobrecoste = 0;
 		_pasajeros = new TreeSet();		
 		_escalas = new ArrayList();
 	}
@@ -41,8 +40,7 @@ public class Vuelo implements java.io.Serializable {
 	 * Construye un vuelo a partir de los datos aportados.
 	 */	
 	public Vuelo(Aeropuerto origen, Aeropuerto destino, GregorianCalendar salida,
-		GregorianCalendar llegada, Avion avion, int pasajeros,
-		int sobrecoste, List<Escala> escalas)
+		GregorianCalendar llegada, Avion avion, int pasajeros, List<Escala> escalas)
 			throws VueloIncorrectoException {
 		
 		if (origen.equals(destino))
@@ -63,7 +61,6 @@ public class Vuelo implements java.io.Serializable {
 		_fllegada = llegada;
 		_avion = avion;
 		_npasajeros = pasajeros;
-		_sobrecoste = sobrecoste;
 		_pasajeros = new TreeSet();
 		_escalas = escalas;
 	}
@@ -161,12 +158,12 @@ public class Vuelo implements java.io.Serializable {
 	}
 	
 	/**
-	 * Obtiene el sobrecoste del vuelo
+	 * Obtiene el precio del vuelo
 	 * 
-	 * @return El sobrecoste
+	 * @return El precio
 	 */
-	public int dameSobrecoste() {
-		return _sobrecoste;
+	public double damePrecio() {
+		return _precio;
 	}
 	
 	/**
@@ -210,21 +207,26 @@ public class Vuelo implements java.io.Serializable {
 	 * 
 	 * @param avion
 	 */
-	public void set_avion(Avion avion) {
+	public void ponAvion(Avion avion) {
 		_avion = avion;
 	}
 
 	/**
 	 * Modifica el número de pasajeros admitidos en el vuelo
 	 * 
-	 * @param npasajeros
+	 * @param npasajeros Número de pasajeros del vuelo
 	 */
-	public void set_npasajeros(int pasajeros) {
+	public void ponNumPasajeros(int pasajeros) {
 		_npasajeros = pasajeros;
 	}
-
-	public void set_sobrecoste(int sobrecoste) {
-		_sobrecoste = sobrecoste;
+	
+	/**
+	 * Modifica el precio del vuelo
+	 * 
+	 * @param precio del vuelo
+	 */
+	public void ponPrecio(double precio) {
+		_precio = precio;
 	}
 
 	// ATRIBUTOS PRIVADOS
@@ -260,9 +262,9 @@ public class Vuelo implements java.io.Serializable {
 	private int _npasajeros;
 	
 	/**
-	 * Sobrecoste del vuelo
+	 * Precio del vuelo
 	 */
-	private int _sobrecoste;
+	private double _precio;
 	
 	/**
 	 * Lista de pasajeros (ordenada por DNI)

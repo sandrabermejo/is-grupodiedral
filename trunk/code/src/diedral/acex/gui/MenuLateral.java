@@ -21,7 +21,7 @@ class MenuLateral extends javax.swing.JPanel {
 	 * @param fabr Fábrica de pantallas
 	 */
 	public MenuLateral(ManejadorPantallas mnj, FabricaPantallas fabr, ManejadorSesion mnjSesion){		
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		// Guarda los parámetros
 		_mnj = mnj;
@@ -92,12 +92,12 @@ class MenuLateral extends javax.swing.JPanel {
 		
 		t_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				_mnj.cambiaA(_fabr.damePantallaEditarDatosPersonales(_mnjSesion.dameUsuarioSesion()));				
+				_mnj.cambiaA(_fabr.damePantallaEditarDatosPersonales());				
 			}
 		});
 		
 		botones.add(t_btn);
-		
+		*/
 		
 		return botones;
 	}
@@ -114,6 +114,7 @@ class MenuLateral extends javax.swing.JPanel {
 	 * Fábrica de pantallas
 	 */
 	private FabricaPantallas _fabr;
+	
 	/**
 	 * Manejador de la sesión.
 	 */
