@@ -119,7 +119,10 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 	public String dameNombre() {
 		return "Editar datos personales";
 	}
-	
+	/**
+	 * Método que lee los datos de la pantalla y realiza el guardado de los datos
+	 * del usuario que ha sido modificado.
+	 */
 	public void introducirDatos(){
 		String nombre = _textNombre.getText();
 		String apellido1 = _textApellido1.getText();
@@ -142,7 +145,6 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 			//creamos el nuevo usuario modificado y lo reemplazamos.
 			Usuario usuarioModificado = new Usuario(nombre, apellido1, apellido2, _usuario.dameContrasena(), correo);
 			GestorUsuarios.dameInstancia().reemplazarUsuario(usuarioModificado, _usuario.dameCorreo());
-			
 			
 		}
 	}
