@@ -7,7 +7,11 @@ import java.awt.event.ActionListener;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import diedral.acex.Usuario;
 
 /**
  * Menú lateral para dar acceso a los diferentes servicios de la aplicación.
@@ -91,7 +95,15 @@ setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		t_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-// TODO				_mnj.cambiaA(_fabr.damePantallaEditarDatosPersonales());				
+				Usuario usuario = _mnjSesion.dameUsuarioSesion();
+				if(usuario != null)
+					_mnj.cambiaA(_fabr.damePantallaEditarDatosPersonales(usuario));			
+				else {
+					JOptionPane pane = new JOptionPane("Para modificar tus datos debes iniciar sesión.");
+					JDialog dialog = pane.createDialog("Opción inválida");
+					dialog.setLocationRelativeTo(getRootPane()); //centra la pantalla
+					dialog.setVisible(true);
+				}
 			}
 		});
 		
