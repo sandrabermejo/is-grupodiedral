@@ -22,6 +22,16 @@ public class GestorUsuarios implements Serializable {
 		
 		return _instancia;
 	}
+	public void reemplazarUsuario(Usuario usuario, String mailAntiguo){
+		for(Usuario usu: _usuarios){
+			if(usu.dameCorreo().equals(mailAntiguo)){
+				//borrar el usuario no modificado
+				_usuarios.remove(usu);
+				//insertar el nuevo usuario modificado
+				_usuarios.add(usuario);
+			}
+		}
+	}
 	
 	/**
 	 * Dado un correo de un usuario, mira a ver si ese usuario está. Si ya existe una cuenta vinculada con ese 
