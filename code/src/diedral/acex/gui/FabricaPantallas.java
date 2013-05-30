@@ -87,6 +87,13 @@ public class FabricaPantallas {
 	}
 	
 	/**
+	 * Obtiene una pantalla de restablecer contrasena
+	 */
+	public Pantalla damePantallaRestablecerContrasena() {
+		return new PantallaRestablecerContrasena();
+	}
+	
+	/**
 	
 	/**
 	 * Obtiene una pantalla de registro

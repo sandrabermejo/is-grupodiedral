@@ -68,11 +68,28 @@ public class PantallaAcceso extends Pantalla {
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
+		
+		
+		// Panel con los botones de iniciar sesion y de olvido de contrasena
+		JPanel botones = new JPanel();
+		botones.setLayout(new BorderLayout());
+				
+		// Boton para iniciar sesion
 		JButton confirmar = new JButton("Iniciar sesion");
 		confirmar.addActionListener(new IniciarSesion());
-		panel.add(confirmar);
+		botones.add(confirmar, BorderLayout.WEST);
+				
+		// Boton para restablecer contrasena
+		JButton olvido = new JButton("¿Ha olvidado su contrasena?");
+		botones.add(olvido, BorderLayout.EAST);
+		olvido.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				_manejadorPantallas.cambiaA(_fabrica.damePantallaRestablecerContrasena());
+            }
+		});
 		
-		this.add(panel);
+		panel.add(botones);
+		add(panel, BorderLayout.NORTH);
 	}
 
 	public String dameNombre() {
@@ -83,6 +100,7 @@ public class PantallaAcceso extends Pantalla {
 	public void estableceContexto(ManejadorPantallas manejador,
 			FabricaPantallas fabrica, Sesion sesion) {
 		_manejadorPantallas = manejador;
+		_fabrica = fabrica;
 		_sesion = sesion;
 	}
 	
@@ -95,8 +113,9 @@ public class PantallaAcceso extends Pantalla {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
+			// Busca el usuario por el correo
 			Usuario usuario = GestorUsuarios.dameInstancia().buscaUsuario(_correo.getText());
-			if (usuario == null || !usuario.comprobarContrasena(new String(_contrasena.getPassword())))
+			if (usuario == null || !usuario.dameContrasena().equals(_contrasena.getPassword()))
 				JOptionPane.showMessageDialog(PantallaAcceso.this,
 						"ID o constraseña no válida.",
 						"ACE Gestión Externa - Acceso",
@@ -104,6 +123,7 @@ public class PantallaAcceso extends Pantalla {
 			else {
 				_sesion.cargaUsuario(usuario);
 				_manejadorPantallas.cierraPantallaActual();
+				JOptionPane.showMessageDialog(PantallaAcceso.this, "Sesion iniciada con exito!");
 			}
 								
 		}
@@ -114,6 +134,11 @@ public class PantallaAcceso extends Pantalla {
 	 * Manejador de pantallas
 	 */
 	private ManejadorPantallas _manejadorPantallas;
+	
+	/**
+	 * Fabrica de pantallas
+	 */
+	private FabricaPantallas _fabrica;
 	
 	/**
 	 * Sesión actual
