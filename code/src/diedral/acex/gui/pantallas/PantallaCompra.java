@@ -136,6 +136,17 @@ public class PantallaCompra extends Pantalla {
 		panel.add(panelClase);		
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
+		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
+		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
+		
+		// Crea un cuadro de inserción de DNI con su texto
+		JPanel panelNumeroBilletes = new JPanel(new GridLayout(1, 2));
+		panelNumeroBilletes.add(new JLabel("Número de billetes: " + _numBilletes));
+		
+		// Acota el tamaño del cuadro de texto para que no quede raro
+		panelNumeroBilletes.setMaximumSize(dim);
+		panel.add(panelNumeroBilletes);		
+		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
 		JButton anadirPasajero = new JButton("Añadir pasajero");
 		anadirPasajero.addActionListener(new AnadirPasajero());
@@ -169,19 +180,19 @@ public class PantallaCompra extends Pantalla {
 		public void actionPerformed(ActionEvent e) {
 			try {
 				String nombre = _nombre.getText();
-				if (nombre == null)
+				if (nombre.isEmpty() || nombre == null)
 					throw new CampoRequeridoException("Debe introducir el nombre");
 				
 				String apellido1 = _apellido1.getText();
-				if (apellido1 == null)
+				if (apellido1.isEmpty() || apellido1 == null)
 					throw new CampoRequeridoException("Debe introducir el primer apellido");
 				
 				String apellido2 = _apellido2.getText();
-				if (apellido2 == null)
+				if (apellido2.isEmpty() || apellido2 == null)
 					throw new CampoRequeridoException("Debe introducir el segundo apellido");
 				
 				String nacionalidad = _nacionalidad.getText();
-				if (nacionalidad == null)
+				if (nacionalidad.isEmpty() || nacionalidad == null)
 					throw new CampoRequeridoException("Debe introducir la nacionalidad");
 				
 				if (!_fnacimiento.isEditValid())
@@ -192,9 +203,11 @@ public class PantallaCompra extends Pantalla {
 				GregorianCalendar fecha = (GregorianCalendar) _fnacimiento.getValue();
 													
 				String caddni = _dni.getText();
+				if (caddni.isEmpty() || caddni == null)
+					throw new CampoRequeridoException("Debe introducir el DNI");
 				
-				char letra = caddni.charAt(caddni.length());
-				caddni.substring(0, caddni.length()-1);
+				char letra = caddni.charAt(caddni.length()-1);
+				caddni = caddni.substring(0, caddni.length()-1);
 				int numero = Integer.parseInt(caddni);
 				
 				Dni dni = new Dni(numero, letra);
@@ -202,11 +215,15 @@ public class PantallaCompra extends Pantalla {
 				Billete.Clase clase = (Billete.Clase) _clase.getSelectedItem();
 				
 				Pasajero pasajero = new Pasajero(nombre, apellido1, apellido2, nacionalidad, fecha, dni);
-		//		_compra.anadeBillete(new Billete(_vuelo, pasajero, clase, _vuelo.damePrecio()));
+				_compra.anadeBillete(new Billete(_vuelo, pasajero, clase, _vuelo.damePrecio()));
 				_numPasajerosAnadidos++;
+				JOptionPane.showMessageDialog(PantallaCompra.this,
+						"Pasajero añadido con éxito",
+						"ACE Gestión Externa - Compra",
+						JOptionPane.OK_OPTION);
 				
-				if (_numPasajerosAnadidos == _numBilletes)
-;//					_mnj.cambiaA(_fabrica.damePantallaPago(_compra));
+				if (_numPasajerosAnadidos == _numBilletes) 
+					_mnj.cambiaA(_fabrica.damePantallaPagoTarjeta(_compra));
 				
 			} catch(Exception exc){
 				JOptionPane.showMessageDialog(PantallaCompra.this,
@@ -266,6 +283,11 @@ public class PantallaCompra extends Pantalla {
 	 * DNI
 	 */
 	private JTextField _dni;
+	
+	/**
+	 * Número de billetes
+	 */
+	private JLabel _billetesTotales;
 	
 	/**
 	 * Clase
