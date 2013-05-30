@@ -117,6 +117,13 @@ public class FabricaPantallas {
 		return new PantallaPagoTarjeta(compra);
 	}
 	
+	/**
+	 * Obtiene una pantalla con información del vuelo contratado
+	 */
+	public Pantalla damePantallaVueloContratado() {
+		return new PantallaVueloContratado();
+	}
+	
 	// ATRIBUTOS PRIVADOS
 	
 	/**

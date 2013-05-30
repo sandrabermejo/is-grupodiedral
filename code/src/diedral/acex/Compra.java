@@ -130,6 +130,15 @@ public class Compra {
 		_pagada = false;
 	}
 	
+	/**
+	 * Obtiene la lista de billetes de la compra
+	 * 
+	 * @return La lista de billetes
+	 */
+	public List<Billete> dameBilletes() {
+		return _billetes;
+	}
+	
 	private List<Billete> _billetes;
 	private Usuario _usuario;
 	
