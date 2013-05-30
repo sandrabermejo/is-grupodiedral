@@ -3,6 +3,7 @@
  */
 package diedral.acex.util;
 
+import java.io.File;
 import java.util.GregorianCalendar;
 
 import diedral.acex.Aeropuerto;
@@ -25,6 +26,15 @@ public class CreadorDatosMuestra {
 	 * @param args Parámetros de la aplicación.
 	 */
 	public static void main(String[] args) {
+		
+		// Borra la carpeta "data" si existe
+		
+		File cData = new File("data");
+		
+		if (cData.exists() && cData.isDirectory())
+			for (File file : cData.listFiles())
+				file.delete();
+		
 		GestorVuelos gVuelos = GestorVuelos.dameInstancia();
 		GestorUsuarios gUsuarios = GestorUsuarios.dameInstancia();
 		
@@ -98,5 +108,8 @@ public class CreadorDatosMuestra {
 		
 		// Almacena los datos referidos
 		AyudantePersistencia.dameInstancia().almacenaTodos();
+		
+		
+		System.out.println("Datos generados correctamente");
 	}
 }
