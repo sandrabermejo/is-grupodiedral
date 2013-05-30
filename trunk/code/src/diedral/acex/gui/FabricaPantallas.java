@@ -12,7 +12,7 @@ import diedral.acex.gui.pantallas.*;
  * Fábrica de pantallas.
  *
  * <p>Esta clase crea las diferentes pantallas de la aplicación, todas ellas
- * herederas de la clase abstract {@link diredral.acex.gui.Pantalla}.
+ * herederas de la clase abstract {@link diedral.acex.gui.Pantalla}.
  */
 public class FabricaPantallas {
 	/**
@@ -58,7 +58,6 @@ public class FabricaPantallas {
 	
 	/**
 	 * Obtiene una pantalla donde un usuario edita sus datos personales.
-	 * @return
 	 */
 	public Pantalla damePantallaEditarDatosPersonales(){
 		return new PantallaEditarDatosPersonales();

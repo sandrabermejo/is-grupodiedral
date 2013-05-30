@@ -13,7 +13,7 @@ public class Oferta implements Serializable {
 	/**
 	 * Crea una oferta.
 	 * 
-	 * @param vuelo
+	 * @param vuelos
 	 * @param destino
 	 * @param intervaloEdad
 	 * @param descuento

@@ -56,9 +56,9 @@ public class AyudantePersistencia implements Serializable {
 	/**
 	 * Recupera un objeto almacenado de acuerdo a su identificador.
 	 * 
-	 * @param Identificador único el objeto.
+	 * @param id Identificador único el objeto.
 	 * 
-	 * @return El objeto recurerado. {@code null} si no ha sido posible.
+	 * @return El objeto recuperado. {@code null} si no ha sido posible.
 	 */
 	public Object recupera(String id){
 		Object obj = null;
@@ -82,7 +82,7 @@ public class AyudantePersistencia implements Serializable {
 	
 	/**
 	 * Recupera un objeto almacenado de acuerdo a su identificador y
-	 * guarda una referencia a él para guardarlo cuando el ayudante
+	 * guarda una referencia a él para almacenarlo cuando el ayudante
 	 * reciba una notificación a tal efecto.
 	 * 
 	 * @param id Identificador único el objeto.

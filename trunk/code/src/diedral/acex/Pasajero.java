@@ -16,6 +16,7 @@ import java.util.GregorianCalendar;
 public class Pasajero implements Serializable {
 	/**
 	 * Contruye un nuevo pasajero que tiene un usuario.
+	 * 
 	 * @param usuario
 	 * @param nacionalidad
 	 * @param fechaNacimiento
@@ -107,23 +108,26 @@ public class Pasajero implements Serializable {
 
 	/**
 	 * Modifica el nombre de un pasajero
-	 * @param _nombre nombre de un pasajero
+	 * 
+	 * @param nombre Nombre de un pasajero.
 	 */
 	public void ponNombre(String nombre) {
 		_nombre = nombre;
 	}
 
 	/**
-	 * Modifica el primer apellido de un pasajero
-	 * @param _apellido1 primer apellido de un pasajero
+	 * Modifica el primer apellido de un pasajero.
+	 * 
+	 * @param apellido1 Primer apellido de un pasajero.
 	 */
 	public void ponApellido1(String apellido1) {
 		_apellido1 = apellido1;
 	}
 
 	/**
-	 * Modifica el segundo apellido de un pasajero
-	 * @param _apellido2 segundo apellido de un pasajero
+	 * Modifica el segundo apellido de un pasajero.
+	 * 
+	 * @param apellido2 Segundo apellido de un pasajero.
 	 */
 	public void ponApellido2(String apellido2) {
 		_apellido2 = apellido2;
