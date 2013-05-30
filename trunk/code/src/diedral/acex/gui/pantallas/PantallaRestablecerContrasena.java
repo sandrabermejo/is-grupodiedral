@@ -6,14 +6,19 @@ package diedral.acex.gui.pantallas;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import diedral.acex.GestorUsuarios;
+import diedral.acex.Usuario;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
@@ -30,7 +35,7 @@ public class PantallaRestablecerContrasena extends Pantalla {
 		Dimension dim;
 		
 		// Añade una entradilla de texto
-		add(new JLabel("Un eMail sera enviado a la direccion de correo con la que esta resgistrado."));
+		add(new JLabel("Un eMail sera enviado a su direccion de correo electronico asociada."));
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
 		// Crea un cuadro de inserción de nombre con su texto
@@ -44,6 +49,24 @@ public class PantallaRestablecerContrasena extends Pantalla {
 		panelCorreo.setMaximumSize(dim);
 		panel.add(panelCorreo);
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
+		
+		JButton solicitar = new JButton("Solicitar");
+		panel.add(solicitar);
+		solicitar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				String correo = _correo.getText();
+				// Si el correo no es valido informamos del error
+				Usuario usuario = GestorUsuarios.dameInstancia().buscaUsuario(correo);
+				if (usuario == null) // No hay un usuario con el correo introducido
+					JOptionPane.showMessageDialog(PantallaRestablecerContrasena.this,
+							"Correo no valido!",
+							"ACE Gestion Externa - Restablecer contrasena",
+							JOptionPane.ERROR_MESSAGE);
+				else
+					JOptionPane.showMessageDialog(PantallaRestablecerContrasena.this, "Mensaje enviado!");
+					// Redireccionar a pantalla de inicio?
+			}			
+		});
 	}
 
 	
