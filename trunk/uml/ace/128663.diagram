@@ -5,10 +5,10 @@ classinstance 128023 class_ref 161175 // PantallaPagoTarjeta
 classinstance 128407 class_ref 135047 // PagoTarjeta
   name ""   xyz 379 8 2000 life_line_z 2000
 durationcanvas 128151 classinstance_ref 128023 // :PantallaPagoTarjeta
-  xyzwh 113 95 2010 11 184
+  xyzwh 113 95 2010 11 185
 end
 durationcanvas 129047 classinstance_ref 128407 // :PagoTarjeta
-  xyzwh 425 129 2010 11 150
+  xyzwh 425 129 2010 11 151
 end
 reflexivemsg 128279 synchronous
   to durationcanvas_ref 128151
@@ -18,31 +18,26 @@ reflexivemsg 128279 synchronous
 msg 129175 synchronous
   from durationcanvas_ref 128151
   to durationcanvas_ref 129047
-  yz 130 2015 msg operation_ref 144151 // "establecerTitular(in value : string) : void"
+  yz 130 2015 msg operation_ref 128775 // "PagoTarjeta(in Titular : string, in Numero : string)"
   show_full_operations_definition default drawing_language default show_context_mode default
-  args "titular"
-  label_xy 169 111
+  args "titular, numeroTarjeta"
+  label_xy 160 112
 msg 129303 return
   from durationcanvas_ref 129047
   to durationcanvas_ref 128151
-  yz 143 2020 unspecifiedmsg
+  yz 157 2020 explicitmsg "pago"
   show_full_operations_definition default drawing_language default show_context_mode default
-msg 129559 synchronous
-  from durationcanvas_ref 128151
-  to durationcanvas_ref 129047
-  yz 181 2025 msg operation_ref 144279 // "establecerNumeroTarjeta(in value : string) : void"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  args "numeroTarjeta"
-  label_xy 109 162
-msg 129687 return
-  from durationcanvas_ref 129047
-  to durationcanvas_ref 128151
-  yz 221 2015 unspecifiedmsg
-  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 256 138
 msg 129943 synchronous
   from durationcanvas_ref 128151
   to durationcanvas_ref 129047
-  yz 244 2025 msg operation_ref 143639 // "efectuar()"
+  yz 196 2025 msg operation_ref 158231 // "efectuar() : bool"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 241 225
+  label_xy 243 177
+msg 130071 return
+  from durationcanvas_ref 129047
+  to durationcanvas_ref 128151
+  yz 226 2030 explicitmsg "pagoVálido"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 234 207
 end
