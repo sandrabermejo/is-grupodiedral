@@ -106,8 +106,8 @@ public class FabricaPantallas {
 	 * TODO: documentar
 	 * 
 	 */
-	public Pantalla damePantallaCompra(Vuelo vuelo, int numBilletes){
-		return new PantallaCompra(vuelo, numBilletes);
+	public Pantalla damePantallaCompra(Vuelo vuelo){
+		return new PantallaCompra(vuelo);
 	}
 	
 	/**

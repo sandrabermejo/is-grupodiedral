@@ -67,7 +67,7 @@ public class PantallaDetalleVuelo extends Pantalla {
 		
 		comprar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				_manejador.cambiaA(_fabrica.damePantallaCompra(_vuelo, 1));
+				_manejador.cambiaA(_fabrica.damePantallaCompra(_vuelo));
 			}
 		});
 		
