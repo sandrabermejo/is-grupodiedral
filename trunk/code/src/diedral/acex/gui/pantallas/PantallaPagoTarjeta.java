@@ -32,7 +32,6 @@ public class PantallaPagoTarjeta extends Pantalla{
 		if(compra == null) {
 			JOptionPane.showMessageDialog(this, "No puede pagar una compra vacía. Por favor seleccione una compra antes de realizar un pago.");
 			_mnj.cierraPantallaActual();
-			_mnj.cambiaA(_fabrica.damePantallaInicio());
 		}
 			
 		_compra = compra;
