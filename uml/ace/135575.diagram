@@ -8,7 +8,7 @@ activityactioncanvas 128151 activityaction_ref 129303 // activity action Mostrar
   show_opaque_action_definition default
   xyzwh 295 85 2000 100 60
 end
-activityactioncanvas 128279 activityaction_ref 129431 // activity action Seleccionar oferta
+activityactioncanvas 128279 activityaction_ref 129431 // activity action Seleccionar vuelo
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
   xyzwh 46 179 2000 109 64

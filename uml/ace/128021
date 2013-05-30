@@ -1,6 +1,6 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 33
+  revision 34
   modified_by 23 "Natalia"
   // class settings
   //class diagram settings
@@ -4108,11 +4108,11 @@ ${members}}
       activityaction 129303 "Mostrar Vuelos"
 	opaque_action
 	flow 129175 "<flow>"
-	  on activityaction_ref 129431 // activity action Seleccionar oferta
+	  on activityaction_ref 129431 // activity action Seleccionar vuelo
 	end
       end
 
-      activityaction 129431 "Seleccionar oferta"
+      activityaction 129431 "Seleccionar vuelo"
 	opaque_action
 	flow 129303 "<flow>"
 	  on activityaction_ref 129559 // activity action Mostrar Info. Vuelos
