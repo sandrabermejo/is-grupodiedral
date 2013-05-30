@@ -1,0 +1,67 @@
+format 76
+
+activitynodecanvas 128023 activitynode_ref 129687 // initial_node
+  xyz 334 32 2000
+end
+activityactioncanvas 128151 activityaction_ref 129303 // activity action Mostrar Vuelos
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 295 85 2000 100 60
+end
+activityactioncanvas 128279 activityaction_ref 129431 // activity action Seleccionar oferta
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 46 179 2000 109 64
+end
+activityactioncanvas 128407 activityaction_ref 129559 // activity action Mostrar Info. Vuelos
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 291 248 2000 102 79
+end
+activitynodecanvas 128535 activitynode_ref 129815 // decision
+  xyz 329 367 2000
+end
+activityactioncanvas 128663 activityaction_ref 129687 // activity action Comprar Billete
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 40 403 2000 100 60
+end
+activitynodecanvas 128791 activitynode_ref 129943 // activity_final
+  xyz 329 514 2000
+end
+flowcanvas 128919 flow_ref 129175 // <flow>
+  
+  from ref 128151 z 2001 to ref 128279
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129047 flow_ref 129303 // <flow>
+  
+  from ref 128279 z 2001 to ref 128407
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129175 flow_ref 129431 // <flow>
+  
+  from ref 128407 z 2001 to ref 128535
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129303 flow_ref 129559 // <flow>
+  
+  from ref 128535 z 2001 label "[no se compra billete]" xyz 263 449 2001 to ref 128791
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129559 flow_ref 129687 // <flow>
+  
+  from ref 128535 z 2001 label "[se compra billete]" xyz 172 377 2001 to ref 128663
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129687 flow_ref 129815 // <flow>
+  
+  from ref 128663 z 2001 to ref 128791
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129815 flow_ref 137751 // <flow>
+  
+  from ref 128023 z 2001 to ref 128151
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+end

@@ -1,7 +1,7 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 28
-  modified_by 21 "portatil"
+  revision 29
+  modified_by 23 "Natalia"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -1659,19 +1659,6 @@ ${members}}
 	get_of_attribute attribute_ref 129685 // _codigo
       end
 
-      operation 158357 "damePrecio"
-	public explicit_return_type "double"
-	nparams 0
-	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	comment "Aunque depende de la clase."
-      end
-
       operation 144149 "fijaCodigo"
 	force_body_gen public explicit_return_type "void"
 	nparams 1
@@ -1858,14 +1845,18 @@ ${members}}
       idl_decl ""
       explicit_switch_type ""
       
-      operation 144661 "buscaVuelo"
+      operation 144661 "vuelosDesde"
 	public return_type class_ref 128907 // Vuelo
 	multiplicity "*"
-	nparams 1
-	  param in name "criterio" type class_ref 170005 // CriterioBusqueda
+	nparams 3
+	  param in name "aeropuerto" type class_ref 129163 // Aeropuerto
+	multiplicity "1"
+	  param in name "desde" explicit_type "Date"
+	multiplicity "1"
+	  param in name "hasta" explicit_type "Date"
 	multiplicity "1"
 	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
   ${body}}
 "
 	
@@ -1940,47 +1931,6 @@ ${members}}
 	php_decl ""
 	python_decl ""
 	idl_decl ""
-      end
-
-      class 170005 "CriterioBusqueda"
-	visibility public 
-	cpp_decl ""
-	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
-${members}}
-"
-	php_decl ""
-	python_2_2 python_decl ""
-	idl_decl ""
-	explicit_switch_type ""
-	
-	comment "Criterio de búsqueda de vuelos"
-	operation 158101 "conOrigen"
-	  public explicit_return_type ""
-	  nparams 1
-	    param in name "origen" type class_ref 129163 // Aeropuerto
-	  multiplicity "1"
-	  
-	  java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	end
-
-	operation 158229 "conDestino"
-	  public explicit_return_type ""
-	  nparams 1
-	    param in name "destino" type class_ref 129163 // Aeropuerto
-	  multiplicity "1"
-	  
-	  java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	end
       end
     end
 
@@ -3549,19 +3499,6 @@ ${members}}
 	explicit_switch_type ""
 	
       end
-
-      class 170133 "PantallaDetalleVuelo"
-	visibility package 
-	cpp_decl ""
-	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
-${members}}
-"
-	php_decl ""
-	python_2_2 python_decl ""
-	idl_decl ""
-	explicit_switch_type ""
-	
-      end
     end
 
     usecase 128007 "Iniciar pago billetes"
@@ -4004,6 +3941,182 @@ ${members}}
       end
 
       activitynode 128917 activity_final "Final"
+      end
+    end
+
+    activity 128279 "Consultar Oferta"
+      activitydiagram 135447 "Consutar Oferta (DA)"
+	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+	show_infonote default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      activitynode 129303 initial_node "Inicio"
+	flow 128791 "<flow>"
+	  on activityaction_ref 129047 // activity action Preparar oferta
+	end
+      end
+
+      activityaction 129047 "Preparar oferta"
+	opaque_action
+	flow 128919 "<flow>"
+	  on activityaction_ref 129175 // activity action Mostrar oferta
+	end
+      end
+
+      activityaction 129175 "Mostrar oferta"
+	opaque_action
+	flow 129047 "<flow>"
+	  on activitynode_ref 129431 // activity_final
+	end
+      end
+
+      activitynode 129431 activity_final "Final"
+      end
+
+      activitynode 129559 join ""
+      end
+    end
+
+    activity 128407 "Consultar Vuelos"
+      activitydiagram 135575 "Consultar Vuelos(DA)"
+	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+	show_infonote default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      activitynode 129687 initial_node "Inicio"
+	flow 137751 "<flow>"
+	  on activityaction_ref 129303 // activity action Mostrar Vuelos
+	end
+      end
+
+      activityaction 129303 "Mostrar Vuelos"
+	opaque_action
+	flow 129175 "<flow>"
+	  on activityaction_ref 129431 // activity action Seleccionar oferta
+	end
+      end
+
+      activityaction 129431 "Seleccionar oferta"
+	opaque_action
+	flow 129303 "<flow>"
+	  on activityaction_ref 129559 // activity action Mostrar Info. Vuelos
+	end
+      end
+
+      activityaction 129559 "Mostrar Info. Vuelos"
+	opaque_action
+	flow 129431 "<flow>"
+	  on activitynode_ref 129815 // decision
+	end
+      end
+
+      activitynode 129815 decision "comprar billete"
+	flow 129559 "<flow>"
+	  on activitynode_ref 129943 // activity_final
+	    uml_guard "no se compra billete"
+	end
+
+	flow 129687 "<flow>"
+	  on activityaction_ref 129687 // activity action Comprar Billete
+	    uml_guard "se compra billete"
+	end
+      end
+
+      activityaction 129687 "Comprar Billete"
+	opaque_action
+	flow 129815 "<flow>"
+	  on activitynode_ref 129943 // activity_final
+	end
+      end
+
+      activitynode 129943 activity_final "Final"
+      end
+    end
+
+    activity 128535 "Restablecer Contrasena"
+      activitydiagram 135831 "Restablecer Contrasena"
+	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+	show_infonote default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      activitynode 130071 initial_node "Inicio"
+	flow 131223 "<flow>"
+	  on activityaction_ref 129815 // activity action Seleccionar restablecer contraseña
+	end
+      end
+
+      activityaction 129815 "Seleccionar restablecer contraseña"
+	opaque_action
+	flow 131095 "<flow>"
+	  on activityaction_ref 129943 // activity action Enviar eMail confirmación
+	end
+      end
+
+      activityaction 129943 "Enviar eMail confirmación"
+	opaque_action
+	flow 130967 "<flow>"
+	  on activityaction_ref 130071 // activity action Seleccionar enlace eMail
+	end
+      end
+
+      activityaction 130071 "Seleccionar enlace eMail"
+	opaque_action
+	flow 130839 "<flow>"
+	  on activityaction_ref 130199 // activity action Redireccionar a modificar contraseña
+	end
+      end
+
+      activityaction 130199 "Redireccionar a modificar contraseña"
+	opaque_action
+	flow 130711 "<flow>"
+	  on activityaction_ref 130327 // activity action Introducir contraseña
+	end
+      end
+
+      activityaction 130327 "Introducir contraseña"
+	opaque_action
+	flow 130583 "<flow>"
+	  on activityaction_ref 130455 // activity action Procesar contrasena
+	end
+      end
+
+      activityaction 130455 "Procesar contrasena"
+	opaque_action
+	flow 129943 "<flow>"
+	  on activitynode_ref 130199 // decision
+	end
+
+	flow 130199 "<flow>"
+	  on activityaction_ref 130711 // activity action Modificar contrasena
+	    uml_guard "es válida"
+	end
+      end
+
+      activitynode 130199 decision ""
+	flow 130071 "<flow>"
+	  on activityaction_ref 130583 // activity action Mostrar error proceso
+	    uml_guard "no es válida"
+	end
+      end
+
+      activityaction 130583 "Mostrar error proceso"
+	opaque_action
+	flow 130327 "<flow>"
+	  on activitynode_ref 130327 // activity_final
+	end
+      end
+
+      activityaction 130711 "Modificar contrasena"
+	opaque_action
+	flow 130455 "<flow>"
+	  on activitynode_ref 130327 // activity_final
+	end
+      end
+
+      activitynode 130327 activity_final ""
       end
     end
   end
