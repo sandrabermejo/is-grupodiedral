@@ -16,7 +16,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import diedral.acex.GestorUsuarios;
+import diedral.acex.Sesion;
 import diedral.acex.Usuario;
+import diedral.acex.gui.FabricaPantallas;
+import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
 
 public class PantallaEditarDatosPersonales extends Pantalla {
@@ -122,11 +125,20 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 		return "Editar datos personales";
 	}
 	/**
+	 * Sobreescribe este método en su clase padre Pantalla.
+	 * @param manejador
+	 * @param fabrica
+	 * @param sesion
+	 */
+	public void establecerContexto(ManejadorPantallas manejador, FabricaPantallas fabrica, Sesion sesion) {
+		_sesion = sesion;
+	}
+	/**
 	 * Método que lee los datos de la pantalla y realiza el guardado de los datos
 	 * del usuario que ha sido modificado.
 	 */
 	public void introducirDatos(){
-		
+		_usuario = _sesion.dameUsuario();
 		String nombre = _textNombre.getText();
 		String apellido1 = _textApellido1.getText();
 		String apellido2 = _textApellido2.getText();
@@ -145,7 +157,7 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 			if(correo == null)
 				correo = _usuario.dameCorreo();
 			
-			// creamos el nuevo usuario modificado y lo reemplazamos.
+			//creamos el nuevo usuario modificado y lo reemplazamos.
 			Usuario usuarioModificado = new Usuario(nombre, apellido1, apellido2, _usuario.dameContrasena(), correo);
 			GestorUsuarios.dameInstancia().reemplazarUsuario(usuarioModificado, _usuario.dameCorreo());
 			
@@ -196,4 +208,8 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 	 * Usuario que ha iniciado sesión.
 	 */
 	private Usuario _usuario;
+	/**
+	 * Sesion iniciada por un usuario que es el que quiere modificar sus datos.
+	 */
+	private Sesion _sesion;
 }
