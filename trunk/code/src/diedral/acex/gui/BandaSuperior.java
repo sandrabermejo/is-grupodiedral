@@ -14,6 +14,7 @@ import javax.swing.JPopupMenu;
 
 import diedral.acex.Sesion;
 import diedral.acex.eventos.OyenteCambios;
+import diedral.acex.gui.pantallas.PantallaEditarDatosPersonales;
 
 /**
  * Banda superior para el manejo de la aplicación.
@@ -26,11 +27,15 @@ class BandaSuperior extends JPanel implements OyenteCambios<Sesion> {
 	 * @param fabrica Fábrica.
 	 * @param sesion Sesión.
 	 */
-	public BandaSuperior(ManejadorPantallas mnj, FabricaPantallas fabrica){		
+	public BandaSuperior(ManejadorPantallas mnj, FabricaPantallas fabrica, Sesion sesion){		
 		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		
 		_mnj = mnj;
 		_fabrica = fabrica;
+		_sesion = sesion;
+		
+		//registramos a la banda superior como oyente de cambios de la sesión.
+		_sesion.registraOyenteCambio(this);
 		
 		// Crea el botón de registro
 		_registro = new JButton("Registrarse");
@@ -94,14 +99,10 @@ class BandaSuperior extends JPanel implements OyenteCambios<Sesion> {
 	public void haCambiado(Sesion arg) {
 		_sesion = arg;
 		
-		if (arg.dameUsuario() == null) {
+		if (arg.dameUsuario() == null)
 			_acceder.sinUsuarioActivo();
-			_registro.setVisible(true);
-		}
-		else {
+		else
 			_acceder.usuarioRegistrado(arg.dameUsuario().dameCorreo());
-			_registro.setVisible(false);
-		}
 	}
 	
 	// OYENTE BOTÓN DE USUARIO
@@ -196,7 +197,9 @@ class BandaSuperior extends JPanel implements OyenteCambios<Sesion> {
 		 */
 		private final ActionListener AL_EDITAR_USUARIO = new ActionListener (){
 			public void actionPerformed(ActionEvent e) {
-				_mnj.cambiaA(_fabrica.damePantallaEditarDatosPersonales());
+				Pantalla pantallaEditarDatosPersonales = _fabrica.damePantallaEditarDatosPersonales();
+				pantallaEditarDatosPersonales.estableceContexto(_mnj, _fabrica, _sesion);
+				_mnj.cambiaA(pantallaEditarDatosPersonales);
 			}
 		};
 		
