@@ -42,15 +42,9 @@ public class PantallaCompra extends Pantalla {
 	 * @param vuelo Vuelo.
 	 * @param numBilletes Número de billetes.
 	 */
-	public PantallaCompra(Vuelo vuelo, int numBilletes) {
+	public PantallaCompra(Vuelo vuelo) {
 		_vuelo = vuelo;
-		_numBilletes = numBilletes;
 		_numPasajerosAnadidos = 0;
-		
-		if (_sesion != null)
-			_compra = new Compra(_sesion.dameUsuario());
-		else
-			_compra = new Compra(null);
 		
 		//Características ventana
 		setLayout(new BorderLayout());
@@ -132,7 +126,7 @@ public class PantallaCompra extends Pantalla {
 		panel.add(panelDni);		
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
-		// Crea un cuadro de inserción de DNI con su texto
+		// Crea un cuadro de inserción de clase con su texto
 		JPanel panelClase = new JPanel(new GridLayout(1, 2));
 		panelClase.add(new JLabel("Clase"));
 		panelClase.add(_clase = new JComboBox<Billete.Clase>(Billete.Clase.values()));
@@ -142,22 +136,40 @@ public class PantallaCompra extends Pantalla {
 		panel.add(panelClase);		
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
-		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
-		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
-		
-		// Crea un cuadro de inserción de DNI con su texto
-		JPanel panelNumeroBilletes = new JPanel(new GridLayout(1, 2));
-		panelNumeroBilletes.add(new JLabel("Número de billetes: " + _numBilletes));
+		// Crea la etiqueta con el número de pasajeros
+		JPanel panelPasajeros = new JPanel(new GridLayout(1, 2));
+		panelPasajeros.add(new JLabel("Número de pasajeros"));
+		panelPasajeros.add(_numPasajeros = new JLabel("0"));
 		
 		// Acota el tamaño del cuadro de texto para que no quede raro
-		panelNumeroBilletes.setMaximumSize(dim);
-		panel.add(panelNumeroBilletes);		
+		panelPasajeros.setMaximumSize(dim);
+		panel.add(panelPasajeros);		
+		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
-		JButton anadirPasajero = new JButton("Añadir pasajero");
+		// Botones
+		JPanel botones = new JPanel(new GridLayout(1, 2));
+		
+		JButton anadirPasajero = new JButton("Nuevo billete");
 		anadirPasajero.addActionListener(new AnadirPasajero());
+		
+		JButton finalizar = new JButton("Finalizar compra");
+		finalizar.addActionListener(new ActionListener() {
 
-		panel.add(anadirPasajero);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PantallaCompra.this._mnj.cambiaA(_fabrica.damePantallaPagoTarjeta(_compra));
+				
+			}
+			
+		});
+		
+		botones.add(anadirPasajero);
+		botones.add(finalizar);
+		botones.setMaximumSize(dim);
+		
+		panel.add(botones);		
+		
 		this.add(panel);		
 	}
 	
@@ -175,6 +187,14 @@ public class PantallaCompra extends Pantalla {
 		_mnj = manejador;
 		_fabrica = fabrica;
 		_sesion = sesion;
+	}
+	
+	@ Override
+	public void alCargar() {
+		if (_sesion != null)
+			_compra = new Compra(_sesion.dameUsuario());
+		else
+			_compra = new Compra(null);
 	}
 	
 	/**
@@ -210,15 +230,8 @@ public class PantallaCompra extends Pantalla {
 				//GregorianCalendar fecha = (GregorianCalendar) _fnacimiento.getValue();
 													
 				String caddni = _dni.getText();
-				if (caddni.isEmpty() || caddni == null) //si el campo de dni está vacío
+				if (caddni.isEmpty() || caddni == null)
 					throw new CampoRequeridoException("Debe introducir el DNI");
-				try { //si el dni no es un numero
-					Long.parseLong(caddni);
-				} catch(NumberFormatException ex){
-					throw new CampoRequeridoException("DNI inválido");
-				}
-				if(caddni.length() != 8) //si tiene longitud distinta de 8
-					throw new CampoRequeridoException("DNI inválido");
 				
 				char letra = caddni.charAt(caddni.length()-1);
 				caddni = caddni.substring(0, caddni.length()-1);
@@ -233,13 +246,12 @@ public class PantallaCompra extends Pantalla {
 				Pasajero pasajero = new Pasajero(nombre, apellido1, apellido2, nacionalidad, fecha, dni);
 				_compra.anadeBillete(new Billete(_vuelo, pasajero, clase, _vuelo.damePrecio()));
 				_numPasajerosAnadidos++;
+				_numPasajeros.setText(Integer.toString(_numPasajerosAnadidos));
+				limpiarCampos();
 				JOptionPane.showMessageDialog(PantallaCompra.this,
 						"Pasajero añadido con éxito",
 						"ACE Gestión Externa - Compra",
-						JOptionPane.INFORMATION_MESSAGE);
-				
-				if (_numPasajerosAnadidos == _numBilletes) 
-					_mnj.cambiaA(_fabrica.damePantallaPagoTarjeta(_compra));
+						JOptionPane.OK_OPTION);	
 				
 			} catch(Exception exc){
 				JOptionPane.showMessageDialog(PantallaCompra.this,
@@ -248,6 +260,16 @@ public class PantallaCompra extends Pantalla {
 						JOptionPane.ERROR_MESSAGE);
 			}			
 		}		
+	}
+	
+	public void limpiarCampos() {
+		_nombre.setText("");
+		_apellido1.setText("");
+		_apellido2.setText("");
+		_nacionalidad.setText("");
+		_fnacimiento.setText("");
+		_dni.setText("");
+		
 	}
 	
 	/**
@@ -259,11 +281,6 @@ public class PantallaCompra extends Pantalla {
 	 * Vuelo
 	 */
 	private Vuelo _vuelo;
-	
-	/**
-	 * Número de billetes a comprar
-	 */
-	private int _numBilletes;
 	
 	/**
 	 * Número de pasajeros añadidos al vuelo
@@ -301,14 +318,14 @@ public class PantallaCompra extends Pantalla {
 	private JTextField _dni;
 	
 	/**
-	 * Número de billetes
-	 */
-	private JLabel _billetesTotales;
-	
-	/**
 	 * Clase
 	 */
 	private JComboBox<Billete.Clase> _clase;
+	
+	/**
+	 * Número de pasajeros
+	 */
+	private JLabel _numPasajeros;
 	
 	/**
 	 * Manejador de pantallas
