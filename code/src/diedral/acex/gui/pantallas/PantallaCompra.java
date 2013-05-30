@@ -152,7 +152,7 @@ public class PantallaCompra extends Pantalla {
 		anadirPasajero.addActionListener(new AnadirPasajero());
 
 		panel.add(anadirPasajero);
-		this.add(panel);		
+		this.add(panel);
 	}
 	
 	@Override

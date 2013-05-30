@@ -23,8 +23,10 @@ public class GestorVuelos implements Serializable {
 			_instancia = (GestorVuelos) AyudantePersistencia.dameInstancia().recuperayVigila(versionTID);
 			
 			// Si no ha funcionado
-			if (_instancia == null)
+			if (_instancia == null) {
 				_instancia = new GestorVuelos();
+				AyudantePersistencia.dameInstancia().vigila(_instancia, versionTID);
+			}
 		}
 		
 		return _instancia;

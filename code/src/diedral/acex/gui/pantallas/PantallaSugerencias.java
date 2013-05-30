@@ -124,7 +124,7 @@ public class PantallaSugerencias extends diedral.acex.gui.Pantalla {
 				"ACE - Gestión Externa - Sugerencias",
 				JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION){
 			
-			_mensaje.setText(""); _nombre.setText(""); _contacto.setText("");
+			limpiaCampos();
 			
 			return true;
 		}
@@ -140,6 +140,11 @@ public class PantallaSugerencias extends diedral.acex.gui.Pantalla {
 		return "Sugerencias";
 	}
 
+	/**
+	 * Clase oyente que implementa la actividad principal de la
+	 * pantalla.
+	 *
+	 */
 	private class EnviarSugerencia implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			try {
@@ -155,11 +160,14 @@ public class PantallaSugerencias extends diedral.acex.gui.Pantalla {
 							"No se ha podido registrar la sugerencia.",
 							"ACE Gestión Externa - Sugerencias",
 							JOptionPane.ERROR_MESSAGE);
-				else
+				else {
 					JOptionPane.showMessageDialog(PantallaSugerencias.this,
 							"Sugerencia recibida. Número de referencia " + ref + ".",
 							"ACE Gestión Externa - Sugerencias",
 							JOptionPane.INFORMATION_MESSAGE);
+				
+					limpiaCampos();
+				}
 				
 				
 			} catch (CampoRequeridoException cre) {
@@ -188,6 +196,15 @@ public class PantallaSugerencias extends diedral.acex.gui.Pantalla {
 				:	"."),
 				"ACE Gestión Externa - Sugerencias",
 				JOptionPane.ERROR_MESSAGE);
+	}
+	
+	/**
+	 * Limpia los campos del formulario.
+	 */
+	private void limpiaCampos(){
+		_mensaje.setText("");
+		_contacto.setText("");
+		_nombre.setText("");
 	}
 	
 	// MIEMBROS PRIVADOS

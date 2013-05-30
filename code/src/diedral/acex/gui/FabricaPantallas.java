@@ -5,7 +5,6 @@ package diedral.acex.gui;
 
 import diedral.acex.Compra;
 import diedral.acex.Oferta;
-import diedral.acex.Usuario;
 import diedral.acex.Vuelo;
 import diedral.acex.gui.pantallas.*;
 

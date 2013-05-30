@@ -13,6 +13,14 @@ public abstract class Pantalla extends javax.swing.JPanel {
 	/**
 	 * Manejador del evento de puesta en funcionamiento.
 	 */
+	public void alCargar() {}
+	
+	/**
+	 * Manejador del evento de muestra.
+	 * 
+	 * <p>Esta función es llamada cuando una pantalla va a ser mostrada
+	 * en el marco.
+	 */
 	public void alMostrar() {}
 
 	/**
