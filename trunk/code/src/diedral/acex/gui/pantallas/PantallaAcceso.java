@@ -102,7 +102,6 @@ public class PantallaAcceso extends Pantalla {
 						"ACE Gestión Externa - Acceso",
 						JOptionPane.ERROR_MESSAGE);
 			else {
-				_sesion = new Sesion(usuario);
 				_sesion.cargaUsuario(usuario);
 				_manejadorPantallas.cierraPantallaActual();
 			}
