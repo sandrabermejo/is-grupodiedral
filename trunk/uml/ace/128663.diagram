@@ -5,16 +5,10 @@ classinstance 128023 class_ref 161175 // PantallaPagoTarjeta
 classinstance 128407 class_ref 135047 // PagoTarjeta
   name ""   xyz 379 8 2000 life_line_z 2000
 durationcanvas 128151 classinstance_ref 128023 // :PantallaPagoTarjeta
-  xyzwh 116 95 2010 11 184
+  xyzwh 113 95 2010 11 184
 end
 durationcanvas 129047 classinstance_ref 128407 // :PagoTarjeta
-  xyzwh 427 129 2010 11 150
-  overlappingdurationcanvas 129431
-    xyzwh 433 181 2020 11 25
-  end
-  overlappingdurationcanvas 129815
-    xyzwh 433 244 2020 11 25
-  end
+  xyzwh 425 129 2010 11 150
 end
 reflexivemsg 128279 synchronous
   to durationcanvas_ref 128151
@@ -35,7 +29,7 @@ msg 129303 return
   show_full_operations_definition default drawing_language default show_context_mode default
 msg 129559 synchronous
   from durationcanvas_ref 128151
-  to durationcanvas_ref 129431
+  to durationcanvas_ref 129047
   yz 181 2025 msg operation_ref 144279 // "establecerNumeroTarjeta(in value : string) : void"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "numeroTarjeta"
@@ -47,7 +41,7 @@ msg 129687 return
   show_full_operations_definition default drawing_language default show_context_mode default
 msg 129943 synchronous
   from durationcanvas_ref 128151
-  to durationcanvas_ref 129815
+  to durationcanvas_ref 129047
   yz 244 2025 msg operation_ref 143639 // "efectuar()"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 241 225
