@@ -35,6 +35,11 @@ class BandaSuperior extends JPanel implements OyenteCambios<Sesion> {
 		// Crea el botón de registro
 		_registro = new JButton("Registrarse");
 		_registro.setForeground(Color.RED);
+		_registro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_mnj.cambiaA(_fabrica.damePantallaRegistro());
+			}
+		});
 		
 		// Crea el boton de acceder
 		_acceder = new BotonUsuario("Acceder");
@@ -182,6 +187,15 @@ class BandaSuperior extends JPanel implements OyenteCambios<Sesion> {
 		};
 		
 		/**
+		
+		/**
+		 * Accion de registro de usuario
+		 */
+		private final ActionListener AL_REGISTRAR = new ActionListener (){
+			public void actionPerformed(ActionEvent e) {
+				_mnj.cambiaA(_fabrica.damePantallaRegistro());
+			}
+		};
 		 * Acción de edición de usuario
 		 */
 		private final ActionListener AL_EDITAR_USUARIO = new ActionListener (){

@@ -4,6 +4,7 @@
 package diedral.acex.gui;
 
 import diedral.acex.Oferta;
+import diedral.acex.Usuario;
 import diedral.acex.Vuelo;
 import diedral.acex.gui.pantallas.*;
 
@@ -67,8 +68,8 @@ public class FabricaPantallas {
 	/**
 	 * Obtiene una pantalla de consulta de ofertas.
 	 */
-	public Pantalla damePantallaConsultaOfertas(){
-		return new PantallaConsultaOfertas();
+	public Pantalla damePantallaConsultaOfertas(ManejadorPantallas mnj, FabricaPantallas fabrica){
+		return new PantallaConsultaOfertas(mnj, fabrica);
 	}
 	
 	/**
@@ -85,6 +86,14 @@ public class FabricaPantallas {
 		return new PantallaAcceso();
 	}
 	
+	/**
+	
+	/**
+	 * Obtiene una pantalla de registro
+	 */
+	public Pantalla damePantallaRegistro(){
+		return new PantallaRegistro();
+	}
 	/**
 	 * Obtiene una pantalla de compra
 	 * 
