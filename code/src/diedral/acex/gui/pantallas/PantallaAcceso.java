@@ -113,8 +113,19 @@ public class PantallaAcceso extends Pantalla {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
+			String correo = _correo.getText();
+			
+			if(correo.isEmpty() || correo == null) {
+				JOptionPane.showMessageDialog(PantallaAcceso.this,
+						"Introduzca su cuenta de correo.",
+						"ACE Gestión Externa - Acceso",
+						JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+					
 			// Busca el usuario por el correo
-			Usuario usuario = GestorUsuarios.dameInstancia().buscaUsuario(_correo.getText());
+			Usuario usuario = GestorUsuarios.dameInstancia().buscaUsuario(correo);
+			
 			if (usuario == null || !usuario.comprobarContrasena(new String(_contrasena.getPassword())))
 				JOptionPane.showMessageDialog(PantallaAcceso.this,
 						"ID o constraseña no válida.",
