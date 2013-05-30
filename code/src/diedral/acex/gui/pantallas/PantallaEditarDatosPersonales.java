@@ -25,6 +25,14 @@ import diedral.acex.gui.Pantalla;
 public class PantallaEditarDatosPersonales extends Pantalla {
 	
 	public PantallaEditarDatosPersonales(){
+		if(_sesion == null){
+			//pantalla de información que indica que no ha iniciado sesión por lo que no puede modificar los datos.
+			JOptionPane pane = new JOptionPane("Para modificar sus datos primero inicie sesión.");
+			JDialog dialog = pane.createDialog("Error");
+			dialog.setLocationRelativeTo(getRootPane()); //centra la pantalla
+			dialog.setVisible(true);
+			_mnj.cierraPantallaActual();
+		}
 		
 		//Características ventana
 		setLayout(new BorderLayout());
@@ -132,6 +140,8 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 	 */
 	public void establecerContexto(ManejadorPantallas manejador, FabricaPantallas fabrica, Sesion sesion) {
 		_sesion = sesion;
+		_mnj = manejador;
+		_fabrica = fabrica;
 	}
 	/**
 	 * Método que lee los datos de la pantalla y realiza el guardado de los datos
@@ -212,4 +222,12 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 	 * Sesion iniciada por un usuario que es el que quiere modificar sus datos.
 	 */
 	private Sesion _sesion;
+	/**
+	 * Atributo que maneja las pantallas de la aplicación.
+	 */
+	private ManejadorPantallas _mnj;
+	/**
+	 * Atributo que fabrica pantallas para la aplicación.
+	 */
+	private FabricaPantallas _fabrica;
 }
