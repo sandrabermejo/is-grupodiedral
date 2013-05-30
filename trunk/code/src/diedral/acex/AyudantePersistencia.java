@@ -85,24 +85,36 @@ public class AyudantePersistencia implements Serializable {
 	 * guarda una referencia a él para guardarlo cuando el ayudante
 	 * reciba una notificación a tal efecto.
 	 * 
-	 * @param Identificador único el objeto.
+	 * @param id Identificador único el objeto.
 	 * 
 	 * @return El objeto recurerado. {@code null} si no ha sido posible.
 	 */
 	public Object recuperayVigila(String id){
 		Object obj = recupera(id);
 		
-		// Lo añade a la lista (tabla) de vigilados
-		_vigilados.put((Serializable) obj, id);
+		vigila((Serializable) obj, id);
 		
 		return obj;
+	}
+	
+	/**
+	 * Añade el objeto a la lista de objetos que serán guardados
+	 * al almacenar todos.
+	 * 
+	 * @param obj Objeto.
+	 * @param id Identificador de objeto.
+	 */
+	public void vigila(Serializable obj, String id){
+		// Lo añade a la lista de vigilados
+		if (obj != null)
+			_vigilados.put(obj, id);
 	}
 	
 	/**
 	 * Almacena todos los objetos vigilados.
 	 *
 	 */
-	public boolean almacenaTodos(){
+	public boolean almacenaTodos(){		
 		for (Serializable obj : _vigilados.keySet())
 			if (!almacena(obj, _vigilados.get(obj)))
 				return false;

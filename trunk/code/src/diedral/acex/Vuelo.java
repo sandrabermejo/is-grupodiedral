@@ -204,7 +204,7 @@ public class Vuelo implements Serializable {
 	 * 
 	 * @param fsalida fecha de salida
 	 */
-	public void ponFechasalida(GregorianCalendar salida) {
+	public void ponFechaSalida(GregorianCalendar salida) {
 		_fsalida = salida;
 	}
 

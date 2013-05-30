@@ -78,6 +78,14 @@ public class Aeropuerto implements java.io.Serializable {
 		return _nombre + " (" + _codigoIATA + ")";
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Aeropuerto)
+			return _codigoIATA.compareTo(((Aeropuerto) obj)._codigoIATA) == 0;
+		
+		return false;
+	}
+	
 	// ATRIBUTOS PRIVADOS
 	
 	/**
