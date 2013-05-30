@@ -94,9 +94,12 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		_marco.apilaPantalla(pt);
 		_marco.validate();
 
+		// Establece el contexto de la ventana y llama a métodos
 		pt.estableceContexto(this, _fabrica, _sesion);
+		pt.alCargar();
 		pt.alMostrar();
 
+		// Establece el nombre de la ventana de acuerdo a su nombre
 		if (pt.dameNombre() != null)
 			setTitle("ACE - Gestión interna - " + pt.dameNombre());
 	}
@@ -111,6 +114,8 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		// Elimina la pantalla actual
 		_marco.apilaPantalla(pt);
 
+		// Establece el contexto y llama al método de muestra
+		pt.estableceContexto(this, _fabrica, _sesion);
 		pt.alMostrar();
 	}
 
@@ -119,13 +124,20 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	 */
 	public void cierraPantallaActual() {
 		// Elimina la pantalla actual
-		_marco.cierraCima();		
+		_marco.cierraCima();
+		
+		// Si está vacío carga la pantalla de inicio
+		if (_marco.estaVacio())
+			cambiaA(_fabrica.damePantallaInicio());
 	}
+	
 	
 	// MÉTODOS PRIVADOS
 
 	/**
 	 * Crea la barra de menús.
+	 * 
+	 * @return La barra de menús.
 	 */
 	private JMenuBar fabricaBarraMenus(){
 		// Crea el menú "Navegador"
@@ -178,19 +190,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	 * Panel central de la ventana.	
 	 */
 	private class MarcoCentral extends JPanel {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 7132566251439458651L;
-
 		public MarcoCentral(){
 			// Crea el borde de la pantalla
-			_tb = BorderFactory.createTitledBorder("AA");
+			_tb = BorderFactory.createTitledBorder("Marco de pantallas");
 			
 			setBorder(BorderFactory.createCompoundBorder(
-				_tb,
-				BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+				_tb, BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 			
+			// Establece una CardLayout (pensada para fines más sofisticados)
 			setLayout(new CardLayout());
 		}
 		
@@ -232,6 +239,15 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 			_pantallas.clear();
 		}
 		
+		/**
+		 * ¿Está el marco vacío?
+		 * 
+		 * @return Un booleano.
+		 */
+		public boolean estaVacio(){
+			return _pantallas.isEmpty();
+		}
+		
 		
 		// ATRIBUTOS PRIVADOS (de Ventana Principal)
 		
@@ -249,6 +265,11 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		 * Borde con título del marco
 		 */
 		private TitledBorder _tb;
+		
+		/**
+		 * Serial UID
+		 */
+		private static final long serialVersionUID = 7132566251439458651L;
 	}
 
 	// PRIVATE FIELDS

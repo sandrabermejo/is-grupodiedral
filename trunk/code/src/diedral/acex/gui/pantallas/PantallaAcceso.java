@@ -115,7 +115,7 @@ public class PantallaAcceso extends Pantalla {
 			
 			// Busca el usuario por el correo
 			Usuario usuario = GestorUsuarios.dameInstancia().buscaUsuario(_correo.getText());
-			if (usuario == null || !usuario.dameContrasena().equals(_contrasena.getPassword()))
+			if (usuario == null || !usuario.comprobarContrasena(new String(_contrasena.getPassword())))
 				JOptionPane.showMessageDialog(PantallaAcceso.this,
 						"ID o constraseña no válida.",
 						"ACE Gestión Externa - Acceso",
@@ -123,7 +123,6 @@ public class PantallaAcceso extends Pantalla {
 			else {
 				_sesion.cargaUsuario(usuario);
 				_manejadorPantallas.cierraPantallaActual();
-				JOptionPane.showMessageDialog(PantallaAcceso.this, "Sesion iniciada con exito!");
 			}
 								
 		}
