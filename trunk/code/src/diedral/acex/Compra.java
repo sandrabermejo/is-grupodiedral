@@ -13,9 +13,20 @@ public class Compra {
 	 */
 	public Compra(Usuario usuario) {
 		_usuario = usuario;
-		_billetes = new ArrayList<>();
+		_billetes = new ArrayList();
 		_pagada = false;
 	}
+	
+	/**
+	 * 	Anade un billete a la compra
+	 * 
+	 * @param billete a anadir
+	 */
+	public void anadeBillete(Billete billete) {
+		if (!_billetes.contains(billete))
+			_billetes.add(billete);
+	}
+	
 	/**
 	 * Este metodo efectua una compra realizando primero el pago y después actualiza 
 	 * el número de pasajeros de cada vuelo.
