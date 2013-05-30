@@ -23,10 +23,7 @@ import diedral.acex.gui.Pantalla;
  */
 public class PantallaConsultaOfertas extends Pantalla {
 
-    public PantallaConsultaOfertas(ManejadorPantallas mnj, FabricaPantallas fabrica){
-
-        _mnj = mnj;
-        _fabrica = fabrica;
+    public PantallaConsultaOfertas(){
         _tabla = new JTable(new PanelOfertas());
 
         setLayout(new BorderLayout());
@@ -53,9 +50,8 @@ public class PantallaConsultaOfertas extends Pantalla {
      * Panel de ofertas
      */
     private class PanelOfertas extends AbstractTableModel {
-
-        public PanelOfertas(){
-            _ofertas = (GestorOfertas.dameInstancia()).dameOfertas();
+		public PanelOfertas(){
+            _ofertas = new ArrayList<>(GestorOfertas.dameInstancia().dameOfertas());
         }
 
         @Override
@@ -80,6 +76,10 @@ public class PantallaConsultaOfertas extends Pantalla {
             return false;
         }
 
+		/**
+		 * Serial UID (de PantallaConsultaOfertas)
+		 */
+		private static final long serialVersionUID = -8556619820067983514L;
     }
 
     private ArrayList<Oferta> _ofertas;
