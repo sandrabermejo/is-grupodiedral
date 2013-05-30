@@ -8,17 +8,23 @@ import diedral.acex.Sesion;
 /**
  * Una pantalla o página representa un elemento de la interacción con el usuario
  * mediante la interfaz gráfica.
+ * 
+ * <p>Las pantallas son gestionadas por el manejador de ventanas que llamará a los
+ * diferentes métodos declarados en esta clase abstracta.
  */
 public abstract class Pantalla extends javax.swing.JPanel {
 	/**
 	 * Manejador del evento de puesta en funcionamiento.
+	 * 
+	 * <p>Este método es llamado cuando una pantalla se carga para ser
+	 * mostrada en el marco.
 	 */
 	public void alCargar() {}
 	
 	/**
 	 * Manejador del evento de muestra.
 	 * 
-	 * <p>Esta función es llamada cuando una pantalla va a ser mostrada
+	 * <p>Este método es llamado cuando una pantalla va a ser mostrada
 	 * en el marco.
 	 */
 	public void alMostrar() {}
