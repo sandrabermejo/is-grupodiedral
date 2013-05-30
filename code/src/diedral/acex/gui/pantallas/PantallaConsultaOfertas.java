@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 import diedral.acex.GestorOfertas;
 import diedral.acex.Oferta;
+import diedral.acex.Sesion;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
@@ -33,12 +34,17 @@ public class PantallaConsultaOfertas extends Pantalla {
 
         verInfoOferta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                if (_ofertas != null && _ofertas.size() != 0)
-                    _mnj.cambiaA(_fabrica.damePantallaOferta(_ofertas.get(_tabla.getSelectedRow())));
+            	int filaSeleccionada = _tabla.getSelectedRow();
+                if (_ofertas != null && _ofertas.size() != 0 && filaSeleccionada != -1)
+                    _mnj.cambiaA(_fabrica.damePantallaOferta(_ofertas.get(filaSeleccionada)));
             }
         });
         add(new JScrollPane(_tabla), BorderLayout.NORTH);
 
+    }
+    public void estableceContexto(ManejadorPantallas manejador, FabricaPantallas fabrica, Sesion sesion){
+    	_mnj = manejador;
+    	_fabrica = fabrica;
     }
 
 
