@@ -105,8 +105,6 @@ public class PantallaPagoTarjeta extends Pantalla{
 		
 		//añadimos el panel a la ventana
 		add(panel);
-		
-		introducirDatos(); //introducimos los datos que el cliente ha metido por 
 	}
 	private void introducirDatos(){
 		String titular, numeroTarjeta, servidor;		
