@@ -8,6 +8,7 @@ import java.awt.CardLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import java.util.ArrayDeque;
@@ -17,6 +18,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.UIManager;
@@ -36,26 +38,43 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 	public VentanaPrincipal(){
 		super("ACE - Gestión interna");
 		
-		 try {
-	        UIManager.setLookAndFeel(
-	            UIManager.getSystemLookAndFeelClassName());
-		 }
-		 catch (Exception e){
-			 
-		 }
+		// Usa la apariencia nativa del sistema (algo se parece)
+		try {
+			UIManager.setLookAndFeel(
+				UIManager.getSystemLookAndFeelClassName());
+		}
+		catch (Exception e){
+			// No importa
+		}
 
+		// Tamaño de la ventana
 		setSize(800, 600);
 
 		// Ubica los paneles superior y lateral
-		add(new MenuLateral(this, _fabrica, _sesion), BorderLayout.WEST);
+		add(new MenuLateral(this, _fabrica), BorderLayout.WEST);
 		add(_bandaSuperior = new BandaSuperior(this, _fabrica), BorderLayout.NORTH);
 		
+		// Registra a la banda superior como oyente de cambios en la sesión
 		_sesion.registraOyenteCambio(_bandaSuperior);
 		
+		// El marco central es donde se muestran las pantallas particulares
 		_marco = new MarcoCentral();
 		add(_marco, BorderLayout.CENTER);
 
+		// Fija la barra de menús
 		setJMenuBar(fabricaBarraMenus());
+		
+		// Establece lo que hacer al salir
+		addWindowListener(new WindowAdapter() {			
+			@Override
+			public void windowClosing(WindowEvent we) {
+				// Guarda los datos
+				AyudantePersistencia.dameInstancia().almacenaTodos();
+				
+				// Finaliza la aplicación
+				System.exit(0);
+			}
+		});
 
 		// Al inicio carga la pantalla de inicio
 		cambiaA(_fabrica.damePantallaInicio());
@@ -128,26 +147,29 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		nav.add(salir);
 		
 		
-		// Temporal para depuración
+		// Menú "Ayuda"
+		JMenu ayuda = new JMenu("Ayuda");
 		
-		JMenu depr = new JMenu("Depuración");
+		// Añade el elemento "Acerca de..."
+		JMenuItem acercaDe = new JMenuItem("Acerca de...");
 		
-		// JMenuItem 
-		JMenuItem arOferta = new JMenuItem("Archivar todo");
-		
-		arOferta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println(AyudantePersistencia.dameInstancia().almacenaTodos());
+		acercaDe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(VentanaPrincipal.this,
+						"<html><b>Airline Common Environment ε</b>" +
+						"<br><i>Gestión Externa</i><br><br> Grupo Diedral 2013</html>",
+						"Acerca de...",
+						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		
-		depr.add(arOferta);
-
+		ayuda.add(acercaDe);
+		
 		// Crea la barra de menús
 		JMenuBar mb = new JMenuBar();
 
 		mb.add(nav);
-		mb.add(depr);
+		mb.add(ayuda);
 
 		return mb;
 	}
@@ -216,7 +238,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		/**
 		 * Pila de pantallas
 		 */
-		private Queue<Pantalla> _pantallas = new ArrayDeque();
+		private Queue<Pantalla> _pantallas = new ArrayDeque<>();
 		
 		/**
 		 * Card Layout
