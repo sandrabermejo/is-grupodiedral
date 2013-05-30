@@ -128,7 +128,8 @@ public class PantallaRegistro extends Pantalla {
 			
 			Usuario usuario = GestorUsuarios.dameInstancia().buscaUsuario(_correo.getText());
 			
-			if (usuario == null || !usuario.dameContrasena().equals(_contrasena.getText()))
+			if (usuario != null)
+				if(!usuario.dameContrasena().equals(_contrasena.getPassword()))
 				JOptionPane.showMessageDialog(PantallaRegistro.this,
 						"Datos no validos.",
 						"ACE Gestion Externa - Acceso",
