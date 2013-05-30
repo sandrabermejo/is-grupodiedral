@@ -68,8 +68,8 @@ public class FabricaPantallas {
 	/**
 	 * Obtiene una pantalla de consulta de ofertas.
 	 */
-	public Pantalla damePantallaConsultaOfertas(ManejadorPantallas mnj, FabricaPantallas fabrica){
-		return new PantallaConsultaOfertas(mnj, fabrica);
+	public Pantalla damePantallaConsultaOfertas(){
+		return new PantallaConsultaOfertas();
 	}
 	
 	/**
