@@ -3,6 +3,7 @@
  */
 package diedral.acex.gui;
 
+import diedral.acex.Compra;
 import diedral.acex.Oferta;
 import diedral.acex.Usuario;
 import diedral.acex.Vuelo;
@@ -105,12 +106,11 @@ public class FabricaPantallas {
 	}
 	
 	/**
-	 * Obtiene una pantalla de realizar pago con tarjeta.
-	 * @return
+	 * Obtiene una pantalla de pago con tarjeta
 	 */
-	/*public Pantalla damePantallaEditarPagoTarjeta(){
-		return new PantallaEditarPagoTarjeta();
-	}*/
+	public Pantalla damePantallaPagoTarjeta(Compra compra){
+		return new PantallaPagoTarjeta(compra);
+	}
 	
 	// ATRIBUTOS PRIVADOS
 	
