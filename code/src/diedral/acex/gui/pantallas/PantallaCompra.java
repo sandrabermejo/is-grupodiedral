@@ -210,8 +210,15 @@ public class PantallaCompra extends Pantalla {
 				//GregorianCalendar fecha = (GregorianCalendar) _fnacimiento.getValue();
 													
 				String caddni = _dni.getText();
-				if (caddni.isEmpty() || caddni == null)
+				if (caddni.isEmpty() || caddni == null) //si el campo de dni está vacío
 					throw new CampoRequeridoException("Debe introducir el DNI");
+				try { //si el dni no es un numero
+					Long.parseLong(caddni);
+				} catch(NumberFormatException ex){
+					throw new CampoRequeridoException("DNI inválido");
+				}
+				if(caddni.length() != 8) //si tiene longitud distinta de 8
+					throw new CampoRequeridoException("DNI inválido");
 				
 				char letra = caddni.charAt(caddni.length()-1);
 				caddni = caddni.substring(0, caddni.length()-1);
@@ -229,7 +236,7 @@ public class PantallaCompra extends Pantalla {
 				JOptionPane.showMessageDialog(PantallaCompra.this,
 						"Pasajero añadido con éxito",
 						"ACE Gestión Externa - Compra",
-						JOptionPane.OK_OPTION);
+						JOptionPane.INFORMATION_MESSAGE);
 				
 				if (_numPasajerosAnadidos == _numBilletes) 
 					_mnj.cambiaA(_fabrica.damePantallaPagoTarjeta(_compra));

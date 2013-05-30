@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Vector;
 
 import javax.swing.Box;
@@ -60,7 +62,8 @@ public class PantallaPagoTarjeta extends Pantalla{
 		// Crea un cuadro de inserción de nombre con su texto
 		JPanel panelNumeroTarjeta = new JPanel(new GridLayout(1, 2));
 		panelNumeroTarjeta.add(new JLabel("Número de Tarjeta"));
-		panelNumeroTarjeta.add(_textNumeroTarjeta = new JTextField(""));
+		_textNumeroTarjeta = new JTextField("");
+		panelNumeroTarjeta.add(_textNumeroTarjeta);
 		
 		// Acota el tamaño del cuadro de texto para que no quede raro
 		panelNumeroTarjeta.setMaximumSize(dim);
@@ -111,17 +114,27 @@ public class PantallaPagoTarjeta extends Pantalla{
 		titular = _texTitular.getText();
 		numeroTarjeta = _textNumeroTarjeta.getText();
 		servidor = _servidores.get(_comboBoxServidores.getSelectedIndex());
-		if(titular != null && numeroTarjeta != null && servidor != null){
-			_pagoTarjeta = new PagoTarjeta(_compra, titular, numeroTarjeta, _importeCompra); 
-			if(!_pagoTarjeta.efectuar())
-				JOptionPane.showMessageDialog(this, "El pago no se ha podido procesar. Datos incorrectos.");
-			else {
-				JOptionPane.showMessageDialog(this, "La compra ha sido procesada correctamente. Gracias por confiar en nosotros.");
-				_mnj.cierraPantallaActual();
-				_mnj.cambiaA(_fabrica.damePantallaInicio());
-			}
-		} else
-			JOptionPane.showMessageDialog(this, "Error. Rellene todos los campos obligatorios.");
+		if(titular == null){
+			JOptionPane.showMessageDialog(this, "Rellene el titular, por favor.");
+		} else if (numeroTarjeta == null){
+			JOptionPane.showMessageDialog(this, "Rellene el número de Tarjeta, por favor.");
+		} else if (servidor == null){
+			JOptionPane.showMessageDialog(this, "Elija servidor, por favor.");
+		} else {
+			if(numeroTarjeta.length() == 10) {
+				_pagoTarjeta = new PagoTarjeta(_compra, titular, numeroTarjeta, _importeCompra); 
+				if(!_pagoTarjeta.efectuar())
+					JOptionPane.showMessageDialog(this, "El pago no se ha podido procesar. Datos incorrectos.");
+				else {
+					JOptionPane.showMessageDialog(this, "La compra ha sido procesada " +
+							"correctamente. Gracias por confiar en nosotros.");
+					_mnj.cierraPantallaActual();
+					_mnj.cambiaA(_fabrica.damePantallaInicio());
+				}
+			} else
+				JOptionPane.showMessageDialog(this, "El número de tarjeta de la cuenta bancaria" +
+						" no tiene el número de caracteres requeridos.");
+		} 
 	}
 	
 	@Override
