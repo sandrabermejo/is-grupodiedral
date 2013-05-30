@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Vector;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -24,6 +25,7 @@ import javax.swing.text.MaskFormatter;
 import diedral.acex.Billete;
 import diedral.acex.Compra;
 import diedral.acex.Dni;
+import diedral.acex.GestorVuelos;
 import diedral.acex.Pasajero;
 import diedral.acex.Sesion;
 import diedral.acex.Vuelo;
@@ -44,7 +46,7 @@ public class PantallaCompra extends Pantalla {
 		_vuelo = vuelo;
 		_numBilletes = numBilletes;
 		_numPasajerosAnadidos = 0;
-	//	_compra = new Compra(_mnjSesion.dameUsuarioSesion());
+		_compra = new Compra(_sesion.dameUsuario());
 		
 		//Características ventana
 		setLayout(new BorderLayout());
@@ -102,7 +104,7 @@ public class PantallaCompra extends Pantalla {
 		JPanel panelNacimiento = new JPanel(new GridLayout(1, 2));
 		panelNacimiento.add(new JLabel("Fecha de nacimiento"));
 		
-		_fnacimiento = new JFormattedTextField(new GregorianCalendar());
+		_fnacimiento = new JFormattedTextField();
 		Dimension dimFecha = _fnacimiento.getPreferredSize();
 		dim.width *= 2;
 		
@@ -129,7 +131,7 @@ public class PantallaCompra extends Pantalla {
 		// Crea un cuadro de inserción de DNI con su texto
 		JPanel panelClase = new JPanel(new GridLayout(1, 2));
 		panelClase.add(new JLabel("Clase"));
-		panelClase.add(_clase = new JComboBox<Billete.Clase>());
+		panelClase.add(_clase = new JComboBox<Billete.Clase>(Billete.Clase.values()));
 		
 		// Acota el tamaño del cuadro de texto para que no quede raro
 		panelClase.setMaximumSize(dim);
@@ -152,7 +154,7 @@ public class PantallaCompra extends Pantalla {
 		anadirPasajero.addActionListener(new AnadirPasajero());
 
 		panel.add(anadirPasajero);
-		this.add(panel);
+		this.add(panel);		
 	}
 	
 	@Override
@@ -168,6 +170,7 @@ public class PantallaCompra extends Pantalla {
 			FabricaPantallas fabrica, Sesion sesion) {
 		_mnj = manejador;
 		_fabrica = fabrica;
+		_sesion = sesion;
 	}
 	
 	/**
@@ -195,12 +198,12 @@ public class PantallaCompra extends Pantalla {
 				if (nacionalidad.isEmpty() || nacionalidad == null)
 					throw new CampoRequeridoException("Debe introducir la nacionalidad");
 				
-				if (!_fnacimiento.isEditValid())
-					throw new FormatoIncorrectoException("La fecha de nacimiento no es válida");
+				//if (!_fnacimiento.isEditValid())
+				//	throw new FormatoIncorrectoException("La fecha de nacimiento no es válida");
 				
 				// else
 				
-				GregorianCalendar fecha = (GregorianCalendar) _fnacimiento.getValue();
+				//GregorianCalendar fecha = (GregorianCalendar) _fnacimiento.getValue();
 													
 				String caddni = _dni.getText();
 				if (caddni.isEmpty() || caddni == null)
@@ -214,6 +217,8 @@ public class PantallaCompra extends Pantalla {
 				
 				Billete.Clase clase = (Billete.Clase) _clase.getSelectedItem();
 				
+				GregorianCalendar fecha = new GregorianCalendar(2012, 10, 3);
+				
 				Pasajero pasajero = new Pasajero(nombre, apellido1, apellido2, nacionalidad, fecha, dni);
 				_compra.anadeBillete(new Billete(_vuelo, pasajero, clase, _vuelo.damePrecio()));
 				_numPasajerosAnadidos++;
@@ -222,8 +227,12 @@ public class PantallaCompra extends Pantalla {
 						"ACE Gestión Externa - Compra",
 						JOptionPane.OK_OPTION);
 				
-				if (_numPasajerosAnadidos == _numBilletes) 
-					_mnj.cambiaA(_fabrica.damePantallaPagoTarjeta(_compra));
+				if (_numPasajerosAnadidos == _numBilletes) { 
+					_mnj.cierraPantallaActual();
+					Pantalla pantallaPago = _fabrica.damePantallaPagoTarjeta(_compra);
+					pantallaPago.estableceContexto(_mnj, _fabrica, _sesion);
+					_mnj.cambiaA(pantallaPago);
+				}
 				
 			} catch(Exception exc){
 				JOptionPane.showMessageDialog(PantallaCompra.this,
@@ -303,6 +312,11 @@ public class PantallaCompra extends Pantalla {
 	 * Fabrica de pantallas
 	 */
 	private FabricaPantallas _fabrica;
+	
+	/**
+	 * Sesion
+	 */
+	private Sesion _sesion;
 	
 	/**
 	 * Valor por defecto del espacio vertical entre componentes
