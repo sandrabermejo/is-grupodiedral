@@ -175,7 +175,7 @@ public class Vuelo implements Serializable {
 	/**
 	 * Obtiene el número de vuelo.
 	 * 
-	 * @retunr El número de vuelo.
+	 * @return El número de vuelo.
 	 */
 	public int dameNumeroVuelo(){
 		return _numVuelo;
@@ -202,7 +202,7 @@ public class Vuelo implements Serializable {
 	/**
 	 * Modifica la fecha de salida del vuelo
 	 * 
-	 * @param fsalida fecha de salida
+	 * @param salida fecha de salida
 	 */
 	public void ponFechaSalida(GregorianCalendar salida) {
 		_fsalida = salida;
@@ -211,7 +211,7 @@ public class Vuelo implements Serializable {
 	/**
 	 * Modifica la fecha de llegada del vuelo
 	 * 
-	 * @param fllegada fecha de llegada
+	 * @param llegada fecha de llegada
 	 */
 	public void ponFechaLlegada(GregorianCalendar llegada) {
 		_fllegada = llegada;
@@ -229,7 +229,7 @@ public class Vuelo implements Serializable {
 	/**
 	 * Modifica el número de pasajeros admitidos en el vuelo
 	 * 
-	 * @param npasajeros Número de pasajeros del vuelo
+	 * @param pasajeros Número de pasajeros del vuelo
 	 */
 	public void ponNumPasajeros(int pasajeros) {
 		_npasajeros = pasajeros;

@@ -37,17 +37,24 @@ public class GestorVuelos implements Serializable {
 	 * 
 	 * <p>Sólo con fines demostrativos pues no se corresponde con esta
 	 * parte de la implementación.
-	 * @return 
+	 * 
+	 * @param vuelo Vuelo a insertar.
+	 * 
+	 * @return {@code true} si ha sido posible, {@code false} en caso
+	 * contrario (gte. si ya existe el vuelo en el registro de la compañía).
 	 */
 	public boolean añadeVuelo(Vuelo vuelo){
-		return _vuelos.add(vuelo);
+		if (vuelo != null)
+			return _vuelos.add(vuelo);
+		
+		return false;
 	}
 	
 	/**
 	 * Busca en la base de datos de vuelo aquellos que cumplan
 	 * con las condiciones referidas y los devuelve.
 	 * 
-	 * @param 
+	 * @param criterio Criterio de búsqueda.
 	 */
 	public Set<Vuelo> buscaVuelo(CriterioBusqueda criterio){
 		Set<Vuelo> ret = new HashSet<>(); 

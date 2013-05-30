@@ -20,7 +20,7 @@ import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
 
 /**
- * PĂĄgina de consulta de vuelos.
+ * Página de consulta de vuelos.
  */
 public class PantallaConsultaOfertas extends Pantalla {
 

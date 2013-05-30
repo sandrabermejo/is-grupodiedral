@@ -83,7 +83,9 @@ public class GestorUsuarios implements Serializable {
 	/**
 	 * Dado un correo de un usuario, mira a ver si ese usuario está. Si ya existe una cuenta vinculada con ese 
 	 * correo, no es válido modificar el correo actual a la dirección nueva dada por parámetro.
-	 * @param correo
+	 * 
+	 * @param correoModificado ...
+	 * 
 	 * @return true si no existe un usuario con ese correo, false si sí existe.
 	 */
 	public boolean validar(String correoModificado){

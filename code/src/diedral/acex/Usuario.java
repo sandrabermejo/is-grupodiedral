@@ -102,7 +102,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	/**
 	 * Obtiene la lista de ofertas generales del usuario
 	 * 
-	 * @return
+	 * @return Lista de las ofertas generales.
 	 */
 	public List<Oferta> dameOfertasGenerales() {
 		return _ofertasGenerales;
@@ -111,7 +111,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	/**
 	 * Obtiene la lista de ofertas personalizdas del usuario
 	 * 
-	 * @return
+	 * @return Lista de ofertas personales.
 	 */
 	public List<Oferta> dameOfertasPersonales() {
 		return _ofertasPersonales;

@@ -71,7 +71,7 @@ public class Sesion implements Serializable {
 	/**
 	 * Registra un oyente de cambios de sesión.
 	 * 
-	 * @public oyente El oyente.
+	 * @param oyente El oyente.
 	 */
 	public void registraOyenteCambio(OyenteCambios<Sesion> oyente){
 		_oyentes.add(oyente);

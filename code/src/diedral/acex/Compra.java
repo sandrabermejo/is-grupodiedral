@@ -13,7 +13,7 @@ public class Compra {
 	 */
 	public Compra(Usuario usuario) {
 		_usuario = usuario;
-		_billetes = new ArrayList();
+		_billetes = new ArrayList<>();
 		_pagada = false;
 	}
 	
@@ -95,7 +95,7 @@ public class Compra {
 	/**
 	 * Dada una lista de billetes a comprar y una lista de ofertas de un usuario,
 	 * calcula el precio de esos billetes.
-	 * @param billetes
+	 * 
 	 * @return precio total de la lista de billetes dada.
 	 */
 	public double calculaPrecio(){
