@@ -34,7 +34,6 @@ public class PantallaConsultaOfertas extends Pantalla {
 
         verInfoOferta.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-            	// si el ususario no selecciona fila que no haga nada
             	int filaSeleccionada = _tabla.getSelectedRow();
                 if (_ofertas != null && _ofertas.size() != 0 && filaSeleccionada != -1)
                     _mnj.cambiaA(_fabrica.damePantallaOferta(_ofertas.get(filaSeleccionada)));

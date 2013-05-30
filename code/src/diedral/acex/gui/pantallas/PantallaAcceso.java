@@ -96,7 +96,6 @@ public class PantallaAcceso extends Pantalla {
 		public void actionPerformed(ActionEvent e) {
 			
 			Usuario usuario = GestorUsuarios.dameInstancia().buscaUsuario(_correo.getText());
-			
 			if (usuario == null || !usuario.comprobarContrasena(new String(_contrasena.getPassword())))
 				JOptionPane.showMessageDialog(PantallaAcceso.this,
 						"ID o constraseña no válida.",

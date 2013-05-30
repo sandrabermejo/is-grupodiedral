@@ -129,28 +129,23 @@ public class PantallaRegistro extends Pantalla {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// Registramos los datos
 			String nombre = _nombre.getText();
 			String apellido1 = _apellido1.getText(), apellido2 = _apellido2.getText();
 			String correo = _correo.getText();
-			String contrasena = new String(_contrasena.getPassword());
-			// Comprobamos que todos los campos han sido rellenados
+			String contrasena = new String( _contrasena.getPassword());
 			if(validarDatos(nombre, apellido1, apellido2, correo, contrasena)){
-				// Si los datos son validos creamos un usuario con los datos introducidos
 				Usuario usuario = new Usuario(nombre, apellido1, apellido2, contrasena, correo);
 				try {
-					// Introducimos el usuario
 					GestorUsuarios.dameInstancia().meteUsuario(usuario);
 					_sesion.cargaUsuario(usuario);
-					JOptionPane.showConfirmDialog(PantallaRegistro.this, "Usuario regristrado con exito!");
 					_mnj.cierraPantallaActual();
-				} catch (UsuarioInvalidoException e2) { // Si el usuario ya existe
+				} catch (UsuarioInvalidoException e2) { //si el usuario ya existe
 					JOptionPane.showMessageDialog(PantallaRegistro.this,
 					"Datos no validos.",
 					"ACE Gestion Externa - Acceso",
 					JOptionPane.ERROR_MESSAGE);
 				}			
-			} else { // Algun campo esta incompleto
+			} else {
 				JOptionPane.showMessageDialog(PantallaRegistro.this,
 				"Campos de texto incompletos.",
 				"ACE Gestion Externa - Acceso",
