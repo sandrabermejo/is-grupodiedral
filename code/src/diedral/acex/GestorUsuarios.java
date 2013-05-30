@@ -28,8 +28,8 @@ public class GestorUsuarios implements Serializable {
 				_instancia = new GestorUsuarios();
 			
 			try {
-				_instancia.meteUsuario(new Usuario("Karl", "Pearson", "", "chi".toCharArray() , "kpearson@est.co.uk"));
-				_instancia.meteUsuario(new Usuario("Jearzy", "Neyman", "", "h0".toCharArray(), "neyman@berkeley.edu"));
+				_instancia.meteUsuario(new Usuario("Karl", "Pearson", "", "chi" , "kpearson@est.co.uk"));
+				_instancia.meteUsuario(new Usuario("Jearzy", "Neyman", "", "h0", "neyman@berkeley.edu"));
 			}
 			catch (Exception e ){
 				// Nada
