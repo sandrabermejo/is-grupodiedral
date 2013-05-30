@@ -1,6 +1,6 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 32
+  revision 33
   modified_by 23 "Natalia"
   // class settings
   //class diagram settings
@@ -2114,20 +2114,6 @@ ${members}}
 	set_oper operation_ref 144279 // establecerNumeroTarjeta
       end
 
-      operation 143639 "efectuar"
-	public explicit_return_type ""
-	nparams 0
-	nexceptions 1
-	  exception class_ref 161303 // PagoIncorrectoException
-	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-      end
-
       operation 143767 "obtenerSobrecoste"
 	public explicit_return_type "double"
 	nparams 0
@@ -2198,6 +2184,18 @@ ${members}}
 	    java "${type}"
 	    classrelation_ref 145557 // <generalisation>
 	  b parent class_ref 134535 // Pago
+      end
+
+      operation 158231 "efectuar"
+	public explicit_return_type "bool"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
       end
     end
 
@@ -3147,70 +3145,6 @@ ${members}}
 	  param in name "correo" explicit_type "string"
 	
 	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}${)}${throws} {
-  ${body}}
-"
-	
-	
-	
-      end
-    end
-
-    class 161303 "PagoIncorrectoException"
-      visibility package 
-      cpp_decl ""
-      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
-${members}}
-"
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      operation 144407 "PagoIncorrectoException"
-	public explicit_return_type ""
-	nparams 0
-	
-	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${)}${throws} {
-  ${body}}
-"
-	
-	
-	
-      end
-
-      operation 144535 "PagoIncorrectoException"
-	public explicit_return_type ""
-	nparams 1
-	  param in name "mensaje" explicit_type "string"
-	
-	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${t0} ${p0}${)}${throws} {
-  ${body}}
-"
-	
-	
-	
-      end
-
-      operation 144663 "PagoIncorrectoException"
-	public explicit_return_type ""
-	nparams 1
-	  param in name "causa" explicit_type "Throwable"
-	
-	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${t0} ${p0}${)}${throws} {
-  ${body}}
-"
-	
-	
-	
-      end
-
-      operation 144791 "PagoIncorrectoException"
-	public explicit_return_type ""
-	nparams 2
-	  param in name "causa" explicit_type "Throwable"
-	  param in name "mensaje" explicit_type "string"
-	
-	java_def "  ${comment}${@}${visibility}${final}${synchronized}${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws} {
   ${body}}
 "
 	
