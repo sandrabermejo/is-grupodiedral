@@ -126,6 +126,7 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 	 * del usuario que ha sido modificado.
 	 */
 	public void introducirDatos(){
+		
 		String nombre = _textNombre.getText();
 		String apellido1 = _textApellido1.getText();
 		String apellido2 = _textApellido2.getText();
@@ -144,7 +145,7 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 			if(correo == null)
 				correo = _usuario.dameCorreo();
 			
-			//creamos el nuevo usuario modificado y lo reemplazamos.
+			// creamos el nuevo usuario modificado y lo reemplazamos.
 			Usuario usuarioModificado = new Usuario(nombre, apellido1, apellido2, _usuario.dameContrasena(), correo);
 			GestorUsuarios.dameInstancia().reemplazarUsuario(usuarioModificado, _usuario.dameCorreo());
 			

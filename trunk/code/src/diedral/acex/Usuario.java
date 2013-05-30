@@ -16,7 +16,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	 * Constructor
 	 */
 	public Usuario (String nombre, String apellido1, String apellido2,
-			char[] contrasena, String correo) {
+			String contrasena, String correo) {
 		_nombre = nombre;
 		_apellido1 = apellido1;
 		_apellido2 = apellido2;
@@ -68,14 +68,26 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	public String dameApellido2() {
 		return _apellido2;
 	}
+	
+	/**
+	 * Comprueba que la constraseña del usuario sea la 
+	 * aportada.
+	 * 
+	 * @return La pretendida contraseña
+	 */
+	@Deprecated
+	public String dameContrasena() {
+		return _contrasena;
+	}
 
 	/**
-	 * Obtiene la contraseña del usuario
+	 * Comprueba que la constraseña del usuario sea la 
+	 * aportada.
 	 * 
-	 * @return La contraseña
+	 * @return La pretendida contraseña
 	 */
-	public char[] dameContrasena() {
-		return _contrasena;
+	public boolean comprobarContrasena(String clave) {
+		return _contrasena.compareTo(clave) == 0;
 	}
 
 	/**
@@ -126,7 +138,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	/**
 	 * Contraseña del usuario
 	 */
-	private char[] _contrasena;
+	private String _contrasena;
 	
 	/**
 	 * Correo electrónico del usuario

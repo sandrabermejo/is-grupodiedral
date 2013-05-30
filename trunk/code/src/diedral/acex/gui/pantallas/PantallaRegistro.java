@@ -117,7 +117,7 @@ public class PantallaRegistro extends Pantalla {
 		_mnj = manejador;
 		_sesion = sesion;
 	}
-	private boolean validarDatos(String nombre, String apellido1, String apellido2, String correo, char[] contrasena){
+	private boolean validarDatos(String nombre, String apellido1, String apellido2, String correo, String contrasena){
 		return nombre!= null && apellido1 != null && apellido2 != null && correo != null && contrasena != null;
 	}
 	
@@ -132,7 +132,7 @@ public class PantallaRegistro extends Pantalla {
 			String nombre = _nombre.getText();
 			String apellido1 = _apellido1.getText(), apellido2 = _apellido2.getText();
 			String correo = _correo.getText();
-			char[] contrasena = _contrasena.getPassword();
+			String contrasena = new String(_contrasena.getPassword());
 			if(validarDatos(nombre, apellido1, apellido2, correo, contrasena)){
 				Usuario usuario = new Usuario(nombre, apellido1, apellido2, contrasena, correo);
 				try {

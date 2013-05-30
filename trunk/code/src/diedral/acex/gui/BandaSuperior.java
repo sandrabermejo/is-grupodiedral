@@ -94,10 +94,14 @@ class BandaSuperior extends JPanel implements OyenteCambios<Sesion> {
 	public void haCambiado(Sesion arg) {
 		_sesion = arg;
 		
-		if (arg.dameUsuario() == null)
+		if (arg.dameUsuario() == null) {
 			_acceder.sinUsuarioActivo();
-		else
+			_registro.setVisible(true);
+		}
+		else {
 			_acceder.usuarioRegistrado(arg.dameUsuario().dameCorreo());
+			_registro.setVisible(false);
+		}
 	}
 	
 	// OYENTE BOTÓN DE USUARIO
