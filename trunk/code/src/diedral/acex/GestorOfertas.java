@@ -30,8 +30,10 @@ public class GestorOfertas implements Serializable {
 					versionTID);
 			
 			// Si no ha funcionado
-			if (_instancia == null)
+			if (_instancia == null){
 				_instancia = new GestorOfertas();
+				AyudantePersistencia.dameInstancia().vigila(_instancia, versionTID);
+			}
 		}
 		
 		return _instancia;

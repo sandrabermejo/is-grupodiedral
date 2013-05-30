@@ -9,8 +9,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import diedral.acex.Sesion;
-
 /**
  * Menú lateral para dar acceso a los diferentes servicios de la aplicación.
  */
@@ -22,13 +20,12 @@ class MenuLateral extends javax.swing.JPanel {
 	 * actuar los elementos del menú.
 	 * @param fabr Fábrica de pantallas
 	 */
-	public MenuLateral(ManejadorPantallas mnj, FabricaPantallas fabr, Sesion sesion){		
+	public MenuLateral(ManejadorPantallas mnj, FabricaPantallas fabr){		
 setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		// Guarda los parámetros
 		_mnj = mnj;
 		_fabr = fabr;
-		_sesion = sesion;
 		
 		// Añade el panel de botones al panel general
 		add (creaBotones());
@@ -63,9 +60,7 @@ setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		t_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				Pantalla pantallaVuelos = _fabr.damePantallaConsultaVuelos();
-				pantallaVuelos.estableceContexto(_mnj, _fabr, _sesion);
-				_mnj.cambiaA(pantallaVuelos);				
+				_mnj.cambiaA(_fabr.damePantallaConsultaVuelos());
 			}
 		});
 		
@@ -107,11 +102,6 @@ setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	 * Fábrica de pantallas
 	 */
 	private FabricaPantallas _fabr;
-	
-	/**
-	 * Sesion
-	 */
-	private Sesion _sesion;
 
 	/**
 	 * Serial UID
