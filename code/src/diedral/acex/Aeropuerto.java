@@ -78,12 +78,23 @@ public class Aeropuerto implements java.io.Serializable {
 		return _nombre + " (" + _codigoIATA + ")";
 	}
 	
+	/**
+	 * La igualdad entre aeropuertos se contempla como la igualdad
+	 * de sus códigos IATA.
+	 * 
+	 * @param obj Otro objeto que se quiere comparar.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Aeropuerto)
 			return _codigoIATA.compareTo(((Aeropuerto) obj)._codigoIATA) == 0;
 		
 		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return _codigoIATA.hashCode() - 31;
 	}
 	
 	// ATRIBUTOS PRIVADOS
