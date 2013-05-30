@@ -75,7 +75,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	 * 
 	 * @return La pretendida contraseña
 	 */
-	
+	@Deprecated
 	public String dameContrasena() {
 		return _contrasena;
 	}
