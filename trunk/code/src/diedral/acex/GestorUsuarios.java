@@ -24,9 +24,15 @@ public class GestorUsuarios implements Serializable {
 			_instancia = (GestorUsuarios) AyudantePersistencia.dameInstancia().recuperayVigila(
 					versionTID);
 			
-			if (_instancia == null) {
+			if (_instancia == null)
 				_instancia = new GestorUsuarios();
-				AyudantePersistencia.dameInstancia().vigila(_instancia, versionTID);
+			
+			try {
+				_instancia.meteUsuario(new Usuario("Karl", "Pearson", "", "chi" , "kpearson@est.co.uk"));
+				_instancia.meteUsuario(new Usuario("Jearzy", "Neyman", "", "h0", "neyman@berkeley.edu"));
+			}
+			catch (Exception e ){
+				// Nada
 			}
 		}
 		
@@ -59,6 +65,20 @@ public class GestorUsuarios implements Serializable {
 			return _usuarios.get(correo);
 		else
 			return null;
+	}
+	/**
+	 * Dado un usuario, lo borra del sistema. Devuelve un true si la operación ha terminado con éxito.
+	 * @param usuario
+	 * @return operación terminada con éxito.
+	 */
+	public boolean borrarUsuario(Usuario usuario){
+		if(usuario != null){
+			if(_usuarios.containsKey(usuario.dameCorreo())){
+				_usuarios.remove(usuario.dameCorreo());
+				return true;
+			}
+		}
+	return false;
 	}
 	/**
 	 * Dado un nuevo usuario y un mail de un usuario ya existente,
