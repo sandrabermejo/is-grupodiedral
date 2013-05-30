@@ -29,6 +29,12 @@ public class PantallaPagoTarjeta extends Pantalla{
 	private JComboBox<String> _comboBoxServidores;
 	private JButton _finalizarPago;
 	public PantallaPagoTarjeta(Compra compra){
+		if(compra == null) {
+			JOptionPane.showMessageDialog(this, "No puede pagar una compra vacía. Por favor seleccione una compra antes de realizar un pago.");
+			_mnj.cierraPantallaActual();
+			_mnj.cambiaA(_fabrica.damePantallaInicio());
+		}
+			
 		_compra = compra;
 		
 		//Características ventana
@@ -112,8 +118,11 @@ public class PantallaPagoTarjeta extends Pantalla{
 			_pagoTarjeta = new PagoTarjeta(_compra, titular, numeroTarjeta, _importeCompra); 
 			if(!_pagoTarjeta.efectuar())
 				JOptionPane.showMessageDialog(this, "El pago no se ha podido procesar. Datos incorrectos.");
-			else
+			else {
 				JOptionPane.showMessageDialog(this, "La compra ha sido procesada correctamente. Gracias por confiar en nosotros.");
+				_mnj.cierraPantallaActual();
+				_mnj.cambiaA(_fabrica.damePantallaInicio());
+			}
 		} else
 			JOptionPane.showMessageDialog(this, "Error. Rellene todos los campos obligatorios.");
 	}
@@ -121,6 +130,11 @@ public class PantallaPagoTarjeta extends Pantalla{
 	@Override
 	public String dameNombre() {
 		return "Pago con Tarjeta";
+	}
+	public void estableceContexto(ManejadorPantallas manejador, FabricaPantallas fabrica,
+			Sesion sesion) {
+		_mnj = manejador;
+		_fabrica = fabrica;
 	}
 
 	
@@ -150,7 +164,11 @@ public class PantallaPagoTarjeta extends Pantalla{
 	 */
 	private double _importeCompra;
 	/**
-	 * Usuario del sistema que quiere modificar sus datos.
+	 * Atributo que con los métodos que te generan nuevas pantallas.
 	 */
-	
+	private FabricaPantallas _fabrica;
+	/**
+	 * Atributo con el que se maneja las pantallas.
+	 */
+	private ManejadorPantallas _mnj;
 }
