@@ -24,10 +24,11 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 		_correo = correo;
 		_ofertasGenerales = new ArrayList<Oferta>();
 		_ofertasPersonales = new ArrayList<Oferta>();
+		_compras = new ArrayList<Compra>();
 	}
 	
 	/**
-	 *
+	 * Añade una oferta personal a la lista del usuario
 	 */
 	public void meteOfertaGeneral(Oferta oferta) {
 		if (!_ofertasGenerales.contains(oferta))
@@ -35,11 +36,20 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	}
 	
 	/**
-	 *
+	 * Borra una oferta personal de la lista del usuario
 	 */
 	public void borraOfertaPersonal(Oferta oferta) {
 		if (_ofertasPersonales.contains(oferta))
 			_ofertasPersonales.remove(oferta);
+	}
+	
+	/**
+	 * Añade una compra a la lista de compras del usuario
+	 * 
+	 * @param compra a añadir
+	 */
+	public void añadeCompra(Compra compra) {
+		_compras.add(compra);
 	}
 	
 	/**
@@ -117,6 +127,15 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 		return _ofertasPersonales;
 	}
 	
+	/**
+	 * Obtiene la lista de compras realizadas por el usuario
+	 * 
+	 * @return La lista de compras
+	 */
+	public List<Compra> dameCompras() {
+		return _compras;
+	}
+	
 
 	// ATRIBUTOS PRIVADOS
 	
@@ -154,6 +173,11 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	 * Lista de ofertas personalizadas del usuario
 	 */
 	private List<Oferta> _ofertasPersonales;
+	
+	/**
+	 * Lista de compras realizadas por el usuario
+	 */
+	private List<Compra> _compras;
 	
 	/**
 	 * Serial UID

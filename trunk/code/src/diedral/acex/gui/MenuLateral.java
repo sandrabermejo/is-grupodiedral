@@ -87,6 +87,16 @@ setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		botones.add(t_btn);
 		
+		t_btn = new JButton("Vuelos contratados");
+		
+		t_btn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				_mnj.cambiaA(_fabr.damePantallaVueloContratado());				
+			}
+		});
+		
+		botones.add(t_btn);
+		
 		return botones;
 	}
 	
