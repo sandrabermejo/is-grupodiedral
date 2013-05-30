@@ -16,7 +16,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	 * Constructor
 	 */
 	public Usuario (String nombre, String apellido1, String apellido2,
-			String contrasena, String correo) {
+			char[] contrasena, String correo) {
 		_nombre = nombre;
 		_apellido1 = apellido1;
 		_apellido2 = apellido2;
@@ -74,7 +74,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	 * 
 	 * @return La contraseña
 	 */
-	public String dameContrasena() {
+	public char[] dameContrasena() {
 		return _contrasena;
 	}
 
@@ -126,7 +126,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	/**
 	 * Contraseña del usuario
 	 */
-	private String _contrasena;
+	private char[] _contrasena;
 	
 	/**
 	 * Correo electrónico del usuario

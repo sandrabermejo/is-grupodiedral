@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 import diedral.acex.GestorUsuarios;
 import diedral.acex.Sesion;
 import diedral.acex.Usuario;
+import diedral.acex.excepciones.UsuarioInvalidoException;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
@@ -116,6 +117,9 @@ public class PantallaRegistro extends Pantalla {
 		_mnj = manejador;
 		_sesion = sesion;
 	}
+	private boolean validarDatos(String nombre, String apellido1, String apellido2, String correo, char[] contrasena){
+		return nombre!= null && apellido1 != null && apellido2 != null && correo != null && contrasena != null;
+	}
 	
 	/**
 	 * Clase oyente para iniciar sesion
@@ -125,20 +129,28 @@ public class PantallaRegistro extends Pantalla {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
-			Usuario usuario = GestorUsuarios.dameInstancia().buscaUsuario(_correo.getText());
-			
-			if (usuario != null)
-				if(!usuario.dameContrasena().equals(_contrasena.getPassword()))
+			String nombre = _nombre.getText();
+			String apellido1 = _apellido1.getText(), apellido2 = _apellido2.getText();
+			String correo = _correo.getText();
+			char[] contrasena = _contrasena.getPassword();
+			if(validarDatos(nombre, apellido1, apellido2, correo, contrasena)){
+				Usuario usuario = new Usuario(nombre, apellido1, apellido2, contrasena, correo);
+				try {
+					GestorUsuarios.dameInstancia().meteUsuario(usuario);
+					_sesion.cargaUsuario(usuario);
+					_mnj.cierraPantallaActual();
+				} catch (UsuarioInvalidoException e2) { //si el usuario ya existe
+					JOptionPane.showMessageDialog(PantallaRegistro.this,
+					"Datos no validos.",
+					"ACE Gestion Externa - Acceso",
+					JOptionPane.ERROR_MESSAGE);
+				}			
+			} else {
 				JOptionPane.showMessageDialog(PantallaRegistro.this,
-						"Datos no validos.",
-						"ACE Gestion Externa - Acceso",
-						JOptionPane.ERROR_MESSAGE);
-			else {
-				_sesion.cargaUsuario(usuario);
-				_mnj.cierraPantallaActual();
+				"Campos de texto incompletos.",
+				"ACE Gestion Externa - Acceso",
+				JOptionPane.ERROR_MESSAGE);
 			}
-								
 		}
 		
 	}
