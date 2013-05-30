@@ -24,15 +24,9 @@ public class GestorUsuarios implements Serializable {
 			_instancia = (GestorUsuarios) AyudantePersistencia.dameInstancia().recuperayVigila(
 					versionTID);
 			
-			if (_instancia == null)
+			if (_instancia == null) {
 				_instancia = new GestorUsuarios();
-			
-			try {
-				_instancia.meteUsuario(new Usuario("Karl", "Pearson", "", "chi" , "kpearson@est.co.uk"));
-				_instancia.meteUsuario(new Usuario("Jearzy", "Neyman", "", "h0", "neyman@berkeley.edu"));
-			}
-			catch (Exception e ){
-				// Nada
+				AyudantePersistencia.dameInstancia().vigila(_instancia, versionTID);
 			}
 		}
 		
