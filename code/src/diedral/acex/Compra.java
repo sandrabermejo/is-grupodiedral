@@ -102,10 +102,16 @@ public class Compra {
 		double precioTotal = 0;
 		for(Billete billete: _billetes) {
 			double precioBillete = billete.damePrecio();
-			Oferta ofertaBillete = buscaMejorOferta(_usuario.dameOfertasGenerales(), _usuario.dameOfertasPersonales(), billete.dameVuelo());
-			if(ofertaBillete != null) //si hay oferta que aplicar a ese billete, le restamos 
-				//el valor del descuento al precio del billete
-				precioBillete -= ofertaBillete.dameDescuento();
+			
+			// Hay un usuario seleccionado
+			if (_usuario != null) {
+				
+				Oferta ofertaBillete = buscaMejorOferta(_usuario.dameOfertasGenerales(), _usuario.dameOfertasPersonales(), billete.dameVuelo());
+			
+				if(ofertaBillete != null) //si hay oferta que aplicar a ese billete, le restamos 
+					//el valor del descuento al precio del billete
+					precioBillete -= ofertaBillete.dameDescuento();
+			}
 			
 			precioTotal += precioBillete;
 		}

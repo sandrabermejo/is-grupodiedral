@@ -46,7 +46,11 @@ public class PantallaCompra extends Pantalla {
 		_vuelo = vuelo;
 		_numBilletes = numBilletes;
 		_numPasajerosAnadidos = 0;
-		_compra = new Compra(_sesion.dameUsuario());
+		
+		if (_sesion != null)
+			_compra = new Compra(_sesion.dameUsuario());
+		else
+			_compra = new Compra(null);
 		
 		//Características ventana
 		setLayout(new BorderLayout());
@@ -227,12 +231,8 @@ public class PantallaCompra extends Pantalla {
 						"ACE Gestión Externa - Compra",
 						JOptionPane.OK_OPTION);
 				
-				if (_numPasajerosAnadidos == _numBilletes) { 
-					_mnj.cierraPantallaActual();
-					Pantalla pantallaPago = _fabrica.damePantallaPagoTarjeta(_compra);
-					pantallaPago.estableceContexto(_mnj, _fabrica, _sesion);
-					_mnj.cambiaA(pantallaPago);
-				}
+				if (_numPasajerosAnadidos == _numBilletes) 
+					_mnj.cambiaA(_fabrica.damePantallaPagoTarjeta(_compra));
 				
 			} catch(Exception exc){
 				JOptionPane.showMessageDialog(PantallaCompra.this,
