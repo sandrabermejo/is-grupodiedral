@@ -27,9 +27,9 @@ public class GestorUsuarios implements Serializable {
 			if (_instancia == null)
 				_instancia = new GestorUsuarios();
 			
-			try { 
-				_instancia.meteUsuario(new Usuario("Karl", "Pearson", "", "chi", "kpearson@est.co.uk"));
-				_instancia.meteUsuario(new Usuario("Jearzy", "Neyman", "", "h0", "neyman@berkeley.edu"));
+			try {
+				_instancia.meteUsuario(new Usuario("Karl", "Pearson", "", "chi".toCharArray() , "kpearson@est.co.uk"));
+				_instancia.meteUsuario(new Usuario("Jearzy", "Neyman", "", "h0".toCharArray(), "neyman@berkeley.edu"));
 			}
 			catch (Exception e ){
 				// Nada
@@ -51,7 +51,8 @@ public class GestorUsuarios implements Serializable {
 				_usuarios.put(usuario.dameCorreo(), usuario);
 			else
 				throw new UsuarioInvalidoException("Un usuario existente ya tiene ese eMail asociado");
-		}
+		} else 
+			throw new UsuarioInvalidoException("El usuario recibido no tiene ningún dato.");
 	}
 	/**
 	 * Busca un usuario con un correo asociado y lo devuelve.
