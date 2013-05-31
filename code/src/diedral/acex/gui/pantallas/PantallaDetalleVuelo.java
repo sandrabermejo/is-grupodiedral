@@ -88,7 +88,6 @@ public class PantallaDetalleVuelo extends Pantalla {
 			FabricaPantallas fabrica, Sesion sesion) {
 		_manejador = manejador;
 		_fabrica = fabrica;
-		_sesion = sesion;
 	}
 	
 	// ATRIBUTOS PRIVADOS
@@ -107,11 +106,6 @@ public class PantallaDetalleVuelo extends Pantalla {
 	 * Fábrica de pantallas
 	 */
 	private FabricaPantallas _fabrica;
-	
-	/**
-	 * Sesion
-	 */
-	private Sesion _sesion;
 	
 	/**
 	 * Serial UID
