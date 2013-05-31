@@ -24,7 +24,7 @@ public class PantallaInicioPago extends Pantalla {
 		_compra = compra;
 		
 		setLayout(new BorderLayout());
-			
+		
 		_texto = new JTextArea("En cumplimiento de lo previsto en la Ley 34/2002, de 11 de julio, de Servicios de la Información y Comercio Electrónico, se indican a continuación los datos de información general de www.westwing.es:\n" 
 				 +
 				"Titular: WW E-SERVICES IBERIA, S.L.U. (en adelante “WESTWING”)\n" +
@@ -51,8 +51,9 @@ public class PantallaInicioPago extends Pantalla {
 				"Estas Condiciones Generales son aplicables a todas las ofertas de productos que se realicen por medio del sitio www.westwing.es y a todos los acuerdos, de cualquier tipo, que se concluyan entre WESTWING y el Usuario del sitio Web.\n" +
 				"\n" +
 				"El sitio web www.westwing.es opera exclusivamente en el territorio español comprendido en la Península Ibérica y las Islas Baleares(en adelante el “Territorio”), realizándose envíos de productos únicamente en dicho territorio. ");
-		
-		add(new JScrollPane(_texto));
+		_texto.setEditable(false);
+		_texto.setWrapStyleWord(true);
+		add(new JScrollPane(_texto,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER));
 
 		_acepta = new JCheckBox("He leido y acepto las condiciones.");
 		_continuar = new JButton("Continuar");

@@ -19,6 +19,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import diedral.acex.Sesion;
+import diedral.acex.Usuario;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
@@ -153,9 +154,10 @@ public class PantallaPagoTarjeta extends Pantalla{
 				else {
 					JOptionPane.showMessageDialog(this, "La compra ha sido procesada " +
 							"correctamente. Gracias por confiar en nosotros.");
-					_sesion.dameUsuario().añadeCompra(_compra);
+					Usuario us = _sesion.dameUsuario();
+					if(us != null)
+						us.añadeCompra(_compra);
 					_mnj.cierraPantallaActual();
-					_mnj.cambiaA(_fabrica.damePantallaInicio());
 				}
 			} else
 				JOptionPane.showMessageDialog(this, "El número de tarjeta de la cuenta bancaria" +
