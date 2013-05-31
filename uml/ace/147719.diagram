@@ -1,0 +1,54 @@
+format 76
+
+activitynodecanvas 128007 activitynode_ref 134919 // initial_node
+  xyz 91 113 2000
+end
+activitynodecanvas 128135 activitynode_ref 135047 // activity_final
+  xyz 96 295 2000
+end
+activityactioncanvas 128263 activityaction_ref 134791 // activity action Recopilar datos titular
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 219 89 2000 122 65
+end
+activityactioncanvas 128391 activityaction_ref 134919 // activity action Comprobar datos con entidad
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 463 82 2000 114 78
+end
+activityactioncanvas 128519 activityaction_ref 135047 // activity action Comprobar liquidez
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 461 267 2000 115 83
+end
+activityactioncanvas 128647 activityaction_ref 135175 // activity action Conectar entidad y validar
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 210 267 2000 123 83
+end
+flowcanvas 128775 flow_ref 135559 // <flow>
+  
+  from ref 128007 z 2001 to ref 128263
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 128903 flow_ref 135687 // <flow>
+  
+  from ref 128263 z 2001 to ref 128391
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129031 flow_ref 135815 // <flow>
+  
+  from ref 128391 z 2001 to ref 128519
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129159 flow_ref 135943 // <flow>
+  
+  from ref 128519 z 2001 to ref 128647
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129287 flow_ref 136071 // <flow>
+  
+  from ref 128647 z 2001 to ref 128135
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+end
