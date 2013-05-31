@@ -226,6 +226,7 @@ pdfinfo={
 				\begin{center}
 					\includegraphics[scale=.71]{analisis/diagramas/consultarvuelos.pdf}
 				\end{center}
+				
 				El sistema carga la información de vuelos del sistema y los muestra a través de la interfaz {\itshape Página vuelos}. El usuario selecciona un vuelo y posteriormente después de generar la información de ese vuelo y cargarla del sistema se pasa a la interfaz {\itshape Página del vuelo seleccionado}. A traves del interfaz {\itshape Conector compra billete} es posible conectar la consulta de los vuelos con la compra del billete seleccionado por el usuario. 
 				La entidad {\itshape Vuelo} representa un vuelo de la compañía. Este vuelo queda determinado por el código del vuelo y el aeropuerto de origen y de destino.
 			
@@ -240,13 +241,14 @@ pdfinfo={
 				\begin{center}
 					\includegraphics[scale=.76]{analisis/diagramas/iniciarpagobilletes.pdf}
 				\end{center}
-
+				
 					El caso de uso {\itshape Iniciar Pago de Billetes} recibe los datos de un billete de vuelo (en el diseño se ha generalizado a una asociación de billetes denominada {\itshape compra}) y tras mostrar una página de confirmación al usuario de las condiciones de la misma, se procede a la confección del billete y a la selección del método de pago\footnote{Realmente sólo se ha desarrollado un método de pago (\nameref{ana:tarjeta}) por lo que la selección del método se hace automáticamente.}. Finalmente el caso de uso se comunica con el método de pago seleccionado (a través de una interfaz conveniente) para continuar la operación.
 
 			\subsubsection{Mostrar ofertas}
 				\begin{center}
 					\includegraphics[scale=.72]{analisis/diagramas/mostrarofertas.pdf}
 				\end{center}
+				
 					El caso de uso {\itshape Mostrar ofertas} permite al usuario consultar las ofertas disponibles y acceder a los detalles de la misma.
 					El sistema accede al gestor de ofertas y carga el listado actual de ofertas, las prepara y las muestra en una tabla en la que se pueden ver nombre de la oferta destino, rango de edades y descuento, también permite consultar los detalles de alguna oferta conectando con {\itshape Consultar oferta}.
 
@@ -254,28 +256,30 @@ pdfinfo={
 				\begin{center}
 					\includegraphics[scale=.7]{analisis/diagramas/pagotarjeta.pdf}
 				\end{center}
+				
+					El caso de uso {\itshape Realizar pago con tarjeta} recibe los datos de la compra a través del interfaz {\itshape Método de pago}, al iniciarse éste. Pemite al usuario introducir los datos de la tarjeta y, una vez comprobada su validez, se procede a efectuar el pago conectando con la {\itshape Entidad financiera}.
 
 			\subsubsection{Presentar reclamación}
 				\begin{center}
 					\includegraphics[scale=.82]{analisis/diagramas/presentarreclamacion.pdf}
 				\end{center}
-
+				
 					A través de la interfaz {\itshape PáginaSugerencias} el usuario envía una sugerencia y se prodece al envío de la misma.
 
 			\subsubsection{Registrarse}
 				\begin{center}
 					\includegraphics[scale=.8]{analisis/diagramas/registrarse.pdf}
 				\end{center}
-
+				
 					A través de la interfaz {\itshape Registrarse} el usuario introduce sus datos personales (nombre, apellidos, correo y contraseña) y se prodece a la comprobación de los mismos. Si todo ha ido correctamente se crea un nuevo usuario con esos datos y queda registrado.
 
 			\subsubsection{Restablecer contraseña}
 				\begin{center}
 					\includegraphics[scale=.77]{analisis/diagramas/restablecercontrasena.pdf}
 				\end{center}
-
-
+				
 					El caso de uso {\itshape Restablecer contraseña} consiste en enviar un email  al correo asociado del usuario. En ese correo el usuario introducirá la nueva contraseña, que será comprobada y modificada en la base de datos del usuario.
+			
 			\subsubsection{Ver información de vuelo contratado}
 				\begin{center}
 					\includegraphics[scale=.8]{analisis/diagramas/verinfovuelocontratado.pdf}
