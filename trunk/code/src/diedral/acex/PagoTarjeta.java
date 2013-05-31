@@ -78,12 +78,12 @@ public class PagoTarjeta implements Pago {
 	// ATRIBUTOS PRIVADOS
 	
 	/**
-	 * Importe del pago.
+	 * Titular de la tarjeta
 	 */
 	private String _titular;
 	
 	/**
-	* Numero de la tarjeta.
+	* Número de la tarjeta
 	*/
 	private String _numeroTarjeta;
 	

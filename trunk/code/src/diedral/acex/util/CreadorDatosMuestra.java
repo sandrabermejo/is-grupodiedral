@@ -6,10 +6,7 @@ package diedral.acex.util;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.util.TreeSet;
 import java.util.Vector;
-
-import javax.swing.JComboBox;
 
 import diedral.acex.Aeropuerto;
 import diedral.acex.AyudantePersistencia;
@@ -73,6 +70,7 @@ public class CreadorDatosMuestra {
 			vuelo.ponFechaSalida(new GregorianCalendar(2013, 10, 1, 12, 30));
 			vuelo.ponFechaLlegada(new GregorianCalendar(2013, 10, 1, 14, 50));
 			vuelo.ponNumPasajeros(100);
+			vuelo.ponPrecio(20);
 			
 			gVuelos.añadeVuelo(vuelo);
 			
@@ -84,6 +82,7 @@ public class CreadorDatosMuestra {
 			vuelo.ponFechaSalida(new GregorianCalendar(2013, 9, 1, 11, 30));
 			vuelo.ponFechaLlegada(new GregorianCalendar(2013, 9, 1, 13, 50));
 			vuelo.ponNumPasajeros(20);
+			vuelo.ponPrecio(1000000);
 			
 			gVuelos.añadeVuelo(vuelo);
 			
@@ -95,6 +94,7 @@ public class CreadorDatosMuestra {
 			vuelo.ponFechaSalida(new GregorianCalendar(2013, 11, 4, 11, 30));
 			vuelo.ponFechaLlegada(new GregorianCalendar(2013, 11, 5, 0, 0));
 			vuelo.ponNumPasajeros(200);
+			vuelo.ponPrecio(100);
 			
 			gVuelos.añadeVuelo(vuelo);
 			
@@ -107,6 +107,7 @@ public class CreadorDatosMuestra {
 			vuelo.ponFechaSalida(new GregorianCalendar(2013, 8, 4, 11, 30));
 			vuelo.ponFechaLlegada(new GregorianCalendar(2013, 8, 5, 3, 0));
 			vuelo.ponNumPasajeros(80);
+			vuelo.ponPrecio(0.05);
 			
 			gVuelos.añadeVuelo(vuelo);
 		}
