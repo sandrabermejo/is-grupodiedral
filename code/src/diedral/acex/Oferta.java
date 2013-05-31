@@ -47,7 +47,7 @@ public class Oferta implements Serializable {
 	 * @return las condiciones para poder disfrutar de la oferta
 	 */
 	public String dameCondiciones() {
-		return "Para acceder a esta oferta es necesario tener una edad comprendida entre " + _intervaloEdad[0] + _intervaloEdad[1];
+		return "Para acceder a esta oferta es necesario tener una edad comprendida entre " + _intervaloEdad[0] + " y " + _intervaloEdad[1] + " años.";
 	}
 	
 	/**
@@ -75,13 +75,13 @@ public class Oferta implements Serializable {
 	}
 	
 	/**
-	 * Im
+	 * Devuelve el nombre de la oferta
 	 * 
-	 * @return una breve descripcion de la oferta
+	 * @return El nombre de la oferta
 	 */
 	@Override
 	public String toString() {
-		return _nombre + "      " + _destino + "      Destino: " + _descuento;		
+		return _nombre;		
 	}	
 	
 	// ATRIBUTOS PRIVADOS
