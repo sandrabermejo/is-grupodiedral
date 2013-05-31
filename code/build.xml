@@ -41,9 +41,9 @@
 	<!-- Crea un archivo Jar -->
 	<target depends="build" name="jar">
 	<jar destfile="acex.jar">
-		<fileset dir="bin" includes="**/*.class" />
+		<fileset dir="bin" includes="**/*.class **/*.png **/*.jpg" />
 		<manifest>
-			<attribute name="Main-Class" Value="diedral.acexterna.Main" />
+			<attribute name="Main-Class" Value="diedral.acex.Main" />
 		</manifest>
 	</jar>
 	</target>

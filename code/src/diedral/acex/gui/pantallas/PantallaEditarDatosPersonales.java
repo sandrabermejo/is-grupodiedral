@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -120,21 +121,33 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 		_botonMofidicarContrasena.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				final JDialog ventana = new JDialog(SwingUtilities.windowForComponent(PantallaEditarDatosPersonales.this), "Modificar contraseña");
-				ventana.setSize(300, 200);
+				final JDialog ventana = new JDialog(SwingUtilities.windowForComponent(PantallaEditarDatosPersonales.this),
+						"Modificar contraseña");
+				
+				ventana.setModal(true);
+				ventana.setSize(400, 200);
+				
 				//Hacemos que la ventana salga en el centro de la pantalla
 				ventana.setLocationRelativeTo(getRootPane());
 				JPanel panel = new JPanel(new GridLayout(4, 3));
+				
+				panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+				
 				panel.add(new JLabel("Contraseña antigua:"));
 				panel.add(_textContrasenaAntigua = new JPasswordField(""));
+				
 				panel.add(new JLabel("Contraseña nueva:"));
 				panel.add(_textContrasenaNueva = new JPasswordField(""));
+				
 				panel.add(new JLabel("Repita contraseña nueva:"));
 				panel.add(_textContrasenaNuevaRep = new JPasswordField(""));
+				
 				_botonContrasena = new JButton("Modificar contraseña");
 				_etiquetaTiempo = new JLabel();
+				
 				panel.add(_etiquetaTiempo);
 				panel.add(_botonContrasena);
+				
 				_botonContrasena.addActionListener(new ActionListener(){
 				int contador = 0;
 				boolean espera = false;

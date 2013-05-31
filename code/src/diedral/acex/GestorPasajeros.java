@@ -37,6 +37,20 @@ public class GestorPasajeros implements Serializable {
 		
 		return _instancia;
 	}
+	
+	/**
+	 * Busca un pasajero.
+	 * 
+	 * 
+	 */
+	public Pasajero buscar(Dni dni){
+		
+		for (Pasajero pas : _pasajeros)
+			if (dni.compareTo(dni) == 0)
+				return pas;
+		
+		return null;
+	}
 
 	/**
 	 * Almacena la instancia tecnica del gestor
@@ -44,7 +58,7 @@ public class GestorPasajeros implements Serializable {
 	private static GestorPasajeros _instancia;
 	
 	/**
-	 * Lista de compras de la compania
+	 * Lista de pasajeros de la compania
 	 */
 	private List<Pasajero> _pasajeros;
  

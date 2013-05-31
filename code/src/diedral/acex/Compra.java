@@ -117,12 +117,21 @@ public class Compra {
 		}
 		return precioTotal;
 	}
+	
+	/**
+	 * Indica si la compra está pagada.
+	 */
+	public boolean estaPagada(){
+		return _pagada;
+	}
+	
 	/**
 	 * Marca la compra como pagada.
 	 */
 	public void marcarPagada(){
 		_pagada = true;
 	}
+	
 	/**
 	 * Marca la compra como no pagada.
 	 */
@@ -139,8 +148,14 @@ public class Compra {
 		return _billetes;
 	}
 	
+	
+	// ATRIBUTOS PRIVADOS
+	
+	/**
+	 * Indica si la compra está pagada
+	 */
+	private boolean _pagada;
+	
 	private List<Billete> _billetes;
 	private Usuario _usuario;
-	
-	private boolean _pagada;
 }
