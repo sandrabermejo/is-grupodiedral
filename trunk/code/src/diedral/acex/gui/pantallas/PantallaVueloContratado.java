@@ -1,6 +1,6 @@
 package diedral.acex.gui.pantallas;
 
-import java.text.SimpleDateFormat;
+import java.text.SimpleDateFormat;	
 import java.util.List;
 import java.util.Vector;
 
@@ -20,48 +20,36 @@ import diedral.acex.gui.Pantalla;
 
 public class PantallaVueloContratado extends Pantalla {
 	
-	public PantallaVueloContratado() {
-		
-		// Si no hay sesión iniciada
-		if (_sesion == null) {
-			JOptionPane.showMessageDialog(this,
-					"No ha iniciado sesión",
-					"ACE Gestión Externa - Acceso",
-					JOptionPane.ERROR_MESSAGE);
-			_mnj.cambiaA(_fabrica.damePantallaInicio());
-			return;
-		}
-		
-		// Si hay sesión iniciada
-		Usuario usuario = _sesion.dameUsuario();
-		
-		// Usuario no válido
-		if (usuario == null) {
-			JOptionPane.showMessageDialog(this,
-					"Usuario no válido",
-					"ACE Gestión Externa - Acceso",
-					JOptionPane.ERROR_MESSAGE);
-			_mnj.cambiaA(_fabrica.damePantallaInicio());
-			return;			
-		}
-		
-		//Usuario válido
-		List<Compra> compras = usuario.dameCompras();
-		
-		// No ha realizado compras
-		if(compras.isEmpty()) {
-			JOptionPane.showMessageDialog(this,
-					"El usuario no ha contratado ningún vuelo.",
-					"ACE Gestión Externa - Acceso",
-					JOptionPane.ERROR_MESSAGE);
-			_mnj.cambiaA(_fabrica.damePantallaInicio());
-			return;
-		}
-		
+	public PantallaVueloContratado() {	
 		// Tiene vuelos contratados	
 		_tablaVuelos = new ModeloTablaVuelos();		
 		JTable tabla = new JTable(_tablaVuelos);		
 		add(new JScrollPane(tabla));		
+	}
+	
+	@Override
+	public void alCargar() {
+		// Obtiene el usuario
+		Usuario usuario = _sesion.dameUsuario();
+		
+		// Usuario válido
+		List<Compra> compras = usuario.dameCompras();
+			
+		// No ha realizado compras
+		if(compras == null || compras.isEmpty()) {
+			JOptionPane.showMessageDialog(this,
+					"El usuario no ha contratado ningún vuelo.",
+					"ACE Gestión Externa - Acceso",
+					JOptionPane.ERROR_MESSAGE);
+			
+			/*
+			 * Puede ser peligroso acudir al manejador de pantallas
+			 * en medio de una operación 
+			 */
+			_mnj.cierraPantallaActual();
+			
+			return;
+		}
 		
 		int numCompras = compras.size();
 		Vector<Vuelo> vuelos = new Vector<Vuelo>();
@@ -79,7 +67,6 @@ public class PantallaVueloContratado extends Pantalla {
 
 	public void estableceContexto(ManejadorPantallas manejador, FabricaPantallas fabrica, Sesion sesion){
     	_mnj = manejador;
-    	_fabrica = fabrica;
     	_sesion = sesion;
     }
 	
@@ -178,11 +165,6 @@ public class PantallaVueloContratado extends Pantalla {
 	 * Manejador pantallas
 	 */
 	private ManejadorPantallas _mnj;
-	
-	/**
-	 * Fabrica
-	 */
-	private FabricaPantallas _fabrica;
 	
 	/**
 	 * Sesion
