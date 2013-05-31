@@ -1,9 +1,9 @@
-## Makefile para el documento de análisis
+## Makefile para el documento de análisis y diseño
 
 ## Variables generales
 AN_TEX=anaydis#		# Nombre del archivo del documento
 LATEX_CMD=pdflatex#	# Comando Latex (preferiblemente pdflatex)
-TEXIN=TEXINPUTS=..//common:$$TEXINPUTS#	# Carpetas de entrada LaTeX
+TEXIN=TEXINPUTS=..//common:..:$$TEXINPUTS#	# Carpetas de entrada LaTeX
 # En Windows (tal vez): set TEXINPUTS=..//common:$$TEXINPUTS &&
 
 # De forma grosera
