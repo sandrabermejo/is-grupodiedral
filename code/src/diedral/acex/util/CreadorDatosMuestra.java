@@ -4,12 +4,19 @@
 package diedral.acex.util;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.TreeSet;
+import java.util.Vector;
+
+import javax.swing.JComboBox;
 
 import diedral.acex.Aeropuerto;
 import diedral.acex.AyudantePersistencia;
+import diedral.acex.GestorOfertas;
 import diedral.acex.GestorUsuarios;
 import diedral.acex.GestorVuelos;
+import diedral.acex.Oferta;
 import diedral.acex.Usuario;
 import diedral.acex.Vuelo;
 import diedral.acex.excepciones.UsuarioInvalidoException;
@@ -37,6 +44,7 @@ public class CreadorDatosMuestra {
 		
 		GestorVuelos gVuelos = GestorVuelos.dameInstancia();
 		GestorUsuarios gUsuarios = GestorUsuarios.dameInstancia();
+		GestorOfertas gOfertas = GestorOfertas.dameInstancia();
 		
 		// Por ejemplo algunos autores de la generación del 98
 		
@@ -106,6 +114,18 @@ public class CreadorDatosMuestra {
 			System.err.println("Hubo un error al insertar vuelos.");
 		}
 		
+		try{
+			GestorVuelos.CriterioBusqueda criterio = new GestorVuelos.CriterioBusqueda();
+			ArrayList<Aeropuerto> destino = new ArrayList<Aeropuerto>(new Vector<Aeropuerto>(GestorVuelos.dameInstancia().dameAeropuertos()));
+			for(int i=0 ; i < destino.size(); i++){	
+				criterio.conDestino(destino.get(i));
+				int intervalo[] = {i,i+4};
+				gOfertas.insertarOferta(new Oferta(gVuelos.buscaVuelo(criterio), destino.get(i).dameNombre(), intervalo, i*10, "Oferta "+ i));
+			}
+		}
+		catch(Exception e){
+			System.err.println("Hubo un error al insertar ofertas.");
+		}
 		// Almacena los datos referidos
 		AyudantePersistencia.dameInstancia().almacenaTodos();
 		
