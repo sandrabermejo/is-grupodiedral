@@ -233,11 +233,9 @@ public class PantallaCompra extends Pantalla {
 				if (caddni.isEmpty() || caddni == null)
 					throw new CampoRequeridoException("Debe introducir el DNI");
 				
-				char letra = caddni.charAt(caddni.length()-1);
-				caddni = caddni.substring(0, caddni.length()-1);
-				int numero = Integer.parseInt(caddni);
-				
-				Dni dni = new Dni(numero, letra);
+				Dni dni = Dni.obtenDni(caddni);
+				if (dni.dameNumero() == -1)
+					throw new FormatoIncorrectoException("DNI no válido");
 				
 				Billete.Clase clase = (Billete.Clase) _clase.getSelectedItem();
 				

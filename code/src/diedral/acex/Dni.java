@@ -18,11 +18,11 @@ public class Dni implements Serializable, Comparable<Dni> {
 	 * @param letra Letra del DNI
 	 */
 	public Dni(int numero, char letra){
-		if (numero < 0 || numero > 99_999_999)
-			; // Manejar el error
+		if (numero < 0 || numero > 99999999)
+			numero = -1; // valor de error
 		
-		if (letra == calculaLetra(numero))
-			; // Manejar el error
+		if (letra != calculaLetra(numero))
+			numero = -1; // valor de error
 		
 		_numero = numero;
 	}
@@ -58,9 +58,14 @@ public class Dni implements Serializable, Comparable<Dni> {
 	 * @param dni Representación textual de un DNI.
 	 */
 	public static Dni obtenDni(String dni){
-		// TODO: será la función que más se use
+		// Coge la letra (ultimo char del string)
+		char letra = dni.charAt(dni.length()-1);
 		
-		return null;
+		// Coge el numero (el resto del string)
+		dni = dni.substring(0, dni.length()-1);
+		int numero = Integer.parseInt(dni);
+		
+		return new Dni(numero, letra);
 	}
 	
 	/**
