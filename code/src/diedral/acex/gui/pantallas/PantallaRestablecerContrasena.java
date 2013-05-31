@@ -35,7 +35,8 @@ public class PantallaRestablecerContrasena extends Pantalla {
 		Dimension dim;
 		
 		// Añade una entradilla de texto
-		add(new JLabel("Un eMail sera enviado a su direccion de correo electronico asociada."));
+		JLabel info = new JLabel("Un eMail sera enviado a su direccion de correo electronico asociada.");
+		panel.add(info);
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
 		// Crea un cuadro de inserción de nombre con su texto
@@ -67,6 +68,7 @@ public class PantallaRestablecerContrasena extends Pantalla {
 					// Redireccionar a pantalla de inicio?
 			}			
 		});
+		add(panel);
 	}
 
 	
