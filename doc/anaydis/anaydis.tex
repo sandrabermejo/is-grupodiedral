@@ -247,6 +247,8 @@ pdfinfo={
 				\begin{center}
 					\includegraphics[scale=.72]{analisis/diagramas/mostrarofertas.pdf}
 				\end{center}
+					El caso de uso {\itshape Mostrar ofertas} permite al usuario consultar las ofertas disponibles y acceder a los detalles de la misma.
+					El sistema accede al gestor de ofertas y carga el listado actual de ofertas, las prepara y las muestra en una tabla en la que se pueden ver nombre de la oferta destino, rango de edades y descuento, también permite consultar los detalles de alguna oferta conectando con {\itshape Consultar oferta}.
 
 			\subsubsection{Realizar pago con tarjeta} \label{ana:tarjeta}
 				\begin{center}
@@ -312,12 +314,15 @@ pdfinfo={
 				\begin{center}
 					\includegraphics[scale=.7]{diseno/diagramas/accederweb.pdf}
 				\end{center}
+				La pantalla {\itshape PantallaAcceso} facilita la identificación como usuario registrado del sistema.
+				En ella se solicita la dirección de correo asociada a una cuenta y la contraseña de acceso. Si todo es correcto el usuario accede al sistema y dispone de su información asociada.
 
 			\subsubsection{Comprar billete}
 				\begin{center}
 					\includegraphics[scale=.67]{diseno/diagramas/comprarbillete.pdf}
 				\end{center}
-
+				La pantalla {\itshape PantallaCompra} inicia y configura una compra de billetes.
+				En ella el usuario puede añadir a la compra uno a uno los billetes que desee, rellenando para cada uno de ellos los datos necesarios asociados al pasajero beneficiario del billete como son el nombre, los apellidos, nacionalidad, fecha de nacimiento, DNI y la clase del billete. Después conecta con {\itshape PantallaInicioPago}.
 			\subsubsection{Consultar oferta}
 				\begin{center}
 					\includegraphics[scale=.7]{diseno/diagramas/consultaroferta.pdf}
