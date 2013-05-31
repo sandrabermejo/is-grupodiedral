@@ -294,6 +294,8 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 			JDialog dialog = pane.createDialog("Datos modificados");
 			dialog.setLocationRelativeTo(getRootPane()); //centra la pantalla
 			dialog.setVisible(true);
+			
+			_sesion.cargaUsuario(usuarioModificado);
 		}
 	}
 	/**
