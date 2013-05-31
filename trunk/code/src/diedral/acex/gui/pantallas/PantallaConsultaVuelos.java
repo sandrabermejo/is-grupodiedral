@@ -4,7 +4,6 @@
 package diedral.acex.gui.pantallas;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -42,23 +41,26 @@ import diedral.acex.scentral.GestorVuelos;
  */
 public class PantallaConsultaVuelos extends Pantalla {
 
+	/**
+	 * Crea una pantalla de consulta de vuelos
+	 */
 	public PantallaConsultaVuelos(){		
 		setLayout(new BorderLayout());
 		
+		// Añade el panel de búsqueda
 		add(new PanelBusqueda(), BorderLayout.NORTH);
 		
+		// Crea y ubica la tabla (con su modelo) de vuelos encontrados
 		_tablaVuelos = new ModeloTablaVuelos();
 		
 		JTable tabla = new JTable(_tablaVuelos);
-		
 		add(new JScrollPane(tabla));
 		
 		// Añade el cambio a información de vuelo seleccionado
 		tabla.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent lse) {
-				Pantalla pantallaDetalle = _fabrica.damePantallaDetalleVuelo(_tablaVuelos.vueloEn(lse.getFirstIndex()));
-				pantallaDetalle.estableceContexto(_manejadorPantallas, _fabrica, _sesion);
-				_manejadorPantallas.cambiaA(pantallaDetalle);
+				_manejadorPantallas.cambiaA(_fabrica.damePantallaDetalleVuelo(
+						_tablaVuelos.vueloEn(lse.getFirstIndex())));
 			}
 		});
 	}
@@ -72,7 +74,6 @@ public class PantallaConsultaVuelos extends Pantalla {
 			FabricaPantallas fabrica, Sesion sesion) {
 		_manejadorPantallas = manejador;
 		_fabrica = fabrica;
-		_sesion = sesion;
 	}
 	
 	/**
@@ -83,11 +84,12 @@ public class PantallaConsultaVuelos extends Pantalla {
 		 * Crea un panel de búsqueda.
 		 */
 		public PanelBusqueda() {
+			// Le pone un borde
 			setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Buscar"),
 					BorderFactory.createEmptyBorder(5, 5, 5, 5)));
 			
+			// Fija la distribución
 			setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-			
 			
 			// Crea una máscara para fechas
 			MaskFormatter msk = null;
@@ -99,49 +101,106 @@ public class PantallaConsultaVuelos extends Pantalla {
 				// Esto se puede determinar en tiempo de compilación
 			}
 			
+			// Panel temporal para cada fila
 			JPanel tpanel = new JPanel();
 			tpanel.setLayout(new BoxLayout(tpanel, BoxLayout.LINE_AXIS));
+
+			// ((1)) Primero aeropuertos
 			
+			// Aeropuerto de origen
+			{				
 			_origen = new JComboBox<Aeropuerto>(new Vector<Aeropuerto>(GestorVuelos.dameInstancia().dameAeropuertos()));
-			_fechaSalida = new JFormattedTextField(msk);
+			_origen.setSelectedIndex(-1);
 			
-			Dimension dim = _fechaSalida.getPreferredSize();
-			dim.width *= 2;
+			JButton borrarSelec = new JButton(new ImageIcon(
+					this.getClass().getResource("../iconos/edit-clear.png")));
 			
-			_fechaSalida.setMaximumSize(dim);
-			_fechaSalida.setPreferredSize(dim);
+			borrarSelec.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					_origen.setSelectedIndex(-1);
+				}
+			});
 			
-			
-			tpanel.add(new JLabel("Salida: "));
-			tpanel.add(Box.createHorizontalStrut(10));
+			tpanel.add(new JLabel("Origen: "));
+			tpanel.add(Box.createHorizontalStrut(21));
 			tpanel.add(_origen);
-			tpanel.add(_fechaSalida);
+			tpanel.add(Box.createHorizontalStrut(5));
+			tpanel.add(borrarSelec);
+			
+			}
 			
 			add(tpanel);
 			
-			add(Box.createVerticalStrut(5));
-			
+			// Aeropuerto de destino
 			tpanel = new JPanel();
 			tpanel.setLayout(new BoxLayout(tpanel, BoxLayout.LINE_AXIS));
 			
+			
+			// Aeropuerto de destino
+			{
 			_destino = new JComboBox<Aeropuerto>(new Vector<Aeropuerto>(GestorVuelos.dameInstancia().dameAeropuertos()));
-			_fechaLlegada = new JFormattedTextField(msk);
+			_destino.setSelectedIndex(-1);
 			
-			_fechaLlegada.setMaximumSize(dim);
-			_fechaLlegada.setPreferredSize(dim);
+			JButton borrarSelec = new JButton(new ImageIcon(
+					this.getClass().getResource("../iconos/edit-clear.png")));
 			
-			tpanel.add(new JLabel("Llegada: "));
-			tpanel.add(Box.createHorizontalStrut(10));
+			borrarSelec.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					_destino.setSelectedIndex(-1);
+				}
+			});
+			
+			tpanel.add(new JLabel("Destino: "));
+			tpanel.add(Box.createHorizontalStrut(15));
 			tpanel.add(_destino);
-			tpanel.add(_fechaLlegada);
+			tpanel.add(Box.createHorizontalStrut(5));
+			tpanel.add(borrarSelec);
+			
+			}
 			
 			add(tpanel);
 			
 			add(Box.createVerticalStrut(5));
 			
+			// ((2)) Fecha salida
 			tpanel = new JPanel();
 			tpanel.setLayout(new BoxLayout(tpanel, BoxLayout.LINE_AXIS));
 			
+			_fechaSalidaMin = new JFormattedTextField(msk);
+			_fechaLlegadaMax = new JFormattedTextField(msk);
+			
+			{	
+			JButton borrarSelec = new JButton(new ImageIcon(
+					this.getClass().getResource("../iconos/edit-clear.png")));
+			
+			borrarSelec.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					// Esto no funciona bien
+					_fechaSalidaMin.setValue("");
+					_fechaLlegadaMax.setText("");
+				}
+			});
+			
+			// Añade los componentes con sus correspondientes separaciones
+			tpanel.add(new JLabel("Fecha de salida: desde "));
+			tpanel.add(Box.createHorizontalStrut(5));
+			tpanel.add(_fechaSalidaMin);
+			tpanel.add(Box.createHorizontalStrut(5));
+			tpanel.add(new JLabel(" hasta "));
+			tpanel.add(Box.createHorizontalStrut(5));
+			tpanel.add(_fechaLlegadaMax);
+			tpanel.add(Box.createHorizontalStrut(5));
+			tpanel.add(borrarSelec);
+			
+			}
+			
+			add(tpanel);
+			add(Box.createVerticalStrut(5));
+			
+			// ((3)) Botón de búsqueda
+			
+			tpanel = new JPanel();
+			tpanel.setLayout(new BoxLayout(tpanel, BoxLayout.LINE_AXIS));
 			tpanel.add(Box.createHorizontalGlue());
 			
 			JButton btn = new JButton("Buscar");
@@ -157,16 +216,15 @@ public class PantallaConsultaVuelos extends Pantalla {
 					criterio.conOrigen(_origen.getItemAt(_origen.getSelectedIndex()));
 					criterio.conDestino(_destino.getItemAt(_destino.getSelectedIndex()));
 					
-					if (_fechaSalida.isEditValid())
-						criterio.conSalida(parseaFecha(_fechaSalida.getText()), null);
+					if (_fechaSalidaMin.isEditValid() && _fechaLlegadaMax.isEditValid())
+						criterio.conSalida(parseaFecha(_fechaSalidaMin.getText()),
+								parseaFecha(_fechaLlegadaMax.getText()));
 					
-					if (_fechaLlegada.isEditValid())
-						criterio.conSalida(parseaFecha(_fechaSalida.getText()), null);
-					
+					// Busca los vuelos con el gestor
 					Set<Vuelo> vuelos = GestorVuelos.dameInstancia().buscaVuelo(criterio);
 					
+					// Los aplica a la tabla
 					_tablaVuelos.ponVuelos(new Vector<Vuelo>(vuelos));
-					
 				}
 			});
 			
@@ -209,12 +267,12 @@ public class PantallaConsultaVuelos extends Pantalla {
 		/**
 		 * Selector de fecha de salida
 		 */
-		private JFormattedTextField _fechaSalida;
+		private JFormattedTextField _fechaSalidaMin;
 		
 		/**
 		 * Selector de fecha de llegada
 		 */
-		private JFormattedTextField _fechaLlegada;
+		private JFormattedTextField _fechaLlegadaMax;
 		
 			
 		/**
@@ -322,11 +380,6 @@ public class PantallaConsultaVuelos extends Pantalla {
 	 * Manejador de pantallas
 	 */
 	private ManejadorPantallas _manejadorPantallas;
-	
-	/**
-	 * Sesion
-	 */
-	private Sesion _sesion;
 	
 	/**
 	 * Modelo de tabla de vuelos
