@@ -45,36 +45,29 @@ public class PantallaOferta extends diedral.acex.gui.Pantalla {
 	// MIEMBROS PRIVADOS
 
 		
-		/**
-		 * Campo de nombre
-		 */
-		private JLabel _nombre;
+	/**
+	 * Campo de nombre
+	 */
+	private JLabel _nombre;
 
-		/**
-		 * Campo de destino
-		 */
-		private JLabel _destino;
-		
-		/**
-		 * Campo de descuento
-		 */
-		private JLabel _descuento;
-		
-		/**
-		 * Campo de vuelos
-		 */
-		private JLabel _vuelos;
-		
-		/**
-		 * Campo de intervalo de edad
-		 */
-		private JLabel _edad;
-		
-		/**
-		 * Serial UID
-		 */
-		private static final long serialVersionUID = 5313233541380924039L;
-		
-}
-
-		
+	/**
+	 * Campo de destino
+	 */
+	private JLabel _destino;
+	
+	/**
+	 * Campo de descuento
+	 */
+	private JLabel _descuento;
+	
+	
+	/**
+	 * Campo de intervalo de edad
+	 */
+	private JLabel _edad;
+	
+	/**
+	 * Serial UID
+	 */
+	private static final long serialVersionUID = 5313233541380924039L;		
+}	

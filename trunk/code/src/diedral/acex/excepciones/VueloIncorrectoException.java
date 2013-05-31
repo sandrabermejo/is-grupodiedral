@@ -3,7 +3,11 @@
  */
 
 package diedral.acex.excepciones;
-
+/**
+ * Excepción que concurre alguna circustancia por la cual un vuelo no es
+ * correcto.
+ *
+ */
 public class VueloIncorrectoException extends Exception {
 
 	/**

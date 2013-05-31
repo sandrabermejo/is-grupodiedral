@@ -3,14 +3,14 @@
  */
 package diedral.acex;
 
+import java.io.Serializable;
 import java.util.GregorianCalendar;
 
 
 /**
  * Esta clase representa una escala aeroportuaria.
  */
-public class Escala {
-	
+public class Escala implements Serializable {
 	/**
 	 * Crea una escala.
 	 * 
@@ -53,4 +53,9 @@ public class Escala {
 	 * Tiempo de espera
 	 */
 	private GregorianCalendar _espera;
+	
+	/**
+	 * Serial UID
+	 */
+	private static final long serialVersionUID = -3113807108950252320L;
 }

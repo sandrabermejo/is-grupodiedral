@@ -35,8 +35,6 @@ public class Sugerencia implements java.io.Serializable {
 
 		_nombre = nombre;
 
-		// TODO: hacer función para verificar que la dirección de correo lo es
-
 		_contacto = contacto;
 	}
 

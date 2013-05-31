@@ -17,7 +17,6 @@ import diedral.acex.excepciones.VueloIncorrectoException;
  * Esta clase representa un vuelo.
  */
 public class Vuelo implements Serializable {
-	
 	/**
 	 * Construye un vuelo a partir de los datos aportados.
 	 * 
@@ -49,6 +48,9 @@ public class Vuelo implements Serializable {
 		GregorianCalendar llegada, Avion avion, int pasajeros, List<Escala> escalas)
 			throws VueloIncorrectoException {
 		
+		/*
+		 * Comprobaciones de la consistencia de los datos.
+		 */
 		if (origen.equals(destino))
 			throw new VueloIncorrectoException(
 					"El aeropuerto de origen y destino no pueden ser iguales");
@@ -61,6 +63,9 @@ public class Vuelo implements Serializable {
 			throw new VueloIncorrectoException(
 					"No se puede crear un vuelo que no admita pasajeros");
 		
+		/*
+		 * Guarda los atributos.
+		 */
 		_origen = origen;
 		_destino = destino;
 		_fsalida = salida;
@@ -73,27 +78,27 @@ public class Vuelo implements Serializable {
 	
 	/**
 	 * Mete al pasajero en la lista de pasajeros del vuelo
-	 * Comprobando que no estÃ© ya
+	 * Comprobando que no estaba ya.
 	 * 
-	 * @param pasajero que aÃ±adir a la lista
+	 * @param pasajero que añadir a la lista.
 	 */
 	public void metePasajero(Pasajero pasajero){
 		_pasajeros.add(pasajero);
 	}
 	
 	/**
-	 * Borra al pasajero de la lista de pasajeros del vuelo
+	 * Borra al pasajero de la lista de pasajeros del vuelo.
 	 * 
-	 * @param pasajero a borrar de la lista
+	 * @param pasajero a borrar de la lista.
 	 */
 	public void borraPasajero(Pasajero pasajero) {
 		_pasajeros.remove(pasajero);
 	}
 	
 	/**
-	 * Mete una escala en el vuelo
+	 * Mete una escala en el vuelo.
 	 * 
-	 * @param escala
+	 * @param escala Una escala.
 	 */
 	public void meteEscala(Escala escala) {
 		if (!_escalas.contains(escala))
@@ -103,70 +108,70 @@ public class Vuelo implements Serializable {
 	/**
 	* Borra una escala del vuelo
 	*
-	* @param escala
+	* @param escala Una escala existente.
 	*/
 	public void borraEscala(Escala escala) {
 		_escalas.remove(escala);
 	}
 	
 	/**
-	 * Obtiene el aeropuerto de origen del vuelo
+	 * Obtiene el aeropuerto de origen del vuelo.
 	 * 
-	 * @return El aeropuerto de origen
+	 * @return El aeropuerto de origen.
 	 */
 	public Aeropuerto dameOrigen() {
 		return _origen;
 	}
 	
 	/**
-	 * Obtiene el aeropuerto de destino del vuelo
+	 * Obtiene el aeropuerto de destino del vuelo.
 	 * 
-	 * @return El aeropuerto de destino
+	 * @return El aeropuerto de destino.
 	 */
 	public Aeropuerto dameDestino() {
 		return _destino;
 	}
 	
 	/**
-	 * Obtiene la fecha de salida del vuelo
+	 * Obtiene la fecha de salida del vuelo.
 	 * 
-	 * @return La fecha de salida
+	 * @return La fecha de salida.
 	 */
 	public GregorianCalendar dameFechaSalida() {
 		return _fsalida;
 	}
 	
 	/**
-	 * Obtiene la fecha de llegada del vuelo
+	 * Obtiene la fecha de llegada del vuelo.
 	 * 
-	 * @return La fecha de llegada
+	 * @return La fecha de llegada.
 	 */
 	public GregorianCalendar dameFechaLlegada() {
 		return _fllegada;
 	}
 	
 	/**
-	 * Obtiene el avión encargado del vuelo
+	 * Obtiene el avión encargado del vuelo.
 	 * 
-	 * @return El avión
+	 * @return El avión.
 	 */
 	public Avion dameAvion() {
 		return _avion;
 	}
 	
 	/**
-	 * Obtiene el número máximo de pasajeros del vuelo
+	 * Obtiene el número máximo de pasajeros del vuelo.
 	 * 
-	 * @return El número de pasajeros
+	 * @return El número de pasajeros.
 	 */
 	public int dameNumPasajeros() {
 		return _npasajeros;
 	}
 	
 	/**
-	 * Obtiene el precio del vuelo
+	 * Obtiene el precio del vuelo.
 	 * 
-	 * @return El precio
+	 * @return El precio.
 	 */
 	public double damePrecio() {
 		return _precio;
@@ -182,52 +187,52 @@ public class Vuelo implements Serializable {
 	}
 	
 	/**
-	 * Obtiene la lista de pasajeros del vuelo
+	 * Obtiene la lista de pasajeros del vuelo.
 	 * 
-	 * @return La lista de pasajeros
+	 * @return La lista de pasajeros.
 	 */
 	public SortedSet<Pasajero> damePasajeros () {
 		return _pasajeros;
 	}
 	
 	/**
-	 * Obtiene la lista de escalas del vuelo
+	 * Obtiene la lista de escalas del vuelo.
 	 * 
-	 * @return La lista de escalas
+	 * @return La lista de escalas.
 	 */
 	public List<Escala> dameEscalas () {
 		return _escalas;
 	}
 
 	/**
-	 * Modifica la fecha de salida del vuelo
+	 * Modifica la fecha de salida del vuelo.
 	 * 
-	 * @param salida fecha de salida
+	 * @param salida fecha de salida.
 	 */
 	public void ponFechaSalida(GregorianCalendar salida) {
 		_fsalida = salida;
 	}
 
 	/**
-	 * Modifica la fecha de llegada del vuelo
+	 * Modifica la fecha de llegada del vuelo.
 	 * 
-	 * @param llegada fecha de llegada
+	 * @param llegada fecha de llegada.
 	 */
 	public void ponFechaLlegada(GregorianCalendar llegada) {
 		_fllegada = llegada;
 	}
 
 	/**
-	 * Modifica el avion encargado del vuelo
+	 * Modifica el avión encargado del vuelo.
 	 * 
-	 * @param avion
+	 * @param avion Avión encargado del vuelo.
 	 */
 	public void ponAvion(Avion avion) {
 		_avion = avion;
 	}
 
 	/**
-	 * Modifica el número de pasajeros admitidos en el vuelo
+	 * Modifica el número de pasajeros admitidos en el vuelo.
 	 * 
 	 * @param pasajeros Número de pasajeros del vuelo
 	 */
@@ -236,9 +241,9 @@ public class Vuelo implements Serializable {
 	}
 	
 	/**
-	 * Modifica el precio del vuelo
+	 * Modifica el precio del vuelo.
 	 * 
-	 * @param precio del vuelo
+	 * @param precio Precio del vuelo.
 	 */
 	public void ponPrecio(double precio) {
 		_precio = precio;
@@ -299,5 +304,5 @@ public class Vuelo implements Serializable {
 	/**
 	 * Serial UID
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 6321018059660100620L;
 }

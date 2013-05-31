@@ -15,7 +15,7 @@ import diedral.acex.Vuelo;
  */
 public class Billete implements java.io.Serializable {	
 	
-	//CONSTRUCTOR
+	// CONSTRUCTOR
 	
 	/**
 	 * Crea un billete con los datos aportados.

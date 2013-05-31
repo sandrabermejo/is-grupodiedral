@@ -10,10 +10,11 @@ package diedral.acex.ventas;
  * Esta clase representa un pago con tarjeta.
  *
  * <p>Contiene el importe, el titular, el número de tarjeta
- * y los metodos para calcular el sobrecoste asociado.
+ * y los métodos para calcular el sobrecoste asociado.
  */
 public class PagoTarjeta implements Pago {
 	// CONSTRUCTOR
+	
 	/**
 	 * Crea un pago con Tarjeta sin ningún dato especificado.
 	 */
@@ -34,39 +35,47 @@ public class PagoTarjeta implements Pago {
 	}
 
 	
-	//METODOS PUBLICOS
+	// MÉTODOS PÚBLICOS
+	
 	/**
 	 * Establece el titular de este pago.
-	 * @param titular
+	 * 
+	 * @param titular Titular del pago.
 	 */
 	public void establecerTitular(String titular){
 		_titular = titular;
 	}
 	/**
-	 * Establece el numero de tarjeta para realizar este pago.
-	 * @param numeroTarjeta
+	 * Establece el número de tarjeta para realizar este pago.
+	 * 
+	 * @param numeroTarjeta Número de tarjeta para el cargo.
 	 */
 	public void establecerNumeroTarjeta(String numeroTarjeta){
 		_numeroTarjeta = numeroTarjeta;
 	}
 	
+	/**
+	 * Establece la compra para la cual se elabora el pago.
+	 * 
+	 * @param compra Compra sobre la que se elabora el pago.
+	 */
 	public void establecerCompra(Compra compra){
 		_compra = compra;
 	}
 	
 	/**
-	* Hace efectivo el pago.
-	*/
-	
+	 * Hace efectivo el pago.
+	 */
 	public boolean efectuar(){
 		_compra.marcarPagada();
 		return true;
 	}
 	
 	/**
-	* Calcula la comisión asociada a la operación.
-	* @return El sobre coste por el pago.
-	*/
+	 * Calcula la comisión asociada a la operación.
+	 * 
+	 * @return El sobre coste por el pago.
+	 */
 	public double obtenerSobrecoste(){
 		return _importe * 0.03;
 	}
@@ -81,17 +90,27 @@ public class PagoTarjeta implements Pago {
 	/**
 	 * Titular de la tarjeta
 	 */
+	@SuppressWarnings("unused")
 	private String _titular;
 	
 	/**
-	* Número de la tarjeta
-	*/
+	 * Número de la tarjeta
+	 */
+	@SuppressWarnings("unused")
 	private String _numeroTarjeta;
 	
+	/**
+	 * Importe de la operación.
+	 */
 	private double _importe;
 	
+	/**
+	 * Compra sobre la que versa el pago.
+	 */
 	private Compra _compra;
 	
+	/**
+	 * Serial UID
+	 */
 	private static final long serialVersionUID = 4218885255299801434L;
-
 }
