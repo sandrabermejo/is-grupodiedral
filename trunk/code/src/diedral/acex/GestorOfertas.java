@@ -97,7 +97,7 @@ public class GestorOfertas implements Serializable {
 	* Crea un gestor de Ofertas vacio.
 	*/
 	private GestorOfertas(){
-		ofertas = new HashMap<>();
+		ofertas = new HashMap<String, Oferta>();
 		// Oferta a modo de ejemplo
 		int[] v= {18, 25};	
 		Oferta nuestroOferton = new Oferta(new TreeSet<Vuelo>(), "Valencia", v, 30, "Oferton Diedral");

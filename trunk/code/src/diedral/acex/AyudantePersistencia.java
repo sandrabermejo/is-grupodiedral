@@ -1,5 +1,5 @@
 /*
- * AyudantePersistencia.java - ACE Gestión Externa - Grupo diedral 2013 
+ * AyudantePersistencia.java - ACE GestiÃ³n Externa - Grupo diedral 2013 
  */
 package diedral.acex;
 
@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * Clase como apoyo para manejar la persistencia de los datos basada
- * en serialización.
+ * en serializaciÃ³n.
  * 
  * @see Serializable
  */
@@ -25,7 +25,7 @@ public class AyudantePersistencia implements Serializable {
 	 * Almacena el objeto dado de acuerdo a su identificador.
 	 * 
 	 * @param obj Objeto serializable.
-	 * @param id Identificar único representativo del objeto.
+	 * @param id Identificar Ãºnico representativo del objeto.
 	 */
 	public boolean almacena(Serializable obj, String id) {
 		// Comprueba que existe la carpeta "data"
@@ -56,7 +56,7 @@ public class AyudantePersistencia implements Serializable {
 	/**
 	 * Recupera un objeto almacenado de acuerdo a su identificador.
 	 * 
-	 * @param id Identificador único el objeto.
+	 * @param id Identificador Ãºnico el objeto.
 	 * 
 	 * @return El objeto recuperado. {@code null} si no ha sido posible.
 	 */
@@ -73,7 +73,7 @@ public class AyudantePersistencia implements Serializable {
 			
 			entrada.close();
 			
-		} catch(ClassNotFoundException | IOException ioe){
+		} catch(Exception ioe){
 			// No hace nada: se devuelve null
 		}
 		
@@ -82,10 +82,10 @@ public class AyudantePersistencia implements Serializable {
 	
 	/**
 	 * Recupera un objeto almacenado de acuerdo a su identificador y
-	 * guarda una referencia a él para almacenarlo cuando el ayudante
-	 * reciba una notificación a tal efecto.
+	 * guarda una referencia a Ã©l para almacenarlo cuando el ayudante
+	 * reciba una notificaciÃ³n a tal efecto.
 	 * 
-	 * @param id Identificador único el objeto.
+	 * @param id Identificador Ãºnico el objeto.
 	 * 
 	 * @return El objeto recurerado. {@code null} si no ha sido posible.
 	 */
@@ -98,14 +98,14 @@ public class AyudantePersistencia implements Serializable {
 	}
 	
 	/**
-	 * Añade el objeto a la lista de objetos que serán guardados
+	 * AÃ±ade el objeto a la lista de objetos que serÃ¡n guardados
 	 * al almacenar todos.
 	 * 
 	 * @param obj Objeto.
 	 * @param id Identificador de objeto.
 	 */
 	public void vigila(Serializable obj, String id){
-		// Lo añade a la lista de vigilados
+		// Lo aÃ±ade a la lista de vigilados
 		if (obj != null)
 			_vigilados.put(obj, id);
 	}
@@ -134,7 +134,7 @@ public class AyudantePersistencia implements Serializable {
 	 * Conjunto de objetos vigilados para ser guardados
 	 * cuando corresponda.
 	 */
-	private Map<Serializable, String> _vigilados = new HashMap<>();
+	private Map<Serializable, String> _vigilados = new HashMap<Serializable, String>();
 
 	/**
 	 * Serial UID
@@ -142,11 +142,11 @@ public class AyudantePersistencia implements Serializable {
 	private static final long serialVersionUID = 8617860719777255822L;
 	
 	
-	// PARTE ESTÁTICA
+	// PARTE ESTÃ�TICA
 	
 	/**
 	 * Genera un identificador textual a partir de un indentificador
-	 * de serialización.
+	 * de serializaciÃ³n.
 	 * 
 	 * @param suid Serial UID.
 	 */
@@ -158,7 +158,7 @@ public class AyudantePersistencia implements Serializable {
 	/**
 	 * Obtiene la instancia del ayudante de persistencia.
 	 * 
-	 * @return Un {@code AyudantePersistencia} válido.
+	 * @return Un {@code AyudantePersistencia} vÃ¡lido.
 	 */
 	public static AyudantePersistencia dameInstancia(){
 		if (_instancia == null)

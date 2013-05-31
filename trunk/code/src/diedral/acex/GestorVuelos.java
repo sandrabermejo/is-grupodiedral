@@ -57,7 +57,7 @@ public class GestorVuelos implements Serializable {
 	 * @param criterio Criterio de búsqueda.
 	 */
 	public Set<Vuelo> buscaVuelo(CriterioBusqueda criterio){
-		Set<Vuelo> ret = new HashSet<>(); 
+		Set<Vuelo> ret = new HashSet<Vuelo>(); 
 		
 		for (Vuelo vuelo : _vuelos)
 			if (criterio.cumpleCriterio(vuelo))
@@ -76,7 +76,7 @@ public class GestorVuelos implements Serializable {
 		/*
 		 * Forma nada ortodoxa de obtener la lista de aeropuertos.
 		 */
-		Set<Aeropuerto> ret = new HashSet<>();
+		Set<Aeropuerto> ret = new HashSet<Aeropuerto>();
 		
 		for (Vuelo vuelo : _vuelos) {
 			ret.add(vuelo.dameDestino());

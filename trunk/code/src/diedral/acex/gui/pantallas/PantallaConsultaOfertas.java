@@ -58,7 +58,7 @@ public class PantallaConsultaOfertas extends Pantalla {
     private class PanelOfertas extends AbstractTableModel {
     	final int numCol = 3;
 		public PanelOfertas(){
-            _ofertas = new ArrayList<>(GestorOfertas.dameInstancia().dameOfertas());
+            _ofertas = new ArrayList<Oferta>(GestorOfertas.dameInstancia().dameOfertas());
         }
 
         @Override
