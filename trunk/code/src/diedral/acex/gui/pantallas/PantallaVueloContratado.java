@@ -1,9 +1,13 @@
 package diedral.acex.gui.pantallas;
 
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;	
 import java.util.List;
 import java.util.Vector;
 
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -20,11 +24,27 @@ import diedral.acex.ventas.Compra;
 
 public class PantallaVueloContratado extends Pantalla {
 	
-	public PantallaVueloContratado() {	
+	public PantallaVueloContratado() {
+		
+		setLayout(new BorderLayout());
+		
 		// Tiene vuelos contratados	
 		_tablaVuelos = new ModeloTablaVuelos();		
-		JTable tabla = new JTable(_tablaVuelos);		
-		add(new JScrollPane(tabla));		
+		final JTable tabla = new JTable(_tablaVuelos);		
+		add(new JScrollPane(tabla));
+		
+		JButton boton = new JButton("Ver información detallada");
+		boton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int i = tabla.getSelectedRow();
+				Vuelo vuelo = _tablaVuelos._vuelos.get(i);
+				_mnj.cambiaA(new PantallaDetalleVuelo(vuelo));
+			}
+			
+		});
+		add(boton, BorderLayout.SOUTH);
 	}
 	
 	@Override

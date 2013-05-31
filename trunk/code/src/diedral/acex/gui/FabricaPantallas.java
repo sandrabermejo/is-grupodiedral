@@ -111,6 +111,13 @@ public class FabricaPantallas {
 	}
 	
 	/**
+	 * Obtiene una pantalla de inicio de pago
+	 */
+	public Pantalla damePantallaInicioPago(Compra compra) {
+		return new PantallaInicioPago(compra);
+	}
+	
+	/**
 	 * Obtiene una pantalla de pago con tarjeta
 	 */
 	public Pantalla damePantallaPagoTarjeta(Compra compra){

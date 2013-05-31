@@ -146,13 +146,14 @@ public class PantallaPagoTarjeta extends Pantalla{
 		} else if (numeroTarjeta == null){
 			JOptionPane.showMessageDialog(this, "Rellene el número de Tarjeta, por favor.");
 		} else {
-			if(numeroTarjeta.length() == 10) {
+			if(numeroTarjeta.length() == 16) {
 				_pagoTarjeta = new PagoTarjeta(_compra, titular, numeroTarjeta, _importeCompra); 
 				if(!_pagoTarjeta.efectuar())
 					JOptionPane.showMessageDialog(this, "El pago no se ha podido procesar. Datos incorrectos.");
 				else {
 					JOptionPane.showMessageDialog(this, "La compra ha sido procesada " +
 							"correctamente. Gracias por confiar en nosotros.");
+					_sesion.dameUsuario().añadeCompra(_compra);
 					_mnj.cierraPantallaActual();
 					_mnj.cambiaA(_fabrica.damePantallaInicio());
 				}
@@ -170,6 +171,7 @@ public class PantallaPagoTarjeta extends Pantalla{
 			Sesion sesion) {
 		_mnj = manejador;
 		_fabrica = fabrica;
+		_sesion = sesion;
 	}
 
 	
@@ -211,6 +213,11 @@ public class PantallaPagoTarjeta extends Pantalla{
 	 * Atributo con el que se maneja las pantallas.
 	 */
 	private ManejadorPantallas _mnj;
+	
+	/**
+	 * Sesion
+	 */
+	private Sesion _sesion;
 	
 	/**
 	 * Cajas de texto de los campos a rellenar

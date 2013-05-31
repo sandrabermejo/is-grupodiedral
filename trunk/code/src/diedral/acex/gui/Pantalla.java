@@ -41,7 +41,7 @@ public abstract class Pantalla extends javax.swing.JPanel {
 	 * Manejador del evento de cierre.
 	 *
 	 * @return {@code true} si se acepta la petición, {@code false} si se
-	 * rechaza.
+	 * rechaza. 
 	 */
 	public boolean alCerrar() { return true; }
 
