@@ -34,6 +34,9 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 		if (!_ofertasGenerales.contains(oferta))
 			_ofertasGenerales.add(oferta);
 	}
+	public void meteContrasena(String contrasena){
+		_contrasena = contrasena;
+	}
 	
 	/**
 	 * Borra una oferta personal de la lista del usuario
@@ -85,7 +88,6 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	 * 
 	 * @return La pretendida contraseña
 	 */
-	@Deprecated
 	public String dameContrasena() {
 		return _contrasena;
 	}

@@ -5,31 +5,38 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import diedral.acex.Compra;
 import diedral.acex.PagoTarjeta;
 import diedral.acex.Sesion;
-import diedral.acex.Usuario;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
 
 public class PantallaPagoTarjeta extends Pantalla{
-	private JTextField _texTitular, _textNumeroTarjeta, _textValorCompra;
-	private JComboBox<String> _comboBoxServidores;
-	private JButton _finalizarPago;
+	/**
+	 * Clase interna privada que contiene dos String con el nombre de un servidor y otro con la dirección donde se encuentra su icono.
+	 */
+	private class DatosServidores{
+		public DatosServidores(String nombre, String direccionIcono){
+			_nombre = nombre;
+			_direccionIcono = direccionIcono;
+		}
+		private String _nombre;
+		private String _direccionIcono;
+	}
 	public PantallaPagoTarjeta(Compra compra){
 		if(compra == null) {
 			JOptionPane.showMessageDialog(this, "No puede pagar una compra vacía. Por favor seleccione una compra antes de realizar un pago.");
@@ -85,17 +92,27 @@ public class PantallaPagoTarjeta extends Pantalla{
 		panel.add(panelValorCompra);
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
-		JPanel panelServidores = new JPanel(new GridLayout(1, 2));
-		_servidores = new Vector<String>();
-		_servidores.add("MasterCard");
-		_servidores.add("Visa");
-		_servidores.add("Maestro");
-		_servidores.add("Discover");
-		_comboBoxServidores = new JComboBox<String>(_servidores);
-		panelServidores.add(_comboBoxServidores);
 		
+		//Comienza el añadido de la lista de servidores a elegir
+		_servidores = new ButtonGroup();
+		inicializaServidores(); //inicializamos los servidores que tiene el sistema
+		JPanel panelServidores = new JPanel();
+		panelServidores.setLayout(new BoxLayout(panelServidores, BoxLayout.LINE_AXIS));
+		for (DatosServidores servidor: _datosServidores){
+			JRadioButton boton = new JRadioButton();
+			_servidores.add(boton);
+			panelServidores.add(boton);
+			panelServidores.add(new JLabel(new ImageIcon(this.getClass().getResource(servidor._direccionIcono))));
+			panelServidores.add(Box.createHorizontalGlue());
+		}
+		panel.add(panelServidores);
+		
+		//ahora añadimos el boton de finalizar pago compra
+		JPanel panelFinalizar = new JPanel();
+		panelFinalizar.setLayout(new BoxLayout(panelFinalizar, BoxLayout.LINE_AXIS));
+		panelFinalizar.add(Box.createHorizontalGlue());
 		_finalizarPago = new JButton("Finalizar pago");
-		panelServidores.add(_finalizarPago);
+		panelFinalizar.add(_finalizarPago);
 		_finalizarPago.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -103,23 +120,31 @@ public class PantallaPagoTarjeta extends Pantalla{
 			}
 		});
 		
-		panel.add(panelServidores);
+		panel.add(Box.createVerticalStrut(2*INTERESPACIO_VERTICAL));
+		panel.add(panelFinalizar);
 		panelServidores.setMaximumSize(dim);
 		
 		//añadimos el panel a la ventana
 		add(panel);
 	}
+	/**
+	 * Inicializa la lista de servidores con el nombre de cada servidor y la direccion donde tiene la imagen de icono a cargar.
+	 */
+	private void inicializaServidores(){
+		_datosServidores = new ArrayList<DatosServidores>();
+		_datosServidores.add(new DatosServidores("Mastercard", "../iconos/mastercard.jpg"));
+		_datosServidores.add(new DatosServidores("Visa", "../iconos/visa.jpg"));
+		_datosServidores.add(new DatosServidores("Maestro", "../iconos/maestro.jpg"));
+		_datosServidores.add(new DatosServidores("Discoverer", "../iconos/discoverer.jpg"));
+	}
 	private void introducirDatos(){
-		String titular, numeroTarjeta, servidor;		
+		String titular, numeroTarjeta;		
 		titular = _texTitular.getText();
 		numeroTarjeta = _textNumeroTarjeta.getText();
-		servidor = _servidores.get(_comboBoxServidores.getSelectedIndex());
 		if(titular == null){
 			JOptionPane.showMessageDialog(this, "Rellene el titular, por favor.");
 		} else if (numeroTarjeta == null){
 			JOptionPane.showMessageDialog(this, "Rellene el número de Tarjeta, por favor.");
-		} else if (servidor == null){
-			JOptionPane.showMessageDialog(this, "Elija servidor, por favor.");
 		} else {
 			if(numeroTarjeta.length() == 10) {
 				_pagoTarjeta = new PagoTarjeta(_compra, titular, numeroTarjeta, _importeCompra); 
@@ -166,9 +191,14 @@ public class PantallaPagoTarjeta extends Pantalla{
 	 */
 	private static final int INTERESPACIO_VERTICAL = 10;
 	/**
-	 * Vector que tiene los nombres de los tipos de tarjetas de crédito con las que se puede pagar.
+	 * Grupo que tiene los nombres de los tipos de tarjetas de crédito con las que se puede pagar.
 	 */
-	private static Vector<String> _servidores;
+	private static ButtonGroup _servidores;
+	/**
+	 * Vector que contiene los datos de los servidores a cargar.
+	 */
+	private static ArrayList<DatosServidores> _datosServidores;
+	
 	/**
 	 * Importe de la compra a cobrar.
 	 */
@@ -181,4 +211,13 @@ public class PantallaPagoTarjeta extends Pantalla{
 	 * Atributo con el que se maneja las pantallas.
 	 */
 	private ManejadorPantallas _mnj;
+	
+	/**
+	 * Cajas de texto de los campos a rellenar
+	 */
+	private JTextField _texTitular, _textNumeroTarjeta, _textValorCompra;
+	/**
+	 * Botón de finalizar pago.
+	 */
+	private JButton _finalizarPago;
 }

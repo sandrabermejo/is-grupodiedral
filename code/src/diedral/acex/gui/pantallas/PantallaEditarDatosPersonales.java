@@ -13,7 +13,9 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 import diedral.acex.GestorUsuarios;
 import diedral.acex.Sesion;
@@ -81,7 +83,7 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 		// Crea un cuadro de inserción de contraseña con su texto
 		JPanel panelContrasenya = new JPanel(new GridLayout(1, 2));
 		panelContrasenya.add(new JLabel("Contraseña"));
-		_textContrasenya = new JTextField("");
+		_textContrasenya = new JPasswordField("");
 		_textContrasenya.setEnabled(false); //la contraseña no se puede modificar aqui
 		panelContrasenya.add(_textContrasenya);
 		
@@ -105,7 +107,9 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 		panel.add(Box.createVerticalStrut(INTERESPACIO_VERTICAL));
 		
 		// Crea un cuadro de inserción de contraseña con su texto
-		JPanel panelBotonGuardarDatos = new JPanel(new GridLayout(1, 2));
+		JPanel panelBotones = new JPanel();
+		panelBotones.setLayout(new BorderLayout());
+		_botonMofidicarContrasena = new JButton("<html><font color=\"blue\">Modificar contraseña</font></html>");
 		_botonGuardar = new JButton("Guardar");
 		_botonGuardar.addActionListener(new ActionListener(){
 			@Override
@@ -113,9 +117,67 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 				PantallaEditarDatosPersonales.this.introducirDatos();
 			}
 		});
-		panelBotonGuardarDatos.add(_botonGuardar);
+		_botonMofidicarContrasena.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				final JDialog ventana = new JDialog(SwingUtilities.windowForComponent(PantallaEditarDatosPersonales.this));
+				ventana.setSize(200, 200);
+				//Hacemos que la ventana salga en el centro de la pantalla
+				ventana.setLocationRelativeTo(getRootPane());
+				JPanel panel = new JPanel(new GridLayout(4, 3));
+				panel.add(new JLabel("Contraseña antigua:"));
+				panel.add(_textContrasenaAntigua = new JPasswordField(""));
+				panel.add(new JLabel("Contraseña nueva:"));
+				panel.add(_textContrasenaNueva = new JPasswordField(""));
+				panel.add(new JLabel("Repita contraseña nueva:"));
+				panel.add(_textContrasenaNuevaRep = new JPasswordField(""));
+				_botonContrasena = new JButton("Modificar contraseña");
+				panel.add(_botonContrasena);
+				_botonContrasena.addActionListener(new ActionListener(){
+				int contador = 0;
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						if(contador == 3) {
+							//desactivar los campos
+							contador = 0;
+							long tiempo = System.currentTimeMillis();
+							while(System.currentTimeMillis() < tiempo + 30000){
+								
+							}
+						}
+						String contrAntigua = new String(_textContrasenaAntigua.getPassword());
+						String contrNueva = new String(_textContrasenaNueva.getPassword());
+						String contrNuevarep = new String(_textContrasenaNuevaRep.getPassword());
+						if(contrAntigua != null && contrNueva != null && contrNuevarep != null){
+							if(_usuario.comprobarContrasena(contrAntigua)){
+								if(contrNueva.equals(contrNuevarep)){
+									_usuario.meteContrasena(contrNueva);
+									ventana.setVisible(false);
+								} else {
+									JOptionPane.showMessageDialog(ventana, "Las contraseñas no coincide");
+								}
+							} else {
+								contador++;
+								JOptionPane.showMessageDialog(ventana, "La contraseña actual no es correcta");
+							}
+						} else
+							JOptionPane.showMessageDialog(ventana, "Todos los campos son obligatorios.");
+					}
+					
+				});
+				ventana.add(panel);
+				ventana.setVisible(true);
+			}
+			private JPasswordField _textContrasenaAntigua, _textContrasenaNueva, _textContrasenaNuevaRep;
+			private JButton _botonContrasena;
+		});
+		panelBotones.add(_botonMofidicarContrasena, BorderLayout.WEST);
+		panelBotones.add(Box.createHorizontalGlue(), BorderLayout.CENTER);
+		panelBotones.add(_botonGuardar, BorderLayout.EAST);
 		
-		panel.add(_botonGuardar);	
+		panelBotones.setMaximumSize(new Dimension(Integer.MAX_VALUE, _botonGuardar.getPreferredSize().height));
+		panel.add(panelBotones);
+		
 			
 		add(panel, BorderLayout.CENTER); //añadimos el panel al centro.
 	}
@@ -139,8 +201,17 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 	 * Método que lee los datos de la pantalla y realiza el guardado de los datos
 	 * del usuario que ha sido modificado.
 	 */
-	public void introducirDatos(){
+	@Override
+	public void alCargar(){
 		_usuario = _sesion.dameUsuario();
+		_textNombre.setText(_usuario.dameNombre());
+		_textApellido1.setText(_usuario.dameApellido1());
+		_textApellido2.setText(_usuario.dameApellido2());
+		_textCorreo.setText(_usuario.dameCorreo());
+		_textContrasenya.setText(_usuario.dameContrasena());
+	}
+	
+	public void introducirDatos(){
 		String nombre = _textNombre.getText();
 		String apellido1 = _textApellido1.getText();
 		String apellido2 = _textApellido2.getText();
@@ -201,11 +272,13 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 	/**
 	 * Campo de contraseña. No puede ser editado aquí.
 	 */
-	private JTextField _textContrasenya;
+	private JPasswordField _textContrasenya;
 	/**
 	 * Botón que al pulsarlo se guardan los datos modificados.
 	 */
 	private JButton _botonGuardar;
+	
+	private JButton _botonMofidicarContrasena;
 	/**
 	 * Usuario que ha iniciado sesión.
 	 */
