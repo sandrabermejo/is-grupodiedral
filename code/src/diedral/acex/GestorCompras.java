@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import diedral.acex.ventas.Compra;
+
 /**
  * Gestiona las compras de esta compañia.
  */

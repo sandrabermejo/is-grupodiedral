@@ -13,10 +13,10 @@ import diedral.acex.AyudantePersistencia;
 import diedral.acex.GestorOfertas;
 import diedral.acex.GestorUsuarios;
 import diedral.acex.GestorVuelos;
-import diedral.acex.Oferta;
 import diedral.acex.Usuario;
 import diedral.acex.Vuelo;
 import diedral.acex.excepciones.UsuarioInvalidoException;
+import diedral.acex.ventas.Oferta;
 
 /**
  * Esta herramienta genera datos de muestra con lo que llenar los diferentes

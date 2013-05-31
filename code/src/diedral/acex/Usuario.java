@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
 
+import diedral.acex.ventas.Compra;
+import diedral.acex.ventas.Oferta;
+
 /**
  * Usuario de la aplicación.
  */

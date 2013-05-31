@@ -1,9 +1,11 @@
-package diedral.acex;
+package diedral.acex.ventas;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import diedral.acex.Usuario;
+import diedral.acex.Vuelo;
 import diedral.acex.excepciones.PagoIncorrectoException;
 
 public class Compra {

@@ -3,10 +3,10 @@
  */
 package diedral.acex.gui;
 
-import diedral.acex.Compra;
-import diedral.acex.Oferta;
 import diedral.acex.Vuelo;
 import diedral.acex.gui.pantallas.*;
+import diedral.acex.ventas.Compra;
+import diedral.acex.ventas.Oferta;
 
 /**
  * Fábrica de pantallas.

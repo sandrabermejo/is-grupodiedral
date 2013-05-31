@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
 
+import diedral.acex.ventas.Oferta;
+
 /**
  * Gestor de ofertas.
  * 

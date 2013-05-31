@@ -18,12 +18,12 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import diedral.acex.Compra;
-import diedral.acex.PagoTarjeta;
 import diedral.acex.Sesion;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
+import diedral.acex.ventas.Compra;
+import diedral.acex.ventas.PagoTarjeta;
 
 public class PantallaPagoTarjeta extends Pantalla{
 	/**
