@@ -1,0 +1,108 @@
+%
+%	Documento de análisis y diseño
+%
+
+\documentclass[11pt, a4paper, twoside, titlepage]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-ucroman]{babel}
+\usepackage{lmodern}
+\usepackage{anysize}
+\usepackage{fancyhdr}
+\usepackage[none]{hyphenat}
+\usepackage[colorlinks, linkcolor=red]{hyperref}
+\usepackage{float}
+\usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage[doc=anaydis]{isdiedral}
+
+% Nombre del documento (para futuras referencias)
+\newcommand*{\doctitle}{Análisis y diseño}
+\newcommand*{\docversion}{1.0}
+
+
+%%% Configuraciones %%%
+\marginsize{2.5cm}{2cm}{2cm}{2cm}
+
+% Usa como familia tipográfica por defecto "Sans"
+\renewcommand{\familydefault}{\sfdefault}
+
+% Establece la profundidad hasta la cual se numeran los elementos de sección
+\setcounter{secnumdepth}{4}
+
+% Establece la profundidad de niveles de sección que aparece en el TOC
+\setcounter{tocdepth}{4}
+
+% Configuración de los encabezados
+\encabezadodiedral{\doctitle{} \docversion}
+\pagestyle{fancy}
+
+\renewcommand*{\thepage}{\sffamily \roman{page}}
+
+\title{\doctitle\\\textsl{Airline Common Environment}}
+\author{Grupo Diedral}
+
+% Metadatos del pdf
+\hypersetup{
+pdfinfo={
+	Author={Grupo Diedral},
+	Title={\doctitle{} \docversion},
+	Subject={Airline Common Environment},
+	Keywords={análisis, diseño,  UML, Airline Common Environment, Ingeniería del Software}
+}
+}
+
+\begin{document}
+	% Tabla de cambios
+	\begin{tablacambios}
+		1.0 & 31 de mayo de 2013 & Todos & Versión inicial
+	\end{tablacambios}
+
+	% Cita inicial
+	\fijacitainicial{Hay dos formas de elaborar un diseño software: una es hacerlo simple para que sea obvio que no hay deficiencias, la otra es hacerlo suficientemente complicado para que no haya deficiencias obvias. El primer método es mucho más difícil}{C.A.R. Hoare (1980)}
+
+	% Portada
+	\portadaace{\doctitle}{\docversion}
+
+	\tableofcontents
+	\newpage
+
+	\iniciarnumeraciondiedral
+
+	\begin{prologo}
+		
+
+		Esta información ha sido especificada por medio del \itshape{Lenguaje Unificado de Modelado} (UML).
+
+	\paragraph*{Nota sobre herramientas empleadas:} para la elaboración de los diagramas se ha utilizado el\break programa {\normalfont BoUML} en su versión {\normalfont 4.23 patch 7 `ultimate'}.
+	\end{prologo}
+
+	% -- Introdución
+	\section{Introdución}
+		\subsection{Propósito}
+			Este documentación recoge la documentación genearda durante las fases de análisis y diseño del proyecto.
+
+			Este documento recoge la documentación generada durante la fase de análisis del proyecto. En primer lugar se incluye el diagrama de modelo de dominio que presenta y relaciona los conceptos generales relacionados con el dominio del producto. A continuación se introduce el diagrama de paquetes. Finalmente se muestra el análisis detallado del paquete {\itshape Gestión Externa}, incluyendo el diagrama de clases y los diferentes diagramas de comunicación correspondientes a cada caso de uso.\\
+
+	% -- Requisitos
+	\section{Requisitos}
+		\subsection{Modelo de dominio}
+
+		\subsection{Diagramas de actividad}
+
+	\newpage
+	
+	% -- Análisis
+	\section{Análisis}
+		\subsection{Diagrama de paquetes}
+		\subsection{Diagramas de comunicación}
+		\subsubsection{Diagrama de clases}
+	\newpage
+
+	% -- Diseño
+	\section{Diseño}
+		\subsection{Diagramas de secuencia}
+		\subsection{Diagrama de clases}
+
+
+\end{document}
