@@ -108,22 +108,29 @@ pdfinfo={
 				\begin{center}
 					\includegraphics[scale=.72]{analisis/diagramas/da_comprarbillete.pdf}
 				\end{center}
+				El caso de uso {\itshape Comprar billete} empieza creando una compra y termina iniciando el pago correspondiente a dicha compra.
+				El usuario debe empezar introduciendo los datos del pasajero, y aqui se bifurca en dos caminos. Si los datos no son válidos, volvemos a la secuencia de introducir datos. Si los datos son válidos, se crea un nuevo billete y volvemos a tener dos opciones. Si la compra no ha seguido el proceso de ser finalizada, volvemos de nuevo a la posibilidad de introducir los datos del pasajero. Sin embargo, si se sigue por el proceso de compra finalizada, se guarda la compra y se inicia su pago.
 
 			\subsubsection{Consultar oferta}
 				\begin{center}
 					\includegraphics[scale=.7]{analisis/diagramas/da_consultaroferta.pdf}
 				\end{center}
+				El caso de uso {\itshape Consultar oferta} se encarga de mostrar una oferta ya seleccionada por el usuario. 
+				
+				Debido a que el flujo de pago es único, el sistema procede al preparar los datos de la oferta que le ha sido envidada y posteriormente la muestra por pantalla.
 
 			\subsubsection{Consultar vuelos}
 				\begin{center}
 					\includegraphics[scale=.71]{analisis/diagramas/da_consultarvuelos.pdf}
 				\end{center}
-			
+				El caso de uso {\itshape Consultar vuelos} permite mostrar los vuelos para que el usuario los visualice y por otra parte conectar los vuelos con la compra del billete  de un vuelo concreto.
+				Primero se muestran todos los vuelos disponibles en el sistema, el usuario selecciona un vuelo concreto y se muestra la información de ese vuelo. Posteriormente, se bifurcan dos caminos. Se puede realizar la compra de un billete y redireccionar al proceso de dicha compra, o en caso contrario se finalizará directamente el caso de uso.
 			\subsubsection{Editar datos personales}
 				\begin{center}
 					\includegraphics[scale=.86]{analisis/diagramas/da_editardatospersonales.pdf}
 				\end{center}
-
+				El caso de uso {\itshape Editar datos personales} permite que un usuario con una sesion iniciada edite sus datos personales (nombre, apellidos, direccion de correo electrónico asociada y modificar la contraseña con sus métodos de seguridad correspondientes para ello). 
+				La secuencia empieza cuando el usuario introduce los datos a modificar y esos se validan. En este punto, si los datos no son válidos se vuelve a pedir al usuario que introduzca los datos de nuevo. Si son válidos, se crea un nuevo usuario la mezcla de datos modificados y antiguos, y se reemplaza por el ya existente en el sistema (el usuario no se modificará directamente para evitar romper las barreras de abstracción de los lenguajes orientados a objetos y trae menos problemas con los TADS empleados en el almacenamiento de usuarios).
 
 			\subsubsection{Iniciar pago billetes}
 				\begin{center}
@@ -138,6 +145,8 @@ pdfinfo={
 				\begin{center}
 				\includegraphics[scale=.72]{analisis/diagramas/da_mostrarofertas.pdf}
 				\end{center}
+				El caso de uso {\itshape Mostrar ofertas} permite visualizar todas las ofertas disponibles en el sistema. 
+				El sistema empieza cargando todas las ofertas para preparar toda la información. Posteriormente se muestran las ofertas. Una vez aquí, el usuario puede decidir si salir de la muestra de ofertas, volver al menú principal y terminar este caso de uso, o seleccionar una oferta y redireccionar al inicio de mostrar una oferta.
 
 			\subsubsection{Realizar pago con tarjeta}
 				\begin{center}
