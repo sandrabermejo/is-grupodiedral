@@ -26,6 +26,7 @@ import diedral.acex.Dni;
 import diedral.acex.GestorVuelos;
 import diedral.acex.Pasajero;
 import diedral.acex.Sesion;
+import diedral.acex.Usuario;
 import diedral.acex.Vuelo;
 import diedral.acex.excepciones.CampoRequeridoException;
 import diedral.acex.excepciones.FormatoIncorrectoException;
@@ -158,7 +159,7 @@ public class PantallaCompra extends Pantalla {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PantallaCompra.this._mnj.cambiaA(_fabrica.damePantallaPagoTarjeta(_compra));
+				PantallaCompra.this._mnj.cambiaA(_fabrica.damePantallaInicioPago(_compra));
 				
 			}
 			
@@ -191,10 +192,19 @@ public class PantallaCompra extends Pantalla {
 	
 	@ Override
 	public void alCargar() {
-		if (_sesion != null)
-			_compra = new Compra(_sesion.dameUsuario());
+		if (_sesion != null) {
+			Usuario usuario =_sesion.dameUsuario();
+			_compra = new Compra(usuario);
+			
+			if (usuario != null) {
+				// Campos por defecto
+				_nombre.setText(usuario.dameNombre());
+				_apellido1.setText(usuario.dameApellido1());
+				_apellido2.setText(usuario.dameApellido2());
+			}
+		}
 		else
-			_compra = new Compra(null);
+			_compra = new Compra(null);		
 	}
 	
 	/**
@@ -234,7 +244,7 @@ public class PantallaCompra extends Pantalla {
 					throw new CampoRequeridoException("Debe introducir el DNI");
 				
 				Dni dni = Dni.obtenDni(caddni);
-				if (dni.dameNumero() == -1)
+				if (!dni.esValido())
 					throw new FormatoIncorrectoException("DNI no válido");
 				
 				Billete.Clase clase = (Billete.Clase) _clase.getSelectedItem();

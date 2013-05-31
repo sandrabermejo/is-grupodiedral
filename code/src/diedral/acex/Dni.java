@@ -17,14 +17,9 @@ public class Dni implements Serializable, Comparable<Dni> {
 	 * @param numero Número del DNI
 	 * @param letra Letra del DNI
 	 */
-	public Dni(int numero, char letra){
-		if (numero < 0 || numero > 99999999)
-			numero = -1; // valor de error
-		
-		if (letra != calculaLetra(numero))
-			numero = -1; // valor de error
-		
+	public Dni(int numero, char letra) {
 		_numero = numero;
+		_letra = letra;
 	}
 	
 	/**
@@ -40,7 +35,7 @@ public class Dni implements Serializable, Comparable<Dni> {
 	 * @return letra de un DNI
 	 */
 	public char dameLetra(){
-		return calculaLetra(_numero);
+		return _letra;
 	}
 	
 	/**
@@ -65,7 +60,7 @@ public class Dni implements Serializable, Comparable<Dni> {
 		dni = dni.substring(0, dni.length()-1);
 		int numero = Integer.parseInt(dni);
 		
-		return new Dni(numero, letra);
+		return new Dni(numero, letra);		
 	}
 	
 	/**
@@ -83,6 +78,16 @@ public class Dni implements Serializable, Comparable<Dni> {
 		return stb.toString();
 	}
 	
+	public boolean esValido() {
+		if (_numero < 0 || _numero > 99999999)
+			return false;
+		
+		char letraCorrecta = calculaLetra(_numero); 
+		if (Character.toUpperCase(_letra) != letraCorrecta)
+			return false;
+		return true;
+	}
+	
 	
 	// ATRIBUTOS PRIVADOS
 	
@@ -90,6 +95,11 @@ public class Dni implements Serializable, Comparable<Dni> {
 	 * Numero del DNI
 	 */
 	private int _numero;
+	
+	/**
+	 * Letra del DNI
+	 */
+	private char _letra;
 	
 	/**
 	 * Secuencia de letras control
