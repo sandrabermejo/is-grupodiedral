@@ -2,7 +2,7 @@
  * Pago.java - ACE Gestión Externa - Grupo diedral 2013
  */
 
-package diedral.acex;
+package diedral.acex.ventas;
 
 
 /**

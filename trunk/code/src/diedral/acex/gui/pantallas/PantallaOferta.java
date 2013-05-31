@@ -8,7 +8,7 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import diedral.acex.Oferta;
+import diedral.acex.ventas.Oferta;
 
 
 public class PantallaOferta extends diedral.acex.gui.Pantalla {

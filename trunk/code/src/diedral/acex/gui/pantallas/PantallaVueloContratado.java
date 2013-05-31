@@ -9,14 +9,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 
-import diedral.acex.Billete;
-import diedral.acex.Compra;
 import diedral.acex.Sesion;
 import diedral.acex.Usuario;
 import diedral.acex.Vuelo;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
+import diedral.acex.ventas.Billete;
+import diedral.acex.ventas.Compra;
 
 public class PantallaVueloContratado extends Pantalla {
 	

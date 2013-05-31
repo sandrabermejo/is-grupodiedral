@@ -2,7 +2,10 @@
  * Billete.java - ACE Gesti�n Externa - Grupo diedral 2013
  */
 
-package diedral.acex;
+package diedral.acex.ventas;
+
+import diedral.acex.Pasajero;
+import diedral.acex.Vuelo;
 
 
 /**

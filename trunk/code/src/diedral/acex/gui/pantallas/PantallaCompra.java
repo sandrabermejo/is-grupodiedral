@@ -22,8 +22,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
-import diedral.acex.Billete;
-import diedral.acex.Compra;
 import diedral.acex.Dni;
 import diedral.acex.GestorVuelos;
 import diedral.acex.Pasajero;
@@ -34,6 +32,8 @@ import diedral.acex.excepciones.FormatoIncorrectoException;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
+import diedral.acex.ventas.Billete;
+import diedral.acex.ventas.Compra;
 
 public class PantallaCompra extends Pantalla {
 	/**

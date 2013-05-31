@@ -1,10 +1,12 @@
 /*
  * Oferta.java - ACE Gestión Externa - Grupo diedral 2013
  */
-package diedral.acex;
+package diedral.acex.ventas;
 
 import java.io.Serializable;
 import java.util.Set;
+
+import diedral.acex.Vuelo;
 
 /**
  * Esta clase representa una oferta.
