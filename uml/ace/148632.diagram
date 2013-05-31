@@ -12,7 +12,7 @@ classinstance 129048 class_ref 148119 // GestorCompras
   name ""   xyz 446 8 2000 life_line_z 2000
 fragment 131352 "loop"
   refer sequencediagram_ref 148632 // Comprar billete (DS)
-  form "numPasajeros != 0" xyzwh 26 51 3010 435 441
+  form "!compraFinalizada" xyzwh 26 51 3010 435 441
 end
 classinstance 132888 class_ref 150808 // Compra
   name ""   xyz 357 11 2000 life_line_z 2000
