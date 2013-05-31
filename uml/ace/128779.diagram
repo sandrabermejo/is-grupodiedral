@@ -5,7 +5,7 @@ classinstance 128011 class_ref 138379 // PantallaRestablecerContrasena
 classinstance 128139 class_ref 144152 // Usuario
   name ""   xyz 485 22 2000 life_line_z 2000
 fragment 129163 "loop"
-  refer sequencediagram_ref 128779 // Restablecer contrasena
+  refer sequencediagram_ref 128779 // Restablecer contrasena (DS)
   form "!correoValido" xyzwh 78 69 2000 511 276
 end
 durationcanvas 128523 classinstance_ref 128011 // :PantallaRestablecerContrasena
@@ -14,14 +14,8 @@ end
 durationcanvas 128779 classinstance_ref 128139 // :Usuario
   xyzwh 516 182 2010 11 125
 end
-durationcanvas 130315 classinstance_ref 128139 // :Usuario
-  xyzwh 516 422 2010 11 26
-end
-durationcanvas 130571 classinstance_ref 128139 // :Usuario
-  xyzwh 516 492 2010 11 44
-end
 durationcanvas 130827 classinstance_ref 128139 // :Usuario
-  xyzwh 516 563 2010 11 42
+  xyzwh 516 425 2010 11 185
 end
 reflexivemsg 128651 asynchronous
   to durationcanvas_ref 128523
@@ -42,18 +36,18 @@ msg 129035 return
   label_xy 306 265
 msg 130443 synchronous
   from durationcanvas_ref 128523
-  to durationcanvas_ref 130315
-  yz 422 2015 explicitmsg "enviarEmailConfirmacion()"
+  to durationcanvas_ref 130827
+  yz 425 2015 explicitmsg "enviarEmailConfirmacion()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 261 403
+  label_xy 261 406
 reflexivemsg 130699 asynchronous
-  to durationcanvas_ref 130571
-  yz 493 2015 msg operation_ref 129547 // "introducirNuevaContrasena(in contraseña : string)"
+  to durationcanvas_ref 130827
+  yz 496 2015 msg operation_ref 129547 // "introducirNuevaContrasena(in contraseña : string)"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 569 491
+  label_xy 569 494
 reflexivemsg 130955 asynchronous
   to durationcanvas_ref 130827
-  yz 564 2015 msg operation_ref 136855 // "modificarDatos(in nombre : string, in apellido1 : string, in apellido2 : string, in correo : string)"
+  yz 569 2015 msg operation_ref 136855 // "modificarDatos(in nombre : string, in apellido1 : string, in apellido2 : string, in correo : string)"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 570 564
+  label_xy 570 569
 end

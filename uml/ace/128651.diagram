@@ -5,8 +5,8 @@ classinstance 128011 class_ref 138251 // PantallaRegistro
 classinstance 128139 class_ref 144024 // GestorUsuarios
   name ""   xyz 442 4 2000 life_line_z 2000
 fragment 129803 "loop"
-  refer sequencediagram_ref 128651 // Registrarse
-  form "!datosValidos" xyzwh 41 62 2000 570 274
+  refer sequencediagram_ref 128651 // Registrarse (DS)
+  form "!datosValidos" xyzwh 59 72 2000 570 274
 end
 classinstance 130955 class_ref 144152 // Usuario
   name ""   xyz 635 4 2000 life_line_z 2000

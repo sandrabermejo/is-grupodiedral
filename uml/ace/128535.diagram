@@ -3,79 +3,84 @@ format 76
 classinstance 128663 class_ref 154647 // PáginaEditarDatosPersonales
   name ""   xyz 0 19 2000 life_line_z 2000
 classinstance 129047 class_ref 144024 // GestorUsuarios
-  name ""   xyz 412 19 2000 life_line_z 2000
+  name ""   xyz 406 17 2000 life_line_z 2000
 classinstance 130455 class_ref 144152 // Usuario
-  name ""   xyz 518 57 2000 life_line_z 2000
+  name ""   xyz 558 18 2000 life_line_z 2000
 fragment 130967 "loop"
-  form "datosValidos && correo != NULL" xyzwh 23 78 3005 482 121
+  refer sequencediagram_ref 128535 // Editar Datos Personales (DS)
+  form "!datosValidos" xyzwh 75 59 3005 458 191
 end
 classinstance 131351 class_ref 144024 // GestorUsuarios
-  name ""   xyz 563 19 2000 life_line_z 2000
+  name ""   xyz 634 20 2000 life_line_z 2000
 durationcanvas 128791 classinstance_ref 128663 // :PáginaEditarDatosPersonales
-  xyzwh 111 119 2010 11 344
+  xyzwh 111 110 2010 11 344
 end
 durationcanvas 130071 classinstance_ref 129047 // :GestorUsuarios
-  xyzwh 471 141 2010 11 42
+  xyzwh 465 178 2010 11 62
 end
 durationcanvas 131479 classinstance_ref 131351 // :GestorUsuarios
-  xyzwh 622 268 2010 11 98
+  xyzwh 693 326 2010 11 114
 end
 durationcanvas 132503 classinstance_ref 130455 // :Usuario
-  xyzwh 549 224 2010 11 46
+  xyzwh 589 282 2010 11 66
 end
+msg 128024 return
+  from durationcanvas_ref 132503
+  to durationcanvas_ref 128791
+  yz 322 2015 explicitmsg "usuario"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 328 303
+reflexivemsg 128280 asynchronous
+  to durationcanvas_ref 131479
+  yz 364 3005 unspecifiedmsg
+  show_full_operations_definition default drawing_language default show_context_mode default
 reflexivemsg 128919 synchronous
   to durationcanvas_ref 128791
-  yz 119 2015 msg operation_ref 136471 // "introducirDatos()"
+  yz 110 2015 msg operation_ref 136471 // "introducirDatos()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 70 100
+  label_xy 133 128
 msg 130199 synchronous
   from durationcanvas_ref 128791
   to durationcanvas_ref 130071
-  yz 149 2015 msg operation_ref 136727 // "validar(in nombre : string, in apellido1 : string, in apellido2 : string, in correo : string) : bool"
+  yz 187 2015 msg operation_ref 136727 // "validar(in nombre : string, in apellido1 : string, in apellido2 : string, in correo : string) : bool"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "nombre, apellido1, apellido2, correo"
-  label_xy 149 131
+  label_xy 145 169
 msg 130327 return
   from durationcanvas_ref 130071
   to durationcanvas_ref 128791
-  yz 172 2015 explicitmsg "datosValidos"
+  yz 215 2015 explicitmsg "datosValidos"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 261 153
+  label_xy 257 196
 msg 131607 synchronous
   from durationcanvas_ref 128791
   to durationcanvas_ref 131479
-  yz 286 3005 msg operation_ref 151447 // "reemplazarUsuario(in usuario : Usuario, in correo : string) : void"
+  yz 385 3005 msg operation_ref 151447 // "reemplazarUsuario(in usuario : Usuario, in correo : string) : void"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "usuario, correo"
-  label_xy 216 272
+  label_xy 246 360
 reflexivemsg 132119 synchronous
   to durationcanvas_ref 131479
-  yz 268 2025 msg operation_ref 151575 // "borraUsuario(in usuario : Usuario) : bool"
+  yz 326 2025 msg operation_ref 151575 // "borraUsuario(in usuario : Usuario) : bool"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "usuario"
-  label_xy 637 246
+  label_xy 708 304
 reflexivemsg 132375 synchronous
   to durationcanvas_ref 131479
-  yz 268 2025 msg operation_ref 136983 // "meterUsuario(in usuario : Usuario)"
+  yz 326 2025 msg operation_ref 136983 // "meterUsuario(in usuario : Usuario)"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "usuarioModificado"
-  label_xy 642 311
+  label_xy 712 340
 msg 132631 synchronous
   from durationcanvas_ref 128791
   to durationcanvas_ref 132503
-  yz 230 3005 msg operation_ref 151703 // "Usuario(in nombre : string, in apellido1 : string, in apellido2 : string, in contrasena : string, in correo : string)"
+  yz 296 3005 msg operation_ref 151703 // "Usuario(in nombre : string, in apellido1 : string, in apellido2 : string, in contrasena : string, in correo : string)"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "nombre, apellido1, apellido2, contrasena, string"
-  label_xy 135 211
-msg 132887 asynchronous
-  from durationcanvas_ref 132503
-  to durationcanvas_ref 128791
-  yz 258 3010 explicitmsg "usuario"
-  show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 316 239
+  label_xy 131 277
 msg 133015 return
   from durationcanvas_ref 131479
   to durationcanvas_ref 128791
-  yz 355 2030 unspecifiedmsg
+  yz 413 2030 unspecifiedmsg
   show_full_operations_definition default drawing_language default show_context_mode default
 end

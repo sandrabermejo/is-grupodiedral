@@ -1,33 +1,83 @@
 format 76
 
 classinstance 128011 class_ref 137995 // PantallaOferta
-  name ""   xyz 94 4 2000 life_line_z 2000
+  name ""   xyz 54 4 2000 life_line_z 2000
+classinstance 128024 class_ref 138123 // Oferta
+  name ""   xyz 493 4 2000 life_line_z 2000
 classinstance 129035 class_ref 135303 // GestorOfertas
-  name ""   xyz 378 4 2000 life_line_z 2000
-durationcanvas 128779 classinstance_ref 128011 // :PantallaOferta
-  xyzwh 148 293 2010 11 42
+  name ""   xyz 312 5 2000 life_line_z 2000
+durationcanvas 128152 classinstance_ref 128024 // :Oferta
+  xyzwh 518 194 2010 11 280
 end
 durationcanvas 129163 classinstance_ref 128011 // :PantallaOferta
-  xyzwh 148 128 2010 11 167
+  xyzwh 108 76 2010 11 442
 end
 durationcanvas 129291 classinstance_ref 129035 // :GestorOfertas
-  xyzwh 431 127 2010 11 81
+  xyzwh 365 81 2010 11 77
 end
-reflexivemsg 128907 asynchronous
-  to durationcanvas_ref 128779
-  yz 293 2015 explicitmsg "mostrar(datosOferta)"
+msg 128280 asynchronous
+  from durationcanvas_ref 129163
+  to durationcanvas_ref 128152
+  yz 196 2015 msg operation_ref 128523 // "dameNombre()"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 193 306
+  label_xy 254 174
+msg 128408 return
+  from durationcanvas_ref 128152
+  to durationcanvas_ref 129163
+  yz 227 2015 explicitmsg "nombre"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 291 208
+msg 128664 asynchronous
+  from durationcanvas_ref 129163
+  to durationcanvas_ref 128152
+  yz 278 2025 msg operation_ref 128139 // "dameDestino()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 259 259
+msg 128792 return
+  from durationcanvas_ref 128152
+  to durationcanvas_ref 129163
+  yz 303 2030 explicitmsg "destino"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 292 284
+reflexivemsg 128907 asynchronous
+  to durationcanvas_ref 129163
+  yz 490 2015 explicitmsg "mostrar(datosOferta)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 153 503
+msg 129048 asynchronous
+  from durationcanvas_ref 129163
+  to durationcanvas_ref 128152
+  yz 351 2025 msg operation_ref 128395 // "dameDescuento()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 253 332
+msg 129176 return
+  from durationcanvas_ref 128152
+  to durationcanvas_ref 129163
+  yz 377 2015 explicitmsg "descuento"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 281 358
 msg 129419 asynchronous
   from durationcanvas_ref 129163
   to durationcanvas_ref 129291
-  yz 130 2015 msg operation_ref 129543 // "buscarOferta(in nombre : string) : Oferta"
+  yz 95 2015 msg operation_ref 129543 // "buscarOferta(in nombre : string) : Oferta"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 242 111
+  label_xy 187 76
+msg 129432 asynchronous
+  from durationcanvas_ref 129163
+  to durationcanvas_ref 128152
+  yz 416 2025 msg operation_ref 128651 // "dameCondiciones()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 247 397
 msg 129547 return
   from durationcanvas_ref 129291
   to durationcanvas_ref 129163
-  yz 181 2015 explicitmsg "datosOferta"
+  yz 131 2015 explicitmsg "oferta"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 253 162
+  label_xy 213 112
+msg 129560 return
+  from durationcanvas_ref 128152
+  to durationcanvas_ref 129163
+  yz 451 2030 explicitmsg "condiciones"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 274 432
 end
