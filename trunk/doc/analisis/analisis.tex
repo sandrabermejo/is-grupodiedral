@@ -230,18 +230,26 @@ pdfinfo={
 					\includegraphics[scale=.82]{diagramas/presentarreclamacion.pdf}
 				\end{figure}
 
+					A través de la interfaz {\itshape PáginaSugerencias} el usuario envía una sugerencia y se prodece al envío de la misma.
+
 			\subsubsection{Registrarse}
 				\begin{figure}[H]\centering
 					\includegraphics[scale=.8]{diagramas/registrarse.pdf}
 				\end{figure}
+
+					A través de la interfaz {\itshape Registrarse} el usuario introduce sus datos personales (nombre, apellidos, correo y contraseña) y se prodece a la comprobación de los mismos. Si todo ha ido correctamente se crea un nuevo usuario con esos datos y queda registrado.
 
 			\subsubsection{Restablecer contraseña}
 				\begin{figure}[H]\centering
 					\includegraphics[scale=.77]{diagramas/restablecercontrasena.pdf}
 				\end{figure}
 
+					El caso de uso {\itshape Restablecer contraseña} consiste en enviar un email  al correo asociado del usuario. En ese correo el usuario introducirá la nueva contraseña, que será comprobada y modificada en la base de datos del usuario.
+
 			\subsubsection{Ver información de vuelo contratado}
 				\begin{figure}[H]\centering
 					\includegraphics[scale=.8]{diagramas/verinfovuelocontratado.pdf}
 				\end{figure}
+					A través de la interfaz {\itshape PáginaVueloSeleccionado} se carga la información del vuelo seleccionado en  {\itshape Consultar vuelos}. Una vez que se ha cargado la información se muestran los detalles del vuelo seleccionado, a saber: el aeropuerto de origen, la fecha de salida, el aeropuerto de destino, la fecha de llegada, el número de vuelo, el número de pasajeros, el número de escalas y el precio del billete.
+
 \end{document}
