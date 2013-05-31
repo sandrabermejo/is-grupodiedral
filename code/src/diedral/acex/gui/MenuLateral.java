@@ -96,7 +96,7 @@ setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		t_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				_mnj.cambiaA(_fabr.damePantallaVueloContratado());				
+				_mnj.cambiaA(_fabr.damePantallaVuelosContratado());				
 			}
 		});
 		

@@ -123,6 +123,18 @@ public class Compra implements Serializable {
 	}
 	
 	/**
+	 * Devuelve el vuelo común a todos los billetes de la compra
+	 * 
+	 * @return El vuelo de todos los billetes
+	 */
+	public Vuelo dameVuelo() {
+		if (_billetes.size() != 0)
+			return _billetes.get(0).dameVuelo();
+		else
+			return null;
+	}
+	
+	/**
 	 * Indica si la compra está pagada.
 	 */
 	public boolean estaPagada(){

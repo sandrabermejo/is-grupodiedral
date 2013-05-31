@@ -125,10 +125,18 @@ public class FabricaPantallas {
 	}
 	
 	/**
-	 * Obtiene una pantalla con información del vuelo contratado
+	 * Obtiene una pantalla con información de los vuelos contratados
 	 */
-	public Pantalla damePantallaVueloContratado() {
-		return new PantallaVueloContratado();
+	public Pantalla damePantallaVuelosContratado() {
+		return new PantallaVuelosContratados();
+	}
+	
+	/**
+	 * Obtiene una pantalla con información detallada de un vuelo contratado
+	 * @return
+	 */
+	public Pantalla damePantallaDetalleVueloContratado(Compra compra) {
+		return new PantallaDetalleVueloContratado(compra);
 	}
 	
 	// ATRIBUTOS PRIVADOS
