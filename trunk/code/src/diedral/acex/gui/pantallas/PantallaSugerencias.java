@@ -21,10 +21,10 @@ import javax.swing.JTextField;
 
 import java.beans.Introspector;
 
-import diedral.acex.GestorSugerencias;
 import diedral.acex.Sugerencia;
 import diedral.acex.excepciones.CampoRequeridoException;
 import diedral.acex.excepciones.FormatoIncorrectoException;
+import diedral.acex.scentral.GestorSugerencias;
 
 public class PantallaSugerencias extends diedral.acex.gui.Pantalla {
 	/**

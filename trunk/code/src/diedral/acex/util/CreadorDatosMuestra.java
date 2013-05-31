@@ -10,12 +10,12 @@ import java.util.Vector;
 
 import diedral.acex.Aeropuerto;
 import diedral.acex.AyudantePersistencia;
-import diedral.acex.GestorOfertas;
-import diedral.acex.GestorUsuarios;
-import diedral.acex.GestorVuelos;
 import diedral.acex.Usuario;
 import diedral.acex.Vuelo;
 import diedral.acex.excepciones.UsuarioInvalidoException;
+import diedral.acex.scentral.GestorOfertas;
+import diedral.acex.scentral.GestorUsuarios;
+import diedral.acex.scentral.GestorVuelos;
 import diedral.acex.ventas.Oferta;
 
 /**

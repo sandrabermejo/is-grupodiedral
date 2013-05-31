@@ -1,11 +1,15 @@
 /*
  * GestorPasajeros.java - ACE Gestion Externa - Grupo diedral 2013
  */
-package diedral.acex;
+package diedral.acex.scentral;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import diedral.acex.AyudantePersistencia;
+import diedral.acex.Dni;
+import diedral.acex.Pasajero;
 
 /**
  * Gestor de pasajeros.

@@ -23,7 +23,6 @@ import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
 import diedral.acex.Dni;
-import diedral.acex.GestorVuelos;
 import diedral.acex.Pasajero;
 import diedral.acex.Sesion;
 import diedral.acex.Usuario;
@@ -33,6 +32,7 @@ import diedral.acex.excepciones.FormatoIncorrectoException;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
+import diedral.acex.scentral.GestorVuelos;
 import diedral.acex.ventas.Billete;
 import diedral.acex.ventas.Compra;
 

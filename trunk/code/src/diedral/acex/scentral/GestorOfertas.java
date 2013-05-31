@@ -1,7 +1,7 @@
 /*
  * GestorOfertas.java - ACE Gestión Externa - Grupo diedral 2013
  */
-package diedral.acex;
+package diedral.acex.scentral;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
 
+import diedral.acex.AyudantePersistencia;
+import diedral.acex.Vuelo;
 import diedral.acex.ventas.Oferta;
 
 /**

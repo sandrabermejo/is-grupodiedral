@@ -1,12 +1,17 @@
 /*
  * GestorVuelos.java - ACE Gestión Externa - Grupo diedral 2013
  */
-package diedral.acex;
+package diedral.acex.scentral;
 
 import java.io.Serializable;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Set;
+
+import diedral.acex.Aeropuerto;
+import diedral.acex.AyudantePersistencia;
+import diedral.acex.Escala;
+import diedral.acex.Vuelo;
 
 /**
  * Gestor de vuelos.
