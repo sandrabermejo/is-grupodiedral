@@ -5,19 +5,19 @@ classinstance 128007 class_ref 134791 // PantallaConfirmacionCompra
 classinstance 128279 class_ref 161175 // PantallaPagoTarjeta
   name ""   xyz 336 10 2000 life_line_z 2000
 durationcanvas 128407 classinstance_ref 128279 // :PantallaPagoTarjeta
-  xyzwh 411 117 2010 11 25
+  xyzwh 414 117 2010 11 25
 end
 durationcanvas 129799 classinstance_ref 128007 // :PantallaConfirmacionCompra
-  xyzwh 153 85 2010 11 48
+  xyzwh 156 85 2010 11 48
   overlappingdurationcanvas 128023
-    xyzwh 159 88 2020 11 26
+    xyzwh 162 88 2020 11 26
   end
 end
 reflexivemsg 128151 synchronous
   to durationcanvas_ref 128023
   yz 88 2025 explicitmsg "seleccionarMétodoCompra"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 113 72
+  label_xy 185 60
 msg 128535 synchronous
   from durationcanvas_ref 129799
   to durationcanvas_ref 128407

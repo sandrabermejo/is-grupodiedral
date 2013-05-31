@@ -32,15 +32,15 @@ end
 activityactioncanvas 131864 activityaction_ref 135704 // activity action Guardar compra
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
-  xyzwh 555 512 2005 98 64
+  xyzwh 304 403 2005 98 64
 end
 activityactioncanvas 132120 activityaction_ref 135832 // activity action Iniciar pago
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
-  xyzwh 332 514 2000 100 60
+  xyzwh 166 405 2000 100 60
 end
 activitynodecanvas 132376 activitynode_ref 135576 // activity_final
-  xyz 204 530 2000
+  xyz 93 422 2000
 end
 flowcanvas 128280 flow_ref 135960 // <flow>
   
@@ -59,13 +59,13 @@ flowcanvas 128792 flow_ref 136216 // <flow>
 end
 flowcanvas 129816 flow_ref 136600 // [datos validos]
   
-  from ref 129688 z 2001 label "[datos validos]" xyz 487 250 3000 to ref 129560
+  from ref 129688 z 2001 label "[datos validos]" xyz 487 250 2001 to ref 129560
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
 flowcanvas 130456 flow_ref 136728 // [no datos validos]
   decenter_end 547
   
-  from ref 129688 z 2001 label "[no datos validos]" xyz 406 114 3000 to point 599 103
+  from ref 129688 z 2001 label "[no datos validos]" xyz 406 114 2001 to point 599 103
   line 130712 z 2001 to point 351 103
   line 130584 z 2001 to ref 128408
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
@@ -82,7 +82,7 @@ flowcanvas 131096 flow_ref 136984 // <flow>
 end
 flowcanvas 131224 flow_ref 137112 // [no compra finalizada]
   
-  from ref 130968 z 2001 label "[no compra finalizada]" xyz 507 54 3000 to point 735 428
+  from ref 130968 z 2001 label "[no compra finalizada]" xyz 507 54 2001 to point 735 428
   line 131608 z 2001 to point 735 41
   line 131480 z 2001 to point 323 41
   line 131352 z 2001 to point 323 141
@@ -90,8 +90,9 @@ flowcanvas 131224 flow_ref 137112 // [no compra finalizada]
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
 flowcanvas 131992 flow_ref 137240 // [compra finalizada]
+  decenter_end 453
   
-  from ref 130968 z 2006 label "[compra finalizada]" xyz 456 461.5 3000 to ref 131864
+  from ref 130968 z 2006 label "[compra finalizada]" xyz 420 405 2006 to ref 131864
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
 flowcanvas 132248 flow_ref 137368 // <flow>

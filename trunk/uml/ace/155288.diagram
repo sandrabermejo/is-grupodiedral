@@ -24,10 +24,10 @@ end
 activityactioncanvas 130072 activityaction_ref 128408 // activity action Reemplazar usuario
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
-  xyzwh 420 364 2005 122 59
+  xyzwh 246 250 2005 122 59
 end
 activitynodecanvas 130328 activitynode_ref 128280 // activity_final
-  xyz 467 496 2000
+  xyz 130 267 2000
 end
 flowcanvas 128536 flow_ref 128152 // <flow>
   
@@ -46,14 +46,14 @@ flowcanvas 129048 flow_ref 128408 // <flow>
 end
 flowcanvas 129176 flow_ref 128536 // [datos no validos]
   
-  from ref 128408 z 2006 label "[datos no validos]" xyz 286 20 3000 to point 476 48
+  from ref 128408 z 2006 label "[datos no validos]" xyz 286 20 2006 to point 476 48
   line 129432 z 2006 to point 192 48
   line 129304 z 2006 to ref 128664
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
 flowcanvas 129944 flow_ref 128792 // [datos validos]
   
-  from ref 128408 z 2001 label "[datos validos]" xyz 493 184 3000 to ref 129560
+  from ref 128408 z 2001 label "[datos validos]" xyz 493 184 2001 to ref 129560
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
 flowcanvas 130200 flow_ref 128920 // <flow>

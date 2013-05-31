@@ -3,6 +3,9 @@ format 76
 activitynodecanvas 128023 activitynode_ref 130071 // initial_node
   xyz 118 11 2000
 end
+activitynodecanvas 128149 activitynode_ref 135445 // decision
+  xyz 339 498 2000
+end
 activityactioncanvas 128151 activityaction_ref 129815 // activity action Seleccionar restablecer contraseña
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
@@ -11,57 +14,54 @@ end
 activityactioncanvas 128279 activityaction_ref 129943 // activity action Enviar eMail confirmación
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
-  xyzwh 266 192 2000 117 73
+  xyzwh 376 120 2000 117 73
 end
 activityactioncanvas 128407 activityaction_ref 130071 // activity action Seleccionar enlace eMail
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
-  xyzwh 70 298 2000 116 76
+  xyzwh 71 231 2000 116 76
 end
 activityactioncanvas 128535 activityaction_ref 130199 // activity action Redireccionar a modificar contraseña
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
-  xyzwh 529 386 2000 146 75
+  xyzwh 366 262 2000 148 86
 end
 activityactioncanvas 128663 activityaction_ref 130327 // activity action Introducir contraseña
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
-  xyzwh 89 522 2000 100 60
+  xyzwh 67 377 2000 118 66
 end
 activityactioncanvas 128791 activityaction_ref 130455 // activity action Procesar contrasena
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
-  xyzwh 296 617 2000 102 62
-end
-activitynodecanvas 128919 activitynode_ref 130199 // decision
-  xyz 333 699 2000
+  xyzwh 301 397 2000 102 62
 end
 activityactioncanvas 129175 activityaction_ref 130583 // activity action Mostrar error proceso
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
-  xyzwh 294 798 2000 104 72
+  xyzwh 131 544 2000 113 82
 end
 activityactioncanvas 129303 activityaction_ref 130711 // activity action Modificar contrasena
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
-  xyzwh 529 801 2000 100 60
+  xyzwh 444 570 2000 100 60
 end
 activitynodecanvas 129687 activitynode_ref 130327 // activity_final
-  xyz 334 937 2000
+  xyz 330 659 2000
 end
-flowcanvas 129047 flow_ref 129943 // <flow>
+flowcanvas 128277 flow_ref 136853 // <flow>
   
-  from ref 128791 z 2001 to ref 128919
+  from ref 128791 z 2001 to ref 128149
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
-flowcanvas 129431 flow_ref 130071 // <flow>
+flowcanvas 128405 flow_ref 136981 // <flow>
   
-  from ref 128919 z 2001 label "[no es válida]" xyz 297 756 2001 to ref 129175
+  from ref 128149 z 2001 label "[no es valida]" xyz 201 501 2001 to ref 129175
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
-flowcanvas 129559 flow_ref 130199 // <flow>
+flowcanvas 128533 flow_ref 137109 // <flow>
   
-  from ref 128791 z 2001 label "[es válida]" xyz 428 729 2001 to ref 129303
+  from ref 128149 z 2001 label "[es valida]" xyz 417 525 2001 to ref 129303
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
 flowcanvas 129815 flow_ref 130327 // <flow>

@@ -1,7 +1,7 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 41
-  modified_by 23 "Natalia"
+  revision 42
+  modified_by 21 "portatil"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -1070,7 +1070,7 @@ ${members}};
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default show_stereotype_properties default
     classdiagram 167189 "Diagrama de clases de diseño"
-      draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+      draw_all_relations no hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
       size A4
     end
 
@@ -1324,6 +1324,10 @@ ${members}}
 	idl_decl ""
 	get_oper operation_ref 142101 // damePasajeros
       end
+
+      classrelation 152213 // <aggregation>
+	relation_ref 150037 // <aggregation>
+      end
     end
 
     class 163221 "Escala"
@@ -1411,6 +1415,10 @@ ${members}}
 	python_decl ""
 	idl_decl ""
 	get_oper operation_ref 142485 // dameEspera
+      end
+
+      classrelation 152469 // <aggregation>
+	relation_ref 150165 // <aggregation>
       end
     end
 
@@ -1844,6 +1852,38 @@ ${members}}
 "
 	    classrelation_ref 145429 // <aggregation>
       end
+
+      classrelation 152085 // <aggregation>
+	relation 150037 o---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 152085 // <aggregation>
+	  b role_name "" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 152213 // <aggregation>
+      end
+
+      classrelation 152341 // <aggregation>
+	relation 150165 o---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 152341 // <aggregation>
+	  b role_name "" multiplicity "1..*" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 152469 // <aggregation>
+      end
+
+      classrelation 152725 // <aggregation>
+	relation_ref 150293 // <aggregation>
+      end
+
+      classrelation 154261 // <aggregation>
+	relation_ref 151061 // <aggregation>
+      end
     end
 
     class 163349 "GestorVuelos"
@@ -1857,75 +1897,12 @@ ${members}}
       idl_decl ""
       explicit_switch_type ""
       
-      operation 144661 "vuelosDesde"
-	public return_type class_ref 128907 // Vuelo
-	multiplicity "*"
-	nparams 3
-	  param in name "aeropuerto" type class_ref 129163 // Aeropuerto
-	multiplicity "1"
-	  param in name "desde" explicit_type "Date"
-	multiplicity "1"
-	  param in name "hasta" explicit_type "Date"
-	multiplicity "1"
+      operation 164629 "buscaVuelo"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "criterio" type class_ref 176789 // CriterioBusqueda
 	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-      end
-
-      operation 144789 "vuelosA"
-	public return_type class_ref 128907 // Vuelo
-	multiplicity "*"
-	nparams 3
-	  param in name "aeropuerto" type class_ref 129163 // Aeropuerto
-	multiplicity "1"
-	  param in name "desde" explicit_type "Date"
-	multiplicity "1"
-	  param in name "hasta" explicit_type "Date"
-	multiplicity "1"
-	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-      end
-
-      operation 144917 "vuelosDesde"
-	public return_type class_ref 128907 // Vuelo
-	multiplicity "*"
-	nparams 3
-	  param in name "ciudad" explicit_type "string"
-	multiplicity "1"
-	  param in name "desde" explicit_type "Date"
-	multiplicity "1"
-	  param in name "hasta" explicit_type "Date"
-	multiplicity "1"
-	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-      end
-
-      operation 145045 "vuelosA"
-	public return_type class_ref 128907 // Vuelo
-	multiplicity "*"
-	nparams 3
-	  param in name "ciudad" explicit_type "string"
-	multiplicity "1"
-	  param in name "desde" explicit_type "Date"
-	multiplicity "1"
-	  param in name "hasta" explicit_type "Date"
-	multiplicity "1"
-	
-	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${throws}${staticnl}{
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
   ${body}}
 "
 	
@@ -1943,6 +1920,73 @@ ${members}}
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+
+      class 176789 "CriterioBusqueda"
+	visibility package 
+	cpp_decl ""
+	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	
+	operation 164757 "conOrigen"
+	  public explicit_return_type ""
+	  nparams 1
+	    param in name "origen" type class_ref 129163 // Aeropuerto
+	  multiplicity "1"
+	  
+	  java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	end
+
+	operation 164885 "conDestino"
+	  public explicit_return_type ""
+	  nparams 1
+	    param in name "destino" type class_ref 129163 // Aeropuerto
+	  
+	  java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	end
+
+	operation 165013 "conFechaSalida"
+	  public explicit_return_type ""
+	  nparams 2
+	    param in name "desde" type class_ref 163477 // Date
+	    param in name "hasta" type class_ref 163477 // Date
+	  
+	  java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	end
+
+	operation 165141 "conFechaLlegada"
+	  public explicit_return_type ""
+	  nparams 2
+	    param in name "desde" type class_ref 163477 // Date
+	    param in name "hasta" type class_ref 163477 // Date
+	  
+	  java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	end
       end
     end
 
@@ -1995,6 +2039,9 @@ ${members}}
 	
       end
 
+      classrelation 154005 // <aggregation>
+	relation_ref 150933 // <aggregation>
+      end
     end
 
     class 134919 "Equipaje"
@@ -2327,6 +2374,30 @@ ${members}}
 	idl_name_spec "get_${name}"
 	get_of_attribute attribute_ref 128903 // _clase
       end
+
+      classrelation 152597 // <aggregation>
+	relation 150293 o---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 152597 // <aggregation>
+	  b role_name "" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 152725 // <aggregation>
+      end
+
+      classrelation 152853 // <aggregation>
+	relation 150421 o---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 152853 // <aggregation>
+	  b role_name "" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 152981 // <aggregation>
+      end
     end
 
     class 135303 "GestorOfertas"
@@ -2618,6 +2689,38 @@ ${members}}
 	
 	
       end
+
+      classrelation 152981 // <aggregation>
+	relation_ref 150421 // <aggregation>
+      end
+
+      classrelation 153237 // <aggregation>
+	relation_ref 150549 // <aggregation>
+      end
+
+      classrelation 153365 // <association>
+	relation 150677 ----
+	  a role_name "" multiplicity "0..1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 153365 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 153493 // <association>
+      end
+
+      classrelation 153621 // <aggregation>
+	relation 150805 o---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 153621 // <aggregation>
+	  b role_name "" multiplicity "1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 153749 // <aggregation>
+      end
     end
 
     class 147991 "Dni"
@@ -2700,6 +2803,10 @@ ${members}}
 	
 	
 	
+      end
+
+      classrelation 153749 // <aggregation>
+	relation_ref 150805 // <aggregation>
       end
     end
 
@@ -3174,6 +3281,22 @@ ${members}}
 	
 	
       end
+
+      classrelation 153109 // <aggregation>
+	relation 150549 o---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 153109 // <aggregation>
+	  b role_name "" multiplicity "0..1" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 153237 // <aggregation>
+      end
+
+      classrelation 153493 // <association>
+	relation_ref 150677 // <association>
+      end
     end
 
     class 138123 "Oferta"
@@ -3348,6 +3471,18 @@ ${members}}
 	
 	
       end
+
+      classrelation 154133 // <aggregation>
+	relation 151061 o---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 154133 // <aggregation>
+	  b role_name "" multiplicity "1..*" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 154261 // <aggregation>
+      end
     end
 
     class 150808 "Compra"
@@ -3412,6 +3547,18 @@ ${members}}
 	
 	
 	
+      end
+
+      classrelation 153877 // <aggregation>
+	relation 150933 o---
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 153877 // <aggregation>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 154005 // <aggregation>
       end
     end
   end
@@ -4209,7 +4356,7 @@ ${members}}
 
     activity 128535 "Restablecer Contrasena"
       activitydiagram 135831 "Restablecer Contrasena (DA)"
-	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations no shadow default
 	show_infonote default drawing_language default show_stereotype_properties default
 	size A4
       end
@@ -4265,6 +4412,10 @@ ${members}}
 	  on activityaction_ref 130711 // activity action Modificar contrasena
 	    uml_guard "es válida"
 	end
+
+	flow 136853 "<flow>"
+	  on activitynode_ref 135445 // decision
+	end
       end
 
       activitynode 130199 decision ""
@@ -4289,6 +4440,18 @@ ${members}}
       end
 
       activitynode 130327 activity_final ""
+      end
+
+      activitynode 135445 decision ""
+	flow 136981 "<flow>"
+	  on activityaction_ref 130583 // activity action Mostrar error proceso
+	    uml_guard "no es valida"
+	end
+
+	flow 137109 "<flow>"
+	  on activityaction_ref 130711 // activity action Modificar contrasena
+	    uml_guard "es valida"
+	end
       end
     end
 
@@ -4333,15 +4496,15 @@ ${members}}
 	end
 
 	flow 128775 "<flow>"
-	  on activityaction_ref 128263 // activity action Iniciar Mostarar detalles oferta
+	  on activityaction_ref 128263 // activity action Iniciar Mostrar detalles oferta
 	end
 
 	flow 128903 "<flow>"
-	  on activityaction_ref 128263 // activity action Iniciar Mostarar detalles oferta
+	  on activityaction_ref 128263 // activity action Iniciar Mostrar detalles oferta
 	end
 
 	flow 129031 "<flow>"
-	  on activityaction_ref 128263 // activity action Iniciar Mostarar detalles oferta
+	  on activityaction_ref 128263 // activity action Iniciar Mostrar detalles oferta
 	    uml_guard "Seleccion oferta"
 	end
       end
@@ -4349,7 +4512,7 @@ ${members}}
       activitynode 128391 activity_final ""
       end
 
-      activityaction 128263 "Iniciar Mostarar detalles oferta"
+      activityaction 128263 "Iniciar Mostrar detalles oferta"
 	opaque_action
 	flow 128647 "<flow>"
 	  on activitynode_ref 128391 // activity_final
