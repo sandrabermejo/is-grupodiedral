@@ -1,0 +1,69 @@
+format 76
+
+activitynodecanvas 128024 activitynode_ref 128024 // initial_node
+  xyz 74 122 2000
+end
+activityactioncanvas 128152 activityaction_ref 128024 // activity action Validar datos
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 293 105 2000 100 60
+end
+activitynodecanvas 128408 activitynode_ref 128152 // decision
+  xyz 467 117 2000
+end
+activityactioncanvas 128664 activityaction_ref 128152 // activity action Introducir datos
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 146 103 2005 100 60
+end
+activityactioncanvas 129560 activityaction_ref 128280 // activity action Crear usuario
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 431 250 2000 100 60
+end
+activityactioncanvas 130072 activityaction_ref 128408 // activity action Reemplazar usuario
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 420 364 2005 122 59
+end
+activitynodecanvas 130328 activitynode_ref 128280 // activity_final
+  xyz 467 496 2000
+end
+flowcanvas 128536 flow_ref 128152 // <flow>
+  
+  from ref 128152 z 2001 to ref 128408
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 128920 flow_ref 128280 // <flow>
+  
+  from ref 128024 z 2006 to ref 128664
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129048 flow_ref 128408 // <flow>
+  
+  from ref 128664 z 2006 to ref 128152
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129176 flow_ref 128536 // [datos no validos]
+  
+  from ref 128408 z 2006 label "[datos no validos]" xyz 286 20 3000 to point 476 48
+  line 129432 z 2006 to point 192 48
+  line 129304 z 2006 to ref 128664
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129944 flow_ref 128792 // [datos validos]
+  
+  from ref 128408 z 2001 label "[datos validos]" xyz 493 184 3000 to ref 129560
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 130200 flow_ref 128920 // <flow>
+  
+  from ref 129560 z 2006 to ref 130072
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 130456 flow_ref 129048 // <flow>
+  
+  from ref 130072 z 2006 to ref 130328
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+end
