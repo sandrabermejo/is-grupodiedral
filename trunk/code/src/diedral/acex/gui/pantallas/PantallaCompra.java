@@ -248,10 +248,10 @@ public class PantallaCompra extends Pantalla {
 				_numPasajerosAnadidos++;
 				_numPasajeros.setText(Integer.toString(_numPasajerosAnadidos));
 				limpiarCampos();
-				JOptionPane.showMessageDialog(PantallaCompra.this,
-						"Pasajero añadido con éxito",
+				JOptionPane.showMessageDialog(PantallaCompra.this, 
+						"Pasajero añadido con éxito", 
 						"ACE Gestión Externa - Compra",
-						JOptionPane.OK_OPTION);	
+						JOptionPane.INFORMATION_MESSAGE);
 				
 			} catch(Exception exc){
 				JOptionPane.showMessageDialog(PantallaCompra.this,
