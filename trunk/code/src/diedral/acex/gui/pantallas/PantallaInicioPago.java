@@ -25,34 +25,34 @@ public class PantallaInicioPago extends Pantalla {
 		
 		setLayout(new BorderLayout());
 		
-		_texto = new JTextArea("En cumplimiento de lo previsto en la Ley 34/2002, de 11 de julio, de Servicios de la Información y Comercio Electrónico, se indican a continuación los datos de información general de www.westwing.es:\n" 
+		_texto = new JTextArea("En cumplimiento de lo previsto en la Ley 34/2002, de 11 de julio, de Servicios de la Información y Comercio Electrónico, se indican a continuación los datos de información general de www.ace.es:\n" 
 				 +
-				"Titular: WW E-SERVICES IBERIA, S.L.U. (en adelante “WESTWING”)\n" +
-				"CIF: B65732984.\n" +
-				"Tel: 902 820 162\n" +
+				"Titular: Grupo diedral, S.L.U. \n" +
+				"CIF: BXXXXXXXXA.\n" +
+				"Tel: 555 123 123\n" +
 				"\n" +
-				"Dirección: Av. Diagonal 618 5E, 08021, Barcelona.\n" +
+				"Dirección: Av. Santesmases S/N.\n" +
 				"\n" +
 				"Contacto: formulario\n" +
 				"\n" +
-				"Datos Registrales: Inscrita en el Registro Mercantil de Barcelona al tomo 43.061, folio 198, hoja B-420.108.\n" +
+				"Datos Registrales: Inscrita en el Registro Mercantil de Madrid al tomo 43.061, folio 198, hoja B-xyz.abc.\n" +
 				"\n" +
 				"La utilización de este sitio web se sujeta a las condiciones de uso contenidas en el presente documento, así como a la Política de Privacidad de la misma, que rogamos lea Ud. con detenimiento. El acceso al sitio web y el uso de cuanto se contiene en el mismo implica que Ud. consiente y acepta sin reserva de tipo alguno las presentes condiciones." +
 				"\n" +
 				"Estas condiciones se entienden sin perjuicio de cualesquiera otras particulares que acaso existan para la utilización de algún espacio o servicio incluido en el sitio web, que igualmente deberán ser observadas y que en caso de conflicto con las condiciones de uso que aquí se desarrollan, deberán prevalecer.\n" +
 				"\n" +
 				"\n" +
-				"Los Usuarios de este sitio web (www.westwing.es) deben leer cuidadosamente estas Condiciones Generales, a las que se hace referencia por medio de un hipervínculo en cada una de las páginas del mismo. Se aconseja a los usuarios que las descarguen o que las impriman y que guarden una copia de las mismas.\n" +
+				"Los Usuarios de este sitio web (www.ace.es) deben leer cuidadosamente estas Condiciones Generales, a las que se hace referencia por medio de un hipervínculo en cada una de las páginas del mismo. Se aconseja a los usuarios que las descarguen o que las impriman y que guarden una copia de las mismas.\n" +
 				"\n" +
-				"Las presentes Condiciones Generales son aplicables a todos los pedidos y están vigentes desde el día 1 de julio de 2012. WESTWING se reserva el derecho a modificar en cualquier momento y sin necesidad de previo aviso la presentación, configuración y contenidos del sitio web, así como las presentes condiciones y otras particulares que acaso existieren para determinados espacios, servicios o usos." +
+				"Las presentes Condiciones Generales son aplicables a todos los pedidos y están vigentes desde el día 1 de julio de 2012. Grupo Diedral se reserva el derecho a modificar en cualquier momento y sin necesidad de previo aviso la presentación, configuración y contenidos del sitio web, así como las presentes condiciones y otras particulares que acaso existieren para determinados espacios, servicios o usos." +
 				"\n" +
-				"Es por ello que WESTWING aconseja encarecidamente a los Usuarios que lean atentamente estas Condiciones Generales cada vez que visiten el sitio.\n" +
+				"Es por ello que Grupo Diedral aconseja encarecidamente a los Usuarios que lean atentamente estas Condiciones Generales cada vez que visiten el sitio.\n" +
 				"\n" +
-				"Estas Condiciones Generales son aplicables a todas las ofertas de productos que se realicen por medio del sitio www.westwing.es y a todos los acuerdos, de cualquier tipo, que se concluyan entre WESTWING y el Usuario del sitio Web.\n" +
+				"Estas Condiciones Generales son aplicables a todas las ofertas de productos que se realicen por medio del sitio www.ace.es y a todos los acuerdos, de cualquier tipo, que se concluyan entre Grupo Diedral y el Usuario del sitio Web.\n" +
 				"\n" +
-				"El sitio web www.westwing.es opera exclusivamente en el territorio español comprendido en la Península Ibérica y las Islas Baleares(en adelante el “Territorio”), realizándose envíos de productos únicamente en dicho territorio. ");
+				"El sitio web www.ace.es no opera exclusivamente en el territorio español comprendido en la Península Ibérica y las Islas Baleares(en adelante el “Territorio”), realizándose vuelos en otros territorios. ");
 		_texto.setEditable(false);
-		_texto.setWrapStyleWord(true);
+		_texto.setLineWrap(true);
 		add(new JScrollPane(_texto,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER));
 
 		_acepta = new JCheckBox("He leido y acepto las condiciones.");
