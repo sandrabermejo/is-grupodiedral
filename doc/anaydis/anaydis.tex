@@ -226,6 +226,8 @@ pdfinfo={
 				\begin{center}
 					\includegraphics[scale=.71]{analisis/diagramas/consultarvuelos.pdf}
 				\end{center}
+				El sistema carga la información de vuelos del sistema y los muestra a través de la interfaz {\itshape Página vuelos}. El usuario selecciona un vuelo y posteriormente después de generar la información de ese vuelo y cargarla del sistema se pasa a la interfaz {\itshape Página del vuelo seleccionado}. A traves del interfaz {\itshape Conector compra billete} es posible conectar la consulta de los vuelos con la compra del billete seleccionado por el usuario. 
+				La entidad {\itshape Vuelo} representa un vuelo de la compañía. Este vuelo queda determinado por el código del vuelo y el aeropuerto de origen y de destino.
 			
 			\subsubsection{Editar datos personales}
 				\begin{center}
@@ -339,16 +341,21 @@ pdfinfo={
 				\begin{center}
 					\includegraphics[scale=.6]{diseno/diagramas/iniciarpagobilletes.pdf}
 				\end{center}
-
+				La pantalla {\itshape Confirmación compra} se comunica con el pago para crear el nuevo método de pago elegido or el cliente. En estos momentos el único método de pago válido es mediante tarjeta de crédito.
+				
 			\subsubsection{Mostrar ofertas}
 				\begin{center}
 					\includegraphics[scale=.7]{diseno/diagramas/mostrarofertas.pdf}
 				\end{center}
+				La pantalla {\itshape Muestra ofertas} se comunica con la clase {\itshape Gestor ofertas} para pedirle una instancia de ella y que así el gestor le pueda devolver las ofertas del sistema cuando se las pida. Se muestran las ofertas por pantalla con los siguientes datos: nombre, destino y descuento. \\
+				
+				El gestor de ofertas es un administrador de las ofertas que realiza las operaciones de entrada salida del sistema y las comunicaciones de ellas con los demás elementos.
 
 			\subsubsection{Realizar pago con tarjeta}
 				\begin{center}
 					\includegraphics[scale=.7]{diseno/diagramas/pagotarjeta.pdf}
 				\end{center}
+				La pantalla {\itshape Pago tarjeta} se comunica con la clase {\itshape Pago tarjeta} para realizar las operaciones necesarias para finalizar el pago. Estas operaciones consistenen, primero, crear un nuevo pago con tarjeta con los datos introducidos por el usuario (titular y número de tarjeta). Después de tener ya el pago, se realiza la operación de efectuar en Pago tarjeta para que le devuelva si el pago es válido después de haber comprobado mediante una conexión con la entidad bancaria (que en nuestro caso, por supuesto no tenemos) la validez y liquidez de los datos.
 
 			\subsubsection{Presentar reclamación}
 				\begin{center}
