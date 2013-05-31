@@ -56,6 +56,7 @@ public class PantallaConsultaOfertas extends Pantalla {
      * Panel de ofertas
      */
     private class PanelOfertas extends AbstractTableModel {
+    	final int numCol = 3;
 		public PanelOfertas(){
             _ofertas = new ArrayList<>(GestorOfertas.dameInstancia().dameOfertas());
         }
@@ -68,14 +69,35 @@ public class PantallaConsultaOfertas extends Pantalla {
 
         @Override
         public int getColumnCount() {
-            return 1;
+            return numCol;
+        }
+        
+        @Override
+        public String getColumnName(int column) {
+        	switch(column){
+        		case 0:
+        			return "Nombre";
+        		case 1:
+        			return "Destino";
+        		case 2:
+        			return "Descuento";
+        			
+        	}
+        	return super.getColumnName(column);
         }
 
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
-           
-            return  _ofertas.get(rowIndex);
+           switch(columnIndex){
+           		case 0:
+           			return _ofertas.get(rowIndex).dameNombre();
+           		case 1:
+           			return _ofertas.get(rowIndex).dameDestino();
+           		case 2:
+           			return "descuento: " +_ofertas.get(rowIndex).dameDescuento();
+           }
+            return  "Sin Nombre";
         }
 
         public boolean isCellEditable(int row, int col){
