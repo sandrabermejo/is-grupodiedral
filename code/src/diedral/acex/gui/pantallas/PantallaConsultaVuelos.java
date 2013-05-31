@@ -104,7 +104,7 @@ public class PantallaConsultaVuelos extends Pantalla {
 			JPanel tpanel = new JPanel();
 			tpanel.setLayout(new BoxLayout(tpanel, BoxLayout.LINE_AXIS));
 			
-			_origen = new JComboBox(new Vector(GestorVuelos.dameInstancia().dameAeropuertos()));
+			_origen = new JComboBox<Aeropuerto>(new Vector<Aeropuerto>(GestorVuelos.dameInstancia().dameAeropuertos()));
 			_fechaSalida = new JFormattedTextField(msk);
 			
 			Dimension dim = _fechaSalida.getPreferredSize();
@@ -126,7 +126,7 @@ public class PantallaConsultaVuelos extends Pantalla {
 			tpanel = new JPanel();
 			tpanel.setLayout(new BoxLayout(tpanel, BoxLayout.LINE_AXIS));
 			
-			_destino = new JComboBox(new Vector(GestorVuelos.dameInstancia().dameAeropuertos()));
+			_destino = new JComboBox<Aeropuerto>(new Vector<Aeropuerto>(GestorVuelos.dameInstancia().dameAeropuertos()));
 			_fechaLlegada = new JFormattedTextField(msk);
 			
 			_fechaLlegada.setMaximumSize(dim);
@@ -154,25 +154,20 @@ public class PantallaConsultaVuelos extends Pantalla {
 			btn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent ae) {
 					// Criterio de búsqueda
-					GestorVuelos.CriterioBusqueda criterio = new GestorVuelos.CriterioBusqueda();
-					
-					// Formateador de fechas
-					//SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/mm/yyyy");		
+					GestorVuelos.CriterioBusqueda criterio = new GestorVuelos.CriterioBusqueda();	
 					
 					criterio.conOrigen(_origen.getItemAt(_origen.getSelectedIndex()));
 					criterio.conDestino(_destino.getItemAt(_destino.getSelectedIndex()));
 					
-			/*
 					if (_fechaSalida.isEditValid())
 						criterio.conSalida(parseaFecha(_fechaSalida.getText()));
 					
 					if (_fechaLlegada.isEditValid())
 						criterio.conSalida(parseaFecha(_fechaSalida.getText()));
-			*/
 					
 					Set<Vuelo> vuelos = GestorVuelos.dameInstancia().buscaVuelo(criterio);
 					
-					_tablaVuelos.ponVuelos(new Vector(vuelos));
+					_tablaVuelos.ponVuelos(new Vector<Vuelo>(vuelos));
 					
 				}
 			});
@@ -186,17 +181,19 @@ public class PantallaConsultaVuelos extends Pantalla {
 		/**
 		 * Interpreta una fecha a partir de un texto.
 		 */
-		@SuppressWarnings("unused")
-		private GregorianCalendar parseaFecha(String fecha){
-			Pattern itemPattern = Pattern.compile("\\d2/\\d2/\\d4");
+		private GregorianCalendar parseaFecha(String fecha) {
+			// Formateador de fechas
+			SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/mm/yyyy");	
 			
-			Matcher matcher = itemPattern.matcher(fecha);
+			GregorianCalendar ret = new GregorianCalendar();
 			
-			matcher.find();
-
-			return new GregorianCalendar(Integer.parseInt(matcher.group(3)),
-					Integer.parseInt(matcher.group(2)),
-					Integer.parseInt(matcher.group(1)));
+			try {
+				ret.setTime(formatoFecha.parse(fecha));
+			} catch (ParseException e) {
+				return null;
+			}
+			
+			return ret;
 		}
 		
 		// ATRIBUTOS PRIVADOS (de PanelBusqueda)
