@@ -2,7 +2,16 @@ format 76
 
 classcanvas 128021 class_ref 162709 // Aeropuerto
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 341 105 2000
+  hidden_attributes
+    attribute_ref 128021 // _codigoIATA
+    attribute_ref 128149 // _nombre
+    attribute_ref 128277 // _ciudad
+  hidden_operations
+    operation_ref 141333 // dameCodigoIATA
+    operation_ref 141461 // dameNombre
+    operation_ref 141589 // dameCiudad
+    operation_ref 141717 // Aeropuerto
+  xyz 117 43 2000
 end
 classcanvas 128149 class_ref 162965 // Vuelo
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -15,29 +24,266 @@ classcanvas 128149 class_ref 162965 // Vuelo
     attribute_ref 129557 // _escalas
     attribute_ref 129685 // _codigo
   hidden_operations
+    operation_ref 142613 // Vuelo
+    operation_ref 142741 // dameOrigen
+    operation_ref 142869 // fijaOrigen
+    operation_ref 142997 // dameDestino
+    operation_ref 143125 // fijaDestino
+    operation_ref 143253 // dameFechaSalida
+    operation_ref 143381 // fijaFechaSalida
+    operation_ref 143509 // dameFechaLlegada
+    operation_ref 143637 // fijaFechaLlegada
+    operation_ref 143893 // fijaAvion
     operation_ref 143765 // dameAvion
-  xyz 46 -9 2005
+    operation_ref 158101 // damePrecio
+    operation_ref 144021 // dameCodigo
+    operation_ref 144149 // fijaCodigo
+    operation_ref 144277 // dameEscalas
+    operation_ref 144405 // fijaEscalas
+    operation_ref 144533 // esValido
+  xyz 141 176 2005
 end
 classcanvas 128405 class_ref 134535 // Pago
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 571 103 2000
+  xyz 588 92 2000
 end
 classcanvas 128661 class_ref 135047 // PagoTarjeta
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 546 325 2000
+  hidden_attributes
+    attribute_ref 128391 // _titular
+    attribute_ref 135703 // _importe
+    attribute_ref 128519 // _numeroTarjeta
+  hidden_operations
+    operation_ref 128775 // PagoTarjeta
+    operation_ref 143767 // obtenerSobrecoste
+    operation_ref 143895 // establecerImporte
+    operation_ref 144151 // establecerTitular
+    operation_ref 144279 // establecerNumeroTarjeta
+    operation_ref 158231 // efectuar
+  xyz 615 260 2000
 end
 classcanvas 128917 class_ref 138123 // Oferta
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 325 347 2006
+  hidden_attributes
+    attribute_ref 128011 // _vuelo
+    attribute_ref 128139 // _destino
+    attribute_ref 128267 // _intervaloEdad
+    attribute_ref 128395 // _descuento
+    attribute_ref 128523 // _nombre
+  hidden_operations
+    operation_ref 128011 // dameVuelo
+    operation_ref 128139 // dameDestino
+    operation_ref 128267 // dameIntervaloEdad
+    operation_ref 128395 // dameDescuento
+    operation_ref 128523 // dameNombre
+    operation_ref 128651 // dameCondiciones
+  xyz 297 59 2006
+end
+classcanvas 129045 class_ref 155925 // Sugerencia
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_operations
+    operation_ref 134677 // Sugerencia
+  xyz 434 53 2000
+end
+classcanvas 129173 class_ref 163093 // Avion
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_attributes
+    attribute_ref 128917 // _nombre
+    attribute_ref 129045 // _pasajeros
+  hidden_operations
+    operation_ref 141845 // Avion
+    operation_ref 141973 // dameNombre
+    operation_ref 142101 // damePasajeros
+  xyz 302 176 2000
+end
+classcanvas 129301 class_ref 163221 // Escala
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_operations
+    operation_ref 142229 // Escala
+    operation_ref 142357 // dameAeropuerto
+    operation_ref 142485 // dameEspera
+  xyz 291 295 2000
+end
+classcanvas 129685 class_ref 163349 // GestorVuelos
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_attributes
+    attribute_ref 129941 // _vuelos
+  xyz 445 296 2000
+end
+classcanvas 129813 class_ref 176789 // CriterioBusqueda
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_operations
+    operation_ref 165013 // conFechaSalida
+    operation_ref 165141 // conFechaLlegada
+  xyz 429 408 2006
+end
+classcanvas 130069 class_ref 134919 // Equipaje
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_attributes
+    attribute_ref 128135 // _noBultos
+    attribute_ref 128263 // _peso
+  hidden_operations
+    operation_ref 128519 // fijarPeso
+    operation_ref 128647 // damePeso
+  xyz 448 147 2000
+end
+classcanvas 130197 class_ref 135175 // Billete
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_attributes
+    attribute_ref 128647 // _vuelo
+    attribute_ref 128775 // _pasajero
+    attribute_ref 128903 // _clase
+  hidden_operations
+    operation_ref 128903 // Billete
+    operation_ref 129031 // dameVuelo
+    operation_ref 129159 // damePasajero
+    operation_ref 129287 // dameClase
+  xyz 54 355 2005
+end
+classcanvas 130709 class_ref 147863 // Pasajero
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_attributes
+    attribute_ref 128023 // _usuario
+    attribute_ref 128151 // _nombre
+    attribute_ref 128279 // _apellido1
+    attribute_ref 128407 // _apellido2
+    attribute_ref 128535 // _nacionalidad
+    attribute_ref 128791 // _DNI
+  hidden_operations
+    operation_ref 128023 // Pasajero
+    operation_ref 128151 // Pasajero
+    operation_ref 128279 // dameNombre
+    operation_ref 128407 // dameApellido1
+    operation_ref 128535 // dameApellido2
+    operation_ref 128663 // dameDNI
+    operation_ref 128791 // ponNombre
+    operation_ref 128919 // ponApellido1
+    operation_ref 129047 // ponApellido2
+  xyz 110 473 2005
+end
+classcanvas 130965 class_ref 147991 // Dni
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_attributes
+    attribute_ref 128919 // _numero
+    attribute_ref 129047 // _letra
+  hidden_operations
+    operation_ref 129175 // compareTo
+    operation_ref 129303 // dameLetra
+    operation_ref 129431 // dameNumero
+    operation_ref 129559 // Dni
+  xyz 287 473 2005
+end
+classcanvas 131093 class_ref 148119 // GestorCompras
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_attributes
+    attribute_ref 129175 // _instancia
+  hidden_operations
+    operation_ref 129687 // calculaPrecio
+    operation_ref 129815 // buscaOferta
+    operation_ref 129943 // efectuarCompra
+    operation_ref 136344 // anadirCompra
+  xyz 637 352 2000
+end
+classcanvas 131221 class_ref 144024 // GestorUsuarios
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_attributes
+    attribute_ref 128024 // _instancia
+  hidden_operations
+    operation_ref 129432 // busca(datos)
+    operation_ref 136727 // validar
+    operation_ref 136983 // meterUsuario
+    operation_ref 151447 // reemplazarUsuario
+    operation_ref 151575 // borraUsuario
+  xyz 640 422 2005
+end
+classcanvas 131349 class_ref 144152 // Usuario
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_attributes
+    attribute_ref 128152 // _nombre
+    attribute_ref 128280 // _apellido1
+    attribute_ref 128408 // _apellido2
+    attribute_ref 128536 // _contrasena
+    attribute_ref 128664 // _correo
+    attribute_ref 128920 // _ofertasPersonales
+  hidden_operations
+    operation_ref 128024 // dameNombre
+    operation_ref 128152 // dameApellido1
+    operation_ref 128280 // dameApellido2
+    operation_ref 128408 // dameContrasena
+    operation_ref 128536 // dameCorreo
+    operation_ref 128664 // dameOfertasPersonales
+    operation_ref 128792 // borraOfertaPersonal
+    operation_ref 128920 // meteOfertaGeneral
+    operation_ref 129560 // comprobar(usuario)
+    operation_ref 136855 // modificarDatos
+    operation_ref 128907 // Usuario
+    operation_ref 129419 // valida
+    operation_ref 129547 // introducirNuevaContrasena
+    operation_ref 151703 // Usuario
+    operation_ref 142872 // dameCompras
+  xyz 179 353 2011
+end
+classcanvas 131605 class_ref 150808 // Compra
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  hidden_attributes
+    attribute_ref 135448 // _billetes
+    attribute_ref 135576 // _usuario
+    attribute_ref 135704 // _pagada
+  hidden_operations
+    operation_ref 136216 // anadirBillete
+    operation_ref 143000 // dameBilletes
+  xyz 630 11 2005
 end
 relationcanvas 128277 relation_ref 143381 // <aggregation>
   from ref 128149 z 2006 to ref 128021
   no_role_a no_role_b
-  no_multiplicity_a multiplicity_b_pos 224 221 3000
+  no_multiplicity_a multiplicity_b_pos 149 146 3000
 end
 relationcanvas 128789 relation_ref 143509 // <generalisation>
   from ref 128661 z 2001 to ref 128405
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129429 relation_ref 150037 // <aggregation>
+  from ref 128149 z 2006 to ref 129173
+  no_role_a no_role_b
+  no_multiplicity_a multiplicity_b_pos 215 175 3000
+end
+relationcanvas 129557 relation_ref 150165 // <aggregation>
+  from ref 128149 z 2006 to ref 129301
+  no_role_a no_role_b
+  no_multiplicity_a multiplicity_b_pos 207 240 3000
+end
+line 129941 ---+
+  from ref 129813 z 2007 to ref 129685
+relationcanvas 130581 relation_ref 150293 // <aggregation>
+  from ref 130197 z 2006 to ref 128149
+  no_role_a no_role_b
+  no_multiplicity_a multiplicity_b_pos 81 325 3000
+end
+relationcanvas 130837 relation_ref 150421 // <aggregation>
+  from ref 130197 z 2006 to ref 130709
+  no_role_a no_role_b
+  no_multiplicity_a multiplicity_b_pos 85 412 3000
+end
+relationcanvas 131861 relation_ref 150677 // <association>
+  from ref 130709 z 2012 to ref 131349
+  no_role_a no_role_b
+  multiplicity_a_pos 158 410 3000 no_multiplicity_b
+end
+relationcanvas 131989 relation_ref 150805 // <aggregation>
+  from ref 130709 z 2006 to ref 130965
+  no_role_a no_role_b
+  no_multiplicity_a multiplicity_b_pos 200 507 3000
+end
+relationcanvas 132117 relation_ref 150933 // <aggregation>
+  from ref 131605 z 2006 to ref 128405
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132245 relation_ref 151061 // <aggregation>
+  from ref 128917 z 2007 to ref 128149
+  no_role_a no_role_b
+  no_multiplicity_a multiplicity_b_pos 252 94 3000
 end
 end

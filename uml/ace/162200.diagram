@@ -46,12 +46,12 @@ flowcanvas 128792 flow_ref 139288 // <flow>
 end
 flowcanvas 129048 flow_ref 139416 // [datos validos]
   
-  from ref 128408 z 2001 label "[datos validos]" xyz 452 181 3000 to ref 128920
+  from ref 128408 z 2001 label "[datos validos]" xyz 452 181 2001 to ref 128920
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
 flowcanvas 129176 flow_ref 139544 // [no datos validos]
   
-  from ref 128408 z 2001 label "[no datos validos]" xyz 244 25 3000 to point 433 57
+  from ref 128408 z 2001 label "[no datos validos]" xyz 244 25 2001 to point 433 57
   line 129432 z 2001 to point 168 57
   line 129304 z 2001 to ref 128152
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
