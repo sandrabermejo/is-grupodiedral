@@ -150,7 +150,7 @@ public class PantallaCompra extends Pantalla {
 		// Botones
 		JPanel botones = new JPanel(new GridLayout(1, 2));
 		
-		JButton anadirPasajero = new JButton("Nuevo billete");
+		JButton anadirPasajero = new JButton("Añadir billete");
 		anadirPasajero.addActionListener(new AnadirPasajero());
 		
 		JButton finalizar = new JButton("Finalizar compra");
