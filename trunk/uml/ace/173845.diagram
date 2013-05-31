@@ -14,7 +14,7 @@ activityactioncanvas 128405 activityaction_ref 128533 // activity action Requeri
   xyzwh 399 110 2000 100 60
 end
 activitynodecanvas 128533 activitynode_ref 128661 // decision
-  xyz 602 119 2000
+  xyz 602 120 2000
 end
 activitynodecanvas 129045 activitynode_ref 128789 // activity_final
   xyz 602 43 2000

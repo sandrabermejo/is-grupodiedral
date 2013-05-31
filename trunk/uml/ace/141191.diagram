@@ -17,7 +17,7 @@ activityactioncanvas 128391 activityaction_ref 128135 // activity action Prepara
   xyzwh 329 202 2000 104 80
 end
 activitynodecanvas 128519 activitynode_ref 128263 // decision
-  xyz 535 220 2000
+  xyz 535 222 2000
 end
 activitynodecanvas 128647 activitynode_ref 128391 // activity_final
   xyz 258 372 2000
@@ -44,7 +44,7 @@ flowcanvas 129415 flow_ref 128263 // <flow>
 end
 flowcanvas 129543 flow_ref 128391 // <flow>
   
-  from ref 128519 z 2001 label "[Salir]" xyz 548 170 3000 to ref 128135
+  from ref 128519 z 2001 label "[Salir]" xyz 548 170.5 2001 to ref 128135
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
 flowcanvas 130055 flow_ref 128647 // <flow>
@@ -54,7 +54,7 @@ flowcanvas 130055 flow_ref 128647 // <flow>
 end
 flowcanvas 130567 flow_ref 129031 // <flow>
   
-  from ref 128519 z 2001 label "[Seleccion oferta]" xyz 558 315 3000 to point 545 384
+  from ref 128519 z 2001 label "[Seleccion oferta]" xyz 558 316 2001 to point 545 384
   line 130695 z 2001 to ref 129927
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
