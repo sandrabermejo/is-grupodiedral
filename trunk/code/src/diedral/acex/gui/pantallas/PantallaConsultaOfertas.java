@@ -74,8 +74,8 @@ public class PantallaConsultaOfertas extends Pantalla {
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
-            _ofertas.get(rowIndex);
-            return null;
+           
+            return  _ofertas.get(rowIndex);
         }
 
         public boolean isCellEditable(int row, int col){

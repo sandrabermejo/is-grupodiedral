@@ -48,7 +48,7 @@ public class PantallaDetalleVuelo extends Pantalla {
 		textArea.append("Número de vuelo: " + v.dameNumeroVuelo() + ENDL + ENDL);
 		textArea.append("Aeropuerto de origen: " + v.dameOrigen() + ENDL);
 		textArea.append("Fecha de salida: " + forFecha.format(v.dameFechaSalida().getTime()) + ENDL);
-		textArea.append("Aeropuerto de destino: " + v.dameOrigen() + ENDL);
+		textArea.append("Aeropuerto de destino: " + v.dameDestino() + ENDL);
 		textArea.append("Fecha de llegada: " + forFecha.format(v.dameFechaLlegada().getTime()) + ENDL + ENDL);
 		textArea.append("Número de pasajeros: " + v.dameNumPasajeros() + ENDL);
 		textArea.append("Número de escalas: " + (v.dameEscalas() == null ? 0 : v.dameEscalas().size()) + ENDL);
