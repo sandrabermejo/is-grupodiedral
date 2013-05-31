@@ -125,6 +125,7 @@ pdfinfo={
 				\end{center}
 				El caso de uso {\itshape Consultar vuelos} permite mostrar los vuelos para que el usuario los visualice y por otra parte conectar los vuelos con la compra del billete  de un vuelo concreto.
 				Primero se muestran todos los vuelos disponibles en el sistema, el usuario selecciona un vuelo concreto y se muestra la información de ese vuelo. Posteriormente, se bifurcan dos caminos. Se puede realizar la compra de un billete y redireccionar al proceso de dicha compra, o en caso contrario se finalizará directamente el caso de uso.
+			
 			\subsubsection{Editar datos personales}
 				\begin{center}
 					\includegraphics[scale=.86]{analisis/diagramas/da_editardatospersonales.pdf}
@@ -327,10 +328,12 @@ pdfinfo={
 				\end{center}
 				La pantalla {\itshape PantallaCompra} inicia y configura una compra de billetes.
 				En ella el usuario puede añadir a la compra uno a uno los billetes que desee, rellenando para cada uno de ellos los datos necesarios asociados al pasajero beneficiario del billete como son el nombre, los apellidos, nacionalidad, fecha de nacimiento, DNI y la clase del billete. Después conecta con {\itshape PantallaInicioPago}.
+			
 			\subsubsection{Consultar oferta}
 				\begin{center}
 					\includegraphics[scale=.7]{diseno/diagramas/consultaroferta.pdf}
 				\end{center}
+				La pantalla {\itshape PantallaOferta} ofrece al usuario la información detallada (nombre, destino, descuento y condiciones) de una oferta, seleccionada previamente.
 
 			\subsubsection{Consultar vuelos}
 				\begin{center}
@@ -345,7 +348,9 @@ pdfinfo={
 				\begin{center}
 					\includegraphics[scale=.6]{diseno/diagramas/editardatospersonales.pdf}
 				\end{center}
-
+				
+				La pantalla {\itshape PantallaEditarDatosPersonales} permite al usuario modificar alguno de sus datos personales (nombre, apellidos, correo). Tras comprobar la validez de los nuevos datos, se reemplaza al antiguo usuario por el creado con los nuevos datos.
+				
 
 			\subsubsection{Iniciar pago billetes}
 				\begin{center}
