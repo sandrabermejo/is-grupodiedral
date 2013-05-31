@@ -1,0 +1,107 @@
+format 76
+
+activitynodecanvas 128024 activitynode_ref 135064 // initial_node
+  xyz 63 176 2000
+end
+activityactioncanvas 128152 activityaction_ref 135192 // activity action Crear compra
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 137 156 2000 100 60
+end
+activityactioncanvas 128408 activityaction_ref 135320 // activity action Introducir datos pasajero
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 292 145 2000 113 80
+end
+activityactioncanvas 128664 activityaction_ref 135448 // activity action Validar datos
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 453 155 2000 100 60
+end
+activityactioncanvas 129560 activityaction_ref 135576 // activity action Crear billete
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 554 301 2000 100 60
+end
+activitynodecanvas 129688 activitynode_ref 135320 // decision
+  xyz 590 166 2000
+end
+activitynodecanvas 130968 activitynode_ref 135448 // decision
+  xyz 590 413 2000
+end
+activityactioncanvas 131864 activityaction_ref 135704 // activity action Guardar compra
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 555 512 2005 98 64
+end
+activityactioncanvas 132120 activityaction_ref 135832 // activity action Iniciar pago
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 332 514 2000 100 60
+end
+activitynodecanvas 132376 activitynode_ref 135576 // activity_final
+  xyz 204 530 2000
+end
+flowcanvas 128280 flow_ref 135960 // <flow>
+  
+  from ref 128024 z 2001 to ref 128152
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 128536 flow_ref 136088 // <flow>
+  
+  from ref 128152 z 2001 to ref 128408
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 128792 flow_ref 136216 // <flow>
+  
+  from ref 128408 z 2001 to ref 128664
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129816 flow_ref 136600 // [datos validos]
+  
+  from ref 129688 z 2001 label "[datos validos]" xyz 487 250 3000 to ref 129560
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 130456 flow_ref 136728 // [no datos validos]
+  decenter_end 547
+  
+  from ref 129688 z 2001 label "[no datos validos]" xyz 406 114 3000 to point 599 103
+  line 130712 z 2001 to point 351 103
+  line 130584 z 2001 to ref 128408
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 130840 flow_ref 136856 // <flow>
+  
+  from ref 128664 z 2001 to ref 129688
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 131096 flow_ref 136984 // <flow>
+  
+  from ref 129560 z 2001 to ref 130968
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 131224 flow_ref 137112 // [no compra finalizada]
+  
+  from ref 130968 z 2001 label "[no compra finalizada]" xyz 507 54 3000 to point 735 428
+  line 131608 z 2001 to point 735 41
+  line 131480 z 2001 to point 323 41
+  line 131352 z 2001 to point 323 141
+  line 131736 z 2001 to ref 128408
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 131992 flow_ref 137240 // [compra finalizada]
+  
+  from ref 130968 z 2006 label "[compra finalizada]" xyz 456 461.5 3000 to ref 131864
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 132248 flow_ref 137368 // <flow>
+  
+  from ref 131864 z 2006 to ref 132120
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 132504 flow_ref 137496 // <flow>
+  
+  from ref 132120 z 2001 to ref 132376
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+end

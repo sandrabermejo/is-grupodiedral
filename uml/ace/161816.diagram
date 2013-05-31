@@ -1,0 +1,34 @@
+format 76
+
+activitynodecanvas 128024 activitynode_ref 134808 // initial_node
+  xyz 65 101 2000
+end
+activityactioncanvas 128152 activityaction_ref 134936 // activity action Introducir sugerencia
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 158 81 2000 100 60
+end
+activityactioncanvas 128408 activityaction_ref 135064 // activity action Enviar sugerencia
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 308 81 2000 100 60
+end
+activitynodecanvas 128664 activitynode_ref 134936 // activity_final
+  xyz 481 99 2000
+end
+flowcanvas 128280 flow_ref 135576 // <flow>
+  
+  from ref 128024 z 2001 to ref 128152
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 128536 flow_ref 135704 // <flow>
+  
+  from ref 128152 z 2001 to ref 128408
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 128792 flow_ref 135832 // <flow>
+  
+  from ref 128408 z 2001 to ref 128664
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+end
