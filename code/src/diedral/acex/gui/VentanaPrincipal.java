@@ -72,7 +72,11 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 			@Override
 			public void windowClosing(WindowEvent we) {
 				// Guarda los datos
-				AyudantePersistencia.dameInstancia().almacenaTodos();
+				if (!AyudantePersistencia.dameInstancia().almacenaTodos())
+					JOptionPane.showMessageDialog(VentanaPrincipal.this,
+							"Se produjo un error al almacenar los datos.",
+							"ACE - Gestión Externa",
+							JOptionPane.ERROR_MESSAGE);
 				
 				// Finaliza la aplicación
 				System.exit(0);

@@ -1,16 +1,16 @@
 package diedral.acex.ventas;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import java.io.Serializable;
 
 import diedral.acex.Usuario;
 import diedral.acex.Vuelo;
 import diedral.acex.excepciones.PagoIncorrectoException;
 
-public class Compra implements Serializable{
-
+public class Compra implements Serializable {
 	/**
 	 * Crea una compra dado el usuario
 	 * @param usuario que efectua la compra
@@ -160,11 +160,18 @@ public class Compra implements Serializable{
 	 */
 	private boolean _pagada;
 	
+	/**
+	 * Lista de billetes de la compra
+	 */
 	private List<Billete> _billetes;
+	
+	/**
+	 * Usuario responsable de la compra
+	 */
 	private Usuario _usuario;
 	
 	/**
-	 * 
+	 * Serial UID
 	 */
 	private static final long serialVersionUID = -3489113455083165615L;
 }

@@ -86,6 +86,7 @@ public class Oferta implements Serializable {
 		return _nombre;		
 	}	
 	
+	
 	// ATRIBUTOS PRIVADOS
 	
 	/**
@@ -107,7 +108,10 @@ public class Oferta implements Serializable {
 	 * Descuento
 	 */
 	private int _descuento;
-	
+
+	/**
+	 * Nombre de la oferta
+	 */
 	private String _nombre;
 
 	/**
