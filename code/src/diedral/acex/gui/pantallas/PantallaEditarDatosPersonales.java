@@ -120,8 +120,8 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 		_botonMofidicarContrasena.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				final JDialog ventana = new JDialog(SwingUtilities.windowForComponent(PantallaEditarDatosPersonales.this));
-				ventana.setSize(200, 200);
+				final JDialog ventana = new JDialog(SwingUtilities.windowForComponent(PantallaEditarDatosPersonales.this), "Modificar contraseña");
+				ventana.setSize(300, 200);
 				//Hacemos que la ventana salga en el centro de la pantalla
 				ventana.setLocationRelativeTo(getRootPane());
 				JPanel panel = new JPanel(new GridLayout(4, 3));
@@ -132,19 +132,19 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 				panel.add(new JLabel("Repita contraseña nueva:"));
 				panel.add(_textContrasenaNuevaRep = new JPasswordField(""));
 				_botonContrasena = new JButton("Modificar contraseña");
+				_etiquetaTiempo = new JLabel();
+				panel.add(_etiquetaTiempo);
 				panel.add(_botonContrasena);
 				_botonContrasena.addActionListener(new ActionListener(){
 				int contador = 0;
+				boolean espera = false;
+					private void reseteaCampos(){
+						_textContrasenaAntigua.setText("");
+						_textContrasenaNueva.setText("");
+						_textContrasenaNuevaRep.setText("");
+					}
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-						if(contador == 3) {
-							//desactivar los campos
-							contador = 0;
-							long tiempo = System.currentTimeMillis();
-							while(System.currentTimeMillis() < tiempo + 30000){
-								
-							}
-						}
 						String contrAntigua = new String(_textContrasenaAntigua.getPassword());
 						String contrNueva = new String(_textContrasenaNueva.getPassword());
 						String contrNuevarep = new String(_textContrasenaNuevaRep.getPassword());
@@ -152,24 +152,64 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 							if(_usuario.comprobarContrasena(contrAntigua)){
 								if(contrNueva.equals(contrNuevarep)){
 									_usuario.meteContrasena(contrNueva);
-									ventana.setVisible(false);
+									ventana.dispose();
 								} else {
+									reseteaCampos();
 									JOptionPane.showMessageDialog(ventana, "Las contraseñas no coincide");
 								}
 							} else {
 								contador++;
+								if(contador == 3)
+									espera = true;
+								reseteaCampos();
 								JOptionPane.showMessageDialog(ventana, "La contraseña actual no es correcta");
 							}
-						} else
+						} else {
+							reseteaCampos();
 							JOptionPane.showMessageDialog(ventana, "Todos los campos son obligatorios.");
+						}
+						
+						if(espera) {
+							contador = 0;
+							ventana.setEnabled(false);
+							new Thread() {
+								@Override
+								public void run() {
+									int contadorSeg = 15;
+									for(int i = contadorSeg; i >= 0; i--){
+										SwingUtilities.invokeLater(new Texteable(i));
+										try {
+											Thread.sleep(1000);
+										} catch (InterruptedException e) {}
+									}
+									ventana.setEnabled(true);
+								}
+							}.start();
+						espera = false;
+						}
 					}
-					
 				});
 				ventana.add(panel);
 				ventana.setVisible(true);
 			}
 			private JPasswordField _textContrasenaAntigua, _textContrasenaNueva, _textContrasenaNuevaRep;
 			private JButton _botonContrasena;
+			private JLabel _etiquetaTiempo;
+			
+			class Texteable implements Runnable {
+				int toText;
+				public Texteable(int toText) {
+					super();
+					this.toText = toText;
+				}
+				@Override
+				public void run() {
+					if(toText != 0)
+						_etiquetaTiempo.setText(" " + toText + " segundos");
+					else
+						_etiquetaTiempo.setText("");
+				}
+			}
 		});
 		panelBotones.add(_botonMofidicarContrasena, BorderLayout.WEST);
 		panelBotones.add(Box.createHorizontalGlue(), BorderLayout.CENTER);
@@ -180,6 +220,8 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 		
 			
 		add(panel, BorderLayout.CENTER); //añadimos el panel al centro.
+		
+
 	}
 	@Override
 	public String dameNombre() {
