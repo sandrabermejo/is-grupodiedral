@@ -4,8 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;	
-import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -19,12 +18,11 @@ import diedral.acex.Vuelo;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
-import diedral.acex.ventas.Billete;
 import diedral.acex.ventas.Compra;
 
-public class PantallaVueloContratado extends Pantalla {
+public class PantallaVuelosContratados extends Pantalla {
 	
-	public PantallaVueloContratado() {
+	public PantallaVuelosContratados() {
 		
 		setLayout(new BorderLayout());
 		
@@ -39,8 +37,8 @@ public class PantallaVueloContratado extends Pantalla {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int i = tabla.getSelectedRow();
-				Vuelo vuelo = _tablaVuelos._vuelos.get(i);
-				_mnj.cambiaA(new PantallaDetalleVuelo(vuelo));
+				Compra compra = _tablaVuelos._compras.get(i);
+				_mnj.cambiaA(_fabrica.damePantallaDetalleVueloContratado(compra));
 			}
 			
 		});
@@ -53,7 +51,7 @@ public class PantallaVueloContratado extends Pantalla {
 		Usuario usuario = _sesion.dameUsuario();
 		
 		// Usuario válido
-		List<Compra> compras = usuario.dameCompras();
+		ArrayList<Compra> compras = (ArrayList<Compra>) usuario.dameCompras();
 			
 		// No ha realizado compras
 		if(compras == null || compras.isEmpty()) {
@@ -71,22 +69,12 @@ public class PantallaVueloContratado extends Pantalla {
 			return;
 		}
 		
-		int numCompras = compras.size();
-		Vector<Vuelo> vuelos = new Vector<Vuelo>();
-		
-		// Para cada compra
-		for (int i = 0; i < numCompras; i++) {
-			// Añadimos el vuelo
-			List<Billete> billetes = compras.get(i).dameBilletes();
-			if (billetes.size() != 0)
-				vuelos.add(billetes.get(0).dameVuelo());
-		}
-		
-		_tablaVuelos.ponVuelos(vuelos);
+		_tablaVuelos.ponVuelos(compras);
 	}
 
 	public void estableceContexto(ManejadorPantallas manejador, FabricaPantallas fabrica, Sesion sesion){
     	_mnj = manejador;
+    	_fabrica = fabrica;
     	_sesion = sesion;
     }
 	
@@ -106,8 +94,8 @@ public class PantallaVueloContratado extends Pantalla {
 		 * 
 		 * @param vuelos Vector de vuelos.
 		 */
-		public void ponVuelos(Vector<Vuelo> vuelos){
-			_vuelos = vuelos;
+		public void ponVuelos(ArrayList<Compra> compras){
+			_compras = compras;
 			
 			fireTableDataChanged();
 		}
@@ -133,15 +121,16 @@ public class PantallaVueloContratado extends Pantalla {
 		 * Número de filas
 		 */
 		public int getRowCount() {
-			return _vuelos.size();
+			return _compras.size();
 		}
 
 		/**
 		 * Valor de una celda.
 		 */
 		public Object getValueAt(int fila, int col) {
-			Vuelo vuelo = _vuelos.elementAt(fila);
+			Compra compra = _compras.get(fila);
 			SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
+			Vuelo vuelo = _compras.get(fila).dameVuelo();
 			
 			switch (col){
 				case 0 :
@@ -154,6 +143,8 @@ public class PantallaVueloContratado extends Pantalla {
 					return vuelo.dameDestino();
 				case 4 :
 					return formatoFecha.format(vuelo.dameFechaLlegada().getTime());
+				case 5:
+					return compra.dameBilletes().size();
 				default :
 					return "--";
 			}
@@ -163,12 +154,12 @@ public class PantallaVueloContratado extends Pantalla {
 		 * Columnas de la tabla.
 		 */
 		private String[] _columnas = 
-			{"Id", "Origen", "Fecha salida", "Destino", "Fecha llegada"};
+			{"Id", "Origen", "Fecha salida", "Destino", "Fecha llegada", "Número de billetes"};
 		
 		/**
 		 * Vector de vuelos mostrados.
 		 */
-		private Vector<Vuelo> _vuelos = new Vector<Vuelo>();
+		private ArrayList<Compra> _compras = new ArrayList<Compra>();
 		
 		/**
 		 * Serial UID
@@ -185,6 +176,11 @@ public class PantallaVueloContratado extends Pantalla {
 	 * Manejador pantallas
 	 */
 	private ManejadorPantallas _mnj;
+	
+	/**
+	 * Fabrica de pantallas
+	 */
+	private FabricaPantallas _fabrica;
 	
 	/**
 	 * Sesion
