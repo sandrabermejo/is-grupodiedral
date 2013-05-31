@@ -3,16 +3,21 @@ package diedral.acex.gui;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import diedral.acex.Sesion;
+import diedral.acex.eventos.OyenteCambios;
+
 /**
  * Menú lateral para dar acceso a los diferentes servicios de la aplicación.
  */
-class MenuLateral extends javax.swing.JPanel {
+class MenuLateral extends JPanel implements OyenteCambios<Sesion> {
 	/**
 	 * Crea el menú lateral por defecto.
 	 * 
@@ -95,13 +100,38 @@ setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 			}
 		});
 		
+		t_btn.setVisible(false);
+		
+		_botonesSesion.add(t_btn);
+		
 		botones.add(t_btn);
 		
 		return botones;
 	}
 	
 	
+	/*
+	 * Recibe eventos sobre cambios en la sesión.
+	 */
+	@Override
+	public void haCambiado(Sesion arg) {
+		// Si se ha cerrado sesión oculta los botones que lo requieren
+		if (arg.dameUsuario() == null)
+			for (JButton btn : _botonesSesion)
+				btn.setVisible(false);
+		else
+			for (JButton btn : _botonesSesion)
+				btn.setVisible(true);
+			
+	}
+	
+	
 	// ATRIBUTOS PRIVADOS
+	
+	/**
+	 * Botones que requieren sesión iniciada.
+	 */
+	Set<JButton> _botonesSesion = new HashSet<JButton>();
 	
 	/**
 	 * Manejador de pantallas.

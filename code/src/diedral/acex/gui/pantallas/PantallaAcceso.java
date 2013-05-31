@@ -134,7 +134,7 @@ public class PantallaAcceso extends Pantalla {
 			else {
 				_sesion.cargaUsuario(usuario);
 				_manejadorPantallas.cierraPantallaActual();
-				 JOptionPane.showMessageDialog(PantallaAcceso.this, "Sesion iniciada con exito!");
+				 //JOptionPane.showMessageDialog(PantallaAcceso.this, "Sesion iniciada con exito!");
 			}
 								
 		}

@@ -51,11 +51,14 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		setSize(800, 600);
 
 		// Ubica los paneles superior y lateral
-		add(new MenuLateral(this, _fabrica), BorderLayout.WEST);
+		MenuLateral lateral = new MenuLateral(this, _fabrica);
+		
+		add(lateral, BorderLayout.WEST);
 		add(_bandaSuperior = new BandaSuperior(this, _fabrica), BorderLayout.NORTH);
 		
-		// Registra a la banda superior como oyente de cambios en la sesión
+		// Registra a los paneles como oyentes de cambios en la sesión
 		_sesion.registraOyenteCambio(_bandaSuperior);
+		_sesion.registraOyenteCambio(lateral);
 		
 		// El marco central es donde se muestran las pantallas particulares
 		_marco = new MarcoCentral();
