@@ -16,7 +16,7 @@ end
 activityactioncanvas 128407 activityaction_ref 130071 // activity action Seleccionar enlace eMail
   show_infonote default drawing_language default show_stereotype_properties default
   show_opaque_action_definition default
-  xyzwh 87 298 2000 100 76
+  xyzwh 70 298 2000 116 76
 end
 activityactioncanvas 128535 activityaction_ref 130199 // activity action Redireccionar a modificar contraseña
   show_infonote default drawing_language default show_stereotype_properties default
@@ -56,12 +56,12 @@ flowcanvas 129047 flow_ref 129943 // <flow>
 end
 flowcanvas 129431 flow_ref 130071 // <flow>
   
-  from ref 128919 z 2001 label "[no es válida]" xyz 297 756.5 3000 to ref 129175
+  from ref 128919 z 2001 label "[no es válida]" xyz 297 756 2001 to ref 129175
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
 flowcanvas 129559 flow_ref 130199 // <flow>
   
-  from ref 128791 z 2001 label "[es válida]" xyz 428 729.5 3000 to ref 129303
+  from ref 128791 z 2001 label "[es válida]" xyz 428 729 2001 to ref 129303
   show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
 end
 flowcanvas 129815 flow_ref 130327 // <flow>

@@ -1,7 +1,7 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 34
-  modified_by 23 "Natalia"
+  revision 35
+  modified_by 21 "portatil"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -1638,6 +1638,18 @@ ${members}}
 	
 	idl_name_spec "get_${name}"
 	get_of_attribute attribute_ref 129173 // _avion
+      end
+
+      operation 158101 "damePrecio"
+	public explicit_return_type "double"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
       end
 
       operation 144021 "dameCodigo"
@@ -3541,6 +3553,19 @@ ${members}}
 	explicit_switch_type ""
 	
       end
+
+      class 170261 "PantallaDetalleVuelo"
+	visibility package 
+	cpp_decl ""
+	java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	
+      end
     end
 
     usecase 128007 "Iniciar pago billetes"
@@ -4088,8 +4113,6 @@ ${members}}
       activitynode 129431 activity_final "Final"
       end
 
-      activitynode 129559 join ""
-      end
     end
 
     activity 128407 "Consultar Vuelos"

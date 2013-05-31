@@ -14,6 +14,8 @@ classcanvas 128149 class_ref 162965 // Vuelo
     attribute_ref 129173 // _avion
     attribute_ref 129557 // _escalas
     attribute_ref 129685 // _codigo
+  hidden_operations
+    operation_ref 143765 // dameAvion
   xyz 46 -9 2005
 end
 classcanvas 128405 class_ref 134535 // Pago

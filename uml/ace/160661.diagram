@@ -11,12 +11,12 @@ classinstance 128917 class_ref 162965 // Vuelo
 fragment 129045 "loop"
   xyzwh 215 314 2000 380 206
 end
-classinstance 130837 class_ref 170133 // PantallaDetalleVuelo
-  name ""   xyz 41 556 2000 life_line_z 2000
 note 131989 "Muestra detallada del vuelo."
-  xyzwh 203.5 767.5 2000 163 73
+  xyzwh 170.5 813.5 2000 163 73
+classinstance 132117 class_ref 170261 // PantallaDetalleVuelo
+  name ""   xyz 48 554 2000 life_line_z 2000
 durationcanvas 128277 classinstance_ref 128021 // :PantallaConsultaVuelos
-  xyzwh 296 115 2010 11 529
+  xyzwh 296 115 2010 11 530
 end
 durationcanvas 128405 classinstance_ref 128149 // :GestorVuelos
   xyzwh 620 106 2010 11 137
@@ -33,22 +33,22 @@ end
 durationcanvas 130197 classinstance_ref 128917 // :Vuelo
   xyzwh 524 479 2010 11 25
 end
-durationcanvas 130965 classinstance_ref 130837 // :PantallaDetalleVuelo
-  xyzwh 121 633 2010 11 142
+durationcanvas 132245 classinstance_ref 132117 // :PantallaDetalleVuelo
+  xyzwh 128 634 2010 11 176
 end
-durationcanvas 131221 classinstance_ref 128917 // :Vuelo
-  xyzwh 524 669 2010 11 31
+durationcanvas 132885 classinstance_ref 128917 // :Vuelo
+  xyzwh 524 687 2010 11 25
 end
-durationcanvas 131477 classinstance_ref 128917 // :Vuelo
-  xyzwh 524 704 2010 11 26
+durationcanvas 133141 classinstance_ref 128917 // :Vuelo
+  xyzwh 524 742 2010 11 25
 end
-durationcanvas 131733 classinstance_ref 128917 // :Vuelo
-  xyzwh 524 742 2010 11 26
+durationcanvas 133397 classinstance_ref 128917 // :Vuelo
+  xyzwh 524 782 2010 11 25
 end
 msg 128533 synchronous
   from durationcanvas_ref 128277
   to durationcanvas_ref 128405
-  yz 122 2015 msg operation_ref 144661 // "buscaVuelo(in criterio : GestorVuelos::CriterioBusqueda [1]) : Vuelo [*]"
+  yz 122 2015 msg operation_ref 144661 // "vuelosDesde(in aeropuerto : Aeropuerto [1], in desde : Date [1], in hasta : Date [1]) : Vuelo [*]"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "criterio"
   label_xy 336 98
@@ -82,28 +82,28 @@ msg 130325 synchronous
   yz 483 2015 msg operation_ref 143509 // "dameFechaLlegada() : Date"
   show_full_operations_definition default drawing_language default show_context_mode default
   label_xy 333 460
-msg 131093 synchronous
+msg 132373 synchronous
   from durationcanvas_ref 128277
-  to durationcanvas_ref 130965
-  yz 633 2015 explicitmsg "vueloSeleccionado"
+  to durationcanvas_ref 132245
+  yz 634 2015 explicitmsg "vuelo seleccionado"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 143 611
-msg 131349 synchronous
-  from durationcanvas_ref 130965
-  to durationcanvas_ref 131221
-  yz 676 2015 msg operation_ref 142741 // "dameOrigen() : Aeropuerto [1]"
+  label_xy 144 612
+msg 133013 synchronous
+  from durationcanvas_ref 132245
+  to durationcanvas_ref 132885
+  yz 691 2015 msg operation_ref 142741 // "dameOrigen() : Aeropuerto [1]"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 275 654
-msg 131605 synchronous
-  from durationcanvas_ref 130965
-  to durationcanvas_ref 131477
-  yz 709 2020 explicitmsg "..."
+  label_xy 278 669
+msg 133269 synchronous
+  from durationcanvas_ref 132245
+  to durationcanvas_ref 133141
+  yz 743 2015 explicitmsg "..."
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 319 687
-msg 131861 synchronous
-  from durationcanvas_ref 130965
-  to durationcanvas_ref 131733
-  yz 742 2015 msg operation_ref 158357 // "damePrecio() : double"
+  label_xy 322 721
+msg 133525 synchronous
+  from durationcanvas_ref 132245
+  to durationcanvas_ref 133397
+  yz 783 2015 msg operation_ref 158101 // "damePrecio() : double"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 276 720
+  label_xy 279 761
 end
