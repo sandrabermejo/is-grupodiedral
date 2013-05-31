@@ -60,6 +60,16 @@ public class Sesion implements Serializable {
 	}
 	
 	/**
+	 * Refresca la sesión.
+	 * 
+	 * <p>Es decir notifica a sus oyentes
+	 * que ha habido un cambio para que se actualicen.
+	 */
+	public void refrescaSesion(){
+		emitirEventoCambio();
+	}
+	
+	/**
 	 * ¿Está la sesión activa?
 	 * 
 	 * @return {@code true} en caso afirmativo.
