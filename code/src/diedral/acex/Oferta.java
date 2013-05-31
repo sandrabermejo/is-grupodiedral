@@ -81,7 +81,7 @@ public class Oferta implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return _nombre;		
+		return _nombre + "      " + _destino + "      Destino: " + _descuento;		
 	}	
 	
 	// ATRIBUTOS PRIVADOS
