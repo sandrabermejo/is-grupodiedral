@@ -1,7 +1,7 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 37
-  modified_by 7 "hlocal"
+  revision 38
+  modified_by 24 "hlocal"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -3783,7 +3783,7 @@ ${members}}
 	end
       end
 
-      sequencediagram 128523 "Consultar Oferta"
+      sequencediagram 128523 "Consultar Oferta (DS)"
 	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
 	overlapping_bars size A4
       end
@@ -3828,7 +3828,7 @@ ${members}}
 	end
       end
 
-      sequencediagram 128651 "Registrarse"
+      sequencediagram 128651 "Registrarse (DS)"
 	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
 	overlapping_bars size A4
       end
@@ -3851,7 +3851,7 @@ ${members}}
       //activity diagram settings
       package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
       show_infonote default drawing_language default show_stereotype_properties default
-      sequencediagram 128779 "Restablecer contrasena"
+      sequencediagram 128779 "Restablecer contrasena (DS)"
 	show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
 	overlapping_bars size A4
       end
@@ -4172,7 +4172,7 @@ ${members}}
     end
 
     activity 128535 "Restablecer Contrasena"
-      activitydiagram 135831 "Restablecer Contrasena"
+      activitydiagram 135831 "Restablecer Contrasena (DA)"
 	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
 	show_infonote default drawing_language default show_stereotype_properties default
 	size A4
@@ -4257,7 +4257,7 @@ ${members}}
     end
 
     activity 128007 "Mostrar ofertas"
-      activitydiagram 141191 "Mostrar ofertas"
+      activitydiagram 141191 "Mostrar ofertas (DA)"
 	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations no shadow default
 	show_infonote default drawing_language default show_stereotype_properties default
 	size A4
@@ -4385,7 +4385,7 @@ ${members}}
     end
 
     activity 134535 "Pago con tarjeta"
-      activitydiagram 147719 "Pago con tarjeta"
+      activitydiagram 147719 "Pago con tarjeta (DA)"
 	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
 	show_infonote default drawing_language default show_stereotype_properties default
 	size A4
@@ -4426,6 +4426,263 @@ ${members}}
 	flow 136071 "<flow>"
 	  on activitynode_ref 135047 // activity_final
 	end
+      end
+    end
+
+    activity 134552 "Presentar reclamación"
+      activitydiagram 161816 "Presentar reclamación (DA)"
+	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+	show_infonote default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      activitynode 134808 initial_node "Inicio"
+	flow 135576 "<flow>"
+	  on activityaction_ref 134936 // activity action Introducir sugerencia
+	end
+      end
+
+      activityaction 134936 "Introducir sugerencia"
+	opaque_action
+	flow 135704 "<flow>"
+	  on activityaction_ref 135064 // activity action Enviar sugerencia
+	end
+      end
+
+      activityaction 135064 "Enviar sugerencia"
+	opaque_action
+	flow 135832 "<flow>"
+	  on activitynode_ref 134936 // activity_final
+	end
+      end
+
+      activitynode 134936 activity_final "Final"
+      end
+    end
+
+    activity 134680 "Comprar billete"
+      activitydiagram 161944 "Comprar bilete (DA)"
+	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+	show_infonote default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      activitynode 135064 initial_node "Inicio"
+	flow 135960 "<flow>"
+	  on activityaction_ref 135192 // activity action Crear compra
+	end
+      end
+
+      activityaction 135192 "Crear compra"
+	opaque_action
+	flow 136088 "<flow>"
+	  on activityaction_ref 135320 // activity action Introducir datos pasajero
+	end
+      end
+
+      activityaction 135320 "Introducir datos pasajero"
+	opaque_action
+	flow 136216 "<flow>"
+	  on activityaction_ref 135448 // activity action Validar datos
+	end
+      end
+
+      activityaction 135448 "Validar datos"
+	opaque_action
+	flow 136344 "<flow>"
+	  on activitynode_ref 135192 // merge
+	end
+
+	flow 136856 "<flow>"
+	  on activitynode_ref 135320 // decision
+	end
+      end
+
+      activitynode 135192 merge ""
+	flow 136472 "[no datos validos]"
+	  on activityaction_ref 135320 // activity action Introducir datos pasajero
+	end
+      end
+
+      activityaction 135576 "Crear billete"
+	opaque_action
+	flow 136984 "<flow>"
+	  on activitynode_ref 135448 // decision
+	end
+      end
+
+      activitynode 135320 decision ""
+	flow 136600 "[datos validos]"
+	  on activityaction_ref 135576 // activity action Crear billete
+	end
+
+	flow 136728 "[no datos validos]"
+	  on activityaction_ref 135320 // activity action Introducir datos pasajero
+	end
+      end
+
+      activitynode 135448 decision ""
+	flow 137112 "[no compra finalizada]"
+	  on activityaction_ref 135320 // activity action Introducir datos pasajero
+	end
+
+	flow 137240 "[compra finalizada]"
+	  on activityaction_ref 135704 // activity action Guardar compra
+	end
+      end
+
+      activityaction 135704 "Guardar compra"
+	opaque_action
+	flow 137368 "<flow>"
+	  on activityaction_ref 135832 // activity action Iniciar pago
+	end
+      end
+
+      activityaction 135832 "Iniciar pago"
+	opaque_action
+	flow 137496 "<flow>"
+	  on activitynode_ref 135576 // activity_final
+	end
+      end
+
+      activitynode 135576 activity_final "Final"
+      end
+    end
+
+    activity 134808 "Ver info vuelo contratado"
+      activitydiagram 162072 "Ver info vuelo contratado (DA)"
+	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations no shadow default
+	show_infonote default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      activitynode 135704 initial_node "Inicio"
+	flow 137624 "<flow>"
+	  on activityaction_ref 135960 // activity action Comprobar datos compra
+	end
+      end
+
+      activityaction 135960 "Comprobar datos compra"
+	opaque_action
+	flow 137752 "<flow>"
+	  on activitynode_ref 135832 // decision
+	end
+      end
+
+      activitynode 135832 decision ""
+	flow 137880 "[no hay compras realizadas]"
+	  on activitynode_ref 135960 // activity_final
+	end
+
+	flow 138008 "[hay compras realizadas]"
+	  on activityaction_ref 136088 // activity action Cargar datos billetes
+	end
+      end
+
+      activitynode 135960 activity_final "Final"
+      end
+
+      activityaction 136088 "Cargar datos billetes"
+	opaque_action
+	flow 138136 "<flow>"
+	  on activityaction_ref 136216 // activity action Cargar vuelos
+	end
+      end
+
+      activityaction 136216 "Cargar vuelos"
+	opaque_action
+	flow 138264 "<flow>"
+	  on activityaction_ref 136344 // activity action Mostrar información de vuelos contratados
+	end
+      end
+
+      activityaction 136344 "Mostrar información de vuelos contratados"
+	opaque_action
+	flow 138392 "<flow>"
+	  on activitynode_ref 136088 // decision
+	end
+
+	flow 138648 "<flow>"
+	  on activitynode_ref 136088 // decision
+	end
+      end
+
+      activitynode 136088 decision ""
+	flow 138520 "[salir]"
+	  on activitynode_ref 136216 // activity_final
+	end
+
+	flow 138776 "[selección vuelo]"
+	  on activityaction_ref 136472 // activity action Mostrar detalles vuelo
+	end
+      end
+
+      activitynode 136216 activity_final "Final"
+      end
+
+      activityaction 136472 "Mostrar detalles vuelo"
+	opaque_action
+	flow 138904 "<flow>"
+	  on activitynode_ref 136344 // activity_final
+	end
+      end
+
+      activitynode 136344 activity_final "Final"
+      end
+    end
+
+    activity 134936 "Registrarse"
+      activitydiagram 162200 "Registrarse (DA)"
+	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+	show_infonote default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      activitynode 136472 initial_node "Inicio"
+	flow 139032 "<flow>"
+	  on activityaction_ref 136600 // activity action Introducir datos
+	end
+      end
+
+      activityaction 136600 "Introducir datos"
+	opaque_action
+	flow 139160 "<flow>"
+	  on activityaction_ref 136728 // activity action Validar datos
+	end
+      end
+
+      activityaction 136728 "Validar datos"
+	opaque_action
+	flow 139288 "<flow>"
+	  on activitynode_ref 136600 // decision
+	end
+      end
+
+      activitynode 136600 decision ""
+	flow 139416 "[datos validos]"
+	  on activityaction_ref 136856 // activity action Crear usuario
+	end
+
+	flow 139544 "[no datos validos]"
+	  on activityaction_ref 136600 // activity action Introducir datos
+	end
+      end
+
+      activityaction 136856 "Crear usuario"
+	opaque_action
+	flow 139672 "<flow>"
+	  on activityaction_ref 136984 // activity action Guardar usuario
+	end
+      end
+
+      activityaction 136984 "Guardar usuario"
+	opaque_action
+	flow 139800 "<flow>"
+	  on activitynode_ref 136728 // activity_final
+	end
+      end
+
+      activitynode 136728 activity_final "Final"
       end
     end
   end

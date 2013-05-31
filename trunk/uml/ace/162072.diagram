@@ -1,0 +1,97 @@
+format 76
+
+activitynodecanvas 128024 activitynode_ref 135704 // initial_node
+  xyz 56 90 2000
+end
+activityactioncanvas 128152 activityaction_ref 135960 // activity action Comprobar datos compra
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 126 62 2000 127 81
+end
+activitynodecanvas 128408 activitynode_ref 135832 // decision
+  xyz 323 85 2000
+end
+activitynodecanvas 128664 activitynode_ref 135960 // activity_final
+  xyz 324 248 2000
+end
+activityactioncanvas 128920 activityaction_ref 136088 // activity action Cargar datos billetes
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 558 62 2000 112 81
+end
+activityactioncanvas 129176 activityaction_ref 136216 // activity action Cargar vuelos
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 564 200 2000 100 60
+end
+activityactioncanvas 129304 activityaction_ref 136344 // activity action Mostrar información de vuelos contratados
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 553 308 2005 122 107
+end
+activitynodecanvas 129688 activitynode_ref 136088 // decision
+  xyz 436 343 2000
+end
+activitynodecanvas 129944 activitynode_ref 136216 // activity_final
+  xyz 308 350 2000
+end
+activityactioncanvas 130200 activityaction_ref 136472 // activity action Mostrar detalles vuelo
+  show_infonote default drawing_language default show_stereotype_properties default
+  show_opaque_action_definition default
+  xyzwh 391 482 2000 118 83
+end
+activitynodecanvas 130712 activitynode_ref 136344 // activity_final
+  xyz 437 622 2000
+end
+flowcanvas 128280 flow_ref 137624 // <flow>
+  
+  from ref 128024 z 2001 to ref 128152
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 128536 flow_ref 137752 // <flow>
+  
+  from ref 128152 z 2001 to ref 128408
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 128792 flow_ref 137880 // [no hay compras realizadas]
+  
+  from ref 128408 z 2001 label "[no hay compras realizadas]" xyz 118 184 3000 to ref 128664
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129048 flow_ref 138008 // [hay compras realizadas]
+  
+  from ref 128408 z 2001 label "[hay compras realizadas]" xyz 357 71.5 3000 to ref 128920
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129432 flow_ref 138136 // <flow>
+  
+  from ref 128920 z 2001 to ref 129176
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 129560 flow_ref 138264 // <flow>
+  
+  from ref 129176 z 2006 to ref 129304
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 130072 flow_ref 138520 // [salir]
+  decenter_begin 513
+  
+  from ref 129688 z 2001 label "[salir]" xyz 362 329 3000 to ref 129944
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 130456 flow_ref 138648 // <flow>
+  
+  from ref 129304 z 2006 to ref 129688
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 130584 flow_ref 138776 // [selección vuelo]
+  
+  from ref 129688 z 2001 label "[selección vuelo]" xyz 319 426 3000 to ref 130200
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+flowcanvas 130840 flow_ref 138904 // <flow>
+  
+  from ref 130200 z 2001 to ref 130712
+  show_infonote default drawing_language default show_stereotype_properties default write_horizontally default
+end
+end
