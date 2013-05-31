@@ -118,6 +118,12 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 				PantallaEditarDatosPersonales.this.introducirDatos();
 			}
 		});
+		/**
+		 * Al pulsarse el botón de modificar contraseña, se abre una nueva ventana desde la que puedes restablecerla.
+		 * Se requiere de la contraseña actual para modificarla a una nueva. Si se introduce la contraseña actual 
+		 * mal tres veces, el sistema se bloquea 15 segundos por lo que el usuario deberá esperar hasta poder volver a 
+		 * intentarlo.
+		 */
 		_botonMofidicarContrasena.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -151,6 +157,9 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 				_botonContrasena.addActionListener(new ActionListener(){
 				int contador = 0;
 				boolean espera = false;
+				/**
+				 * Este método pone los campos de la pantalla vacíos.
+				 */
 					private void reseteaCampos(){
 						_textContrasenaAntigua.setText("");
 						_textContrasenaNueva.setText("");
@@ -165,7 +174,7 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 							if(_usuario.comprobarContrasena(contrAntigua)){
 								if(contrNueva.equals(contrNuevarep)){
 									_usuario.meteContrasena(contrNueva);
-									ventana.dispose();
+									ventana.dispose(); //cierra y elimina del sistema la ventana
 								} else {
 									reseteaCampos();
 									JOptionPane.showMessageDialog(ventana, "Las contraseñas no coincide");
@@ -205,10 +214,6 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 				ventana.add(panel);
 				ventana.setVisible(true);
 			}
-			private JPasswordField _textContrasenaAntigua, _textContrasenaNueva, _textContrasenaNuevaRep;
-			private JButton _botonContrasena;
-			private JLabel _etiquetaTiempo;
-			
 			class Texteable implements Runnable {
 				int toText;
 				public Texteable(int toText) {
@@ -223,7 +228,13 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 						_etiquetaTiempo.setText("");
 				}
 			}
+			
+			//Atributos que son los componentes de la ventana
+			private JPasswordField _textContrasenaAntigua, _textContrasenaNueva, _textContrasenaNuevaRep;
+			private JButton _botonContrasena;
+			private JLabel _etiquetaTiempo;
 		});
+		//añadimos los componentes restantes a la ventana principal de editar datos.
 		panelBotones.add(_botonMofidicarContrasena, BorderLayout.WEST);
 		panelBotones.add(Box.createHorizontalGlue(), BorderLayout.CENTER);
 		panelBotones.add(_botonGuardar, BorderLayout.EAST);
@@ -249,8 +260,6 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 	@Override
 	public void estableceContexto(ManejadorPantallas manejador, FabricaPantallas fabrica, Sesion sesion) {
 		_sesion = sesion;
-		_mnj = manejador;
-		_fabrica = fabrica;
 	}
 	/**
 	 * Método que lee los datos de la pantalla y realiza el guardado de los datos
@@ -344,12 +353,4 @@ public class PantallaEditarDatosPersonales extends Pantalla {
 	 * Sesion iniciada por un usuario que es el que quiere modificar sus datos.
 	 */
 	private Sesion _sesion;
-	/**
-	 * Atributo que maneja las pantallas de la aplicación.
-	 */
-	private ManejadorPantallas _mnj;
-	/**
-	 * Atributo que fabrica pantallas para la aplicación.
-	 */
-	private FabricaPantallas _fabrica;
 }
