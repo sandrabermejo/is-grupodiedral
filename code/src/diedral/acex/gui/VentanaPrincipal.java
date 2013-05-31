@@ -257,7 +257,7 @@ public class VentanaPrincipal extends javax.swing.JFrame implements ManejadorPan
 		/**
 		 * Pila de pantallas
 		 */
-		private Queue<Pantalla> _pantallas = new ArrayDeque<>();
+		private Queue<Pantalla> _pantallas = new ArrayDeque<Pantalla>();
 		
 		/**
 		 * Card Layout

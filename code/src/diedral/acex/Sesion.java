@@ -98,7 +98,7 @@ public class Sesion implements Serializable {
 	/**
 	 * Oyentes de cambios
 	 */
-	private Set<OyenteCambios<Sesion>> _oyentes = new HashSet<>();
+	private Set<OyenteCambios<Sesion>> _oyentes = new HashSet<OyenteCambios<Sesion>>();
 
 	/**
 	 * Serial UID

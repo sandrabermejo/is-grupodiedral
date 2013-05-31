@@ -38,8 +38,8 @@ public class Vuelo implements Serializable {
 		_fllegada = null;
 		_avion = null;
 		_npasajeros = 0;
-		_pasajeros = new TreeSet<>();		
-		_escalas = new ArrayList<>();
+		_pasajeros = new TreeSet<Pasajero>();		
+		_escalas = new ArrayList<Escala>();
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class Vuelo implements Serializable {
 		_fllegada = llegada;
 		_avion = avion;
 		_npasajeros = pasajeros;
-		_pasajeros = new TreeSet<>();
+		_pasajeros = new TreeSet<Pasajero>();
 		_escalas = escalas;
 	}
 	
