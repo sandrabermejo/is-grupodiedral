@@ -1,6 +1,6 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 38
+  revision 39
   modified_by 24 "hlocal"
   // class settings
   //class diagram settings
@@ -3163,6 +3163,16 @@ ${members}}
 	
 	
       end
+
+      operation 142872 "dameCompras"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	
+	
+      end
     end
 
     class 138123 "Oferta"
@@ -3386,6 +3396,18 @@ ${members}}
 	  param in name "billete" type class_ref 142869 // Billete
 	
 	
+	
+	
+	
+      end
+
+      operation 143000 "dameBilletes"
+	public explicit_return_type ""
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
 	
 	
 	
