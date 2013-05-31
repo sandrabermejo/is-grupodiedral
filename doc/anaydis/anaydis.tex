@@ -152,27 +152,33 @@ pdfinfo={
 				\begin{center}
 					\includegraphics[scale=.7]{analisis/diagramas/da_pagotarjeta.pdf}
 				\end{center}
-
+				El caso de uso {\itshape Realizar pago con tarjeta} tiene la funcionalidad de terminar el proceso de pagado del pedido, pidiendo al usuario los datos del titular y número de cuenta. Después, realiza una comprobación de dichos datos conectando con la entidad financiera correspondiente para que pueda validar y comprobar la liquidez de la cuenta. Posteriormente carga el pago y pone la compra como finalizada, ya que en nuestra aplicación siempre va a ser correcto el pago pues no hay ningún tipo de conexión externo ni comprobaciones complicadas.
+				
 			\subsubsection{Presentar reclamación}
 				\begin{center}
 					\includegraphics[scale=.82]{analisis/diagramas/da_presentarreclamacion.pdf}
 				\end{center}
+				Este caso de uso se basa en recoger una sugerencia introducida por un usuario para así después procesarla y enviarla al sistema de la base de datos de la compañía.
 
 			\subsubsection{Registrarse}
 				\begin{center}
 					\includegraphics[scale=.8]{analisis/diagramas/da_registrarse.pdf}
 				\end{center}
+				
+				El caso de uso {\itshape Registrarse} es el que permite registrar y guardar usuarios en el sistema. 
+				Comienza cuando el cliente introduce sus datos y los valida, pudiendo ser estos no válidos y se volvería a pedir al usuario los datos, o pudiendo ser válidos y seguir el proceso con normalidad. Si es así, se creará un nuevo usuario y el sistema lo procesará para guardarlo en la base de datos.
 
 			\subsubsection{Restablecer contraseña}
 				\begin{center}
 					\includegraphics[scale=.8]{analisis/diagramas/da_restablecercontrasena.pdf}
 				\end{center}
-
+				Este caso de uso permitirá al usuario restablecer la contraseña. El sistema envía al usuario a través del servidor un eMail de confirmación de restablecimiento de la contraseña, para que el usuario seleccione el mail, el servidor web lo redireccione al lugar donde el usuario puede cambiar sus datos. Este introduce la contraseña y se procesa para su validación. Si es válida, se modifica la contraseña, y si no es válida se muestra un mensaje de error.
+				
 			\subsubsection{Ver información de vuelo contratado}
 				\begin{center}
 					\includegraphics[scale=.8]{analisis/diagramas/da_verinfovuelocontratado.pdf}
 				\end{center}
-
+				En este caso de uso se comienza comprobando los datos de las compras realizadas. Se evalúa si dichas compras existen, pues en caso negativo la operación termina. En el otro caso, se cargan los datos de los billetes y los vuelos para poder posteriormente mostrar la información de los vuelos contratados. Una vez aquí, si el usuario no selecciona ningún vuelo, el proceso termina. Si selecciona un vuelo, se muestran los detalles del vuelo pulsado y finaliza el caso de uso.
 
 	\newpage
 	
