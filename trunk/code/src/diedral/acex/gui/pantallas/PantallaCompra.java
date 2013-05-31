@@ -5,11 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Vector;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -20,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.text.MaskFormatter;
 
 import diedral.acex.Dni;
 import diedral.acex.Pasajero;
@@ -32,7 +27,6 @@ import diedral.acex.excepciones.FormatoIncorrectoException;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
-import diedral.acex.scentral.GestorVuelos;
 import diedral.acex.ventas.Billete;
 import diedral.acex.ventas.Compra;
 

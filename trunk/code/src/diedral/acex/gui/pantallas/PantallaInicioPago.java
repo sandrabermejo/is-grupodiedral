@@ -1,7 +1,6 @@
 package diedral.acex.gui.pantallas;
 
 import java.awt.BorderLayout;
-import java.awt.Checkbox;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import diedral.acex.Compra;
+import diedral.acex.ventas.Compra;
 import diedral.acex.Sesion;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
