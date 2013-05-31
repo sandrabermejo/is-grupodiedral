@@ -1,44 +1,42 @@
 format 76
 
 classinstance 128007 class_ref 134663 // PantallaMuestraOfertas
-  name ""   xyz 87 41 2000 life_line_z 2000
+  name ""   xyz 30 32 2000 life_line_z 2000
 classinstance 128135 class_ref 135303 // GestorOfertas
-  name ""   xyz 459 62 2000 life_line_z 2000
-note 129031 "Completar con un loop al objeto oferta
-pidiendole vuelos y demás
-Quizá añadir busqueda por condiciones"
-  xyzwh 214 265 2000 259 135
+  name ""   xyz 367 34 2000 life_line_z 2000
 durationcanvas 128263 classinstance_ref 128007 // :PantallaMuestraOfertas
-  xyzwh 178 120 2010 11 40
+  xyzwh 117 98 2010 11 209
 end
 durationcanvas 128391 classinstance_ref 128135 // :GestorOfertas
-  xyzwh 515 112 2010 11 68
+  xyzwh 420 104 2010 11 160
 end
-durationcanvas 128647 classinstance_ref 128007 // :PantallaMuestraOfertas
-  xyzwh 178 169 2010 11 25
-end
-durationcanvas 129159 classinstance_ref 128007 // :PantallaMuestraOfertas
-  xyzwh 178 217 2010 11 40
-end
-durationcanvas 129287 classinstance_ref 128135 // :GestorOfertas
-  xyzwh 515 217 2010 11 25
-end
+msg 128024 return
+  from durationcanvas_ref 128391
+  to durationcanvas_ref 128263
+  yz 144 3005 explicitmsg "gstr"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 278 125
+msg 128280 asynchronous
+  from durationcanvas_ref 128263
+  to durationcanvas_ref 128391
+  yz 191 2025 msg operation_ref 136455 // "dameOfertas() : Oferta [1..*]"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 239 172
 msg 128519 synchronous
   from durationcanvas_ref 128263
   to durationcanvas_ref 128391
-  yz 121 2015 msg operation_ref 136327 // "dameInstancia() : GestorOfertas"
+  yz 114 2015 msg operation_ref 136327 // "dameInstancia() : GestorOfertas"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 242 102
-msg 128775 return
+  label_xy 228 92
+msg 128536 return
   from durationcanvas_ref 128391
-  to durationcanvas_ref 128647
-  yz 169 2015 explicitmsg "gstr"
+  to durationcanvas_ref 128263
+  yz 225 2015 explicitmsg "ofertas"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 314 150
-msg 129415 synchronous
-  from durationcanvas_ref 129159
-  to durationcanvas_ref 129287
-  yz 218 2015 msg operation_ref 136455 // "dameOfertas() : Oferta [1..*]"
+  label_xy 249 206
+reflexivemsg 129304 asynchronous
+  to durationcanvas_ref 128263
+  yz 270 2025 explicitmsg "mostrarOfertas(ofertas)"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 296 199
+  label_xy 165 263
 end

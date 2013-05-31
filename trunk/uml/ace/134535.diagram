@@ -3,56 +3,41 @@ format 76
 classinstance 128007 class_ref 134791 // PantallaConfirmacionCompra
   name ""   xyz 44 12 2000 life_line_z 2000
 classinstance 128135 class_ref 134535 // Pago
-  name "pago"   xyz 348 58 2000 life_line_z 2000
-durationcanvas 128263 classinstance_ref 128007 // :PantallaConfirmacionCompra
-  xyzwh 156 137 2010 11 26
-end
-durationcanvas 128391 classinstance_ref 128135 // pago:Pago
-  xyzwh 388 136 2010 11 45
-end
-durationcanvas 129159 classinstance_ref 128007 // :PantallaConfirmacionCompra
-  xyzwh 156 210 2010 11 40
-end
-durationcanvas 129287 classinstance_ref 128135 // pago:Pago
-  xyzwh 388 211 2010 11 61
-end
-durationcanvas 129543 classinstance_ref 128007 // :PantallaConfirmacionCompra
-  xyzwh 156 257 2010 11 30
-end
+  name "pago"   xyz 343 9 2000 life_line_z 2000
 durationcanvas 129799 classinstance_ref 128007 // :PantallaConfirmacionCompra
-  xyzwh 156 324 2010 11 44
+  xyzwh 153 131 2010 11 236
 end
 durationcanvas 129927 classinstance_ref 128135 // pago:Pago
-  xyzwh 388 325 2010 11 43
+  xyzwh 383 136 2010 11 228
 end
 msg 128519 synchronous
-  from durationcanvas_ref 128263
-  to durationcanvas_ref 128391
-  yz 137 2015 explicitmsg "establecerImporte"
+  from durationcanvas_ref 129799
+  to durationcanvas_ref 129927
+  yz 138 2015 explicitmsg "establecerImporte"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 218 118
+  label_xy 218 119
 msg 129415 asynchronous
-  from durationcanvas_ref 129159
-  to durationcanvas_ref 129287
-  yz 211 2015 msg operation_ref 128263 // "obtenerSobrecoste() : double"
+  from durationcanvas_ref 129799
+  to durationcanvas_ref 129927
+  yz 210 2015 msg operation_ref 128263 // "obtenerSobrecoste() : double"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 200 192
+  label_xy 200 191
 msg 129671 return
-  from durationcanvas_ref 129287
-  to durationcanvas_ref 129543
-  yz 259 2015 explicitmsg "comision"
+  from durationcanvas_ref 129927
+  to durationcanvas_ref 129799
+  yz 248 2015 explicitmsg "comision"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 243 240
+  label_xy 243 229
 msg 130055 synchronous
   from durationcanvas_ref 129799
   to durationcanvas_ref 129927
-  yz 325 2015 msg operation_ref 128391 // "efectuar() : bool"
+  yz 320 2015 msg operation_ref 128391 // "efectuar() : bool"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 240 306
+  label_xy 240 301
 msg 130183 return
   from durationcanvas_ref 129927
   to durationcanvas_ref 129799
-  yz 357 2020 explicitmsg "ok"
+  yz 350 2020 explicitmsg "ok"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 268 338
+  label_xy 268 331
 end
