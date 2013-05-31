@@ -69,40 +69,295 @@ pdfinfo={
 
 	\iniciarnumeraciondiedral
 
-	\begin{prologo}
-		
+	\parskip = .2cm
 
-		Esta información ha sido especificada por medio del \itshape{Lenguaje Unificado de Modelado} (UML).
-
-	\paragraph*{Nota sobre herramientas empleadas:} para la elaboración de los diagramas se ha utilizado el\break programa {\normalfont BoUML} en su versión {\normalfont 4.23 patch 7 `ultimate'}.
-	\end{prologo}
-
-	% -- Introdución
-	\section{Introdución}
+	% -- Introducción
+	\section{Introducción}
 		\subsection{Propósito}
-			Este documentación recoge la documentación genearda durante las fases de análisis y diseño del proyecto.
+			Este documento recoge la documentación generada durante las fases de análisis y diseño del módulo de \textit{Gestión Externa} del proyecto de Ingeniería del Software \textit{Airline Common Environment}.
 
-			Este documento recoge la documentación generada durante la fase de análisis del proyecto. En primer lugar se incluye el diagrama de modelo de dominio que presenta y relaciona los conceptos generales relacionados con el dominio del producto. A continuación se introduce el diagrama de paquetes. Finalmente se muestra el análisis detallado del paquete {\itshape Gestión Externa}, incluyendo el diagrama de clases y los diferentes diagramas de comunicación correspondientes a cada caso de uso.\\
+			En primer lugar se incluye la parte correspondiente al análisis de requisitos que recoge el diagrama de modelo de dominio, en el que se presentan y relacionan los conceptos generales procedentes del dominio del producto; y los diagramas de actividad, que enuncian el flujo de comportamiento de los casos de uso.
+
+			La siguiente sección del documento desarrolla los diagramas generados durante la fase de análisis: el diagrama de paquetes, el diagrama de clases de análisis y los diferentes diagramas de comunicación correspondientes a cada caso de uso.
+
+			Finalmente se incluye la documentación de diseño que comprende los diagramas de secuencia y el diagrama de clases de diseño junto con epígrafes explicativos del diseño y los patrones empleados.
+
+
+		Esta información ha sido especificada por medio del {\itshape Lenguaje Unificado de Modelado} (UML).
+
+		\paragraph*{Nota sobre herramientas empleadas:} para la elaboración de los diagramas se ha utilizado el\break programa {\normalfont BoUML} en su versión {\normalfont 4.23 patch 7 `ultimate'}.
+
 
 	% -- Requisitos
 	\section{Requisitos}
 		\subsection{Modelo de dominio}
-
+				\begin{center}
+					\hspace*{-.5cm}
+					\includegraphics[scale=.722]{analisis/diagramas/modelodominio.pdf}
+				\end{center}	
+			\newpage
 		\subsection{Diagramas de actividad}
+			\subsubsection{Acceder web}
+				\begin{center}
+					\includegraphics[scale=.67]{analisis/diagramas/da_accederweb.pdf}
+				\end{center}
+
+				Para acceder a la web, el usuario introduce sus datos identificativos, se comprueba la validez de éstos y si son válidos, el usuario se considera identificado lo que le concede acceso a las funcionalidades de la aplicación que así lo requieran. En caso de que los datos sean erróneos se advierte al usuario de ello y vuelve a la inserción de datos.
+
+			\subsubsection{Comprar billete}
+				\begin{center}
+					\includegraphics[scale=.72]{analisis/diagramas/da_comprarbillete.pdf}
+				\end{center}
+
+			\subsubsection{Consultar oferta}
+				\begin{center}
+					\includegraphics[scale=.7]{analisis/diagramas/da_consultaroferta.pdf}
+				\end{center}
+
+			\subsubsection{Consultar vuelos}
+				\begin{center}
+					\includegraphics[scale=.71]{analisis/diagramas/da_consultarvuelos.pdf}
+				\end{center}
+			
+			\subsubsection{Editar datos personales}
+				\begin{center}
+					\includegraphics[scale=.86]{analisis/diagramas/da_editardatospersonales.pdf}
+				\end{center}
+
+
+			\subsubsection{Iniciar pago billetes}
+				\begin{center}
+					\includegraphics[scale=.76]{analisis/diagramas/da_iniciarpagobilletes.pdf}
+				\end{center}
+
+				El caso de uso {\itshape Iniciar pago billetes} se encarga de conectar el caso de uso {\itshape Comprar billete} con los diferentes métodos de pago.
+
+				Al sólo haber desarrollado un método de pago el flujo de comportamiento queda de la siguiente forma: se muestran los datos y condiciones de la compra y el pago y se requiere la aceptación del usuario. Si el usuario rechaza las condiciones se aborta la operación. Si las acepta se prepara el billete para el pago y se conecta con el método de pago correspondiente.
+
+			\subsubsection{Mostrar ofertas}
+				\begin{center}
+				\includegraphics[scale=.72]{analisis/diagramas/da_mostrarofertas.pdf}
+				\end{center}
+
+			\subsubsection{Realizar pago con tarjeta}
+				\begin{center}
+					\includegraphics[scale=.7]{analisis/diagramas/da_pagotarjeta.pdf}
+				\end{center}
+
+			\subsubsection{Presentar reclamación}
+				\begin{center}
+					\includegraphics[scale=.82]{analisis/diagramas/da_presentarreclamacion.pdf}
+				\end{center}
+
+			\subsubsection{Registrarse}
+				\begin{center}
+					\includegraphics[scale=.8]{analisis/diagramas/da_registrarse.pdf}
+				\end{center}
+
+			\subsubsection{Restablecer contraseña}
+				\begin{center}
+					\includegraphics[scale=.8]{analisis/diagramas/da_restablecercontrasena.pdf}
+				\end{center}
+
+			\subsubsection{Ver información de vuelo contratado}
+				\begin{center}
+					\includegraphics[scale=.8]{analisis/diagramas/da_verinfovuelocontratado.pdf}
+				\end{center}
+
 
 	\newpage
 	
 	% -- Análisis
+\begin{landscape}
 	\section{Análisis}
 		\subsection{Diagrama de paquetes}
+		\vfill
+		\begin{center}
+			\hspace*{-.5cm}
+			\includegraphics[scale=1]{analisis/diagramas/paquetes.pdf}
+		\end{center}
+		\vfill
+\end{landscape}
 		\subsection{Diagramas de comunicación}
-		\subsubsection{Diagrama de clases}
+			\subsubsection{Acceder web}
+				\begin{center}
+					\includegraphics[scale=.75]{analisis/diagramas/accederweb.pdf}
+				\end{center}
+
+				A través de la interfaz {\itshape PáginaAcceso} el usuario introduce sus datos de identificación personal (a saber, su nombre de usuario y contraseña). El sistema busca en la base de datos de usuarios registrados (representada en {\itshape RegistroUsuarios}) un usuario que se corresponda con los datos aportados. Si fuese necesario se cargarían las preferencias personales del usuario. Al finalizar la secuencia el usuario tiene una sesión activa que le da acceso a otras características de la aplicación.
+
+				La entidad {\itshape Usuario} representa a un usuario registrado de la página web, que no es necesariamente un cliente. La entidad lo representa por medio de unos datos personales básicos como puede ser un identificador único, una clave secreta y una dirección de contacto.
+
+			\subsubsection{Comprar billete}
+				\begin{center}
+					\includegraphics[scale=.72]{analisis/diagramas/comprarbillete.pdf}
+				\end{center}
+
+			\subsubsection{Consultar oferta}
+				\begin{center}
+					\includegraphics[scale=.85]{analisis/diagramas/consultaroferta.pdf}
+				\end{center}
+
+			\subsubsection{Consultar vuelos}
+				\begin{center}
+					\includegraphics[scale=.71]{analisis/diagramas/consultarvuelos.pdf}
+				\end{center}
+			
+			\subsubsection{Editar datos personales}
+				\begin{center}
+					\includegraphics[scale=.86]{analisis/diagramas/editardatospersonales.pdf}
+				\end{center}
+
+
+			\subsubsection{Iniciar pago billetes}
+				\begin{center}
+					\includegraphics[scale=.76]{analisis/diagramas/iniciarpagobilletes.pdf}
+				\end{center}
+
+					El caso de uso {\itshape Iniciar Pago de Billetes} recibe los datos de un billete de vuelo (en el diseño se ha generalizado a una asociación de billetes denominada {\itshape compra}) y tras mostrar una página de confirmación al usuario de las condiciones de la misma, se procede a la confección del billete y a la selección del método de pago\footnote{Realmente sólo se ha desarrollado un método de pago (\nameref{ana:tarjeta}) por lo que la selección del método se hace automáticamente.}. Finalmente el caso de uso se comunica con el método de pago seleccionado (a través de una interfaz conveniente) para continuar la operación.
+
+			\subsubsection{Mostrar ofertas}
+				\begin{center}
+					\includegraphics[scale=.72]{analisis/diagramas/mostrarofertas.pdf}
+				\end{center}
+
+			\subsubsection{Realizar pago con tarjeta} \label{ana:tarjeta}
+				\begin{center}
+					\includegraphics[scale=.7]{analisis/diagramas/pagotarjeta.pdf}
+				\end{center}
+
+			\subsubsection{Presentar reclamación}
+				\begin{center}
+					\includegraphics[scale=.82]{analisis/diagramas/presentarreclamacion.pdf}
+				\end{center}
+
+			\subsubsection{Registrarse}
+				\begin{center}
+					\includegraphics[scale=.8]{analisis/diagramas/registrarse.pdf}
+				\end{center}
+
+			\subsubsection{Restablecer contraseña}
+				\begin{center}
+					\includegraphics[scale=.77]{analisis/diagramas/restablecercontrasena.pdf}
+				\end{center}
+
+			\subsubsection{Ver información de vuelo contratado}
+				\begin{center}
+					\includegraphics[scale=.8]{analisis/diagramas/verinfovuelocontratado.pdf}
+				\end{center}
+
+\begin{landscape}
+		\subsection{Diagrama de clases}
+			\begin{center}
+				\vspace{2cm}
+				\hspace{-2cm}
+				\includegraphics[scale=1]{analisis/diagramas/diagramaclases.pdf}
+			\end{center}	
+\end{landscape}
+\begin{landscape}
+			\begin{center}
+				\includegraphics[scale=1]{analisis/diagramas/sitioweb.pdf}
+			\end{center}
+\end{landscape}
 	\newpage
 
 	% -- Diseño
 	\section{Diseño}
+		\subsection{Introducción}
+			La interfaz de gestión externa se ha implementado como una aplicación gráfica de escritorio utilizando la biblioteca gráfica {\itshape Swing} del lenguaje de programación {\itshape Java}.
+
+			Por un lado se encuentran las clases representantes de objetos del dominio (como \textit{Vuelo}, \textit{Billete}, \textit{Pasajero} \ldots) y otras clases artificiales que realizan funciones necesarias para la aplicación (siguiendo el criterio GRASP de la \textit{fabricación pura}), especialmente en lo concerniente al manejo y la persistencia de los datos.
+
+			Otra parte de la aplicación la componen las clases relacionadas con la comunicación con el usuario por medio de la interfaz gráfica. El modelo consiste en una \textit{VentanaPrincipal} compuesta por varias clases auxiliares que contiene un marco intercambiable donde se muestran las diferentes pantallas correspondientes a los diferentes casos de uso. Al tratarse de la interfaz externa, la aplicación se ha diseñado con cierta apariencia de página web.
+
+			Para la puesta en práctica del almacenamiento de los datos se ha utilizado la \textit{serialización} de Java con aquellos objetos que así lo requieren.
+
 		\subsection{Diagramas de secuencia}
+			\subsubsection{Acceder web}
+				\begin{center}
+					\includegraphics[scale=.7]{diseno/diagramas/accederweb.pdf}
+				\end{center}
+
+			\subsubsection{Comprar billete}
+				\begin{center}
+					\includegraphics[scale=.67]{diseno/diagramas/comprarbillete.pdf}
+				\end{center}
+
+			\subsubsection{Consultar oferta}
+				\begin{center}
+					\includegraphics[scale=.7]{diseno/diagramas/consultaroferta.pdf}
+				\end{center}
+
+			\subsubsection{Consultar vuelos}
+				\begin{center}
+					\includegraphics[scale=.5]{diseno/diagramas/consultarvuelos.pdf}
+				\end{center}
+
+				La pantalla {\itshape PantallaConsultaVuelos} permite al usuario buscar vuelos por diferentes criterios (aeropuerto de salida, aeropuerto de llegada, fecha de salida, fecha de llegada, \ldots) y muestra los resultados de las búsquedas con la información básica que les corresponde. El usuario puede seleccionar una de las apariciones para ver una vista detallada del vuelo, con la información completa y poder desde allí acceder a la compra del billete.
+
+				{\itshape GestorVuelos} representa un administrador de vuelos que permite obtener listas filtradas de entre los disponibles por medio de los criterios especificados.
+			
+			\subsubsection{Editar datos personales}
+				\begin{center}
+					\includegraphics[scale=.6]{diseno/diagramas/editardatospersonales.pdf}
+				\end{center}
+
+
+			\subsubsection{Iniciar pago billetes}
+				\begin{center}
+					\includegraphics[scale=.6]{diseno/diagramas/iniciarpagobilletes.pdf}
+				\end{center}
+
+			\subsubsection{Mostrar ofertas}
+				\begin{center}
+					\includegraphics[scale=.7]{diseno/diagramas/mostrarofertas.pdf}
+				\end{center}
+
+			\subsubsection{Realizar pago con tarjeta}
+				\begin{center}
+					\includegraphics[scale=.7]{diseno/diagramas/pagotarjeta.pdf}
+				\end{center}
+
+			\subsubsection{Presentar reclamación}
+				\begin{center}
+					\includegraphics[scale=.7]{diseno/diagramas/presentarreclamacion.pdf}
+				\end{center}
+
+				Por medio de la pantalla {\itshape PantallaSugerencias} el usuario expone su sugerencia, incluyendo con ella --de forma opcional-- su nombre y una dirección de contacto donde recibir respuesta. {\itshape PantallaSugerencias} construye una sugerencia ({\itshape recl}) con los datos aportados. La operación de construcción de {\itshape Sugerencia} puede dar lugar a errores si el mensaje de sugerencia es vacío o la dirección de correo electrónico de contacto no se ajusta al formato. Si no se producen esos hechos habrá construida una {\itshape Sugerencia} válida que será enviada a la compañía por medio de la clase {\itshape GestorSugerencias} que devolverá un número identificativo del registro que deberá ser mostrado al usuario para futuras alegaciones.
+
+			\subsubsection{Registrarse}
+				\begin{center}
+					\includegraphics[scale=.5]{diseno/diagramas/registrarse.pdf}
+				\end{center}
+
+			\subsubsection{Restablecer contraseña}
+				\begin{center}
+					\includegraphics[scale=.6]{diseno/diagramas/restablecercontrasena.pdf}
+				\end{center}
+
+			\subsubsection{Ver información de vuelo contratado}
+				\begin{center}
+					\includegraphics[scale=.7]{diseno/diagramas/verinfovuelocontratado.pdf}
+				\end{center}
+			
 		\subsection{Diagrama de clases}
+			\begin{center}
+				\hspace{-2cm}
+				\includegraphics[scale=.57]{diseno/diagramas/diagramaclases.pdf}
+			\end{center}
+
+		\subsection{Aplicación de patrones de diseño}
+En el diseño de esta aplicación \software se han utilizado de forma intencionada o casual algunos patrones de diseño orientado a objetos que han sido explicados en clase.
+
+		Para la asignación de responsabilidades y relaciones a las clases se ha intentado aplicar el patrón \textit{Experto}, reducir el acoplamiento y 	mantener una alta cohesión.
+
+		A lo largo de toda la aplicación se puede observar el patrón GRASP denominado \textit{Polimorfismo}. Los ejemplos más notables son los métodos de pago (\textit{MetodoPago}) y las \textit{Pantalla}s asociadas a los casos de uso en la interfaz gráfica, casos que también son ejemplos del patrón \textit{Puente}.
+
+		En la interfaz gráfica se recurre también al patrón \textit{Observer}, bien organizado por el propio \textit{Swing} (\textit{Java}), bien implementado para usos particulares.
+
+		En las clases asociadas a la persistencia de los datos (en teoría, la comunicación con la base de datos; en la práctica, el control de archivos persistentes) se pone en práctica el modelo \textit{Solitario}, ya que es especialmente conveniente por la unicidad de la fuente de datos y la conveniencia de utilizar operaciones sobre instancias en lugar de métodos estáticos (por ejemplo la segunda posibilidad restringe las facilidades de serialización).
+
+		Una interpretación del patrón \textit{Visitante} es utilizada en los criterios de búsqueda a los que se les hace recorrer una lista de candidatos, comprobando en cada uno de ellos si cumplen los criterios establecidos.
 
 
 \end{document}
