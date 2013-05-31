@@ -118,12 +118,18 @@ public class GestorVuelos implements Serializable {
 			if (_destino != null && !_destino.equals(vuelo.dameDestino()))
 				return false;
 			
-			// (3) Fecha de salida
-			if (_fSalida != null && !_fSalida.equals(vuelo.dameFechaSalida()))
+			// (3) Fecha de salida (comprueba ambos extremos)
+			if (_fSalidaMin != null && _fSalidaMin.compareTo(vuelo.dameFechaSalida()) > 0 )
+				return false;
+			
+			if (_fSalidaMax != null && _fSalidaMax.compareTo(vuelo.dameFechaSalida()) < 0 )
 				return false;
 			
 			// (4) Fecha de salida
-			if (_fLlegada != null && !_fLlegada.equals(vuelo.dameFechaLlegada()))
+			if (_fLlegadaMin != null && _fLlegadaMin.compareTo(vuelo.dameFechaLlegada()) > 0)
+				return false;
+			
+			if (_fLlegadaMax != null && _fLlegadaMax.compareTo(vuelo.dameFechaLlegada()) < 0)
 				return false;
 			
 			
@@ -146,25 +152,31 @@ public class GestorVuelos implements Serializable {
 		 * @param destino Aeropuerto de destino.
  		 */
 		public void conDestino(Aeropuerto destino) {
-			this._destino = destino;
+			_destino = destino;
 		}
 
 		/**
 		 * Establece la fecha de salida.
 		 * 
-		 * @param fSalida Fecha de salida.
+		 * @param desde Cota inferior del intervalo de la fecha de salida,
+		 * {@code null} significará no acotado.
+		 * @param hasta Cota superior del intervalo de la fecha de salida.
 		 */
-		public void conSalida(GregorianCalendar fSalida) {
-			this._fSalida = fSalida;
+		public void conSalida(GregorianCalendar desde, GregorianCalendar hasta) {
+			_fSalidaMin = desde;
+			_fSalidaMax = hasta;
 		}
 
 		/**
 		 * Establece la fecha de llegada.
 		 * 
-		 * @param fLlegada Fecha de llegada.
+		 * @param desde Cota inferior del intervalo de la fecha de llegada,
+		 * {@code null} significará no acotado.
+		 * @param hasta Cota superior del intervalo de la fecha de llegada.
 		 */
-		public void conLlegada(GregorianCalendar fLlegada) {
-			this._fLlegada = fLlegada;
+		public void conLlegada(GregorianCalendar desde, GregorianCalendar hasta) {
+			_fLlegadaMin = desde;
+			_fLlegadaMax = hasta;
 		}
 		
 		
@@ -181,14 +193,24 @@ public class GestorVuelos implements Serializable {
 		private Aeropuerto _destino = null;
 		
 		/**
-		 * Fecha de salida
+		 * Cota inferior del intervalo de fecha de salida
 		 */
-		private GregorianCalendar _fSalida = null;
+		private GregorianCalendar _fSalidaMin = null;
 		
 		/**
-		 * Fecha de llegada
+		 * Cota superior del intervalo de fecha de salida
 		 */
-		private GregorianCalendar _fLlegada = null;
+		private GregorianCalendar _fSalidaMax = null;
+		
+		/**
+		 * Cota inferior del intervalo de fecha de llegada
+		 */
+		private GregorianCalendar _fLlegadaMin = null;
+		
+		/**
+		 * Cota superior del intervalo de fecha de llegada
+		 */
+		private GregorianCalendar _fLlegadaMax = null;
 	}
 	
 	// ATRIBUTOS PRIVADOS

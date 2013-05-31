@@ -12,8 +12,6 @@ import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.Set;
 import java.util.Vector;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -160,10 +158,10 @@ public class PantallaConsultaVuelos extends Pantalla {
 					criterio.conDestino(_destino.getItemAt(_destino.getSelectedIndex()));
 					
 					if (_fechaSalida.isEditValid())
-						criterio.conSalida(parseaFecha(_fechaSalida.getText()));
+						criterio.conSalida(parseaFecha(_fechaSalida.getText()), null);
 					
 					if (_fechaLlegada.isEditValid())
-						criterio.conSalida(parseaFecha(_fechaSalida.getText()));
+						criterio.conSalida(parseaFecha(_fechaSalida.getText()), null);
 					
 					Set<Vuelo> vuelos = GestorVuelos.dameInstancia().buscaVuelo(criterio);
 					
