@@ -1,7 +1,7 @@
 format 76
 "Gestión Externa" // Gestión Externa
-  revision 35
-  modified_by 21 "portatil"
+  revision 36
+  modified_by 24 "hlocal"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -4112,7 +4112,6 @@ ${members}}
 
       activitynode 129431 activity_final "Final"
       end
-
     end
 
     activity 128407 "Consultar Vuelos"
@@ -4319,6 +4318,69 @@ ${members}}
 	flow 128647 "<flow>"
 	  on activitynode_ref 128391 // activity_final
 	end
+      end
+    end
+
+    activity 128024 "Editar datos personales"
+      activitydiagram 155288 "Editar datos personales (DA)"
+	package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations no shadow default
+	show_infonote default drawing_language default show_stereotype_properties default
+	size A4
+      end
+
+      activitynode 128024 initial_node "Inicio"
+	flow 128024 "<flow>"
+	  on activityaction_ref 128024 // activity action Validar datos
+	end
+
+	flow 128280 "<flow>"
+	  on activityaction_ref 128152 // activity action Introducir datos
+	end
+      end
+
+      activityaction 128024 "Validar datos"
+	opaque_action
+	flow 128152 "<flow>"
+	  on activitynode_ref 128152 // decision
+	end
+      end
+
+      activitynode 128152 decision "Validación datos"
+	flow 128536 "[datos no validos]"
+	  on activityaction_ref 128152 // activity action Introducir datos
+	end
+
+	flow 128664 "<flow>"
+	  on activityaction_ref 128280 // activity action Crear usuario
+	end
+
+	flow 128792 "[datos validos]"
+	  on activityaction_ref 128280 // activity action Crear usuario
+	end
+      end
+
+      activityaction 128152 "Introducir datos"
+	opaque_action
+	flow 128408 "<flow>"
+	  on activityaction_ref 128024 // activity action Validar datos
+	end
+      end
+
+      activityaction 128280 "Crear usuario"
+	opaque_action
+	flow 128920 "<flow>"
+	  on activityaction_ref 128408 // activity action Reemplazar usuario
+	end
+      end
+
+      activityaction 128408 "Reemplazar usuario"
+	opaque_action
+	flow 129048 "<flow>"
+	  on activitynode_ref 128280 // activity_final
+	end
+      end
+
+      activitynode 128280 activity_final "Final"
       end
     end
   end

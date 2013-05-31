@@ -13,21 +13,12 @@ classinstance 131351 class_ref 144024 // GestorUsuarios
   name ""   xyz 563 19 2000 life_line_z 2000
 durationcanvas 128791 classinstance_ref 128663 // :PáginaEditarDatosPersonales
   xyzwh 111 119 2010 11 344
-  overlappingdurationcanvas 132759
-    xyzwh 117 248 2020 11 34
-  end
 end
 durationcanvas 130071 classinstance_ref 129047 // :GestorUsuarios
   xyzwh 471 141 2010 11 42
 end
 durationcanvas 131479 classinstance_ref 131351 // :GestorUsuarios
   xyzwh 622 268 2010 11 98
-  overlappingdurationcanvas 131991
-    xyzwh 628 276 2020 11 25
-  end
-  overlappingdurationcanvas 132247
-    xyzwh 628 323 2020 11 25
-  end
 end
 durationcanvas 132503 classinstance_ref 130455 // :Usuario
   xyzwh 549 224 2010 11 46
@@ -58,17 +49,17 @@ msg 131607 synchronous
   args "usuario, correo"
   label_xy 216 272
 reflexivemsg 132119 synchronous
-  to durationcanvas_ref 131991
-  yz 276 2025 msg operation_ref 151575 // "borraUsuario(in usuario : Usuario) : bool"
+  to durationcanvas_ref 131479
+  yz 268 2025 msg operation_ref 151575 // "borraUsuario(in usuario : Usuario) : bool"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "usuario"
-  label_xy 643 254
+  label_xy 637 246
 reflexivemsg 132375 synchronous
-  to durationcanvas_ref 132247
-  yz 323 2025 msg operation_ref 136983 // "meterUsuario(in usuario : Usuario)"
+  to durationcanvas_ref 131479
+  yz 268 2025 msg operation_ref 136983 // "meterUsuario(in usuario : Usuario)"
   show_full_operations_definition default drawing_language default show_context_mode default
   args "usuarioModificado"
-  label_xy 592 303
+  label_xy 642 311
 msg 132631 synchronous
   from durationcanvas_ref 128791
   to durationcanvas_ref 132503
@@ -78,10 +69,10 @@ msg 132631 synchronous
   label_xy 135 211
 msg 132887 asynchronous
   from durationcanvas_ref 132503
-  to durationcanvas_ref 132759
-  yz 259 3010 explicitmsg "usuario"
+  to durationcanvas_ref 128791
+  yz 258 3010 explicitmsg "usuario"
   show_full_operations_definition default drawing_language default show_context_mode default
-  label_xy 322 240
+  label_xy 316 239
 msg 133015 return
   from durationcanvas_ref 131479
   to durationcanvas_ref 128791
