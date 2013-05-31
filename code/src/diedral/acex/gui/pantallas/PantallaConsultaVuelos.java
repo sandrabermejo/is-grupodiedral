@@ -32,12 +32,12 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.text.MaskFormatter;
 
 import diedral.acex.Aeropuerto;
-import diedral.acex.GestorVuelos;
 import diedral.acex.Sesion;
 import diedral.acex.Vuelo;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
+import diedral.acex.scentral.GestorVuelos;
 
 /**
  * Página de consulta de vuelos.

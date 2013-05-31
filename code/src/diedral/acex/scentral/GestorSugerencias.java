@@ -1,10 +1,12 @@
 /**
  * GestorSugerencias.java - ACE Gestión Externa - Grupo diedral 2013
  */
-package diedral.acex;
+package diedral.acex.scentral;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import diedral.acex.Sugerencia;
 
 /**
  * Gestor de sugerencias.

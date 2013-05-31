@@ -1,9 +1,10 @@
-package diedral.acex;
+package diedral.acex.scentral;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import diedral.acex.AyudantePersistencia;
 import diedral.acex.ventas.Compra;
 
 /**
@@ -30,6 +31,7 @@ public class GestorCompras implements Serializable {
 			// Si no ha funcionado
 			if (_instancia == null) {
 				_instancia = new GestorCompras();
+				
 				AyudantePersistencia.dameInstancia().vigila(_instancia, versionTID);
 			}
 		}

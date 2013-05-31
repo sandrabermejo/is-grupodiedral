@@ -12,11 +12,11 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
-import diedral.acex.GestorOfertas;
 import diedral.acex.Sesion;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
+import diedral.acex.scentral.GestorOfertas;
 import diedral.acex.ventas.Oferta;
 
 /**

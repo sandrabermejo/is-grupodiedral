@@ -19,12 +19,12 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import diedral.acex.GestorUsuarios;
 import diedral.acex.Sesion;
 import diedral.acex.Usuario;
 import diedral.acex.gui.FabricaPantallas;
 import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
+import diedral.acex.scentral.GestorUsuarios;
 
 public class PantallaAcceso extends Pantalla {
 

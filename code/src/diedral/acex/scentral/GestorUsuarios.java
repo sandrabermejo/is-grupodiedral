@@ -1,12 +1,14 @@
 /*
  * GestorUsuarios.java - ACE Gestión Externa - Grupo diedral 2013
  */
-package diedral.acex;
+package diedral.acex.scentral;
 
 import java.io.Serializable;
 import java.util.Map;
 import java.util.TreeMap;
 
+import diedral.acex.AyudantePersistencia;
+import diedral.acex.Usuario;
 import diedral.acex.excepciones.UsuarioInvalidoException;
 
 /**
