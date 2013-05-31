@@ -197,15 +197,24 @@ pdfinfo={
 
 				La entidad {\itshape Usuario} representa a un usuario registrado de la página web, que no es necesariamente un cliente. La entidad lo representa por medio de unos datos personales básicos como puede ser un identificador único, una clave secreta y una dirección de contacto.
 
+
 			\subsubsection{Comprar billete}
 				\begin{center}
 					\includegraphics[scale=.72]{analisis/diagramas/comprarbillete.pdf}
 				\end{center}
+					
+					La interfaz  de {\itshape Comprar billete} lleva a la página de {\itshape Datos de compra} en la que el usuario introduce sus datos personales para generar el billete. A continuación, se comprueban los datos y si son correctos nos lleva a la interfaz de {\itshape Iniciar Pago de Billete}.
+
+					La entidad {\itshape Billete} respresenta un billete de un determinado vuelo. Un biillete queda determinado por un vuelo, un pasajero, un precio y una clase (que puede ser:  business, turista, grupos, acuerdos especiales y touroperador).
+
 
 			\subsubsection{Consultar oferta}
 				\begin{center}
 					\includegraphics[scale=.85]{analisis/diagramas/consultaroferta.pdf}
 				\end{center}
+					
+					El caso de uso {\itshape Consultar Oferta} recibe una oferta de {\itshape Mostrar ofertas}. Se procede a cargar los datos (nombre, destino, decuento y condiciones para acceder a dicha oferta) y a mostrar dicha oferta al usuario.
+					La entidad {\itshape Oferta} representa a una oferta del catálogo de ofertas.
 
 			\subsubsection{Consultar vuelos}
 				\begin{center}
