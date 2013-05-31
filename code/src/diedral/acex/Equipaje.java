@@ -10,6 +10,7 @@ package diedral.acex;
  *
  */
 public abstract class Equipaje implements java.io.Serializable {
+	
 	// CONSTRUCTOR
 	
 	/**
@@ -27,40 +28,43 @@ public abstract class Equipaje implements java.io.Serializable {
 	//	MÉTODOS PÚBLICOS
 	
 	/**
-	* Establece el peso del equipaje.
-	* @param peso El peso.
-	*/
+	 * Establece el peso del equipaje.
+	 * @param peso El peso.
+	 */
 	public void	fijarPeso(double peso){
 		_peso = peso;
 	}
 	
 	/**
-	* Obtiene el peso del equipaje.
-	* @return El peso.
-	*/
+	 * Obtiene el peso del equipaje.
+	 * 
+	 * @return El peso.
+	 */
 	public double damePeso(){
 		return _peso;
 	}
 
 	/**
-	* Establece el número de bultos del equipaje.
-	* @param noBultos El número de bultos.
-	*/
+	 * Establece el número de bultos del equipaje.
+	 * @param noBultos El número de bultos.
+	 */
 	public void	fijarBultos(int noBultos){
 		_noBultos = noBultos;
 	}
 	
 	/**
-	* Obtiene el número de bultos del equipaje.
-	* @return La cantidad de bultos.
-	*/
+	 * Obtiene el número de bultos del equipaje.
+	 * @return La cantidad de bultos.
+	 */
 	public int dameBultos(){
 		return _noBultos;
-	}	
+	}
+	
+	
 	// ATRIBUTOS PRIVADOS
 	
 	/**
-	 * Peso del equipaje en Kg (SI) .
+	 * Peso del equipaje en Kg (SI).
 	 */
 	private double _peso;
 	

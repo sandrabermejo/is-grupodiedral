@@ -18,13 +18,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import diedral.acex.Usuario;
-import diedral.acex.gui.FabricaPantallas;
-import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
 import diedral.acex.scentral.GestorUsuarios;
 
 public class PantallaRestablecerContrasena extends Pantalla {
-
 	public PantallaRestablecerContrasena() {
 		//Características ventana
 		setLayout(new BorderLayout());
@@ -79,16 +76,6 @@ public class PantallaRestablecerContrasena extends Pantalla {
 	// MIEMBROS PRIVADOS
 	
 	/**
-	 * Manejador de pantallas
-	 */
-	private ManejadorPantallas _manejadorPantallas;
-	
-	/**
-	 * Fabrica de pantallas
-	 */
-	private FabricaPantallas _fabrica;
-	
-	/**
 	 * Campo de correo electronico (contacto)
 	 */
 	private JTextField _correo;
@@ -96,5 +83,10 @@ public class PantallaRestablecerContrasena extends Pantalla {
 	/**
 	 * Valor por defecto del espacio vertical entre componentes
 	 */
-	private static final int INTERESPACIO_VERTICAL = 10;	
+	private static final int INTERESPACIO_VERTICAL = 10;
+	
+	/**
+	 * Serial UID
+	 */
+	private static final long serialVersionUID = 2417826399903941722L;
 }

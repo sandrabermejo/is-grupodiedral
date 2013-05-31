@@ -16,7 +16,13 @@ import diedral.acex.ventas.Oferta;
  */
 public class Usuario implements Serializable, Comparable<Usuario> {
 	/**
-	 * Constructor
+	 * Constructor de usuario.
+	 * 
+	 * @param nombre Nombre del usuario.
+	 * @param apellido1 Primer apellido.
+	 * @param apellido2 Segundo apellido.
+	 * @param contrasena Contraseña.
+	 * @param correo Correo electrónico.
 	 */
 	public Usuario (String nombre, String apellido1, String apellido2,
 			String contrasena, String correo) {
@@ -37,12 +43,20 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 		if (!_ofertasGenerales.contains(oferta))
 			_ofertasGenerales.add(oferta);
 	}
+	
+	/**
+	 * Fija la contraseña del usuario.
+	 * 
+	 * @param contrasena Nueva constraseña.
+	 */
 	public void meteContrasena(String contrasena){
 		_contrasena = contrasena;
 	}
 	
 	/**
-	 * Borra una oferta personal de la lista del usuario
+	 * Borra una oferta personal de la lista del usuario.
+	 * 
+	 * @param oferta Oferta a borrar.
 	 */
 	public void borraOfertaPersonal(Oferta oferta) {
 		if (_ofertasPersonales.contains(oferta))
@@ -50,16 +64,16 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	}
 	
 	/**
-	 * Añade una compra a la lista de compras del usuario
+	 * Añade una compra a la lista de compras del usuario.
 	 * 
-	 * @param compra a añadir
+	 * @param compra Compra a añadir.
 	 */
 	public void añadeCompra(Compra compra) {
 		_compras.add(compra);
 	}
 	
 	/**
-	 * Obtiene el nombre del usuario
+	 * Obtiene el nombre del usuario.
 	 * 
 	 * @return El nombre
 	 */
@@ -68,28 +82,27 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	}
 
 	/**
-	 * Obtiene el primer apellido del usuario
+	 * Obtiene el primer apellido del usuario.
 	 * 
-	 * @return El primer apellido
+	 * @return El primer apellido.
 	 */
 	public String dameApellido1() {
 		return _apellido1;
 	}
 
 	/**
-	 * Obtiene el segundo apellido del usuario
+	 * Obtiene el segundo apellido del usuario.
 	 * 
-	 * @return El segundo apellido
+	 * @return El segundo apellido.
 	 */
 	public String dameApellido2() {
 		return _apellido2;
 	}
 	
 	/**
-	 * Comprueba que la constraseña del usuario sea la 
-	 * aportada.
+	 * Obtiene la contraseña del usuario.
 	 * 
-	 * @return La pretendida contraseña
+	 * @return La pretendida contraseña.
 	 */
 	public String dameContrasena() {
 		return _contrasena;
@@ -99,16 +112,16 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	 * Comprueba que la constraseña del usuario sea la 
 	 * aportada.
 	 * 
-	 * @return La pretendida contraseña
+	 * @return La pretendida contraseña.
 	 */
 	public boolean comprobarContrasena(String clave) {
 		return _contrasena.compareTo(clave) == 0;
 	}
 
 	/**
-	 * Obtiene el correo del usuario
+	 * Obtiene el correo del usuario.
 	 * 
-	 * @return El correo
+	 * @return El correo.
 	 */
 	public String dameCorreo() {
 		return _correo;
@@ -124,7 +137,7 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	}
 	
 	/**
-	 * Obtiene la lista de ofertas personalizdas del usuario
+	 * Obtiene la lista de ofertas personalizdas del usuario.
 	 * 
 	 * @return Lista de ofertas personales.
 	 */
@@ -133,9 +146,9 @@ public class Usuario implements Serializable, Comparable<Usuario> {
 	}
 	
 	/**
-	 * Obtiene la lista de compras realizadas por el usuario
+	 * Obtiene la lista de compras realizadas por el usuario.
 	 * 
-	 * @return La lista de compras
+	 * @return La lista de compras.
 	 */
 	public List<Compra> dameCompras() {
 		return _compras;

@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
@@ -76,6 +77,8 @@ public class PantallaInicioPago extends Pantalla {
 		});
 		
 		JPanel botones = new JPanel(new GridLayout(1, 2));
+		botones.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+		
 		botones.add(_acepta);
 		botones.add(_continuar);
 		

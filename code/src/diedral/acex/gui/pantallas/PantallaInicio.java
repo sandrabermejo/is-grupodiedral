@@ -25,6 +25,9 @@ public class PantallaInicio extends Pantalla {
 		
 		add(Box.createVerticalGlue());
 		
+		/*
+		 * Crea una panel de avisos cambiante.
+		 */
 		_avisos = new JLabel();
 		_avisos.setText(_noticias[0]);
 		
@@ -40,7 +43,7 @@ public class PantallaInicio extends Pantalla {
 	}
 	
 	public boolean alCerrar() {
-		//_hebraAv.interrupt();
+		_hebraAv.interrupt();
 		
 		return true;
 	}
@@ -70,7 +73,8 @@ public class PantallaInicio extends Pantalla {
 		}
 		
 		public void run() {
-			while (true){				
+			while (true){
+				// Cambia el aviso
 				_avisos.setText(_noticias[_ind]);
 
 				try {
@@ -80,6 +84,7 @@ public class PantallaInicio extends Pantalla {
 					break;
 				}
 				
+				// Avanza el índice de avisos
 				_ind = (_ind + 1) % _noticias.length;
 			}
 		}
@@ -94,16 +99,19 @@ public class PantallaInicio extends Pantalla {
 		 */
 		private int _ind = 0;
 	}
+	
+	
+	// ATRIBUTOS PRIVADOS
 
 	/**
-	 * area de avisos
+	 * Área de avisos
 	 */
-	JLabel _avisos;
+	private JLabel _avisos;
 	
 	/**
 	 * Hebra de avisos
 	 */
-	HebraAvisos _hebraAv;
+	private HebraAvisos _hebraAv;
 	
 	/**
 	 * Texto de muestra

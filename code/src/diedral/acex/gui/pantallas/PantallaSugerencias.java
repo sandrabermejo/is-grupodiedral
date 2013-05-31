@@ -26,6 +26,10 @@ import diedral.acex.excepciones.CampoRequeridoException;
 import diedral.acex.excepciones.FormatoIncorrectoException;
 import diedral.acex.scentral.GestorSugerencias;
 
+/**
+ * Pantalla para presentar sugerencias o reclamaciones.
+ *
+ */
 public class PantallaSugerencias extends diedral.acex.gui.Pantalla {
 	/**
 	 * Contruye una pantalla de sugerencias.

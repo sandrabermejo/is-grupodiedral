@@ -7,10 +7,7 @@ import java.util.List;
 import javax.swing.JTextArea;
 
 import diedral.acex.Pasajero;
-import diedral.acex.Sesion;
 import diedral.acex.Vuelo;
-import diedral.acex.gui.FabricaPantallas;
-import diedral.acex.gui.ManejadorPantallas;
 import diedral.acex.gui.Pantalla;
 import diedral.acex.ventas.Billete;
 import diedral.acex.ventas.Compra;
@@ -49,7 +46,7 @@ public class PantallaDetalleVueloContratado extends Pantalla {
 			pasajero = billetes.get(i).damePasajero();
 			textArea.append("\tPasajero #" + i+1 + ENDL);
 			textArea.append("\tNombre: " + pasajero.dameNombre() + ENDL);
-			textArea.append("\tApellidos: " + pasajero.dameApellido1() + pasajero.dameApellido2() + ENDL);
+			textArea.append("\tApellidos: " + pasajero.dameApellido1() + " " +  pasajero.dameApellido2() + ENDL);
 			textArea.append("\tDNI: " + pasajero.dameDNI() + ENDL);
 			textArea.append("\tNacionalidad: " + pasajero.dameNacionalidad() + ENDL);	
 		}
@@ -60,16 +57,7 @@ public class PantallaDetalleVueloContratado extends Pantalla {
 
 	@Override
 	public String dameNombre() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public void estableceContexto(ManejadorPantallas manejador,
-			FabricaPantallas fabrica, Sesion sesion) {
-		_manejador = manejador;
-		_fabrica = fabrica;
+		return "Detalle del vuelo contratado";
 	}
 
 	// ATRIBUTOS PRIVADOS
@@ -77,17 +65,8 @@ public class PantallaDetalleVueloContratado extends Pantalla {
 	/**
 	 * Información sobre el vuelo contratado
 	 */
+	@SuppressWarnings("unused")
 	private Compra _compra;
-	
-	/**
-	 * Manejador de pantallas
-	 */
-	private ManejadorPantallas _manejador;
-	
-	/**
-	 * Fábrica de pantallas
-	 */
-	private FabricaPantallas _fabrica;
 	
 	/**
 	 * Serial UID

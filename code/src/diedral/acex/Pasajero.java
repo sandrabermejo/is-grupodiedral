@@ -17,13 +17,16 @@ public class Pasajero implements Serializable {
 	/**
 	 * Contruye un nuevo pasajero que tiene un usuario.
 	 * 
-	 * @param usuario
-	 * @param nacionalidad
-	 * @param fechaNacimiento
-	 * @param DNI
+	 * @param usuario Usuario con el que está asociado (de ser no-{@code null}).
+	 * @param nacionalidad Nacionalidad del pasajero.
+	 * @param fechaNacimiento Fecha de nacimiento.
+	 * @param DNI Documento Nacional de Identidad (España).
 	 */
 	public Pasajero(Usuario usuario, String nacionalidad, GregorianCalendar fechaNacimiento, Dni DNI){
-		_usuario = usuario; 
+		/*
+		 * Inicia los atributos en función de los parámetros
+		 */
+		_usuario = usuario;
 		_nacionalidad = nacionalidad;
 		_fechaNacimiento = fechaNacimiento;
 		_DNI = DNI;
@@ -32,13 +35,14 @@ public class Pasajero implements Serializable {
 		_apellido2 = usuario.dameApellido2();
 	}
 	/**
-	 * Construye un usuario que no tiene un usuario registrado dado:
-	 * @param nombre
-	 * @param apellido1
-	 * @param apellido2
-	 * @param nacionalidad
-	 * @param fechaNacimiento
-	 * @param DNI
+	 * Construye un usuario que no tiene un usuario registrado dado.
+	 * 
+	 * @param nombre Nombre del usuario.
+	 * @param apellido1 Primer apellido.
+	 * @param apellido2 Segundo apellido.
+	 * @param nacionalidad Nacionalidad.
+	 * @param fechaNacimiento Fecha de nacimiento.
+	 * @param DNI Documento Nacional de Identidad.
 	 */
 	public Pasajero(String nombre, String apellido1, String apellido2, String nacionalidad, GregorianCalendar fechaNacimiento, Dni DNI){
 		_nacionalidad = nacionalidad;
@@ -50,7 +54,8 @@ public class Pasajero implements Serializable {
 		_usuario = null;
 	}
 	/**
-	 * Obtiene el usuario asociado a un pasajero
+	 * Obtiene el usuario asociado a un pasajero.
+	 * 
 	 * @return el usuario asociado a un pasajero
 	 */
 	public Usuario dameUsuario() {
@@ -58,7 +63,8 @@ public class Pasajero implements Serializable {
 	}
 
 	/**
-	 * Obtiene la nacionalidad de un pasajero
+	 * Obtiene la nacionalidad de un pasajero.
+	 * 
 	 * @return la nacionalidad de un pasajero
 	 */
 	public String dameNacionalidad() {
@@ -75,7 +81,8 @@ public class Pasajero implements Serializable {
 	}
 
 	/**
-	 * Obtiene el nombre de un pasajero
+	 * Obtiene el nombre de un pasajero.
+	 * 
 	 * @return nombre de un pasajero
 	 */
 	public String dameNombre() {
@@ -83,7 +90,8 @@ public class Pasajero implements Serializable {
 	}
 
 	/**
-	 * Obtiene el primer apellido de un pasajero
+	 * Obtiene el primer apellido de un pasajero.
+	 * 
 	 * @return primer apellido de un pasajero
 	 */
 	public String dameApellido1() {
@@ -91,7 +99,8 @@ public class Pasajero implements Serializable {
 	}
 
 	/**
-	 * Obtiene el segundo apellido de un pasajero
+	 * Obtiene el segundo apellido de un pasajero.
+	 * 
 	 * @return segundo apellido de un pasajero
 	 */
 	public String dameApellido2() {
@@ -99,7 +108,8 @@ public class Pasajero implements Serializable {
 	}
 
 	/**
-	 * Obtiene el DNI de un pasajero
+	 * Obtiene el DNI de un pasajero.
+	 * 
 	 * @return DNI de un pasajero
 	 */
 	public Dni dameDNI() {
@@ -107,7 +117,7 @@ public class Pasajero implements Serializable {
 	}
 
 	/**
-	 * Modifica el nombre de un pasajero
+	 * Modifica el nombre de un pasajero.
 	 * 
 	 * @param nombre Nombre de un pasajero.
 	 */
@@ -136,10 +146,29 @@ public class Pasajero implements Serializable {
 
 	// ATRIBUTOS PRIVADOS
 	
+	/**
+	 * Usuario (puede ser {@code null})
+	 */
 	private Usuario _usuario;
-	private String _nacionalidad; 
+	
+	/**
+	 * Nacionalidad
+	 */
+	private String _nacionalidad;
+	
+	/**
+	 * Fecha de nacimiento
+	 */
 	private GregorianCalendar _fechaNacimiento;
+	
+	/**
+	 * Nombre y apellidos
+	 */
 	private String _nombre, _apellido1, _apellido2;
+	
+	/**
+	 * Documento Nacional de Identidad
+	 */
 	private Dni _DNI;
 	
 	/**

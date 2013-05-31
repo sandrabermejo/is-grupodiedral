@@ -28,16 +28,32 @@ import diedral.acex.ventas.PagoTarjeta;
 
 public class PantallaPagoTarjeta extends Pantalla{
 	/**
-	 * Clase interna privada que contiene dos String con el nombre de un servidor y otro con la dirección donde se encuentra su icono.
+	 * Clase interna privada que contiene dos String con el nombre de un servidor
+	 * y otro con la dirección donde se encuentra su icono.
 	 */
 	private class DatosServidores{
 		public DatosServidores(String nombre, String direccionIcono){
 			_nombre = nombre;
 			_direccionIcono = direccionIcono;
 		}
+		
+		/**
+		 * Nombre del servidor.
+		 */
+		@SuppressWarnings("unused")
 		private String _nombre;
+		
+		/**
+		 * Dirección del icono.
+		 */
 		private String _direccionIcono;
 	}
+	
+	/**
+	 * Constructor a partir de una compra.
+	 * 
+	 * @param compra Una compra.
+	 */
 	public PantallaPagoTarjeta(Compra compra){
 		if(compra == null) {
 			JOptionPane.showMessageDialog(this, "No puede pagar una compra vacía. Por favor seleccione una compra antes de realizar un pago.");
@@ -172,7 +188,6 @@ public class PantallaPagoTarjeta extends Pantalla{
 	public void estableceContexto(ManejadorPantallas manejador, FabricaPantallas fabrica,
 			Sesion sesion) {
 		_mnj = manejador;
-		_fabrica = fabrica;
 		_sesion = sesion;
 	}
 
@@ -207,10 +222,7 @@ public class PantallaPagoTarjeta extends Pantalla{
 	 * Importe de la compra a cobrar.
 	 */
 	private double _importeCompra;
-	/**
-	 * Atributo que con los métodos que te generan nuevas pantallas.
-	 */
-	private FabricaPantallas _fabrica;
+	
 	/**
 	 * Atributo con el que se maneja las pantallas.
 	 */

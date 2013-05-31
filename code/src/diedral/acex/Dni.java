@@ -78,13 +78,20 @@ public class Dni implements Serializable, Comparable<Dni> {
 		return stb.toString();
 	}
 	
+	/**
+	 * Informa sobre si un DNI es válido.
+	 * 
+	 * @return {@code true} si es válido.
+	 */
 	public boolean esValido() {
 		if (_numero < 0 || _numero > 99999999)
 			return false;
 		
-		char letraCorrecta = calculaLetra(_numero); 
+		char letraCorrecta = calculaLetra(_numero);
+		
 		if (Character.toUpperCase(_letra) != letraCorrecta)
 			return false;
+		
 		return true;
 	}
 	

@@ -1,5 +1,5 @@
 /*
- * AyudantePersistencia.java - ACE GestiÃ³n Externa - Grupo diedral 2013 
+ * AyudantePersistencia.java - ACE Gestión Externa - Grupo diedral 2013 
  */
 package diedral.acex;
 
