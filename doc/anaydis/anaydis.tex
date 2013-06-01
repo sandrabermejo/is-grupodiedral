@@ -85,7 +85,10 @@ pdfinfo={
 
 		Esta información ha sido especificada por medio del {\itshape Lenguaje Unificado de Modelado} (UML).
 
-		\paragraph*{Nota sobre herramientas empleadas:} para la elaboración de los diagramas se ha utilizado el\break programa {\normalfont BoUML} en su versión {\normalfont 4.23 patch 7 `ultimate'}.
+		\paragraph*{Nota sobre herramientas empleadas:} {\itshape para la elaboración de los diagramas se ha utilizado el\break programa {\normalfont BoUML} en su versión {\normalfont 4.23 patch 7 `ultimate'}. Para la generación de los diagramas de clases de las pantallas (a partir del código) se ha empleado el programa {\normalfont Umbrello UML Modeller} en su versión {\normalfont 2.10}.}
+
+		\vfill
+		\eject
 
 
 	% -- Requisitos
@@ -99,21 +102,21 @@ pdfinfo={
 		\subsection{Diagramas de actividad}
 			\subsubsection{Acceder web}
 				\begin{center}
-					\includegraphics[scale=.67]{analisis/diagramas/da_accederweb.pdf}
+					\hspace{-1cm} \includegraphics[scale=.67]{analisis/diagramas/da_accederweb.pdf}
 				\end{center}
 
 				Para acceder a la web, el usuario introduce sus datos identificativos, se comprueba la validez de éstos y si son válidos, el usuario se considera identificado lo que le concede acceso a las funcionalidades de la aplicación que así lo requieran. En caso de que los datos sean erróneos se advierte al usuario de ello y vuelve a la inserción de datos.
 
 			\subsubsection{Comprar billete}
 				\begin{center}
-					\includegraphics[scale=.72]{analisis/diagramas/da_comprarbillete.pdf}
+					\hspace*{-1cm} \includegraphics[scale=.65]{analisis/diagramas/da_comprarbillete.pdf}
 				\end{center}
 				El caso de uso {\itshape Comprar billete} empieza creando una compra y termina iniciando el pago correspondiente a dicha compra.
 				El usuario debe empezar introduciendo los datos del pasajero, y aqui se bifurca en dos caminos. Si los datos no son válidos, volvemos a la secuencia de introducir datos. Si los datos son válidos, se crea un nuevo billete y volvemos a tener dos opciones. Si la compra no ha seguido el proceso de ser finalizada, volvemos de nuevo a la posibilidad de introducir los datos del pasajero. Sin embargo, si se sigue por el proceso de compra finalizada, se guarda la compra y se inicia su pago.
 
 			\subsubsection{Consultar oferta}
 				\begin{center}
-					\includegraphics[scale=.7]{analisis/diagramas/da_consultaroferta.pdf}
+					\hspace*{-3cm} \includegraphics[scale=.7]{analisis/diagramas/da_consultaroferta.pdf}
 				\end{center}
 				El caso de uso {\itshape Consultar oferta} se encarga de mostrar una oferta ya seleccionada por el usuario. 
 				
@@ -121,21 +124,22 @@ pdfinfo={
 
 			\subsubsection{Consultar vuelos}
 				\begin{center}
-					\includegraphics[scale=.71]{analisis/diagramas/da_consultarvuelos.pdf}
+					\includegraphics[scale=.6]{analisis/diagramas/da_consultarvuelos.pdf}
 				\end{center}
 				El caso de uso {\itshape Consultar vuelos} permite mostrar los vuelos para que el usuario los visualice y por otra parte conectar los vuelos con la compra del billete  de un vuelo concreto.
 				Primero se muestran todos los vuelos disponibles en el sistema, el usuario selecciona un vuelo concreto y se muestra la información de ese vuelo. Posteriormente, se bifurcan dos caminos. Se puede realizar la compra de un billete y redireccionar al proceso de dicha compra, o en caso contrario se finalizará directamente el caso de uso.
 			
 			\subsubsection{Editar datos personales}
 				\begin{center}
-					\includegraphics[scale=.86]{analisis/diagramas/da_editardatospersonales.pdf}
+					\includegraphics[scale=.7]{analisis/diagramas/da_editardatospersonales.pdf}
 				\end{center}
+
 				El caso de uso {\itshape Editar datos personales} permite que un usuario con una sesion iniciada edite sus datos personales (nombre, apellidos, direccion de correo electrónico asociada y modificar la contraseña con sus métodos de seguridad correspondientes para ello). 
 				La secuencia empieza cuando el usuario introduce los datos a modificar y esos se validan. En este punto, si los datos no son válidos se vuelve a pedir al usuario que introduzca los datos de nuevo. Si son válidos, se crea un nuevo usuario la mezcla de datos modificados y antiguos, y se reemplaza por el ya existente en el sistema (el usuario no se modificará directamente para evitar romper las barreras de abstracción de los lenguajes orientados a objetos y trae menos problemas con los TADS empleados en el almacenamiento de usuarios).
 
 			\subsubsection{Iniciar pago billetes}
 				\begin{center}
-					\includegraphics[scale=.76]{analisis/diagramas/da_iniciarpagobilletes.pdf}
+					\includegraphics[scale=.7]{analisis/diagramas/da_iniciarpagobilletes.pdf}
 				\end{center}
 
 				El caso de uso {\itshape Iniciar pago billetes} se encarga de conectar el caso de uso {\itshape Comprar billete} con los diferentes métodos de pago.
@@ -144,21 +148,24 @@ pdfinfo={
 
 			\subsubsection{Mostrar ofertas}
 				\begin{center}
-				\includegraphics[scale=.72]{analisis/diagramas/da_mostrarofertas.pdf}
+					\includegraphics[scale=.65]{analisis/diagramas/da_mostrarofertas.pdf}
 				\end{center}
+
 				El caso de uso {\itshape Mostrar ofertas} permite visualizar todas las ofertas disponibles en el sistema. 
 				El sistema empieza cargando todas las ofertas para preparar toda la información. Posteriormente se muestran las ofertas. Una vez aquí, el usuario puede decidir si salir de la muestra de ofertas, volver al menú principal y terminar este caso de uso, o seleccionar una oferta y redireccionar al inicio de mostrar una oferta.
 
 			\subsubsection{Realizar pago con tarjeta}
 				\begin{center}
-					\includegraphics[scale=.7]{analisis/diagramas/da_pagotarjeta.pdf}
+					\hspace*{-1cm} \includegraphics[scale=.65]{analisis/diagramas/da_pagotarjeta.pdf}
 				\end{center}
+
 				El caso de uso {\itshape Realizar pago con tarjeta} tiene la funcionalidad de terminar el proceso de pagado del pedido, pidiendo al usuario los datos del titular y número de cuenta. Después, realiza una comprobación de dichos datos conectando con la entidad financiera correspondiente para que pueda validar y comprobar la liquidez de la cuenta. Posteriormente carga el pago y pone la compra como finalizada, ya que en nuestra aplicación siempre va a ser correcto el pago pues no hay ningún tipo de conexión externo ni comprobaciones complicadas.
 				
 			\subsubsection{Presentar reclamación}
 				\begin{center}
-					\includegraphics[scale=.82]{analisis/diagramas/da_presentarreclamacion.pdf}
+					\hspace*{-1.5cm} \includegraphics[scale=.82]{analisis/diagramas/da_presentarreclamacion.pdf}
 				\end{center}
+
 				Este caso de uso se basa en recoger una sugerencia introducida por un usuario para así después procesarla y enviarla al sistema de la base de datos de la compañía.
 
 			\subsubsection{Registrarse}
@@ -197,7 +204,7 @@ pdfinfo={
 		\subsection{Diagramas de comunicación}
 			\subsubsection{Acceder web}
 				\begin{center}
-					\includegraphics[scale=.75]{analisis/diagramas/accederweb.pdf}
+					\includegraphics[scale=.70]{analisis/diagramas/accederweb.pdf}
 				\end{center}
 
 				A través de la interfaz {\itshape PáginaAcceso} el usuario introduce sus datos de identificación personal (a saber, su nombre de usuario y contraseña). El sistema busca en la base de datos de usuarios registrados (representada en {\itshape RegistroUsuarios}) un usuario que se corresponda con los datos aportados. Si fuese necesario se cargarían las preferencias personales del usuario. Al finalizar la secuencia el usuario tiene una sesión activa que le da acceso a otras características de la aplicación.
@@ -217,7 +224,7 @@ pdfinfo={
 
 			\subsubsection{Consultar oferta}
 				\begin{center}
-					\includegraphics[scale=.85]{analisis/diagramas/consultaroferta.pdf}
+					\includegraphics[scale=.75]{analisis/diagramas/consultaroferta.pdf}
 				\end{center}
 					
 					El caso de uso {\itshape Consultar Oferta} recibe una oferta de {\itshape Mostrar ofertas}. Se procede a cargar los datos (nombre, destino, decuento y condiciones para acceder a dicha oferta) y a mostrar dicha oferta al usuario.
@@ -265,7 +272,7 @@ pdfinfo={
 					\includegraphics[scale=.82]{analisis/diagramas/presentarreclamacion.pdf}
 				\end{center}
 				
-					A través de la interfaz {\itshape PáginaSugerencias} el usuario envía una sugerencia y se prodece al envío de la misma.
+					A través de la interfaz {\itshape PáginaSugerencias} el usuario envía una sugerencia y se procede al envío de la misma.
 
 			\subsubsection{Registrarse}
 				\begin{center}
@@ -319,25 +326,32 @@ pdfinfo={
 				\begin{center}
 					\includegraphics[scale=.7]{diseno/diagramas/accederweb.pdf}
 				\end{center}
+
 				La pantalla {\itshape PantallaAcceso} facilita la identificación como usuario registrado del sistema.
 				En ella se solicita la dirección de correo asociada a una cuenta y la contraseña de acceso. Si todo es correcto el usuario accede al sistema y dispone de su información asociada.
 
 			\subsubsection{Comprar billete}
+				\vfill
 				\begin{center}
-					\includegraphics[scale=.67]{diseno/diagramas/comprarbillete.pdf}
+					\includegraphics[scale=.7]{diseno/diagramas/comprarbillete.pdf}
 				\end{center}
+				\vfill
+
 				La pantalla {\itshape PantallaCompra} inicia y configura una compra de billetes.
 				En ella el usuario puede añadir a la compra uno a uno los billetes que desee, rellenando para cada uno de ellos los datos necesarios asociados al pasajero beneficiario del billete como son el nombre, los apellidos, nacionalidad, fecha de nacimiento, DNI y la clase del billete. Después conecta con {\itshape PantallaInicioPago}.
 			
 			\subsubsection{Consultar oferta}
+				\vfill
 				\begin{center}
-					\includegraphics[scale=.7]{diseno/diagramas/consultaroferta.pdf}
+					\hspace*{-1cm} \includegraphics[scale=.9]{diseno/diagramas/consultaroferta.pdf}
 				\end{center}
+				\vfill
+
 				La pantalla {\itshape PantallaOferta} ofrece al usuario la información detallada (nombre, destino, descuento y condiciones) de una oferta, seleccionada previamente.
 
 			\subsubsection{Consultar vuelos}
 				\begin{center}
-					\includegraphics[scale=.5]{diseno/diagramas/consultarvuelos.pdf}
+					\includegraphics[scale=.75]{diseno/diagramas/consultarvuelos.pdf}
 				\end{center}
 
 				La pantalla {\itshape PantallaConsultaVuelos} permite al usuario buscar vuelos por diferentes criterios (aeropuerto de salida, aeropuerto de llegada, fecha de salida, fecha de llegada, \ldots) y muestra los resultados de las búsquedas con la información básica que les corresponde. El usuario puede seleccionar una de las apariciones para ver una vista detallada del vuelo, con la información completa y poder desde allí acceder a la compra del billete.
@@ -346,7 +360,7 @@ pdfinfo={
 			
 			\subsubsection{Editar datos personales}
 				\begin{center}
-					\includegraphics[scale=.6]{diseno/diagramas/editardatospersonales.pdf}
+					\includegraphics[scale=.64]{diseno/diagramas/editardatospersonales.pdf}
 				\end{center}
 				
 				La pantalla {\itshape PantallaEditarDatosPersonales} permite al usuario modificar alguno de sus datos personales (nombre, apellidos, correo). Tras comprobar la validez de los nuevos datos, se reemplaza al antiguo usuario por el creado con los nuevos datos.
@@ -354,21 +368,22 @@ pdfinfo={
 
 			\subsubsection{Iniciar pago billetes}
 				\begin{center}
-					\includegraphics[scale=.6]{diseno/diagramas/iniciarpagobilletes.pdf}
+					\includegraphics[scale=.8]{diseno/diagramas/iniciarpagobilletes.pdf}
 				\end{center}
-				La pantalla {\itshape Confirmación compra} se comunica con el pago para crear el nuevo método de pago elegido or el cliente. En estos momentos el único método de pago válido es mediante tarjeta de crédito.
+				La pantalla {\itshape Confirmación compra} se comunica con el pago para crear el nuevo método de pago elegido por el cliente. En estos momentos el único método de pago válido es mediante tarjeta de crédito.
 				
 			\subsubsection{Mostrar ofertas}
 				\begin{center}
-					\includegraphics[scale=.7]{diseno/diagramas/mostrarofertas.pdf}
+					\includegraphics[scale=.8]{diseno/diagramas/mostrarofertas.pdf}
 				\end{center}
+
 				La pantalla {\itshape Muestra ofertas} se comunica con la clase {\itshape Gestor ofertas} para pedirle una instancia de ella y que así el gestor le pueda devolver las ofertas del sistema cuando se las pida. Se muestran las ofertas por pantalla con los siguientes datos: nombre, destino y descuento. \\
 				
 				El gestor de ofertas es un administrador de las ofertas que realiza las operaciones de entrada salida del sistema y las comunicaciones de ellas con los demás elementos.
 
 			\subsubsection{Realizar pago con tarjeta}
 				\begin{center}
-					\includegraphics[scale=.7]{diseno/diagramas/pagotarjeta.pdf}
+					\includegraphics[scale=.8]{diseno/diagramas/pagotarjeta.pdf}
 				\end{center}
 				La pantalla {\itshape Pago tarjeta} se comunica con la clase {\itshape Pago tarjeta} para realizar las operaciones necesarias para finalizar el pago. Estas operaciones consistenen, primero, crear un nuevo pago con tarjeta con los datos introducidos por el usuario (titular y número de tarjeta). Después de tener ya el pago, se realiza la operación de efectuar en Pago tarjeta para que le devuelva si el pago es válido después de haber comprobado mediante una conexión con la entidad bancaria (que en nuestro caso, por supuesto no tenemos) la validez y liquidez de los datos.
 
@@ -381,14 +396,14 @@ pdfinfo={
 
 			\subsubsection{Registrarse}
 				\begin{center}
-					\includegraphics[scale=.5]{diseno/diagramas/registrarse.pdf}
+					\includegraphics[scale=.54]{diseno/diagramas/registrarse.pdf}
 				\end{center}
 				
 				En la pantalla {\itshape PantallaRegistro} el usuario introduce sus datos personales ( a saber: nombre, apellidos, correo y contraseña).  A continuación, se procede al registro del usuario. Para ello se comprueba que los datos introducidos sean válidos mediante el  {\itshape Gestor Usuarios}. Si los datos son válidos entonces se crea un nuevo usuario con los datos dados. Será el  {\itshape Gestor Usuarios} el que se encargue de insertar el nuevo usuario en el Registro  e informar de que se ha guardado correctamente.
 
 			\subsubsection{Restablecer contraseña}
 				\begin{center}
-					\includegraphics[scale=.6]{diseno/diagramas/restablecercontrasena.pdf}
+					\hspace*{.5cm} \includegraphics[scale=.75]{diseno/diagramas/restablecercontrasena.pdf}
 				\end{center}
 
 				En la pantalla {\itshape PantallaRestablecerContraseña} el usuario introduce la dirección de correo electrónico asociada a su cuenta. Al solicitar el cambio de contraseña, se valida el correo introducido. En caso de que el correo sea válido, es decir, hay un usuario registrado con ese correo, se prodece a enviar un eMail de confirmación. En dicho eMail el usuario introduce la nueva contraseña que desee y se modifican sus datos de forma automática.
@@ -400,10 +415,26 @@ pdfinfo={
 				
 				En la pantalla {\itshape PantallaVueloContratado} se solicita la lista de compras que lleva asociada el usuario. Si el usuario aún no ha realizado compras no se muestra ningún vuelo. En caso contrario, para cada compra, se solicitan los billetes comprados y para cada billete, se mostrarán los datos del vuelo, es decir, el origen, el destino, la fecha de salida y de llegada y el avión.
 
+\begin{landscape}
 		\subsection{Diagrama de clases}
 			\begin{center}
-				\hspace{-2cm}
-				\includegraphics[scale=.57]{diseno/diagramas/diagramaclases.pdf}
+				\hspace{-1cm}
+				\includegraphics[scale=.8]{diseno/diagramas/diagramaclases.pdf}
+			\end{center}
+\end{landscape}
+
+\begin{landscape}
+			% Demasiado pequeño pero útil con Zoom
+			\begin{center}
+				\vspace*{1cm}
+				\includegraphics[scale=.4]{diseno/diagramas/clasespantallas.pdf}
+			\end{center}
+\end{landscape}
+
+			\begin{center}
+				\includegraphics[scale=.50]{diseno/diagramas/clasesGUI.pdf}
+
+				Figura: {\itshape Diagrama de clases de la interfaz gráfica de usuario}
 			\end{center}
 
 		\subsection{Aplicación de patrones de diseño}
